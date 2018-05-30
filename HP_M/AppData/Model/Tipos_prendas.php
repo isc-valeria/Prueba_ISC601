@@ -11,5 +11,5 @@ namespace AppData\Model;
 
 class Tipos_prendas
 {
-
+    private $id_tipopren,$id_tela,$id_tratamiento,$id_color,$id_ropa,$cantidad;
 }

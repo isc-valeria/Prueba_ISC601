@@ -12,7 +12,7 @@ namespace AppData\Model;
 class Registro_prendas
 {
     private $id_registropren;
-    private $fecha_entrada;
+    private $fecha_entrega;
     private $fecha_recepcion;
     private $id_tipopren;
     private $id_estadop;

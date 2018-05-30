@@ -1,176 +1,156 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Lenovo
- * Date: 17/05/2018
- * Time: 06:00 PM
- */
-?>
-<body>
-    <div id="main">
-        <div id="panel1" class="row col pad">
-            <div class="col s12 m10 offset-m1">
-                <div class="card-panel">
-                    <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
-                    <h4 align="center">Servicios</h4>
-                    <div class="divider"></div>
-                    <code class=" language-markup"><!--********************************--></code>
+<div id="modal_registro" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
+                <h4 align="center">Servicios</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+                <div class="row">
                     <div class="row">
-                        <!--********************************-->
-                        <form class="col s12 right-alert">
+                        <div class="input-field input-field col s5">
+                            <input id="Folio" type="text" class="validate" name="Folio">
+                            <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
+                        </div>
 
-                            <!--********************************-->
-                            <div class="row">
-                                <div class="input-field col s4">
-                                    <i class="mdi-action-verified-user prefix  icon-folder-open"></i>
-                                    <input id="Folio" type="text" class="validate">
-                                    <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
-                                </div>
-                            </div>
+                        <div class="input-field col s1">
 
-                            <!--********************************-->
-                            <div class="row">
-                                <div class="input-field col s9">
-                                    <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                                    <input id="descripcion" type="text" class="validate">
-                                    <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="input-field col s5">
+                            <input id="descripcion" type="text" class="validate">
+                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field cols 5">
 
-                            <!--***************m*****************-->
-                            <div class="row">
-                                <div class="col l3 offset-l3">
-                                    <i class="icon-calendar"></i>
-
-                                    <label>Fecha de Inicio</label>
-                                    <input type="text" class="datepicker">
-                                    <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('.datepicker').datepicker();
-                                        });
-                                    </script>
-                                </div>
-                                <div class="col l3 offset-l1">
-                                    <i class="icon-clock"></i>
-                                    <label>Hora Inicio</label>
-                                    <input type="text" class="timepicker">
-                                    <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('.timepicker').timepicker();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-
-                            <!--********************************-->
-                            <div class="row">
-                                <div class="col l3 offset-l3">
-                                    <i class="icon-calendar"></i>
-
-                                    <label>Fecha de Fin</label>
-                                    <input type="text" class="datepicker">
-                                    <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('.datepicker').datepicker();
-                                        });
-                                    </script>
-                                </div>
-                                <div class="col l3 offset-l1">
-                                    <i class="icon-clock"></i>
-
-                                    <label>Hora de Fin</label>
-                                    <input type="text" class="timepicker">
-                                    <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('.timepicker').timepicker();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                            <!--***************m*****************-->
-
-                            <!--********************************-->
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light right #0097a7 cyan darken-2 modal-trigger"  href="#modal_registro" type="submit" name="action">Registrar</button>
-                                </div>
-                            </div>
-
-
-                            <!-- Modal registro -->
-                            <div id="modal_registro" class="modal">
-                                <div class="modal-content">
-                                    <h5>Mensaje</h5>
-                                    <hr />
-                                    <h4>Registro exitoso</h4>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-                                </div>
-                            </div>
-
-                        </form>
+                        </div>
+                        <div class="input-field col s5">
+                            <label><i class="icon-clock"></i>Hora Inicio</label>
+                            <input type="text" class="timepicker">
+                        </div>
+                        <div class="input-field col s1"></div>
+                        <div class="input-field col s5">
+                            <label><i class="icon-clock"></i>Hora de Fin</label>
+                            <input type="text" class="timepicker">
+                        </div>
+                    </div>
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_servicios_ok" class="btn modal-close">Registrar</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_servicios_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <!--********************************-->
-        <div id="paneltablas" class="row col ">
-            <div class="col s12 m10 offset-m1">
-                <div class="card-panel">
-                    <h4 align="center">Servicios que se Ofrecen</h4>
-                    <div class="divider"></div>
-
-                    <div class="row">
-                        <div class="input-field col s4 offset-s8">
-                            <i class="mdi-action-verified-user prefix icon-search"></i>
-                            <input id="buscar" type="text">
-                            <label for="hora_fin"  data-error="incorrecto" data-success="Correcto">Buscar</label>
-                        </div>
-                    </div>
-
-
-                    <!-- Modal eliminar -->
-                    <div id="modal_eliminar" class="modal">
-                        <div class="modal-content">
-                            <h5>¿Desea Eliminar el Registro?</h5>
-                            <hr />
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                        </div>
-
-                    </div>
-                    <!--*********************final modal eliminar***********-->
-                    <table class="centered">
-                        <thead>
-                        <tr>
-                            <th>Folio</th>
-                            <th>Descripción</th>
-                            <th>Hora de Inicio</th>
-                            <th>Hora de fin</th>
-                            <th></th>
-                            <th></th>
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <?php
-                        while ($row=mysqli_fetch_array($datos))
-                        echo "<tr><td>{$row['0']}</td><td>{$row['descripcion_ser']}</td><td>{$row['hora_inicio']}</td>
-                        <td>{$row['hora_fin']}</td><td><a class=\"btn-flat modal-trigger icon-cross red-text\" href=\"#modal_eliminar\"></a></td></tr>";
-                        ?>
-                        </tbody>
-                        <div class="divider"></div>
-                    </table>
-                    <div class="divider"></div>
-                    <!--********************************-->
-
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-</body>
+</div>
+<div class="card-panel">
+    <h4 align="center">Servicios que se Ofrecen<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_servicios">
+                <i class="material-icons">add</i>
+            </a></span></h4>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="input-field col s4 offset-s8">
+            <i class="mdi-action-verified-user prefix icon-search"></i>
+            <input id="buscar" type="text">
+            <label for="hora_fin"  data-error="incorrecto" data-success="Correcto">Buscar</label>
+        </div>
+    </div>
+
+    <table class="responsive-table">
+        <thead>
+        <tr>
+            <th>Folio</th>
+            <th>Descripción</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de fin</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php
+            require_once ('tabla.php');
+        ?>
+        </tbody>
+        <div class="divider"></div>
+    </table>
+</div>
+
+
+<div id="modal_eliminar" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("document").ready(function () {
+        $(".modal").modal();
+        $(".datepicker").pickadate();
+        $(".timepicker").pickatime();
+        $("#add_servicios").click(function () {
+            $("#update_servicios_ok").hide();
+            $("#save_servicios_ok").show();
+        });
+        $("#save_servicios_ok").click(function () {
+            $.post("<?php echo URL?>servicios/crear"),$("#save_servicios").serialize(),function (res) {
+                $("#body_table").empty().append(res);
+                $('#save_servicios').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+            }
+        });
+        $("#body_table").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>servicios/eliminar/'+id;
+            $("#eliminar_ok").attr("url",url);
+            $("#modal_eliminar").modal("open");
+        });
+        $("#eliminar_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+        $("#body_table").on("click","a.btn_modificar",function(){
+            $("#save_servicios_ok").hide();
+            $("#update_servicios_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>servicios/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_servicios_ok").data("id",datos["id_servicio"]);
+                $("#Folio").val(datos["num_habitacion"]);
+                $("#descripcion").val(datos["descripcion_hab"]);
+                $("#tipohabitacion").val(datos["id_tipoh"]);
+                $("#nomestadohabitacion").val(datos["id_estadoh"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_registro").modal("open");
+            });
+        });
+        $("#update_habitaciones_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
+                $('#save_habitacion').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+    });
+</script>

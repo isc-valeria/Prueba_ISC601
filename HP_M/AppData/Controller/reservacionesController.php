@@ -9,15 +9,15 @@
 namespace AppData\Controller;
 
 
-class habitacionesController
+class reservacionesController
 {
     private $habitaciones,$tipo_habitaciones,$estado_habitaciones;
 
     public function __construct()
     {
-        $this->habitaciones= new \AppData\Model\Habitaciones();
+        $this->habitaciones= new \AppData\Model\Reservaciones();
         $this->tipo_habitaciones=new \AppData\Model\Tipos_habitacion();
-        $this->estado_habitaciones= new \AppData\Model\Estado_habitacion();
+        $this->estado_habitaciones= new \AppData\Model\EstadoHabitacion();
     }
 
     public function index()

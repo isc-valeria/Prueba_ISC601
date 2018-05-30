@@ -12,18 +12,10 @@ namespace AppData\Model;
 class Checkin
 {
     private $tabla="check_in";
-    private $nombre_cli;
-    private $ap_cli;
-    private $am_cli;
-    private $telefono;
-    private $clave_cli;
-    private $num_habitacion;
-    private $tipo_ha;
-    private $clave_reserva;
-    private $fecha_reserva;
+    private $id_checkin;
+    private $id_asignares;
     private $fecha_checkin;
-    private $fecha_salida;
-    private $estador;
+
 
     function __construct()
     {

@@ -12,7 +12,7 @@ namespace AppData\Model;
 class Precios
 {
     private $id_precio;
-    private $Descripcion_precio;
+    private $descripcion_precio;
 
     private $conexion;
 

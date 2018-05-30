@@ -13,9 +13,10 @@ class Empleados
 {
     private  $tabla="Empleados";
     private $id_empleado;
-    private $nombre;
-    private $apellidos_p;
-    private $apellidos_m;
+    private $nombre_emp;
+    private $ap_emp;
+    private $am_emp;
+    private $id_puesto;
 
     function __construct()
     {

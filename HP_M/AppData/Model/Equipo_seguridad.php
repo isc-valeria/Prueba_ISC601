@@ -12,9 +12,8 @@ namespace AppData\Model;
 class Equipo_seguridad
 {
     private $id_equiposegu;
-    private $nombre_equiposegu;
-    private $id_estadoherra;
-    private $id_tipoequise;
+    private $nombre_equisegu;
+    private $id_tipoequisegu;
 
     function __construct()
     {

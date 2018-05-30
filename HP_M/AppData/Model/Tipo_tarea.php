@@ -13,6 +13,7 @@ class Tipo_tarea
 {
     private  $id_tipotarea;
     private  $descripcion_tarea;
+
     function __construct()
     {
         $this->conexion=new conexion();

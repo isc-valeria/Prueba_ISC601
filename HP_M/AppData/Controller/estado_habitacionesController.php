@@ -14,7 +14,7 @@ class estado_habitacionesController
     private $estado_habitacion;
     public function __construct()
     {
-        $this->estado_habitacion=new \AppData\Model\EstadoHabitaciones();
+        $this->estado_habitacion=new \AppData\Model\EstadoHabitacion();
     }
 
     public function index()

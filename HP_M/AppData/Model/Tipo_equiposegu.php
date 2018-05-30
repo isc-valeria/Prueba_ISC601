@@ -9,14 +9,10 @@
 namespace AppData\Model;
 
 
-class Tareas
+class Tipo_equiposegu
 {
-    private  $id_tarea;
-    private  $id_tipotarea;
-    private  $id_empleado;
-    private  $id_habitacion;
-    private  $fecha_inicio;
-    private  $fecha_fin;
+    private  $id_tipoequisegu;
+    private  $descripcion_tipo;
 
     function __construct()
     {
@@ -29,7 +25,7 @@ class Tareas
 
     }
     function get(){
-        $sql="select*from Tareas";
+        $sql="select*from Tipo_equiposegu";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

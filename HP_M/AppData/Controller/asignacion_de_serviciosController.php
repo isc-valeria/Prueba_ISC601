@@ -15,7 +15,7 @@ class asignacion_de_serviciosController
 
     public function __construct()
     {
-        $this->asignacion_de_servicios= new \AppData\Model\Asignacion_de_servicios();
+        $this->asignacion_de_servicios= new \AppData\Model\Asigna_servicios();
     }
 
     public function index()

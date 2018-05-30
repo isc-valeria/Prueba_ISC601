@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Checkout
 {
-    private  $tabla="check_out";
+    private $tabla="check_out";
     private $id_chekout;
     private $id_asignares;
     private $fecha_checkout;

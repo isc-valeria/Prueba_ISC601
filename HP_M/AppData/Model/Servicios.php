@@ -4,6 +4,7 @@ namespace AppData\Model;
 
 class Servicios
 {
+    private $tabla="servicios";
 	private $id_servicio;
 	private $descripcion_ser;
 	private $hora_inicio;
@@ -25,23 +26,33 @@ class Servicios
     }
 	function add()
 	{
-		$sql="insert into servicios values (100, 'SPA', sysdate, sysdate)";
-		$datos= $this->conexion ->querySimple($sql);
+		$sql="insert into {$this->tabla} values ('0', {$this->descripcion_ser}, {$this->hora_inicio}, {$this->hora_fin})";
+		$this->conexion ->QuerySimple($sql);
 	}
 	function getAll()
 	{
-		$sql="select * from servicios order by id_servicio asc ";
+		$sql="select * from {$this->tabla} order by id_servicio asc ";
 		$datos= $this->conexion ->QueryResultado($sql);
 		return $datos;
 	}
-	function update() 
+
+	function delete($id)
 	{
-		$sql="update servicios set descripcion_ser = 'GYM' where servicios.id_servicio=100";
-		$datos= $this->conexion ->querySimple($sql);
+		$sql="DELETE FROM {$this->tabla} WHERE id_servicio='{$id}'";
+		$this->conexion ->QuerySimple($sql);
 	}
-	function delete() 
-	{
-		$sql="delete servicios where servicios.id_servicio=100";
-		$datos= $this->conexion ->querySimple($sql);
-	}
+
+	function getOne($id)
+    {
+        $sql="SELECT * FROM {$this->tabla} where id_servicio='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+    function update()
+    {
+        $sql="UPDATE {$this->tabla} SET descripcion_ser='{$this->descripcion_ser}', hora_inicio='{$this->hora_inicio}', hora_fin='{$this->hora_fin}'";
+        $this->conexion->QuerySimple($sql);
+
+    }
 }

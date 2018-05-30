@@ -1,76 +1,68 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Lenovo
- * Date: 17/05/2018
- * Time: 03:39 PM
- */
-?>
-
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
-            <form action=""  id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
+            <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Habitación</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
-                        <div class="row">
-                            <div class="input-field input-field col s5">
-                                <input id="numero_habitacion" type="text" class="validate" name="numero_habitacion">
-                                <label for="numero_habitacion"  data-error="Incorrecto" data-success="Correcto" >Número de Hábitación</label>
-                            </div>
-                            <div class="input-field col s1">
-
-                            </div>
-                            <div class="input-field col s5">
-                                <input id="descripcion" type="text" class="validate" name="descripcion">
-                                <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
-                            </div>
+                    <div class="row">
+                        <div class="input-field input-field col s5">
+                            <input id="numero_habitacion" type="text" class="validate" name="numero_habitacion">
+                            <label for="numero_habitacion"  data-error="Incorrecto" data-success="Correcto" >Número de Hábitación</label>
                         </div>
-                        <div class="row">
 
-                            <div class="input-field col s5">
-                                <select id="tipohabitacion" type="text" class="validate" name="id_tipoh">
-                                    <option value="" disabled selected>Selecciona Tipo de la Habitacion</option>
-                                    <?php
-                                    $result3=$datos[1];
-                                    while ($row=mysqli_fetch_array($result3))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                    ?>
-                                </select>
-                                <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
-                            </div>
+                        <div class="input-field col s1">
 
-                            <div class="input-field col s1">
-                                <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                            </div>
-
-                            <div class="input-field col s5">
-                                <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
-                                    <option value="" disabled selected>Selecciona Estado de la Habitacion</option>
-                                    <?php
-                                    $result2=$datos[3];
-                                    while ($row=mysqli_fetch_array($result2))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                    ?>
-                                </select>
-                                <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Habitación</label>
-
-                            </div>
-
-                            <div class="input-field col s1">
-                                <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_estado_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                            </div>
                         </div>
-                        <div class="modal-fixed-footer">
-                            <div class="input-field col s12">
-                                <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
-                            </div>
-                            <div class="input-field col s12">
-                                <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
-                            </div>
+                        <div class="input-field col s5">
+                            <input id="descripcion" type="text" class="validate" name="descripcion">
+                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
                         </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="input-field col s5">
+                            <select id="tipohabitacion" type="text" class="validate" name="id_tipoh">
+                                <option value="" disabled selected>Selecciona Tipo de la Habitacion</option>
+                                <?php
+                                $result3=$datos[1];
+                                while ($row=mysqli_fetch_array($result3))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                ?>
+                            </select>
+                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
+                        </div>
+
+                        <div class="input-field col s1">
+                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                        </div>
+
+                        <div class="input-field col s5">
+                            <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
+                                <option value="" disabled selected>Selecciona Estado de la Habitacion</option>
+                                <?php
+                                $result2=$datos[3];
+                                while ($row=mysqli_fetch_array($result2))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                ?>
+                            </select>
+                            <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Habitación</label>
+
+                        </div>
+
+                        <div class="input-field col s1">
+                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_estado_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                        </div>
+                    </div>
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

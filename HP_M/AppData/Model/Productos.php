@@ -1,22 +1,24 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: joseluis
- * Date: 16/05/2018
- * Time: 12:06 PM
+ * User: Charly
+ * Date: 09/05/2018
+ * Time: 09:50 PM
  */
 
 namespace AppData\Model;
 
 
-class Tareas
+class Productos
 {
-    private  $id_tarea;
-    private  $id_tipotarea;
-    private  $id_empleado;
-    private  $id_habitacion;
-    private  $fecha_inicio;
-    private  $fecha_fin;
+    private $tabla="Productos";
+    private $id_producto;
+    private $nombre_pro;
+    private $id_categoriapro;
+    private $id_tipopro;
+    private $existencias;
+    private $stock_min;
+    private $stock_max;
 
     function __construct()
     {
@@ -25,11 +27,9 @@ class Tareas
 
     function add(){
 
-
-
     }
     function get(){
-        $sql="select*from Tareas";
+        $sql="select*from Productos";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

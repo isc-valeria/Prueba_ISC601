@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Estado_Reserva
 {
+
     private $id_estador;
     private $estador;
 

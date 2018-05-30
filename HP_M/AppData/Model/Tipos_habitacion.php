@@ -3,47 +3,43 @@
  * Created by PhpStorm.
  * User: Mutsorini
  * Date: 09/05/2018
- * Time: 09:48 PM
+ * Time: 09:49 PM
  */
 
 namespace AppData\Model;
 
 
-class Clientes
+class Tipos_habitacion
 {
 
-    private $id_cliente;
-    private $nombre_cli;
-    private $ap_cli;
-    private $am_cli;
-    private $telefono;
-    private $clave_cli;
-
-    private $conexion;
-
+    private  $tabla="Tipos_habitacion";
+    private $id_tipoh;
+    private $tipo_ha;
+    private $precio;
     function __construct()
     {
         $this->conexion=new conexion();
     }
 
     function add(){
-        $sql="insert into Clientes VALUES ('datos')";
+        $sql="insert into Tipos_habitacion VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-    function get(){
-        $sql="select*from Clientes";
+    function getAll(){
+        $sql="select*from Tipos_habitacion";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function update(){
-        $sql="update Clientes set nombre_cliente='variable' where id_cliente='id'";
+        $sql="update Tipos_habitacion set tipo_ha='variable' where id_tipoh='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function delete(){
-        $sql="delete from Clientes WHERE id_cliente='id'";
+        $sql="delete from Tipos_habitacion WHERE id_tipoh='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
 }

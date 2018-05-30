@@ -9,15 +9,11 @@
 namespace AppData\Model;
 
 
-class Tareas
+class Asigna_equiposegu
 {
+    private  $id_asignaequiposegu;
+    private  $id_equiposegu;
     private  $id_tarea;
-    private  $id_tipotarea;
-    private  $id_empleado;
-    private  $id_habitacion;
-    private  $fecha_inicio;
-    private  $fecha_fin;
-
     function __construct()
     {
         $this->conexion=new conexion();
@@ -29,7 +25,7 @@ class Tareas
 
     }
     function get(){
-        $sql="select*from Tareas";
+        $sql="select*from asigna_equipose";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

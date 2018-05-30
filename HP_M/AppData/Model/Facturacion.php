@@ -15,6 +15,7 @@ class Facturacion
     private $id_factura;
     private $id_asignares;
     private $total;
+
     function __construct()
     {
         $this->conexion=new conexion();

@@ -5,7 +5,7 @@ namespace AppData\Model;
 class Estado_servicios
 {
 	private $id_estados;
-	private $descripción_est;
+	private $descripcion_est;
 
 	function __construct()
 	{
