@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/HP_M.iml" filepath="$PROJECT_DIR$/.idea/HP_M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Hotel_Proyecto.iml" filepath="$PROJECT_DIR$/.idea/Hotel_Proyecto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProyectoPHP/.idea/ProyectoPHP.iml" filepath="$PROJECT_DIR$/../ProyectoPHP/.idea/ProyectoPHP.iml" />
+    </modules>
+  </component>
+</project>
