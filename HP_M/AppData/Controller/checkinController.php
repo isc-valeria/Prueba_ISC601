@@ -12,10 +12,12 @@ namespace AppData\Controller;
 class checkinController
 {
     private $check_in;
+    private $clientes;
 
     public function __construct()
     {
         $this->check_in= new \AppData\Model\Checkin();
+        $this->clientes= new \AppData\Model\Clientes();
     }
 
     public function crear()

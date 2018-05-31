@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Clientes
 {
-
+    private $tabla='clientes';
     private $id_cliente;
     private $nombre_cli;
     private $ap_cli;
@@ -26,24 +26,45 @@ class Clientes
         $this->conexion=new conexion();
     }
 
+    public function set($atributo,$valor)
+    {
+        $this->$atributo=$valor;
+    }
+
+    public function get($atributo)
+    {
+        return $this->$atributo;
+    }
+
     function add(){
-        $sql="insert into Clientes VALUES ('datos')";
-        $datos=$this->conexion->queryResultado($sql);
+        $sql="insert into Clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},{$this->clave_cli})";
+        $this->conexion->QuerySimple($sql);
+    }
+
+    function delete($id)
+    {
+        $sql="delete from {$this->tabla} where id_cliente='{$id}'";
+        $this->conexion->QuerySimple($sql);
+    }
+
+    function getAll()
+    {
+        $sql="Select * from clientes";
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-    function get(){
-        $sql="select*from Clientes";
-        $datos=$this->conexion->queryResultado($sql);
+
+    function getOne($id)
+    {
+        $sql="select * from  {$this->tabla} where id_cliente='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-    function update(){
-        $sql="update Clientes set nombre_cliente='variable' where id_cliente='id'";
-        $datos=$this->conexion->queryResultado($sql);
-        return $datos;
-    }
-    function delete(){
-        $sql="delete from Clientes WHERE id_cliente='id'";
-        $datos=$this->conexion->queryResultado($sql);
-        return $datos;
+    function update()
+    {
+        $sql = "update clientes set nombre_cli='{$this->nombre_cli}',
+               ap_cli='{$this->ap_cli}', am_cli='{$this->am_cli}',
+               telefono='{$this->telefono}', clave_cli='{$this->clave_cli}' where id_cliente='{$this->id_cliente}'";
+        $this->conexion->QuerySimple($sql);
     }
 }
