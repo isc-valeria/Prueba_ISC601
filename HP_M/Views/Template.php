@@ -97,9 +97,12 @@ class Template
                                             <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
                                             <li><a href="<?php echo URL?>Asignacion_de_servicios" class="icon-jira">   Asignar Servicios</a></li>
                                             <li><a href="<?php echo URL?>Lavanderia" class="icon-jira">   Lavanderia</a></li>
+                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
+
+
                                         </ul>
                                     </div>
-                                </li>
+                                </li>   
                             </ul>
                         </li>
 
