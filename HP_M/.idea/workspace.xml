@@ -15,19 +15,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Habitaciones/index.php">
+        <entry file="file://$PROJECT_DIR$/Views/checkin/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="252" column="9" lean-forward="true" selection-start-line="192" selection-end-line="252" selection-end-column="9" />
+            <state relative-caret-position="-1176">
+              <caret line="41" column="121" selection-start-line="41" selection-start-column="121" selection-end-line="41" selection-end-column="121" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="habitacionesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppData/Controller/habitacionesController.php">
+      <file leaf-file-name="Checkin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppData/Model/Checkin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="73" column="5" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="524">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Checkout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppData/Model/Checkout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabla.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Views/checkin/tabla.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkinController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppData/Controller/checkinController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkoutController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppData/Controller/checkoutController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="27" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -35,17 +71,8 @@
       <file leaf-file-name="clientesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AppData/Controller/clientesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Clientes.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AppData/Model/Clientes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state relative-caret-position="388">
+              <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -53,26 +80,8 @@
       <file leaf-file-name="Habitaciones.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AppData/Model/Habitaciones.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="65" column="43" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="65" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Clientes/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-639">
-              <caret line="48" column="113" selection-start-line="48" selection-start-column="113" selection-end-line="48" selection-end-column="113" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tabla.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Clientes/tabla.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
+            <state relative-caret-position="221">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -88,9 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>--&gt;--&gt;</find>
-      <find>disabled</find>
-      <find>&lt;div style=</find>
       <find>selec</find>
       <find>formse</find>
       <find>formS</find>
@@ -111,23 +117,26 @@
       <find>select</find>
       <find>-&gt;</find>
       <find>eliminar_ok</find>
-      <find>cliente</find>
       <find>clientes</find>
       <find>reser</find>
       <find>add_ha</find>
       <find>registrar</find>
       <find>habitaciones</find>
       <find>habitacion</find>
+      <find>datos</find>
+      <find>cliente</find>
+      <find>check_out</find>
+      <find>clientesController</find>
     </findStrings>
     <replaceStrings>
       <replace>check_in</replace>
+      <replace>checkout</replace>
       <replace>clientes</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Views/Asignacionservicios/index.php" />
         <option value="$PROJECT_DIR$/AppData/Model/Asignacion_de_servicios.php" />
         <option value="$PROJECT_DIR$/AppData/Controller/asignacion_de_serviciosController.php" />
         <option value="$PROJECT_DIR$/Views/Asignacion_de_servicios/index.php" />
@@ -169,15 +178,16 @@
         <option value="$PROJECT_DIR$/AppData/Model/Turnos.php" />
         <option value="$PROJECT_DIR$/AppData/Model/Puestos.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/Views/checkin/tabla.php" />
-        <option value="$PROJECT_DIR$/AppData/Model/Checkin.php" />
         <option value="$PROJECT_DIR$/Views/checkin/index.php" />
-        <option value="$PROJECT_DIR$/AppData/Controller/checkinController.php" />
         <option value="$PROJECT_DIR$/Views/Template.php" />
         <option value="$PROJECT_DIR$/Views/Clientes/tabla.php" />
         <option value="$PROJECT_DIR$/Views/Clientes/index.php" />
-        <option value="$PROJECT_DIR$/AppData/Controller/clientesController.php" />
         <option value="$PROJECT_DIR$/AppData/Model/Clientes.php" />
+        <option value="$PROJECT_DIR$/AppData/Controller/clientesController.php" />
+        <option value="$PROJECT_DIR$/AppData/Model/Checkout.php" />
+        <option value="$PROJECT_DIR$/AppData/Model/Checkin.php" />
+        <option value="$PROJECT_DIR$/AppData/Controller/checkinController.php" />
+        <option value="$PROJECT_DIR$/Views/checkin/tabla.php" />
       </list>
     </option>
   </component>
@@ -211,19 +221,30 @@
             <path>
               <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
               <item name="HP_M" type="462c0819:PsiDirectoryNode" />
+              <item name="AppData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HP_M" type="462c0819:PsiDirectoryNode" />
+              <item name="AppData" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HP_M" type="462c0819:PsiDirectoryNode" />
+              <item name="AppData" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HP_M" type="462c0819:PsiDirectoryNode" />
               <item name="Views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
               <item name="HP_M" type="462c0819:PsiDirectoryNode" />
               <item name="Views" type="462c0819:PsiDirectoryNode" />
-              <item name="Clientes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HP_M" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HP_M" type="462c0819:PsiDirectoryNode" />
-              <item name="Views" type="462c0819:PsiDirectoryNode" />
-              <item name="Habitaciones" type="462c0819:PsiDirectoryNode" />
+              <item name="checkin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,16 +295,15 @@
       <workItem from="1527616912595" duration="9143000" />
       <workItem from="1527656127957" duration="13341000" />
       <workItem from="1527685702294" duration="6631000" />
-      <workItem from="1527775540750" duration="5871000" />
+      <workItem from="1527775540750" duration="8905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79657000" />
+    <option name="totallyTimeSpent" value="82691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
@@ -291,7 +311,7 @@
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49475262" weight="0.24432677" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49475262" visible="true" weight="0.24432677" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32838285" />
@@ -346,16 +366,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AppData/Model/Checkout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Model/Colores.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/AppData/Model/Empleados.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -538,20 +548,6 @@
     <entry file="file://$PROJECT_DIR$/Views/checkin/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/checkin/tabla.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Model/Checkin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Habitaciones/tabla.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -559,27 +555,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Controller/checkinController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="80" column="112" selection-start-line="80" selection-start-column="112" selection-end-line="80" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/checkin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-819">
-          <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Controller/clientesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Clientes/tabla.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -618,17 +590,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Model/Habitaciones.php">
+    <entry file="file://$PROJECT_DIR$/AppData/Model/Clientes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="65" column="43" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="65" selection-end-column="43" />
+        <state relative-caret-position="177">
+          <caret line="52" column="14" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppData/Model/Clientes.php">
+    <entry file="file://$PROJECT_DIR$/AppData/Model/Habitaciones.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppData/Controller/clientesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/checkin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="41" column="121" selection-start-line="41" selection-start-column="121" selection-end-line="41" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppData/Controller/checkoutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppData/Model/Checkin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppData/Model/Checkout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppData/Controller/checkinController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/checkin/tabla.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
