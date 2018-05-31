@@ -26,7 +26,7 @@ class Registro_prendas
     function add(){
 
     }
-    function get(){
+    function getAll(){
         $sql="select * from Registro_prendas";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;

@@ -38,17 +38,29 @@
                             </div>
                         </div>
 
-                       <div class="input-field col l3 offset-l3 ">
-                           <i class="mdi-action-verified-user prefix icon-calendar blue-text"></i>
-                           <label>Fecha de recepción</label>
-                           <input id="fecha_recepcion" type="text" class="datepicker">
+                       <div class="row">
+                           <div class="input-field col l3 offset-l3 ">
+                               <label>Fecha de recepción</label>
+                               <input id="fecha_repcep" type="text" class="datepicker">
+                           </div>
+
+                           <div class="input-field col l3">
+                               <label>Fecha de Entrega</label>
+                               <input id="fecha_entre" type="text" class="datepicker">
+                           </div>
                        </div>
 
-                       <div class="input-field col l3">
-                           <i class="mdi-action-verified-user prefix icon-calendar blue-text"></i>
-                           <label>Fecha de Entrega</label>
-                           <input id="fecha_entrega" type="text" class="datepicker">
+                       <div class="row">
+                           <div class="input-field col l3 offset-l3">
+                               <select id="nomestadohabitacion" type="text" class="validate">
+                                   <option value="" disabled selected>Selecciona Estado</option>
+                                   <option value="1">Mal estado</option>
+                                   <option value="2">Buen estado</option>
+                               </select>
+                               <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Prenda</label>
+                           </div>
                        </div>
+
                    </div>
                </div>
            </form>
@@ -58,7 +70,9 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
-        $('.datepicker').datepicker();
+        $('.datepicker').pickadate();
     });
 </script>
+
+
 

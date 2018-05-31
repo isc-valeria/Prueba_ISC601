@@ -9,18 +9,18 @@
 namespace AppData\Controller;
 
 
-class lavanderiaController
+class registroprendasController
 {
-    private $lavanderia;
+    private $registro_prendas;
 
     public function __construct()
     {
-        $this->lavanderia= new \AppData\Model\Registro_prendas();
+        $this->registro_prendas= new \AppData\Model\Registro_prendas();
     }
 
     public function index()
     {
-        $datos=$this->lavanderia->get();
+        $datos=$this->registro_prendas->getAll();
         return $datos;
     }
 
