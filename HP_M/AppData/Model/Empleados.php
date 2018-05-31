@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Empleados
 {
-    private  $tabla="Empleados";
+    private  $tabla="empleados";
     private $id_empleado;
     private $nombre_emp;
     private $ap_emp;

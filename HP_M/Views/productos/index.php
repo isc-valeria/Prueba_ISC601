@@ -377,29 +377,25 @@
                     </div>
                 </div>
                 <!--*********************final modal eliminar***********-->
-                <table class="centered">
+                <table class="responsive-table">
                     <thead>
                     <tr>
                         <th>id</th>
                         <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Tipo</th>
+                        <th>Descripción Categoria</th>
+                        <th>Tipo producto</th>
                         <th>Existencias</th>
-                        <th>Stock_maximo</th>
-                        <th>Stock_minimo</th>
+                        <th>Stock Maximo</th>
+                        <th>Stock Minimo</th>
                         <th></th>
                         <th></th>
 
                     </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="body_table">
                     <?php
-                    while($row=mysqli_fetch_array($datos))
-                    echo "<tr><td>{$row[0]}</td><td>{$row['nombre_pro']}</td><td>{$row['descripcion_cat']}</td>
-                    <td>{$row['descripcion_pro']}</td><td>{$row['existencias']}</td><td>{$row['stock_min']}</td>
-                    <td>{$row['stock_max']}</td><td><a class=\"btn-flat modal-trigger icon-cross red-text\" href=\"#modal_eliminar\"></a></td>
-                    <td><a class=\"btn-flat modal-trigger  icon-pencil blue-text\" href=\"#modal_editar\"></a></td></tr>";
+                    require_once ("tabla.php");
                     ?>
                     </tbody>
                 </table>
