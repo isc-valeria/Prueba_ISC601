@@ -78,6 +78,7 @@ class Template
                                 <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-myspace"></i>Reservaciones</a>
                                     <div class="collapsible-body">
                                         <ul>
+                                            <li><a href="<?php echo URL?>clientes" class="icon-jira">   Clientes</a></li>
                                             <li><a href="<?php echo URL?>habitaciones" class="icon-jira">   Habitaciones</a></li>
                                             <li><a href="<?php echo URL?>asignar_productos" class="icon-jira">   Asignar Productos</a></li>
                                             <li><a href="<?php echo URL?>checkin" class="icon-jira">   Check In</a></li>
