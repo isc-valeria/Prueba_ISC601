@@ -74,25 +74,35 @@
             <input id="buscar" placeholder="Buscar" type="text">
         </div>
     </div>
-    <table class="responsive-table">
-        <thead>
-        <tr>
-            <th>Numero de Habitacion</th>
-            <th>Descripcion</th>
-            <th>Tipo Habitación</th>
-            <th>Folio Cliente</th>
-            <th>Fecha de Reserva</th>
-            <th>delete</th>
-            <th>update</th>
-        </tr>
-        </thead>
-        <tbody id="body_table">
-        <?php
-            require_once ("tabla.php");
-        ?>
-        </tbody>
-        <div class="divider"></div>
-    </table>
+    <div style="overflow-x: auto">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Telefono</th>
+                <th>Clave Cliente</th>
+                <th>Numero de Habitacion</th>
+                <th>Tipo de Habitacion</th>
+                <th>Clave de Reservacion</th>
+                <th>Fecha de Reservación</th>
+                <th>Fecha de Check In</th>
+                <th>Fecha de Salida</th>
+                <th>Estado</th>
+                <th>delete</th>
+                <th>update</th>
+            </tr>
+            </thead>
+            <tbody id="body_table">
+            <?php
+                require_once ("tabla.php");
+            ?>
+            </tbody>
+            <div class="divider"></div>
+        </table>
+    </div>
 </div>
 
 <div id="modal_eliminar" class="modal">

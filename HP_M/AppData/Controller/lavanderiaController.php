@@ -15,12 +15,12 @@ class lavanderiaController
 
     public function __construct()
     {
-        $this->lavanderia= new \AppData\Model\Lavanderia();
+        $this->lavanderia= new \AppData\Model\Registro_prendas();
     }
 
     public function index()
     {
-        $datos=$this->lavanderia->getAll();
+        $datos=$this->lavanderia->get();
         return $datos;
     }
 
