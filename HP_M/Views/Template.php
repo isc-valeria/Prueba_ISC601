@@ -109,7 +109,7 @@ class Template
                                 <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-dropbox2"></i>Almacen</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="<?php echo URL?>Almacen" class="icon-jira">   Admin Almacen</a></li>
+                                            <li><a href="<?php echo URL?>productos" class="icon-jira">   Admin Almacen</a></li>
                                         </ul>
                                     </div>
                                 </li>

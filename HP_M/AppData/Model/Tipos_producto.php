@@ -28,7 +28,7 @@ class Tipos_producto
     }
     function get(){
         $sql="select*from Tipos_producto";
-        $datos=$this->conexion->queryResultado($sql);
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){

@@ -25,7 +25,7 @@ class Categorias_producto
     }
     function get(){
         $sql="select*from Categorias_producto";
-        $datos=$this->conexion->queryResultado($sql);
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
