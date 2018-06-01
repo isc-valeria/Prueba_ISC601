@@ -51,8 +51,8 @@ hola -val
 Jose Luis..
 
 Jaciel
-Alexander Orozco
-<<<<<<< HEAD
+
+
 
 =======
 Jaciel****
@@ -87,3 +87,6 @@ Rodrigo Juan =)
 
 
 
+
+
+Alexander Orozco
