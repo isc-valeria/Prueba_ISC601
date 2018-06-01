@@ -8,3 +8,5 @@ commit sullivan
 commit proyecto
 
 Yareli
+
+Juan Carlos Palma Cruz Blanca
