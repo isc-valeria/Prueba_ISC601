@@ -52,10 +52,8 @@ Jose Luis..
 
 Jaciel
 Alexander Orozco
-<<<<<<< HEAD
 
-=======
->>>>>>> 608a730b3e097f299d1159dcafd2aa332adfa425
+
 Jaciel****
 
 
@@ -81,4 +79,5 @@ Miquiztli
 Jabneel 
 
 Diego °-°
->>>>>>> 608a730b3e097f299d1159dcafd2aa332adfa425
+ 
+ miriam
