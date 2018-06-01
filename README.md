@@ -7,6 +7,7 @@ commit sullivan
 
 commit proyecto
 
+<<<<<------HARLOCK------>>>>>
 
 -----F R Y------
 
@@ -18,4 +19,9 @@ Juan Carlos Palma Cruz Blanca
 
 Bernardino octavio
 
+
 Que tranza p*nche p*tita
+
+$git reset
+$git checkout
+
