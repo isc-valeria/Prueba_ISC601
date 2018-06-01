@@ -49,9 +49,8 @@ hola -val
 Jose Luis..
 
 Jaciel
+
 Alexander Orozco
-
-
 
 
 Jaciel****
@@ -62,8 +61,6 @@ Jesus Emerith
 
 Sullivan 
 
-
-<<<<<<< HEAD
 Miquiztli
 
 Rodrigo Isaac 
@@ -88,5 +85,5 @@ Rodrigo Juan =)
 
 
 
-
+Alexander Orozco
 

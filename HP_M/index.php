@@ -11,7 +11,6 @@
 
     define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
-
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
 
