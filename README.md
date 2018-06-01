@@ -27,7 +27,6 @@ commit Jazmin
 
 
 maricela
-<<<<<<< HEAD
 
 ------COMO HACER UN COMMIT---------------
 [git Status] <<Ver cambios realizados al repositorio>>
