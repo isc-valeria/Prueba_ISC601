@@ -13,4 +13,4 @@ commit proyecto
 =======
 Yareli
 
-Juan Carlos PalmaChaka Cruz Blanca
+Juan Carlos Palma Cruz Blanca
