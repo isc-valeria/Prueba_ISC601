@@ -40,9 +40,12 @@ hola -val
 
 Jose Luis..
 
-<<<<<<< HEAD
+Jaciel
 Alexander Orozco
+<<<<<<< HEAD
 
+=======
+>>>>>>> 608a730b3e097f299d1159dcafd2aa332adfa425
 Jaciel****
 
 
@@ -52,9 +55,20 @@ Jesus Emerith
 Sullivan 
 
 
+<<<<<<< HEAD
 Miquiztli
 
 rodrigo isaac 
 
 
 Miquiztli
+=======
+Jabneel 
+
+Miquiztli
+Miquiztli
+
+Jabneel 
+
+Diego °-°
+>>>>>>> 608a730b3e097f299d1159dcafd2aa332adfa425

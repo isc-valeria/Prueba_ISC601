@@ -99,8 +99,12 @@
             $("#save_servicios_ok").show();
         });
         $("#save_servicios_ok").click(function () {
+<<<<<<< HEAD
+            //console.log($("#save_servicios").serialize());
+=======
             //console.log("ok")
             //console.log($("#save_servcios_ok").serialize());
+>>>>>>> 8d12754b81bbf4a75e481b9cb383ec32ec90a44e
             $.post("<?php echo URL?>servicios/crear"),$("#save_servicios").serialize(),function (res) {
                 $("#body_table").empty().append(res);
                 $('#save_servicios').find('input, select, textarea').val('');
