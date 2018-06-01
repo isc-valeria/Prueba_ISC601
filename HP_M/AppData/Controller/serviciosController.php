@@ -40,7 +40,7 @@ class serviciosController
         return $datos;
     }
 
-    public function modificar()
+    public function modificar($id)
     {
         $datos=$this->servicios->getOne($id[0]);
         return $datos;
