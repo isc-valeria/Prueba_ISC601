@@ -9,5 +9,8 @@ commit proyecto
 
 
 -----F R Y------
+
+=======
 Yareli
 
+Juan Carlos Palma Cruz Blanca
