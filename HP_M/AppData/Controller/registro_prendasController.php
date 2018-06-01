@@ -9,7 +9,7 @@
 namespace AppData\Controller;
 
 
-class registroprendasController
+class registro_prendasController
 {
     private $registro_prendas;
 

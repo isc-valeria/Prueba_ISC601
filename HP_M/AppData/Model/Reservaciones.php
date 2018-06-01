@@ -19,6 +19,7 @@ class Reservaciones
     private $fecha_llegada;
     private $fecha_salida;
     private $id_estador;
+    private $no_personas;
 
 
     private $conexion;
@@ -41,7 +42,7 @@ class Reservaciones
 
     }
     function getAll(){
-        $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, estado_reserva.estador FROM reservaciones, clientes, estado_reserva WHERE reservaciones.id_cliente=clientes.id_cliente AND estado_reserva.id_estador= reservaciones.id_estador ";
+        $sql="SELECT reservaciones.id_reservacion, reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, estado_reserva.estador, reservaciones.no_personas FROM reservaciones, clientes, estado_reserva WHERE reservaciones.id_cliente=clientes.id_cliente AND estado_reserva.id_estador= reservaciones.id_estador ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }

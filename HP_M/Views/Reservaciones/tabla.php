@@ -2,14 +2,15 @@
 $datos=$datos[0];
 while($row=mysqli_fetch_array($datos))
     echo "<tr>
-    <td>{$row[0]}</td>
-    <td>{$row[1]}</td>
-    <td>{$row[2]}</td>
-    <td>{$row[3]}</td>
-    <td>{$row[4]}</td>
-    <td>{$row[5]}</td>
-    <td>{$row[6]}</td>
-    <td>{$row[7]}</td>
-    <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row[0]}'></a></td>
-    <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row[0]}' href='#!'></a></td></tr>";
+    <td>{$row['clave_reserva']}</td>
+    <td>{$row['nombre_cli']}</td>
+    <td>{$row['ap_cli']}</td>
+    <td>{$row['am_cli']}</td>
+    <td>{$row['fecha_reserva']}</td>
+    <td>{$row['fecha_llegada']}</td>
+    <td>{$row['fecha_salida']}</td>
+    <td>{$row['estador']}</td>
+    <td style='text-align: center'>{$row['no_personas']}</td>
+    <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row['id_reservacion']}'></a></td>
+    <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row['id_reservacion']}' href='#!'></a></td></tr>";
 ?>
