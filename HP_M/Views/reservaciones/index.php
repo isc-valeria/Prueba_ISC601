@@ -147,8 +147,8 @@
         $('select').material_select();
         $(".datepicker").pickadate();
         $(".modal").modal();
-        $("#add_reserva").click(function(){
-            $("#up_reserva_ok").close();
+        $("#add_cliente").click(function(){
+            $("#up_reserva_ok").hide();
             $("#save_reserva_ok").show();
         });
         $("#save_reserva_ok").click(function(){

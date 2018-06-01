@@ -7,6 +7,16 @@ commit sullivan
 
 commit proyecto
 
+<<<<<<< HEAD
+=======
+<<<<<------HARLOCK------>>>>>
+ __^__                                      __^__
+( ___ )------------------------------------( ___ )
+ | / |                                      | \ |
+ | / |                CRIS                  | \ |
+ |___|                                      |___|
+(_____)------------------------------------(_____) 
+>>>>>>> f65ccab0abe4230f4170100a89883efae36ecb68
 
 -----F R Y------
 
@@ -39,3 +49,23 @@ hola -val
 
 
 Jose Luis..
+
+Jaciel
+Alexander Orozco
+Jaciel****
+
+
+--christian--
+Jesus Emerith
+
+Sullivan 
+
+
+Jabneel 
+
+Miquiztli
+Miquiztli
+
+Jabneel 
+
+Diego °-°
