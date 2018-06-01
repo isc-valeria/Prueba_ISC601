@@ -9,7 +9,7 @@
     define('DS',DIRECTORY_SEPARATOR);
     define('ROOT',realpath(dirname(__FILE__)).DS);
 
-    define('URL',"http://localhost/prograweb6012018/prueba_isc601/HP_M/");
+    define('URL',"http://localhost/Prueba_isc601/HP_M/");
 
 
     require_once ("AppData/Config/Autoload.php");
