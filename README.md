@@ -28,5 +28,6 @@ commit Jazmin
 
 
 maricela
+<<<<<<< HEAD
 
 Jose Luis..
