@@ -20,9 +20,11 @@ Luis Hernandez
 
 Bernardino octavio
 
-
-Que tranza p*nche p*tita
-
 $git reset
 $git checkout
 
+
+commit Jazmin
+
+
+maricela
