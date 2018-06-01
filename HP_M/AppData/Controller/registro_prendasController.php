@@ -18,7 +18,7 @@ class registro_prendasController
         $this->registro_prendas= new \AppData\Model\Registro_prendas();
         $this->habitaciones= new \AppData\Model\Habitaciones();
         $this->tipo_ropa= new \AppData\Model\Ropa();
-        $this->estado_prenda= new \AppData\
+        $this->estado_prenda= new \AppData\Model\estados_prendas();
 
 
     }
