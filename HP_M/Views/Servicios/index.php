@@ -1,4 +1,4 @@
-<div id="modal_registro" class="modal">
+<div id="modal_servicio" class="modal">
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
@@ -16,7 +16,7 @@
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion" type="text" class="validate">
+                            <input id="descripcion" type="text" class="validate" name="descripcion">
                             <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
                         </div>
                     </div>
@@ -26,21 +26,19 @@
                         </div>
                         <div class="input-field col s5">
                             <label><i class="icon-clock"></i>Hora Inicio</label>
-                            <input type="text" class="timepicker">
+                            <input type="text" class="timepicker" name="horaini">
                         </div>
                         <div class="input-field col s1"></div>
                         <div class="input-field col s5">
                             <label><i class="icon-clock"></i>Hora de Fin</label>
-                            <input type="text" class="timepicker">
+                            <input type="text" class="timepicker" name="horafin">
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_servicios_ok" class="btn modal-close">Registrar</a>
                         </div>
-                        <div class="input-field col s12">
-                            <a href="#!" id="update_servicios_ok" class="btn modal-close " data-id="">Actualizar</a>
-                        </div>
+
                     </div>
                 </div>
             </form>
@@ -48,10 +46,11 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Servicios que se Ofrecen<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_servicios">
+    <h4 align="center">Servicios que se Ofrecen<span class="right"><a href="#modal_servicio" class="btn green white-text modal-trigger" id="add_servicios">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
+
     <div class="row">
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
@@ -59,7 +58,6 @@
             <label for="hora_fin"  data-error="incorrecto" data-success="Correcto">Buscar</label>
         </div>
     </div>
-
     <table class="responsive-table">
         <thead>
         <tr>
@@ -69,10 +67,8 @@
             <th>Hora de fin</th>
             <th></th>
             <th></th>
-
         </tr>
         </thead>
-
         <tbody>
         <?php
             require_once ('tabla.php');
@@ -81,8 +77,6 @@
         <div class="divider"></div>
     </table>
 </div>
-
-
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -99,11 +93,14 @@
         $(".modal").modal();
         $(".datepicker").pickadate();
         $(".timepicker").pickatime();
+
         $("#add_servicios").click(function () {
             $("#update_servicios_ok").hide();
             $("#save_servicios_ok").show();
         });
         $("#save_servicios_ok").click(function () {
+            //console.log("ok")
+            //console.log($("#save_servcios_ok").serialize());
             $.post("<?php echo URL?>servicios/crear"),$("#save_servicios").serialize(),function (res) {
                 $("#body_table").empty().append(res);
                 $('#save_servicios').find('input, select, textarea').val('');

@@ -17,17 +17,21 @@ class Asigna_servicios
 	function add()
 	{
 		$sql="insert into Asigna_servicios values (300, 1, 100, 200, sysdate)";
-		$datos= $this->conexion ->querySimple($sql);
+		$datos= $this->conexion ->QuerySimple($sql);
 	}
 	function get() 
 	{
 		$sql="select * from Asigna_servicios";
-		$datos= $this->conexion ->queryResultados($sql);
+		$datos= $this->conexion ->QueryResultado()($sql);
 		return $datos;
 	}
 	function getAll()
     {
-        $sql="SELECT habitaciones.num_habitacion, servicios.descripcion_ser, asignacion_servicios.fecha_reg, estado_servicios.descripcion_est FROM habitaciones, asignacion_servicios, servicios, estado_servicios WHERE habitaciones.id_habitacion=asignacion_servicios.id_habitacion AND servicios.id_servicio=asignacion_servicios.id_servicio AND estado_servicios.id_estados=asignacion_servicios.id_estados ";
+        $sql="SELECT habitaciones.num_habitacion, servicios.descripcion_ser, asigna_servicios.fecha_reg, estado_servicios.descripcion_est 
+                FROM habitaciones, asigna_servicios, servicios, estado_servicios 
+                WHERE habitaciones.id_habitacion=asigna_servicios.id_habitacion 
+                AND servicios.id_servicio=asigna_servicios.id_servicio 
+                AND estado_servicios.id_estados=asigna_servicios.id_estados ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
