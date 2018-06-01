@@ -11,9 +11,10 @@
         <div class="card-panel">
             <form action="" id="save_reserva" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Reservación
-<!--                    <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_reserva">-->
-<!--                <i class="material-icons">add</i>-->
-<!--                </a></span>-->
+                    <span class="right">
+                        <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_reserva">
+                <i class="material-icons">add</i>
+                </a></span>
                 </h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
@@ -88,7 +89,7 @@
 </div>
 <div class="card-panel">
     <h4 align="center">Reservaciones Registradas <span class="right">
-            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
+            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_reserva">
                 <i class="material-icons">add</i>
             </a></span>
     </h4>
@@ -147,7 +148,7 @@
         $('select').material_select();
         $(".datepicker").pickadate();
         $(".modal").modal();
-        $("#add_cliente").click(function(){
+        $("#add_reserva").click(function(){
             $("#up_reserva_ok").hide();
             $("#save_reserva_ok").show();
         });
