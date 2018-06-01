@@ -55,7 +55,6 @@ Alexander Orozco
 <<<<<<< HEAD
 
 =======
->>>>>>> 608a730b3e097f299d1159dcafd2aa332adfa425
 Jaciel****
 
 
@@ -68,7 +67,7 @@ Sullivan
 <<<<<<< HEAD
 Miquiztli
 
-rodrigo isaac 
+Rodrigo Isaac 
 
 
 Miquiztli
@@ -81,7 +80,10 @@ Miquiztli
 Jabneel 
 
 Diego °-°
+<<<<<<< HEAD
 
-rodrigo juan =)
+Rodrigo Juan =)
+
+
 
 
