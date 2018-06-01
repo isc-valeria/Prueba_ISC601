@@ -21,3 +21,6 @@ Bernardino octavio
 
 $git reset
 $git checkout
+
+
+maricela
