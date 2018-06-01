@@ -1,4 +1,4 @@
-<div id="modal_registro" class="modal">
+<div id="modal_servicio" class="modal">
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
@@ -48,7 +48,7 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Servicios que se Ofrecen<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_servicios">
+    <h4 align="center">Servicios que se Ofrecen<span class="right"><a href="#modal_servicio" class="btn green white-text modal-trigger" id="add_servicios">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -59,7 +59,6 @@
             <label for="hora_fin"  data-error="incorrecto" data-success="Correcto">Buscar</label>
         </div>
     </div>
-
     <table class="responsive-table">
         <thead>
         <tr>
@@ -69,10 +68,8 @@
             <th>Hora de fin</th>
             <th></th>
             <th></th>
-
         </tr>
         </thead>
-
         <tbody>
         <?php
             require_once ('tabla.php');
@@ -81,8 +78,6 @@
         <div class="divider"></div>
     </table>
 </div>
-
-
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
