@@ -37,7 +37,7 @@ class Clientes
     }
 
     function add(){
-        $sql="insert into Clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},{$this->clave_cli})";
+        $sql="insert into clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},{$this->clave_cli})";
         $this->conexion->QuerySimple($sql);
     }
 
