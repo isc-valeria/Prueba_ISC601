@@ -7,8 +7,7 @@ commit sullivan
 
 commit proyecto
 
-<<<<<<< HEAD
-=======
+
 <<<<<------HARLOCK------>>>>>
  __^__                                      __^__
 ( ___ )------------------------------------( ___ )
@@ -16,7 +15,6 @@ commit proyecto
  | / |                CRIS                  | \ |
  |___|                                      |___|
 (_____)------------------------------------(_____) 
->>>>>>> f65ccab0abe4230f4170100a89883efae36ecb68
 
 -----F R Y------
 
@@ -54,6 +52,8 @@ Jaciel
 Alexander Orozco
 
 
+
+
 Jaciel****
 
 
@@ -66,11 +66,11 @@ Sullivan
 <<<<<<< HEAD
 Miquiztli
 
-rodrigo isaac 
+Rodrigo Isaac 
 
 
 Miquiztli
-=======
+
 Jabneel 
 
 Miquiztli
@@ -81,3 +81,4 @@ Jabneel
 Diego °-°
  
  miriam
+
