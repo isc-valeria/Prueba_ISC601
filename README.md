@@ -15,8 +15,15 @@ Yareli
 
 Juan Carlos Palma Cruz Blanca
 
+Luis Hernandez
 
 Bernardino octavio
 
 $git reset
 $git checkout
+
+
+commit Jazmin
+
+
+maricela
