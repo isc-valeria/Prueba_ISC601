@@ -11,23 +11,29 @@ namespace AppData\Controller;
 
 class reservacionesController
 {
-    private $habitaciones,$tipo_habitaciones,$estado_habitaciones;
+    private $reservaciones;
+    private $clientes;
+    private $tipos_habitacion;
+    private $habitaciones;
 
     public function __construct()
     {
-        $this->habitaciones= new \AppData\Model\Reservaciones();
-        $this->tipo_habitaciones=new \AppData\Model\Tipos_habitacion();
-        $this->estado_habitaciones= new \AppData\Model\EstadoHabitacion();
+        $this->reservaciones= new \AppData\Model\Reservaciones();
+        $this->clientes= new \AppData\Model\Clientes();
+        $this->tipos_habitacion= new \AppData\Model\Tipos_habitacion();
+        $this->habitaciones= new \AppData\Model\Habitaciones();
     }
 
     public function index()
     {
-        $datos1=$this->habitaciones->getAll();
-        $datos2=$this->tipo_habitaciones->getAll();
-        $datos3=$this->estado_habitaciones->getAll();
+        $datos1=$this->reservaciones->getAll();
+        $datos2=$this->clientes->getAll();
+        $datos3=$this->tipos_habitacion->getAll();
+        $datos4=$this->habitaciones->getAll();
         $datos[0]=$datos1;
         $datos[1]=$datos2;
-        $datos[3]=$datos3;
+        $datos[2]=$datos3;
+        $datos[3]=$datos4;
         return $datos;
     }
     public function crear(){

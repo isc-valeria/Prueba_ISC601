@@ -27,11 +27,15 @@ class Asigna_servicios
 	}
 	function getAll()
     {
+<<<<<<< HEAD
         $sql="SELECT habitaciones.num_habitacion, servicios.descripcion_ser, asigna_servicios.fecha_reg, estado_servicios.descripcion_est 
                 FROM habitaciones, asigna_servicios, servicios, estado_servicios 
                 WHERE habitaciones.id_habitacion=asigna_servicios.id_habitacion 
                 AND servicios.id_servicio=asigna_servicios.id_servicio 
                 AND estado_servicios.id_estados=asigna_servicios.id_estados ";
+=======
+        $sql="SELECT habitaciones.num_habitacion, servicios.descripcion_ser, asigna_servicios.fecha_reg, estado_servicios.descripcion_est FROM habitaciones, asigna_servicios, servicios, estado_servicios WHERE habitaciones.id_habitacion=asigna_servicios.id_habitacion AND servicios.id_servicio=asigna_servicios.id_servicio AND estado_servicios.id_estados=asigna_servicios.id_estados ";
+>>>>>>> 6daa1591c0b2038bb3702585f30fc30a3f03efad
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
