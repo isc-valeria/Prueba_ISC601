@@ -1,0 +1,412 @@
+<?php
+
+
+
+?>
+<body>
+<div id="main">
+    <div id="panel1" class="row col pad">
+        <div class="col s12 m10 offset-m1">
+            <div class="card-panel">
+                <h4 class="left"><a class="icon-cloud black-text"></a></h4>
+                <h4 align="center">Almacen</h4>
+                <div class="divider"></div>
+                <div class="padding-divider"></div>
+                <div class="row">
+                    <!--********************************-->
+                    <form class="col s12 right-alert">
+
+                        <!--********************************-->
+                        <section id="content3">
+                            <div class="fixed-action-btn" style="bottom:65%; right: 15px;">
+                                <a class="btn-floating blue-grey btn-large modal-trigger" href="#modal_registro_salida" ><i class="icon-redo2"></i></a>
+                            </div>
+                        </section>
+                        <section id="content4">
+                            <div class="fixed-action-btn" style="bottom:75%; right: 15px;">
+                                <a class="btn-floating blue-grey btn-large modal-trigger" href="#modal_registro_entrada" ><i class="icon-undo2"></i></a>
+                            </div>
+                        </section>
+
+                        <!-- Modal registro entrada -->
+                        <div id="modal_registro_entrada" class="modal center-align ">
+                            <div class="modal-content">
+                                <div class="card-panel teal #00b8d4"><h4 align="center">Registro Entrada</h4></div>
+                                <div class="row">
+                                    <form class="col s12 ">
+                                        <div class="row">
+                                            <div class="input-field col s3">
+                                                <i class="mdi-action-verified-user prefix icon-barcode"></i>
+                                                <input id="Folio1" type="text" class="validate">
+                                                <label for="Folio1"  data-error="incorrecto" data-success="Correcto">Folio</label>
+                                            </div>
+                                            <div class="input-field col s8">
+                                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                                <input id="Nombre del producto1" type="text" class="validate">
+                                                <label for="Nombre del producto1"  data-error="incorrecto" data-success="Correcto">Nombre del Producto</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row ">
+                                            <div class="col 12 offset-13">
+                                                <label>Fecha entrada</label>
+                                                <input type="text" class="datepicker">
+                                                <script type="text/javascript">
+                                                    $(document).ready(function(){
+                                                        $('.datepicker').datepicker();
+                                                    });
+                                                </script>
+                                            </div>
+
+                                            <div class="disabled input-field col s4 text ">
+                                                <i class="mdi-action-verified-user prefix icon-undo"></i>
+                                                <input id="cantidad_llegada" type="number" class="validate" >
+                                                <label for="cantidad_llegada"  data-error="Incorrecto" data-success="Correcto" >Cantidad de llegada</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+                                                </button>
+                                            </div>
+                                            <div class="input-field col s3">
+                                                <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal registro salida -->
+                        <div id="modal_registro_salida" class="modal">
+                            <div class="modal-content">
+                                <div class="card-panel teal #00b8d4"><h4 align="center">Registro Salida</h4></div>
+                                <div class="row">
+                                    <form class="col s12 ">
+                                        <div class="row">
+                                            <div class="input-field col s3">
+                                                <i class="mdi-action-verified-user prefix icon-barcode"></i>
+                                                <input id="Folio2" type="text" class="validate">
+                                                <label for="Folio2"  data-error="incorrecto" data-success="Correcto">Folio</label>
+
+
+                                            </div>
+                                            <div class="input-field col s8">
+                                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                                <input id="Nombre del producto2" type="text" class="validate">
+                                                <label for="Nombre del producto2"  data-error="incorrecto" data-success="Correcto">Nombre del Producto</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row ">
+
+                                            <div class="col 13 offset-13">
+                                                <label>Fecha salida</label>
+                                                <input type="text" class="datepicker">
+                                                <script type="text/javascript">
+                                                    $(document).ready(function(){
+                                                        $('.datepicker').datepicker();
+                                                    });
+                                                </script>
+                                            </div>
+
+
+                                            <div class="disabled input-field col s4 text ">
+                                                <i class="mdi-action-verified-user prefix icon-redo"></i>
+                                                <input id="cantidad_salida" type="number" class="validate" >
+                                                <label for="cantidad_salida"  data-error="Incorrecto" data-success="Correcto" >Cantidad de Salida</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+
+                                                </button>
+                                            </div>
+                                            <div class="input-field col s3">
+                                                <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--********************************-->
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                <input id="Folio" type="text" class="validate">
+                                <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
+                            </div>
+                        </div>
+                        <!--********************************-->
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                <input id="Nombre del producto" type="text" class="validate">
+                                <label for="Nombre del producto"  data-error="incorrecto" data-success="Correcto">Nombre del Producto</label>
+                            </div>
+                        </div>
+
+                        <!--***************modal categoria del producto*****************-->
+                        <div id="modal_categoria_producto" class="modal">
+                            <div class="modal-content">
+                                <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+                                <div class="row">
+                                    <form class="col s12 ">
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                                <input id="categoria_producto" type="text" class="validate">
+                                                <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+
+                                                </button>
+                                            </div>
+                                            <div class="input-field col s3">
+                                                <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--*******************fin modal tipo habitacion*************-->
+
+
+                        <!--***************modal tipo de producto*****************-->
+                        <div id="modal_tipo_producto" class="modal">
+                            <div class="modal-content">
+                                <div class="card-panel teal #00b8d4"><h4 align="center">Tipo de Productos</h4></div>
+                                <div class="row">
+                                    <form class="col s12 pad">
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                                                <input id="descripcion_producto" type="text" class="validate">
+                                                <label for="descripcion_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Producto</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+
+                                                </button>
+                                            </div>
+                                            <div class="input-field col s3">
+                                                <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--*******************fin modal tipo habitacion*************-->
+
+
+
+                        <!--*******************seleccionar opcion*************-->
+                        <div class="row">
+                            <div class="input-field col s1">
+                                <a class="btn-floating disabled"><i class="icon-command #000000 black"></i></a>
+                            </div>
+
+                            <div class="input-field col s4 ">
+                                <select id="Categoria" type="text" class="validate">
+                                    <option value="" disabled selected>Selecciona categoria</option>
+                                    <option value="1">Electrodomesticos</option>
+                                    <option value="2">Limpieza</option>
+                                    <option value="3">Textiles</option>
+                                </select>
+                                <label for="Categoria" data-error="incorrecto" data-success="Correcto" >Categoria</label>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        $('select').formSelect();
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <a class="btn-floating disabled"><i class="icon-command #000000 black"></i></a>
+                            </div>
+
+                            <div class="input-field col s4 ">
+                                <select id="tipoproducto" type="text" class="validate">
+                                    <option value="" disabled selected>Selecciona Tipo de producto </option>
+                                    <option value="1">Consumible</option>
+                                    <option value="2">Perecedero</option>
+                                </select>
+                                <label for="tipoproducto" data-error="incorrecto" data-success="Correcto"> Tipo de producto</label>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        $('select').formSelect();
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_tipo_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <!--******************Estado habitacion**************-->
+
+                        <div class="row">
+
+                        </div>
+
+                        <!--**************************existencias************************************************-->
+
+                        <div class="row">
+                            <div class="input-field input-field col s4 text">
+                                <i class="mdi-action-verified-user prefix icon-stats-dots"></i>
+                                <input id="Existencias" type="number" class="validate" >
+                                <label for="Existencias"  data-error="Incorrecto" data-success="Correcto" >Existencias</label>
+                            </div>
+
+                            <div class="input-field input-field col s4 text">
+                                <i class="mdi-action-verified-user prefix icon-stats-dots"></i>
+                                <input id="Stockmaximo" type="number" class="validate" >
+                                <label for="Stockmaximo"  data-error="Incorrecto" data-success="Correcto" >Stock Maximo</label>
+                            </div>
+
+                            <div class="input-field input-field col s4 text">
+                                <i class="mdi-action-verified-user prefix icon-stats-dots"></i>
+                                <input id="Stockminimo" type="number" class="validate" >
+                                <label for="Stockminimo"  data-error="Incorrecto" data-success="Correcto" >Stock Minimo</label>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <!--********************************-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light right #0097a7 cyan darken-2 modal-trigger"  href="#modal_registro" type="submit" name="action">Registrar</button>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal registro -->
+                        <div id="modal_registro" class="modal">
+                            <div class="modal-content">
+                                <h5>Se Registro Exitosamente</h5>
+                                <hr />
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--********************************-->
+    <div id="paneltablas" class="row col ">
+        <div class="col s12 m10 offset-m1">
+            <div class="card-panel">
+                <h4 align="center">Productos en Almacen</h4>
+                <div class="divider"></div>
+
+                <div class="row">
+                    <div class="input-field col s4 offset-s8">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar" type="text">
+                    </div>
+                </div>
+
+
+                <!-- Modal eliminar -->
+                <div id="modal_eliminar" class="modal">
+                    <div class="modal-content">
+                        <h5>¿Desea Eliminar el Registro?</h5>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                    </div>
+                </div>
+                <!-- Modal editar -->
+                <div id="modal_editar" class="modal">
+                    <div class="modal-content">
+                        <h5>¿Desea editar el Registro?</h5>
+                        <hr />
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                    </div>
+                </div>
+                <!--*********************final modal eliminar***********-->
+                <table class="centered">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
+                        <th>Existencias</th>
+                        <th>Stock_maximo</th>
+                        <th>Stock_minimo</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <?php
+                    while($row=mysqli_fetch_array($datos))
+                    echo "<tr><td>{$row[0]}</td><td>{$row['nombre_pro']}</td><td>{$row['descripcion_cat']}</td>
+                    <td>{$row['descripcion_pro']}</td><td>{$row['existencias']}</td><td>{$row['stock_min']}</td>
+                    <td>{$row['stock_max']}</td><td><a class=\"btn-flat modal-trigger icon-cross red-text\" href=\"#modal_eliminar\"></a></td>
+                    <td><a class=\"btn-flat modal-trigger  icon-pencil blue-text\" href=\"#modal_editar\"></a></td></tr>";
+                    ?>
+                    </tbody>
+                </table>
+                <!--********************************-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
