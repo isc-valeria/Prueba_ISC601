@@ -23,4 +23,9 @@ Bernardino octavio
 $git reset
 $git checkout
 
+
 commit Jazmin
+
+
+maricela
+
