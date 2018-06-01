@@ -25,11 +25,11 @@ class serviciosController
 
     public function crear()
     {
-        $this->habitaciones->set('descripcion_ser',$_POST["numero_habitacion"]);
-        $this->habitaciones->set('hora_inicio',$_POST["descripcion"]);
-        $this->habitaciones->set('hora_fin',$_POST["id_tipoh"]);
-        $this->habitaciones->add();
-        $datos=$this->habitaciones->getAll();
+        $this->servicios->set('descripcion_ser',$_POST["descripcion"]);
+        $this->servicios->set('hora_inicio',$_POST["horaini"]);
+        $this->servicios->set('hora_fin',$_POST["horafin"]);
+        $this->servicios->add();
+        $datos=$this->servicios->getAll();
         return $datos;
     }
 
