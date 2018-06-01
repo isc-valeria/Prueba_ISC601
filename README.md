@@ -14,3 +14,6 @@ commit proyecto
 Yareli
 
 Juan Carlos Palma Cruz Blanca
+
+
+Bernardino octavio
