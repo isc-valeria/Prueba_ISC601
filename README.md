@@ -17,3 +17,6 @@ Juan Carlos Palma Cruz Blanca
 
 
 Bernardino octavio
+
+$git reset
+$git checkout
