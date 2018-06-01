@@ -18,7 +18,7 @@ commit proyecto
 
 -----F R Y------
 
-=======
+
 Yareli
 
 Juan Carlos Palma Cruz Blanca
@@ -79,6 +79,14 @@ Miquiztli
 Jabneel 
 
 Diego °-°
+
  
  miriam
+
+
+Rodrigo Juan =)
+
+
+
+
 
