@@ -28,9 +28,6 @@ commit Jazmin
 
 
 maricela
-<<<<<<< HEAD
-
-
 
 hola -val
 
@@ -38,3 +35,6 @@ hola -val
 Jose Luis..
 
 Jaciel****
+
+
+Jesus Emerith
