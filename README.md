@@ -40,6 +40,9 @@ hola -val
 
 Jose Luis..
 
+<<<<<<< HEAD
+Alexander Orozco
+
 Jaciel****
 
 
@@ -51,4 +54,7 @@ Sullivan
 
 Miquiztli
 
-rodrigo isaac <<<
+rodrigo isaac 
+
+
+Miquiztli
