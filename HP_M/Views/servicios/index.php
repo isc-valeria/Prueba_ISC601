@@ -16,7 +16,7 @@
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion" type="text" class="validate">
+                            <input id="descripcion" type="text" class="validate" name="descripcion">
                             <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
                         </div>
                     </div>
@@ -26,21 +26,19 @@
                         </div>
                         <div class="input-field col s5">
                             <label><i class="icon-clock"></i>Hora Inicio</label>
-                            <input type="text" class="timepicker">
+                            <input type="text" class="timepicker" name="horaini">
                         </div>
                         <div class="input-field col s1"></div>
                         <div class="input-field col s5">
                             <label><i class="icon-clock"></i>Hora de Fin</label>
-                            <input type="text" class="timepicker">
+                            <input type="text" class="timepicker" name="horafin">
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_servicios_ok" class="btn modal-close">Registrar</a>
                         </div>
-                        <div class="input-field col s12">
-                            <a href="#!" id="update_servicios_ok" class="btn modal-close " data-id="">Actualizar</a>
-                        </div>
+
                     </div>
                 </div>
             </form>
@@ -52,6 +50,7 @@
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
+
     <div class="row">
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
@@ -94,12 +93,18 @@
         $(".modal").modal();
         $(".datepicker").pickadate();
         $(".timepicker").pickatime();
+
         $("#add_servicios").click(function () {
             $("#update_servicios_ok").hide();
             $("#save_servicios_ok").show();
         });
         $("#save_servicios_ok").click(function () {
+<<<<<<< HEAD
             //console.log($("#save_servicios").serialize());
+=======
+            //console.log("ok")
+            //console.log($("#save_servcios_ok").serialize());
+>>>>>>> 8d12754b81bbf4a75e481b9cb383ec32ec90a44e
             $.post("<?php echo URL?>servicios/crear"),$("#save_servicios").serialize(),function (res) {
                 $("#body_table").empty().append(res);
                 $('#save_servicios').find('input, select, textarea').val('');

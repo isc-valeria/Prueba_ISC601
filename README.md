@@ -8,6 +8,12 @@ commit sullivan
 commit proyecto
 
 <<<<<------HARLOCK------>>>>>
+ __^__                                      __^__
+( ___ )------------------------------------( ___ )
+ | / |                                      | \ |
+ | / |                CRIS                  | \ |
+ |___|                                      |___|
+(_____)------------------------------------(_____) 
 
 -----F R Y------
 
@@ -16,5 +22,39 @@ Yareli
 
 Juan Carlos Palma Cruz Blanca
 
+Luis Hernandez
 
 Bernardino octavio
+
+$git reset
+$git checkout
+
+
+commit Jazmin
+
+
+maricela
+
+hola -val
+
+
+Jose Luis..
+
+Jaciel
+Alexander Orozco
+Jaciel****
+
+
+--christian--
+Jesus Emerith
+
+Sullivan 
+
+
+Jabneel 
+
+Miquiztli
+Miquiztli
+
+Jabneel 
+
