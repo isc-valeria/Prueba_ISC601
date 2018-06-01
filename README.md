@@ -27,3 +27,11 @@ commit Jazmin
 
 
 maricela
+<<<<<<< HEAD
+
+
+
+hola -val
+
+
+Jose Luis..
