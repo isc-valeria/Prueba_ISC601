@@ -86,7 +86,7 @@ insert into Tipos_prendas values (132, 22, 122,3,12, 25);
 
 insert into Tipos_tela values (20, 'Mezclilla');
 
-insert into Tipos_tela values (21, 'Algodón');
+insert into Tipos_tela values (21, 'Algodï¿½n');
 
 insert into Tipos_tela values (22, 'Franela');
 
@@ -105,7 +105,8 @@ insert into Tratamientos values (122, 'Tintoreria', 42);
 
 
 
-
+
+
 
 
 insert into Estados_prendas values (30, 'Buen Estado');
@@ -195,11 +196,11 @@ insert into Estado_servicios values (81, 'Ocupado');
 
 
 
-insert into Clientes values (90, 'Jazmin', 'Estaislao', 'Martínez', '7221542915', 1005);
+insert into Clientes values (90, 'Jazmin', 'Estaislao', 'Martï¿½nez', '7221542915', 1005);
 
-insert into Clientes values (91, 'Jesús', 'Ramirez', 'Ocampo', '7221566615', 1006);
+insert into Clientes values (91, 'Jesï¿½s', 'Ramirez', 'Ocampo', '7221566615', 1006);
 
-insert into Clientes values (92, 'Valeria', 'Rodriguez', 'Sánchez', '7221556785', 1007);
+insert into Clientes values (92, 'Valeria', 'Rodriguez', 'Sï¿½nchez', '7221556785', 1007);
 
 
 
@@ -233,7 +234,8 @@ insert into Asigna_reservaciones values (191, 151, 181);
 insert into Asigna_reservaciones values (192, 152, 182);
 
 
-
+
+
 
 insert into Categorias_producto values (100, 'Higiene Personal');
 
@@ -362,7 +364,7 @@ insert into Asigna_turno values(332, 303, 321);
 
 
 
-insert into  Equipo_seguridad values(370, 'Cámaras', 380);
+insert into  Equipo_seguridad values(370, 'Cï¿½maras', 380);
 
 insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381);
 
