@@ -105,7 +105,8 @@
     <table class="responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
+
+            <th>Id </th>
             <th>Nombre</th>
             <th>Categoria</th>
             <th>Tipo </th>
@@ -117,7 +118,6 @@
 
         </tr>
         </thead>
-
         <tbody id="body_table">
         <?php
         require_once ("tabla.php");
@@ -139,3 +139,67 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').material_select();
+        $(".modal").modal();
+        $("#add_producto").click(function(){
+            $("#update_productos_ok_ok").hide();
+            $("#save_productos_ok_ok").show();
+        });
+        $("#save_productos_ok_ok").click(function(){
+            //console.log("ok")
+            //console.log($("#save_habitacion").serialize());
+            $.post("<?php echo URL?>clientes/crear",$("#save_productos").serialize(),function(res){
+                $("#body_table").empty().append(res);
+                $('#save_productos').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+            })
+        });
+        $("#body_table").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>productos/eliminar/'+id;
+            $("#eliminar_ok").attr("url",url);
+            $("#modal_eliminar").modal("open");
+        });
+        $("#eliminar_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+        $("#body_table").on("click","a.btn_modificar",function(){
+            $("#save_productos_ok_ok").hide();
+            $("#update_productos_ok_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>productos/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_productos_ok").data("id",datos["id_prducto"]);
+                $("#nombre_pro").val(datos["nombre_pro"]);
+                $("#id_categoriapro").val(datos["id_categoriapro"]);
+                $("#id_tipopro").val(datos["id_tipopro"]);
+                $("#existencias").val(datos["existencias"]);
+                $("#stock_min").val(datos["stock_min"]);
+                $("#stock_max").val(datos["stock_max"]);
+                Materialize.updateTextFields();
+                //$('select').material_select();
+                $("#modal_registro").modal("open");
+            });
+        });
+        $("#update_productos_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>productos/actualizar/"+id,$("#save_productos").serialize(),function(res){
+                $('#save_productos').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+    });
+</script>
