@@ -24,7 +24,7 @@
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="id_puesto" type="text" class="validate" name="id_puesto">
+                            <select id="descripcion_puesto" type="text" class="validate" name="descripcion_puesto">
                                 <option value="" disabled selected>Selecciona Puesto</option>
                                 <?php
                                 $result3=$datos[1];
@@ -32,15 +32,15 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_puesto" data-error="incorrecto" data-success="Correcto" >Tipo de Puestos</label>
+                            <label for="descripcion_puesto" data-error="incorrecto" data-success="Correcto" >Tipo de Puestos</label>
                         </div>
 
                         <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_Puesto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
+                            <select id="" type="text" class="validate" name="nomestadohabitacion">
                                 <option value="" disabled selected>Selecciona turno</option>
                                 <?php
                                 $result2=$datos[3];
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_estado_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_turnos" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
@@ -120,9 +120,9 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-<div id="modal_estado_habitacion" class="modal center-align ">
+<div id="modal_turnos" class="modal center-align ">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Estado de la Habitación</h4></div>
+        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Turnos</h4></div>
 
 
         <div class="row">
@@ -131,7 +131,7 @@
                     <div class="input-field input-field col s10">
                         <i class="mdi-action-verified-user prefix icon-circleci"></i>
                         <input id="descripcion_estado" type="number" class="validate center" >
-                        <label for="descripcion_estado"  data-error="Incorrecto" data-success="Correcto">Descripción</label>
+                        <label for="descripcion_estado"  data-error="Incorrecto" data-success="Correcto">Turnos</label>
                     </div>
                 </div>
                 <div class="row">
@@ -152,9 +152,9 @@
 </div>
 
 
-<div id="modal_tipo_habitacion" class="modal center-align ">
+<div id="modal_tipo_Puesto" class="modal center-align ">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Habitación</h4></div>
+        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Puesto</h4></div>
 
         <div class="row">
             <form class="col s12 " autocomplete="off">
@@ -162,14 +162,7 @@
                     <div class="input-field col s10">
                         <i class="mdi-action-verified-user prefix icon-pencil"></i>
                         <input id="nonmbretipohabitacion" type="text" class="validate center">
-                        <label for="nonmbretipohabitacion"  data-error="incorrecto" data-success="Correcto">Tipo de Habitación</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field input-field col s10 text">
-                        <i class="mdi-action-verified-user prefix icon-coin-dollar"></i>
-                        <input id="precio" type="number" class="validate center" >
-                        <label for="precio"  data-error="Incorrecto" data-success="Correcto" >Precio</label>
+                        <label for="nonmbretipohabitacion"  data-error="incorrecto" data-success="Correcto">Descripcion del Puesto</label>
                     </div>
                 </div>
                 <div class="row">
@@ -231,13 +224,13 @@
                 $("#nombre_emp").val(datos["nombre_emp"]);
                 $("#ap_emp").val(datos["ap_emp"]);
                 $("#am_emp").val(datos["am_emp"]);
-                $("#id_puesto").val(datos["id_puesto"]);
+                $("#descripcion_puesto").val(datos["descripcion_puesto"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
-        $("#update_habitaciones_ok").click(function(){
+        $("#update_empleados_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>empleados/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
                 $('#save_habitacion').find('input, select, textarea').val('');

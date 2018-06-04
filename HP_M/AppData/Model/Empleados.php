@@ -16,7 +16,7 @@ class Empleados
     private $nombre_emp;
     private $ap_emp;
     private $am_emp;
-    private $id_puesto;
+    private $descripcion_puesto;
 
     function __construct()
     {
@@ -34,20 +34,31 @@ class Empleados
     }
 
     function add(){
+<<<<<<< HEAD
+        $sql="insert into empleados VALUES ('0','{$this->nombre_emp}','{$this->ap_emp}','{$this->am_emp}',{$this->descripcion_puesto})";
+        $this->conexion->QuerySimple($sql);
+    }
+
+    function delete($id)
+=======
         $sql="insert into empleados VALUES ('0','{$this->nombre_emp}','{$this->ap_emp}','{this->}am_emp}',{$this->descripcion_puesto})";
         $this->conexion->QuerySimple($sql);
 
 
     }
     function delete()
+>>>>>>> 43baeca22f88abacfdb99e95508f321eb35899f7
     {
         $sql="delete from {$this->tabla} where id_empleado='{$id}'";
         $this->conexion->QuerySimple($sql);
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 43baeca22f88abacfdb99e95508f321eb35899f7
     function getAll(){
-        $sql="SELECT empleados.id_empleado, empleados.nombre_emp, empleados.ap_emp, empleados.am_emp, puestos.id_puesto, turnos.hr_entrada, turnos.hr_salida FROM empleados,asigna_turno, puestos, turnos WHERE empleados.id_puesto=puestos.id_puesto AND empleados.id_empleado=asigna_turno.id_empleado AND turnos.id_turno=asigna_turno.id_turno ";
+        $sql="SELECT empleados.id_empleado, empleados.nombre_emp, empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto FROM empleados,puestos WHERE empleados.id_puesto=puestos.id_puesto ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
