@@ -15,13 +15,13 @@
                     <div class="input-field col s1">
                     </div>
                     <div class="row">
-                        <div class="input-field col l4">
+                       <!-- <div class="input-field col l4">
                             <select id="numerotipohabitacion" type="text" class="validate">
                                 <option value="" disabled selected>Selecciona la habitación</option>
 
                             </select>
                             <label for="numerotipohabitacion" data-error="incorrecto" data-success="Correcto" >Número de Habitación</label>
-                        </div>
+                        </div>  -->
 
                         <div class="input-field col s1">
                         </div>
@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="input-field col l3 offset-l3 ">
                                 <label>Fecha de recepción</label>
-                                <input id="fecha_repcep" type="text" class="datepicker">
+                                <input id="fecha_recep" type="text" class="datepicker">
                             </div>
 
                             <div class="input-field col s1">
@@ -55,9 +55,11 @@
                                     <select id="tiporopa" type="text" class="validate">
 
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">Chamarra</option>
-                                        <option value="2">Pantalón</option>
-                                        <option value="3">Camisa</option>
+                                        <?php
+                                        $result1=$datos[2];
+                                        while ($row=mysqli_fetch_array($result1))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="tiporopa" data-error="incorrecto" data-success="Correcto" >Tipo de Ropa </label>
                                 </div>
@@ -73,8 +75,11 @@
                                 <div class="input-field col l2 ">
                                     <select id="estadoprenda" type="text" class="validate">
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">Mal estado</option>
-                                        <option value="2">Buen estado</option>
+                                        <?php
+                                        $result2=$datos[3];
+                                        while ($row=mysqli_fetch_array($result2))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="estadoprenda" data-error="incorrecto" data-success="Correcto"> Estado de la Prenda</label>
                                 </div>
@@ -90,9 +95,11 @@
                                 <div class="input-field col l2 ">
                                     <select id="tipotela" type="text" class="validate">
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">Textil</option>
-                                        <option value="2">Poliester</option>
-                                        <option value="3">Seda</option>
+                                        <?php
+                                        $result3=$datos[4];
+                                        while ($row=mysqli_fetch_array($result3))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="opciontipotela" data-error="incorrecto" data-success="Correcto"> Tipo de Tela</label>
                                 </div>
@@ -107,9 +114,11 @@
                                 <div class="input-field col l2 offset-l1">
                                     <select id="color" type="text" class="validate">
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">verde</option>
-                                        <option value="2">azul</option>
-                                        <option value="3">blanca</option>
+                                        <?php
+                                        $result4=$datos[5];
+                                        while ($row=mysqli_fetch_array($result4))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="color" data-error="incorrecto" data-success="Correcto"> Color de la prenda</label>
                                 </div>
@@ -125,9 +134,11 @@
                                 <div class="input-field col l2 ">
                                     <select id="tratamiento" type="text" class="validate">
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">Lavado</option>
-                                        <option value="2">Planchado</option>
-                                        <option value="3">Secado</option>
+                                        <?php
+                                        $result5=$datos[6];
+                                        while ($row=mysqli_fetch_array($result5))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="tratamiento" data-error="incorrecto" data-success="Correcto"> Tratamiento</label>
                                 </div>
@@ -143,9 +154,11 @@
                                 <div class="input-field col l2 ">
                                     <select id="precio" type="text" class="validate">
                                         <option value="" disabled selected>Selecciona</option>
-                                        <option value="1">200</option>
-                                        <option value="2">300</option>
-                                        <option value="3">400</option>
+                                        <?php
+                                        $result6=$datos[7];
+                                        while ($row=mysqli_fetch_array($result6))
+                                            echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                        ?>
                                     </select>
                                     <label for="precio" data-error="incorrecto" data-success="Correcto"> Precio</label>
                                 </div>
@@ -156,7 +169,7 @@
                         </div>
                         <div class="modal-fixed-footer center">
                             <div class="input-field col s12">
-                                <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                                <a href="#!" id="save_lavanderia_ok" class="btn modal-close">Registrar</a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +184,7 @@
     <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_prenda">
             <i class="material-icons">add</i>
             </a></span></h4>
-        <form action="" id="save_Lavanderia" enctype="multipart/form-data" autocomplete="off">
+        <form action="" id="save_lava" enctype="multipart/form-data" autocomplete="off">
         <h4 align="center">Prendas registradas</h4>
         <div class="divider"></div>
         <code class=" language-markup"><!--********************************--></code>
@@ -186,10 +199,11 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Número habitación</th>
+                        <!--<th>Número habitación</th> -->
                         <th>Fecha recepción</th>
                         <th>Fecha entrega</th>
                         <th>Estado prenda</th>
+
                         <th>Tela</th>
                         <th>Color</th>
                         <th>Tratamiento</th>
@@ -222,6 +236,18 @@
             $("#update_Lavanderia_ok").hide();
             $("#save_Lavanderia_ok").show();
         });
+    });
+
+    $("#save_lavanderia_ok").click(function(){
+        //console.log("ok")
+        //console.log($("#save_habitacion").serialize());
+        $.post("<?php echo URL?>registro_prendas/crear",$("#save_Lavanderia").serialize(),function(res){
+            $("#body_table").empty().append(res);
+            $('#save_Lavanderia').find('input, select, textarea').val('');
+            Materialize.updateTextFields();
+            //$("#modal_registro").modal("close");
+            Materialize.toast('Se ha insertado correctamente', 2500);
+        })
     });
 </script>
 
