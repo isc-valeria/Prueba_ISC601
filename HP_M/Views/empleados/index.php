@@ -8,27 +8,27 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s3.5">
-                            <input id="nombre_emp" type="text" class="validate" name="numero_habitacion">
+                            <input id="nombre_emp" type="text" class="validate" name="nombre_emp">
                             <label for="nombre_emp"  data-error="Incorrecto" data-success="Correcto" >Nombre del Empleado</label>
                         </div>
                         <div class="input-field col s3.5">
-                            <input id="ap_emp" type="text" class="validate" name="descripcion">
+                            <input id="ap_emp" type="text" class="validate" name="ap_emp">
                             <label for="ap_emp"  data-error="incorrecto" data-success="Correcto">Apellido Paterno</label>
                         </div>
 
                         <div class="input-field col s3.5">
-                            <input id="am_emp" type="text" class="validate" name="descripcion">
+                            <input id="am_emp" type="text" class="validate" name="am_emp">
                             <label for="am_emp"  data-error="incorrecto" data-success="Correcto">Apellido Materno</label>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="descripcion_puesto" type="text" class="validate" name="descripcion_puesto">
+                            <select id="descripcion_puesto" type="text" class="validate" name="id_puesto">
                                 <option value="" disabled selected>Selecciona Puesto</option>
                                 <?php
-                                $result3=$datos[1];
-                                while ($row=mysqli_fetch_array($result3))
+                                $result2=$datos[1];
+                                while ($row=mysqli_fetch_array($result2))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
@@ -224,7 +224,7 @@
                 $("#nombre_emp").val(datos["nombre_emp"]);
                 $("#ap_emp").val(datos["ap_emp"]);
                 $("#am_emp").val(datos["am_emp"]);
-                $("#descripcion_puesto").val(datos["descripcion_puesto"]);
+                $("#id_puesto").val(datos["id_puesto"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");

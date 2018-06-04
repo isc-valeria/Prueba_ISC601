@@ -35,7 +35,8 @@ class Habitaciones
 
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_hab}','{$this->id_tipoh}','{$this->id_estadoh}')";
+        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}',
+         '{$this->descripcion_hab}','{$this->id_tipoh}','{$this->id_estadoh}')";
         $this->conexion->QuerySimple($sql);
     }
 
@@ -43,7 +44,8 @@ class Habitaciones
     {
         $sql="SELECT habitaciones.id_habitacion, habitaciones.num_habitacion, habitaciones.descripcion_hab, tipos_habitacion.tipo_ha, estado_habitacion.estado_ha 
         FROM habitaciones,tipos_habitacion,estado_habitacion 
-        WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh AND habitaciones.id_estadoh=estado_habitacion.id_estadoh ORDER BY id_habitacion ASC ";
+        WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh 
+        AND habitaciones.id_estadoh=estado_habitacion.id_estadoh ORDER BY id_habitacion ASC ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
