@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Colores
 {
+    private  $tabla="Colores";
     private $id_color;
     private $descripcion_color;
 
@@ -22,17 +23,26 @@ class Colores
     }
 
     function add(){
-
-    }
-    function get(){
-        $sql="select*from Colores";
+        $sql="insert into Colores VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-    function update(){
+    function getAll(){
+        $sql="select * from Colores";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
+    }
 
+
+
+    function update(){
+        $sql="update Colores set descripcion_color='variable' where id_color='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
     function delete(){
-
+        $sql="delete from Colores WHERE id_color='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
 }

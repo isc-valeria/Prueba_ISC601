@@ -36,7 +36,6 @@ class habitacionesController
             $datos[0]=$datos1;
             return $datos;
         }
-
     }
 
     public function eliminar($id)

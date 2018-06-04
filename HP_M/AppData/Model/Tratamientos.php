@@ -11,29 +11,59 @@ namespace AppData\Model;
 
 class Tratamientos
 {
+    private $tabla="Tratamientos";
     private $id_tratamiento;
     private $descripcion_trata;
     private $id_precio;
 
-    private $conexion;
+
 
     function __construct()
     {
         $this->conexion=new conexion();
     }
 
-    function add(){
-
+    public function set($atributo,$valor)
+    {
+        $this->$atributo=$valor;
     }
-    function get(){
-        $sql="select*from Tratamientos";
-        $datos=$this->conexion->queryResultado($sql);
+
+    public function get($atributo)
+    {
+        return $this->$atributo;
+    }
+
+    function add()
+    {
+        $sql="insert into {$this->tabla} values('0','{$this->descripcion_trata}','{$this->id_precio}'";
+        $this->conexion->QuerySimple($sql);
+    }
+
+    function getAll()
+    {
+        $sql="SELECT Tratamientos.id_tratamiento, Tratamientos.descripcion_trata, Precios.id_precio 
+        FROM Tratamientos,Precios
+        WHERE Tratamientos.id_precio=Precios.id_precio  ORDER BY id_tratamiento ASC ";
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-    function update(){
 
+    function delete($id)
+    {
+        $sql="delete from {$this->tabla} where id_tratamiento='{$id}'";
+        $this->conexion->QuerySimple($sql);
     }
-    function delete(){
 
+    function getOne($id)
+    {
+        $sql="select * from  {$this->tabla} where id_tratamiento='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+    function update(){
+        $sql="update Tratamientos set descripcion_trata='{$this->descripcion_trata}',
+               id_precio='{$this->id_precios}'  where id_tratamiento='{$this->id_tratamiento}'";
+        $this->conexion->QuerySimple($sql);
     }
 }
