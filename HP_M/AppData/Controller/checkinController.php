@@ -12,7 +12,7 @@ namespace AppData\Controller;
 class checkinController
 {
     private $check_in;
-    //private $clientes;
+    private $reservaciones;
 
     public function __construct()
     {

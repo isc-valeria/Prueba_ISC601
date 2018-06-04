@@ -16,6 +16,8 @@ class reservacionesController
     private $tipos_habitacion;
     private $habitaciones;
 
+
+
     public function __construct()
     {
         $this->reservaciones= new \AppData\Model\Reservaciones();
@@ -46,6 +48,21 @@ class reservacionesController
             $this->habitaciones->add();
             $datos1=$this->habitaciones->getAll();
             $datos[0]=$datos1;
+            return $datos;
+        }
+
+    }
+
+    public function crearcli(){
+        if($_POST)
+        {
+            $this->clientes->set('nombre_cli',$_POST["nombre_cli"]);
+            $this->clientes->set('ap_cli',$_POST["ap_cli"]);
+            $this->clientes->set('am_cli',$_POST["am_cli"]);
+            $this->clientes->set('telefono',$_POST["telefono"]);
+            $this->clientes->set('clave_cli',$_POST["clave_cli"]);
+            $this->clientes->add();
+            $datos=$this->clientes->getAll();
             return $datos;
         }
 
