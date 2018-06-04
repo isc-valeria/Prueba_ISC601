@@ -37,7 +37,7 @@ class Empleados
 
     }
     function getAll(){
-        $sql="SELECT empleados.id_empleado, empleados.nombre_emp, empleados.Ap_emp, empleados.Am_emp, puestos.descripcion_puesto, turnos.hr_entrada, turnos.hr_salida FROM empleados,asigna_turno, puestos, turnos WHERE empleados.id_puesto=puestos.id_puesto AND empleados.id_empleado=asigna_turno.id_empleado AND turnos.id_turno=asigna_turno.id_turno ";
+        $sql="SELECT empleados.id_empleado, empleados.nombre_emp, empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto FROM empleados,puestos WHERE empleados.id_puesto=puestos.id_puesto ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
