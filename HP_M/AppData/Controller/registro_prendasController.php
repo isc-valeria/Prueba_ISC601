@@ -59,19 +59,18 @@ class registro_prendasController
     }
 
     public function crear(){
-        if($_POST)
+      //  echo "fsdfsdf";
+        if(isset($_POST))
         {
+           // echo "asdasdadasdasd";
             $this->registro_prendas->set('fecha_entrega',$_POST["fecha_entre"]);
             $this->registro_prendas->set('fecha_recepcion',$_POST["fecha_recep"]);
-            $this->registro_prendas->set('id_tipopren',$_POST["tiporopa"]);
+            $this->registro_prendas->set('id_tipopren',$_POST["tipotela"]);
             $this->registro_prendas->set('id_estadop',$_POST["estadoprenda"]);
 
 
             $this->registro_prendas->add();
-
-
             $datos1=$this->registro_prendas->getAll();
-
 
             $datos[1]=$datos1;
 

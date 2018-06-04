@@ -5,7 +5,10 @@
  * Date: 02/06/2018
  * Time: 09:21 PM
  */
+
+
 $datos=$datos[1];
+
 while($row=mysqli_fetch_array($datos))
     echo "
 <tr>
