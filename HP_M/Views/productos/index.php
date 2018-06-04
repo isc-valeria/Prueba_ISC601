@@ -21,8 +21,15 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="id_categoriapro" type="text" class="validate" name="id_categoriapro">
-                            <label for="id_categoriapro" data-error="incorrecto" data-success="Correcto" >Categoria</label>
+                            <select id="cat" type="text" class="validate" name="id_categoriapro">
+                                <option value="" disabled selected>Selecciona Categoria del producto</option>
+                                <?php
+                                $result22=$datoscatp[1];
+                                while ($row=mysqli_fetch_array($result22))
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                ?>
+                            </select>
+                            <label for="cat" data-error="incorrecto" data-success="Correcto" >Categoria producto</label>
                         </div>
 
                     </div>
@@ -34,9 +41,15 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="id_tipopro" type="text" class="validate" name="id_tipopro">
-                            <label for="id_tipopro" data-error="incorrecto" data-success="Correcto">Tipo</label>
-
+                            <select id="cat" type="text" class="validate" name="id_tipopro">
+                                <option value="" disabled selected>Selecciona Tipo de producto</option>
+                                <?php
+                                $result23=$datostipp[1];
+                                while ($row=mysqli_fetch_array($result23))
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                ?>
+                            </select>
+                            <label for="cat" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
                         </div>
 
 
@@ -128,7 +141,6 @@
 
 
 
-
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -139,6 +151,9 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function(){

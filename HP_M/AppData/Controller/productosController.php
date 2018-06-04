@@ -27,5 +27,26 @@ class productosController
         $datos=$this->productos->getAll();
         return $datos;
     }
+    public function crear(){
+        if($_POST)
+        {
+            $this->productos->set('nombre_pro',$_POST["nombre_producto"]);
+            $this->productos->set('descripcion_cat',$_POST["descripcion_categoria"]);
+            $this->productos->set('id_tipoh',$_POST["id_tipoh"]);
+            $this->productos->set('id_estadoh',$_POST["nomestadohabitacion"]);
+            $this->productos->add();
+            $datos1=$this->productos->getAll();
+            $datos[0]=$datos1;
+            return $datos;
+        }
+
+    }
+
+    public function eliminar($id)
+    {
+        $this->productos->delete($id[0]);
+        $datos=$this->productos->getAll();
+        return $datos;
+    }
 
 }
