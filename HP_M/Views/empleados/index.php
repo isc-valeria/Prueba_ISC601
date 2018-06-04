@@ -1,4 +1,4 @@
-<div id="modal_registro" class="modal">
+<div id="modal_registro" class="modal"  >
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
@@ -9,16 +9,16 @@
                     <div class="row">
                         <div class="input-field input-field col s3.5">
                             <input id="nombre_emp" type="text" class="validate" name="numero_habitacion">
-                            <label for="nombre_emp"  data-error="Incorrecto" data-success="Correcto" >Nombre</label>
+                            <label for="nombre_emp"  data-error="Incorrecto" data-success="Correcto" >Nombre del Empleado</label>
                         </div>
                         <div class="input-field col s3.5">
                             <input id="ap_emp" type="text" class="validate" name="descripcion">
-                            <label for="ap_emp"  data-error="incorrecto" data-success="Correcto">Apellido</label>
+                            <label for="ap_emp"  data-error="incorrecto" data-success="Correcto">Apellido Paterno</label>
                         </div>
 
                         <div class="input-field col s3.5">
                             <input id="am_emp" type="text" class="validate" name="descripcion">
-                            <label for="am_emp"  data-error="incorrecto" data-success="Correcto">Apellido</label>
+                            <label for="am_emp"  data-error="incorrecto" data-success="Correcto">Apellido Materno</label>
                         </div>
                     </div>
                     <div class="row">
@@ -71,7 +71,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Empleados Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_empleado">
+    <h4 align="center">Empleados Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_empleado"><i class="icon-user"></i>
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -90,11 +90,11 @@
     <table class="responsive-table">
         <thead>
         <tr>
-            <th>id</th>
-            <th>nombre</th>
-            <th>apellido</th>
-            <th>apellido</th>
-            <th>puesto</th>
+            <th>Numero</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Puestos</th>
             <th></th>
             <th></th>
 
