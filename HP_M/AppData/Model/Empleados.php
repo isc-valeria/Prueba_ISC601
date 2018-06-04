@@ -17,6 +17,7 @@ class Empleados
     private $ap_emp;
     private $am_emp;
     private $descripcion_puesto;
+    private $id_puesto;
 
     function __construct()
     {
@@ -32,33 +33,23 @@ class Empleados
     {
         return $this->$atributo;
     }
-
-    function add(){
-<<<<<<< HEAD
-        $sql="insert into empleados VALUES ('0','{$this->nombre_emp}','{$this->ap_emp}','{$this->am_emp}',{$this->descripcion_puesto})";
+    function add()
+    {
+        $sql="insert into {$this->tabla} values('0','{$this->nombre_emp}',
+         '{$this->ap_emp}','{$this->am_emp}','{$this->id_puesto}')";
         $this->conexion->QuerySimple($sql);
     }
-
     function delete($id)
-=======
-        $sql="insert into empleados VALUES ('0','{$this->nombre_emp}','{$this->ap_emp}','{this->}am_emp}',{$this->descripcion_puesto})";
-        $this->conexion->QuerySimple($sql);
-
-
-    }
-    function delete()
->>>>>>> 43baeca22f88abacfdb99e95508f321eb35899f7
     {
         $sql="delete from {$this->tabla} where id_empleado='{$id}'";
         $this->conexion->QuerySimple($sql);
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 43baeca22f88abacfdb99e95508f321eb35899f7
-    function getAll(){
-        $sql="SELECT empleados.id_empleado, empleados.nombre_emp, empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto FROM empleados,puestos WHERE empleados.id_puesto=puestos.id_puesto ";
+    function getAll()
+    {
+        $sql="SELECT empleados.id_empleado, empleados.nombre_emp,
+        empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto FROM empleados,puestos
+         WHERE empleados.id_puesto=puestos.id_puesto ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
@@ -72,8 +63,11 @@ class Empleados
     function update()
     {
         $sql = "update empleados set nombre_emp='{$this->nombre_emp}',
-               ap_emp='{$this->ap_emp}', am_emp='{$this->am_emp}',
-               descripcion_puesto='{$this->descripcion_puesto}' where id_empleado='{$this->id_empleado}'";
+               ap_emp='{$this->ap_emp}', am_emp='{$this->am_emp}',id_puesto='{$this->id_puesto}'
+                where id_empleado='{$this->id_empleado}'";
         $this->conexion->QuerySimple($sql);
+
+
+
     }
 }

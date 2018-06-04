@@ -11,12 +11,12 @@ namespace AppData\Controller;
 
 class empleadosController
 {
-    private $empleados;
+    private $empleados,$Puestos;
 
     public function __construct()
     {
         $this->empleados= new \AppData\Model\Empleados();
-        $this->Puestos= new \AppData\Model\Empleados();
+        $this->Puestos= new \AppData\Model\Puestos();
     }
 
     public function index()
@@ -34,7 +34,7 @@ class empleadosController
             $this->empleados->set('nombre_emp',$_POST["nombre_emp"]);
             $this->empleados->set('ap_emp',$_POST["ap_emp"]);
             $this->empleados->set('am_emp',$_POST["am_emp"]);
-            $this->empleados->set('descripcion_puesto',$_POST["descripcion_puesto"]);
+            $this->empleados->set('id_puesto',$_POST["id_puesto"]);
             $this->empleados->add();
             $datos1=$this->empleados->getAll();
             $datos[0]=$datos1;
@@ -65,7 +65,7 @@ class empleadosController
             $this->empleados->set('nombre_emp',$_POST["nombre_emp"]);
             $this->empleados->set('ap_emp',$_POST["ap_emp"]);
             $this->empleados->set('am_emp',$_POST["am_emp"]);
-            $this->empleados->set('descripcion_puesto',$_POST["descripcion_puesto"]);
+            $this->empleados->set('id_puesto',$_POST["id_puesto"]);
             $this->empleados->update();
             $datos1=$this->empleados->getAll();
             $datos[0]=$datos1;
