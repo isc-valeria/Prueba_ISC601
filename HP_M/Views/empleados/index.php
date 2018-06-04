@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
+                            <select id="" type="text" class="validate" name="nomestadohabitacion">
                                 <option value="" disabled selected>Selecciona turno</option>
                                 <?php
                                 $result2=$datos[3];
