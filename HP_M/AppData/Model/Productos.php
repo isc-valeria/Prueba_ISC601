@@ -49,8 +49,10 @@ class Productos
     function update(){
 
     }
-    function delete(){
-
+    function delete($id)
+    {
+        $sql="delete from {$this->tabla} where id_producto='{$id}'";
+        $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
     {
