@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Luis
- * Date: 20/05/2018
- * Time: 03:54 PM
- */
 
 namespace AppData\Controller;
 

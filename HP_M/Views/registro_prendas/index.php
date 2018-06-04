@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="input-field col l3">
-                                <label>Fecha de Entrega</label>
+                                <label>Fecha de entrega</label>
                                 <input id="fecha_entre" type="text" class="datepicker">
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                             echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                         ?>
                                     </select>
-                                    <label for="tiporopa" data-error="incorrecto" data-success="Correcto" >Tipo de Ropa </label>
+                                    <label for="tiporopa" data-error="incorrecto" data-success="Correcto" >Tipo de ropa </label>
                                 </div>
                                 <div class="input-field col s1">
                                     <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tiporopa" ><i class="icon-plus #00838f cyan darken-3"></i></a>
@@ -160,7 +160,7 @@
                                             echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                         ?>
                                     </select>
-                                    <label for="precio" data-error="incorrecto" data-success="Correcto"> Precio</label>
+                                    <label for="precio" data-error="incorrecto" data-success="Correcto"> Precio </label>
                                 </div>
                                 <div class="input-field col s1">
                                     <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_precio" ><i class="icon-plus #00838f cyan darken-3"></i></a>

@@ -11,6 +11,7 @@ namespace AppData\Controller;
 
 class registro_prendasController
 {
+
     private $registro_prendas;
     private $ropa;
     private $estado_prenda;
@@ -22,12 +23,20 @@ class registro_prendasController
     public function __construct()
     {
         $this->registro_prendas= new \AppData\Model\Registro_prendas();
+
         $this->ropa= new \AppData\Model\Ropa();
         $this->estado_prenda= new \AppData\Model\estados_prendas();
         $this->tipo_tela = new \AppData\Model\Tipos_tela();
         $this->color = new \AppData\Model\Colores();
         $this->tratamiento = new \AppData\Model\Tratamientos();
         $this->precio = new \AppData\Model\Precios();
+
+        $this->habitaciones= new \AppData\Model\Habitaciones();
+        $this->tipo_ropa= new \AppData\Model\Ropa();
+        $this->estado_prenda= new \AppData\Model\estados_prendas();
+
+
+
     }
 
     public function index()

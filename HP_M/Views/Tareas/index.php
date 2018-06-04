@@ -1,14 +1,14 @@
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
+            <form action="" id="save_tarea" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Agregar tarea</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s6">
-                            <select id="habitacion" type="text" class="validate" name="habitacion">
+                            <select id="tareas" type="text" class="validate" name="tareas">
                                 <option value="" disabled selected>Selecciona la Tarea</option>
                                 <?php
                                 $result1=$datos[1];
@@ -16,10 +16,10 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Seleciona Tarea</label>
+                            <label for="tareas" data-error="incorrecto" data-success="Correcto" >Seleciona Tarea</label>
                         </div>
                         <div class="input-field col s6">
-                            <select id="habitacion" type="text" class="validate" name="habitacion">
+                            <select id="empleados" type="text" class="validate" name="empleados">
                                 <option value="" disabled selected>Selecciona Empleado</option>
                                 <?php
                                 $result2=$datos[2];
@@ -27,7 +27,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Seleciona Empleado</label>
+                            <label for="empleados" data-error="incorrecto" data-success="Correcto" >Seleciona Empleado</label>
                         </div>
                     </div>
                     <div class="row">
@@ -40,16 +40,15 @@
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
+                            <label for="habitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
                         </div>
                         <div class="input-field col l3">
                             <label>Fecha de Inicio</label>
-                            <input id="fecha_i" type="text" class="datepicker">
+                            <input id="fecha_i" type="text" class="datepicker" name="fecha_i">
                         </div>
-
                         <div class="input-field col l3">
                             <label>Fecha de Fiin</label>
-                            <input id="fecha_f" type="text" class="datepicker">
+                            <input id="fecha_f" type="text" class="datepicker"fecha_f>
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
@@ -67,7 +66,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_habitacion"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tarea"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -91,7 +90,6 @@
         <tbody id="body_table">
             <?php
                 require_once ("tabla.php");
-
             ?>
         </tbody>
     </table>
@@ -174,6 +172,7 @@
     </div>
 </div>
 
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
@@ -185,7 +184,7 @@
         $("#save_tarea_ok").click(function(){
             //console.log("ok")
            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
+            $.post("<?php echo URL?>Tareas/crear",$("#save_tarea").serialize(),function(res){
               $("#body_table").empty().append(res);
               $('#save_habitacion').find('input, select, textarea').val('');
               Materialize.updateTextFields();
@@ -195,7 +194,7 @@
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>habitaciones/eliminar/'+id;
+            var url='<?php echo URL?>Tareas/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -210,7 +209,7 @@
             $("#save_habitaciones_ok").hide();
             $("#update_habitaciones_ok").show();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>habitaciones/modificar/"+id,function(res){
+            $.get("<?php echo URL?>Tareas/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
                 $("#numero_habitacion").val(datos["num_habitacion"]);
@@ -235,8 +234,6 @@
         });
 
     });
-
-
         $(document).ready(function(){
             $('select').material_select();
             $('.datepicker').pickadate();
