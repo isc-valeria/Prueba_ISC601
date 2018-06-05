@@ -19,6 +19,7 @@ class registro_prendasController
     private $color;
     private $tratamiento;
     private $precio;
+    private $tipo_prenda;
 
     public function __construct()
     {
@@ -30,13 +31,7 @@ class registro_prendasController
         $this->color = new \AppData\Model\Colores();
         $this->tratamiento = new \AppData\Model\Tratamientos();
         $this->precio = new \AppData\Model\Precios();
-
-        $this->habitaciones= new \AppData\Model\Habitaciones();
-        $this->tipo_ropa= new \AppData\Model\Ropa();
-        $this->estado_prenda= new \AppData\Model\estados_prendas();
-
-
-
+        $this->tipo_prenda= new \AppData\Model\Tipos_prendas();
     }
 
     public function index()
@@ -48,6 +43,7 @@ class registro_prendasController
         $datos5=$this->color->getAll();
         $datos6=$this->tratamiento->getAll();
         $datos7=$this->precio->getAll();
+        $datos8=$this->tipo_prenda->getAll();
         $datos[1]=$datos1;
         $datos[2]=$datos2;
         $datos[3]=$datos3;
@@ -55,6 +51,7 @@ class registro_prendasController
         $datos[5]=$datos5;
         $datos[6]=$datos6;
         $datos[7]=$datos7;
+        $datos[8]=$datos8;
         return $datos;
     }
 
@@ -63,6 +60,17 @@ class registro_prendasController
         if(isset($_POST))
         {
            // echo "asdasdadasdasd";
+            $this->tipo_prenda->set('id_tela', $_POST["tipotela"]);
+            $this->tipo_prenda->set('id_tratamiento', $_POST["tratamiento"]);
+            $this->tipo_prenda->set('id_color', $_POST["color"]);
+            $this->tipo_prenda->set('id_ropa', $_POST["tiporopa"]);
+            //$this->tipo_prenda->set('cantidad', $_POST["cantidadd"]);
+
+            $this->tipo_prenda->add();
+            $datos8=$this->tipo_prenda->getAll();
+
+            $datos[8]=$datos8;
+
             $this->registro_prendas->set('fecha_entrega',$_POST["fecha_entre"]);
             $this->registro_prendas->set('fecha_recepcion',$_POST["fecha_recep"]);
             $this->registro_prendas->set('id_tipopren',$_POST["tipotela"]);
@@ -73,6 +81,7 @@ class registro_prendasController
             $datos1=$this->registro_prendas->getAll();
 
             $datos[1]=$datos1;
+
 
             return $datos;
         }
