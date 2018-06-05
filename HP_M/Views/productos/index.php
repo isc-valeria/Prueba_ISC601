@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="cat" type="text" class="validate" name="id_tipopro">
+                            <select id="tipopro" type="text" class="validate" name="id_tipopro">
                                 <option value="" disabled selected>Selecciona Tipo de producto</option>
                                 <?php
                                 $result23=$datostipp[1];
@@ -49,8 +49,9 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="cat" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
+                            <label for="id_tipopro" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
                         </div>
+
 
 
                         <div class="input-field col s5">
@@ -88,7 +89,11 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_productos_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_productos" class="btn modal-close">Registrar</a>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_producto_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
 
