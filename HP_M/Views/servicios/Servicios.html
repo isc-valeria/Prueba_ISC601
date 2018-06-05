@@ -58,29 +58,19 @@
                         <div class="row">
                             <div class="input-field col s9">
                                 <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                                <input id="descripcion" type="text" class="validate">
-                                <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                                <input id="descripcionser" type="text" class="validate">
+                                <label for="descripcionser"  data-error="incorrecto" data-success="Correcto">Descripción</label>
                             </div>
                         </div>
 
                         <!--***************m*****************-->
                         <!--********************************-->
                         <div class="row">
-                            <div class="col l3 offset-l3">
-                                <i class="mdi-action-verified-user prefix   icon-calendar"></i>
 
-                                <label>Fecha de Inicio</label>
-                                <input type="text" class="datepicker">
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('.datepicker').datepicker();
-                                    });
-                                </script>
-                            </div>
                             <div class="col l3 offset-l1">
                                 <i class="mdi-action-verified-user prefix   icon-clock"></i>
                                 <label>Hora Inicio</label>
-                                <input type="text" class="timepicker">
+                                <input id="horai" type="text" class="timepicker">
                                 <script type="text/javascript">
                                     $(document).ready(function(){
                                         $('.timepicker').timepicker();
@@ -91,22 +81,12 @@
 
                         <!--********************************-->
                         <div class="row">
-                            <div class="col l3 offset-l3">
-                                <i class="mdi-action-verified-user prefix   icon-calendar"></i>
 
-                                <label>Fecha de Fin</label>
-                                <input type="text" class="datepicker">
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('.datepicker').datepicker();
-                                    });
-                                </script>
-                            </div>
                             <div class="col l3 offset-l1">
                                 <i class="mdi-action-verified-user prefix   icon-clock"></i>
 
                                 <label>Hora de Fin</label>
-                                <input type="text" class="timepicker">
+                                <input id="horaf" type="text" class="timepicker">
                                 <script type="text/javascript">
                                     $(document).ready(function(){
                                         $('.timepicker').timepicker();
@@ -158,7 +138,7 @@
                     <div class="input-field col s4 offset-s8">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
                         <input id="buscar" type="text">
-                        <label for="hora_fin"  data-error="incorrecto" data-success="Correcto">Buscar</label>
+                        <label for="buscar"  data-error="incorrecto" data-success="Correcto">Buscar</label>
                     </div>
                 </div>
 

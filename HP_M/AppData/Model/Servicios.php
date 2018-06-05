@@ -15,18 +15,18 @@ class Servicios
 		$this->conexion= new conexion();
 	}
 
-	function get($atributo,$valor)
-    {
-        $this->$atributo=$valor;
-    }
-
-    function set($atributo)
+    function get($atributo)
     {
         return $this->$atributo;
     }
+
+	function set($atributo,$valor)
+    {
+        $this->$atributo=$valor;
+    }
 	function add()
 	{
-		$sql="insert into {$this->tabla} values ('0', {$this->descripcion_ser}, {$this->hora_inicio}, {$this->hora_fin})";
+		$sql="insert into {$this->tabla} values ('0','{$this->descripcion_ser}', '{$this->hora_inicio}', '{$this->hora_fin}')";
 		$this->conexion ->QuerySimple($sql);
 	}
 	function getAll()

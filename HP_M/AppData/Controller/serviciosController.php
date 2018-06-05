@@ -23,14 +23,17 @@ class serviciosController
         return $datos;
     }
 
-    public function crear()
-    {
-        $this->servicios->set('descripcion_ser',$_POST["descripcion"]);
-        $this->servicios->set('hora_inicio',$_POST["horaini"]);
-        $this->servicios->set('hora_fin',$_POST["horafin"]);
-        $this->servicios->add();
-        $datos=$this->servicios->getAll();
-        return $datos;
+    public function crear(){
+        if(isset($_POST))
+        {
+            $this->servicios->set('id_servicio',$_POST["id_servicio"]);
+            $this->servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
+            $this->servicios->set('hora_inicio',$_POST["hora_inicio"]);
+            $this->servicios->set('hora_fin',$_POST["hora_fin"]);
+            $this->servicios->add();
+            $datos=$this->servicios->getAll();
+            return $datos;
+        }
     }
 
     public function eliminar($id)

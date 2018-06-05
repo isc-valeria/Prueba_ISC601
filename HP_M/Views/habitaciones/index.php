@@ -69,9 +69,13 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Habitaciones Registradas <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_habitacion">
+    <h4 align="center">Habitaciones Registradas
+        <span class="right">
+            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_habitacion">
                 <i class="material-icons">add</i>
-            </a></span></h4>
+            </a>
+        </span>
+    </h4>
     <div class="divider"></div>
 
     <div class="row">
