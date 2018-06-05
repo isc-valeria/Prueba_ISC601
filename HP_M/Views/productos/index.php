@@ -55,7 +55,7 @@
 
 
                         <div class="input-field col s5">
-                            <input id="existencias" type="text" class="validate" name="existencias">
+                            <input id="existencias" type="number" class="validate" name="existencias">
                             <label for="existencias" data-error="incorrecto" data-success="Correcto" >Existencias</label>
                         </div>
 
@@ -71,12 +71,12 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_min" type="text" class="validate" name="stock_min">
+                            <input id="stock_min" type="number" class="validate" name="stock_min">
                             <label for="stock_min" data-error="incorrecto" data-success="Correcto">Stock minimo</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_max" type="text" class="validate" name="stock_max">
+                            <input id="stock_max" type="number" class="validate" name="stock_max">
                             <label for="stock_max" data-error="incorrecto" data-success="Correcto" >Stock maximo</label>
                         </div>
 
