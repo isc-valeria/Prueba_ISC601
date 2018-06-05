@@ -11,7 +11,7 @@
 <body>
         <div id="main" >
             <div id="panel1" class="row col pad">
-            <div class="col s12 m10 offset-m1">
+            <div class="col s30 m16 offset-m1">
                 <div class="card-panel">
 
                     <h4 class="left"><a class="icon-paste black-text"></a></h4>
