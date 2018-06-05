@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Tipo_equiposegu
 {
+    private $tabla="Tipo_equiposegu";
     private  $id_tipoequisegu;
     private  $descripcion_tipo;
 
@@ -24,8 +25,8 @@ class Tipo_equiposegu
 
 
     }
-    function get(){
-        $sql="select*from Tipo_equiposegu";
+    function getAll(){
+        $sql="select *from {$this->tabla}";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

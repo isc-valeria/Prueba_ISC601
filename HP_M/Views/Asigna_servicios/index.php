@@ -1,17 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lenovo
- * Date: 17/05/2018
- * Time: 06:00 PM
- */
 ?>
 
-<body>
 <div id="main">
     <div id="panel1" class="row col pad">
-        <div class="col s12 m10 offset-m1">
-            <div class="card-panel">
+        <div class="col l12 ">
+            <div class="card-panel responsive">
                 <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
                 <h4 align="center">Asignación de Servicios</h4>
                 <div class="divider"></div>
@@ -329,7 +322,6 @@
 
         </div>
     </div>
-
     <div id="paneltablas" class="row col ">
             <div class="col s12 m10 offset-m1">
                 <div class="card-panel">
@@ -356,8 +348,8 @@
                         <tr>
                             <th>Habitaciónes</th>
                             <th>Servicios</th>
-                            <th>Estado</th>
                             <th>Fecha</th>
+                            <th>Estado</th>
 
                         </tr>
                         </thead>
@@ -373,6 +365,7 @@
                             <td>{$row[2]}</td>
                             <td>{$row[3]}</td>
                             <td><a class=\"btn-flat modal-trigger icon-cross red-text\" href=\"#modal_eliminar\"></a></td>
+                            <td><a class=\"btn-flat modal-trigger icon-pencil blue-text\" href=\"#!\"></a></td>
                         </tr>
                         ";
                         ?>
@@ -387,4 +380,11 @@
     </div>
 
 </div>
-</body>
+
+<script type="text/javascript">
+            $("#body_table").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>habitaciones/eliminar/'+id;
+            $("#eliminar_ok").attr("url",url);
+            $("#modal_eliminar").modal("open");
+</script>

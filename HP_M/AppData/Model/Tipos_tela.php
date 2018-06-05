@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Tipos_tela
 {
+    private $tabla="Tipos_tela";
     private $id_tela;
     private $descripcion_tela;
 
@@ -22,17 +23,23 @@ class Tipos_tela
     }
 
     function add(){
-
+        $sql="insert into Ropa VALUES ('datos')";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
-    function get(){
-        $sql="select*from Tipos_tela";
+    function getAll(){
+        $sql="select * from Tipos_tela";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function update(){
-
+        $sql="update Tipos_tela set descripcion_tela='variable' where id_tela='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
     function delete(){
-
+        $sql="delete from Tipos_tela WHERE id_tela='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
 }

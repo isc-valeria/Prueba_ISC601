@@ -11,9 +11,11 @@
         <div class="card-panel">
             <form action="" id="save_reserva" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Reservación
-<!--                    <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_reserva">-->
-<!--                <i class="material-icons">add</i>-->
-<!--                </a></span>-->
+
+                    <span class="right"><a href="#modal_registro2" class="btn green white-text modal-trigger" id="add_cliente">
+                    <i class="material-icons">add</i>
+                    </a></span>
+
                 </h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
@@ -88,7 +90,7 @@
 </div>
 <div class="card-panel">
     <h4 align="center">Reservaciones Registradas <span class="right">
-            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
+            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_reserva">
                 <i class="material-icons">add</i>
             </a></span>
     </h4>
@@ -142,13 +144,77 @@
     </div>
 </div>
 
+<!--Modal de Clientes-->
+<div id="modal_registro2" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
+                <h4 align="center">Clientes</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field input-field col s5">
+                            <input id="nombre_cli" type="text" class="validate" name="nombre_cli">
+                            <label for="nombre_cli"  data-error="Incorrecto" data-success="Correcto" >Nombre de Cliente</label>
+                        </div>
+
+                        <div class="input-field col s1">
+
+                        </div>
+                        <div class="input-field col s5">
+                            <input id="ap_cli" type="text" class="validate" name="ap_cli">
+                            <label for="ap_cli"  data-error="incorrecto" data-success="Correcto">Apellido Paterno</label>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="input-field col s5">
+                            <input id="am_cli" type="text" class="validate" name="am_cli">
+                            <label for="am_cli" data-error="incorrecto" data-success="Correcto" >Apellido Materno</label>
+                        </div>
+
+                        <div class="input-field col s1">
+
+                        </div>
+
+                        <div class="input-field col s5">
+                            <input id="telefono" type="text" class="validate" name="telefono">
+                            <label for="telefono" data-error="incorrecto" data-success="Correcto">Telefono</label>
+
+                        </div>
+
+                        <div class="input-field col s1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s5">
+                            <input id="clave_cli" type="text" class="validate" name="clave_cli">
+                            <label for="clave_cli" data-error="incorrecto" data-success="Correcto" >Clave Cliente</label>
+                        </div>
+                    </div>
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_clientes_ok" class="btn modal-close">Registrar</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_clientes_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Fin modal de clientes-->
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
         $(".datepicker").pickadate();
         $(".modal").modal();
         $("#add_reserva").click(function(){
-            $("#up_reserva_ok").close();
+            $("#up_reserva_ok").hide();
             $("#save_reserva_ok").show();
         });
         $("#save_reserva_ok").click(function(){
@@ -205,3 +271,25 @@
     });
 </script>
 
+<!--Este es el script de clientes-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        // $('select').material_select();
+        // $(".modal").modal();
+        $("#add_cliente").click(function(){
+            $("#update_clientes_ok").hide();
+            $("#save_clientes_ok").show();
+        });
+        $("#save_clientes_ok").click(function(){
+            //console.log("ok")
+            //console.log($("#save_habitacion").serialize());
+            $.post("<?php echo URL?>reservaciones/crearCli",$("#save_clientes").serialize(),function(res){
+                $("#body_table").empty().append(res);
+                $('#save_clientes').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+            })
+        });
+    });
+</script>

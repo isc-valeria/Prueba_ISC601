@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Habitación</h4>
+                <h4 align="center">Equipo</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
@@ -28,7 +28,7 @@
                                 <?php
                                 $result3=$datos[1];
                                 while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
                             <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
@@ -44,7 +44,7 @@
                                 <?php
                                 $result2=$datos[3];
                                 while ($row=mysqli_fetch_array($result2))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
                             <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Habitación</label>
@@ -68,15 +68,10 @@
         </div>
     </div>
 </div>
-
 <div class="card-panel">
-    <h4 align="center">Habitaciones Registradas
-        <span class="right">
-            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_habitacion">
+    <h4 align="center">Equipo De Seguridad <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_equiposeguridad">
                 <i class="material-icons">add</i>
-            </a>
-        </span>
-    </h4>
+            </a></span></h4>
     <div class="divider"></div>
 
     <div class="row">
@@ -94,10 +89,8 @@
         <thead>
         <tr>
             <th>id</th>
-            <th>Numero de Habitación</th>
+            <th>Nombre de Equipo</th>
             <th>Descripción</th>
-            <th>Tipo Habitación</th>
-            <th>Estado</th>
             <th></th>
             <th></th>
 
@@ -106,7 +99,7 @@
 
         <tbody id="body_table">
         <?php
-            require_once ("tabla.php");
+        require_once ("tabla.php");
         ?>
         </tbody>
     </table>
@@ -193,6 +186,8 @@
     </div>
 </div>
 
+
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
@@ -203,13 +198,13 @@
         });
         $("#save_habitaciones_ok").click(function(){
             //console.log("ok")
-           //console.log($("#save_habitacion").serialize());
+            //console.log($("#save_habitacion").serialize());
             $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
-              $("#body_table").empty().append(res);
-              $('#save_habitacion').find('input, select, textarea').val('');
-              Materialize.updateTextFields();
-              //$("#modal_registro").modal("close");
-              Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#body_table").empty().append(res);
+                $('#save_habitacion').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
         $("#body_table").on("click","a.btn_eliminar",function(){

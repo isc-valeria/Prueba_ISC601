@@ -12,9 +12,9 @@
     define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
 
+
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
-
     //require_once ("Views/Template.php);
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
     Views\Template::header();
