@@ -8,14 +8,11 @@
 
     define('DS',DIRECTORY_SEPARATOR);
     define('ROOT',realpath(dirname(__FILE__)).DS);
-<<<<<<< HEAD
 
     define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
-=======
-    define('URL',"http://localhost/601_prograWeb/Prueba_ISC601/HP_M/");
-    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
->>>>>>> e9375531650c32d60bf0267e61640667d449fe87
+
+
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
     //require_once ("Views/Template.php);
