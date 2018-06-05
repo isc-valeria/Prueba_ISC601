@@ -1,7 +1,7 @@
 <?php
 
-$datos1=$datos[0];
-while($row=mysqli_fetch_array($datos1))
+$datos=$datos[0];
+while($row=mysqli_fetch_array($datos))
     echo "
                     <tr>
                         <td>{$row[0]}</td>

@@ -36,9 +36,9 @@ class Template
         <!------------------------------------------------------------>
             <header id="header" class="page-topbar">
 
-                <div class="navbar-fixed">
+                <div class="navbar-fixed ">
                     <nav class="navbar-color">
-                        <div class="nav-wrapper">
+                        <div class="nav-wrapper cyan #4dd0e1">
                             <ul class="left">
                                 <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="<?php echo URL?>/public/imagenes/logo.gif" ></a></h1></li>
                             </ul>
@@ -54,7 +54,7 @@ class Template
                 <aside id="left-sidebar-nav">
                     <ul id="slide-out" class="side-nav fixed leftside-navigation">
 
-                        <li class="user-details cyan darken-2">
+                        <li class="user-details cyan lighten-3 ">
                             <div class="row">
                                 <div class="col col s4 m4 l4">
                                     <img src="<?php echo URL?>/public/imagenes/cesar.PNG" alt="" class="circle responsive-img valign profile-image">
@@ -79,6 +79,7 @@ class Template
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="<?php echo URL?>clientes" class="icon-jira">   Clientes</a></li>
+                                            <li><a href="<?php echo URL?>reservaciones" class="icon-jira">   Reservaciones</a></li>
                                             <li><a href="<?php echo URL?>habitaciones" class="icon-jira">   Habitaciones</a></li>
                                             <li><a href="<?php echo URL?>asignar_productos" class="icon-jira">   Asignar Productos</a></li>
                                             <li><a href="<?php echo URL?>checkin" class="icon-jira">   Check In</a></li>
@@ -95,11 +96,14 @@ class Template
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
-                                            <li><a href="<?php echo URL?>Asignacion_de_servicios" class="icon-jira">   Asignar Servicios</a></li>
-                                            <li><a href="<?php echo URL?>Lavanderia" class="icon-jira">   Lavanderia</a></li>
+                                            <li><a href="<?php echo URL?>Asigna_servicios" class="icon-jira">   Asignar Servicios</a></li>
+                                            <li><a href="<?php echo URL?>Registro_prendas" class="icon-jira">   Lavanderia</a></li>
+                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
+
+
                                         </ul>
                                     </div>
-                                </li>
+                                </li>   
                             </ul>
                         </li>
 
@@ -109,7 +113,7 @@ class Template
                                 <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-dropbox2"></i>Almacen</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="<?php echo URL?>Almacen" class="icon-jira">   Admin Almacen</a></li>
+                                            <li><a href="<?php echo URL?>productos" class="icon-jira">   Admin Almacen</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -146,17 +150,20 @@ class Template
             </div>
         </main>
         </body>
-        <footer class="page-footer">
-            <div class="footer-copyright">
-                <div class="container">
-                    <span>Copyright © 2018 <a class="grey-text text-lighten-4"></a> TESVB</span>
-                    <span class="right">601 <a class="grey-text text-lighten-4" ></a></span>
+        <footer class="page-footer cyan #4dd0e1">
+            <div class="row">
+                <div class="col l9 offset-l3">
+
+                    <div class="footer-copyright ">
+                        <div class="container ">
+                            <span>Copyright © 2018 <a class="grey-text text-lighten-4"></a> TESVB</span>
+                            <span class="right">601 <a class="grey-text text-lighten-4" ></a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
-        <!------------------------------------------------------------>
 
-        <!------------------------------------------------------------------------------->
         </html>
         <?php
     }

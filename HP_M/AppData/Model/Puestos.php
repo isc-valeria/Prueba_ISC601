@@ -4,42 +4,37 @@ namespace AppData\Model;
 
 class Puestos
 {
-	private $id_puesto;
-	private $descripcion_puesto;
 
-	function __construct()
-	{
-		$this->conexion= new conexion();
-	}
+    private  $tabla="puestos";
+    private $id_puesto;
+    private $descripcion_puesto;
+    private $precio;
+    function __construct()
+    {
+        $this->conexion=new conexion();
+    }
 
-	function get($atributo,$valor)
-    {
-        $this->$atributo=$valor;
+    function getAll(){
+        $sql="select *from puestos";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
-    
-    function set($atributo)
-    {
-        return $this->$atributo;
+
+    function add(){
+        $sql="insert into puestos VALUES ('datos')";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
-	function add()
-	{
-		$sql=
-		$datos= $this->conexion ->querySimple($sql);
-	}
-	function getAll()
-	{
-		$sql=
-		$datos= $this->conexion ->QueryResultado($sql);
-		return $datos;
-	}
-	function update() 
-	{
-		$sql=
-		$datos= $this->conexion ->querySimple($sql);
-	}
-	function delete() 
-	{
-		$sql=
-		$datos= $this->conexion ->querySimple($sql);
-	}
+
+    function update(){
+        $sql="update puestos set descripcion_puesto='variable' where id_puesto='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
+    }
+    function delete(){
+        $sql="delete from puestos WHERE id_puesto='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
+    }
+
 }

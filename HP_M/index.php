@@ -8,11 +8,13 @@
 
     define('DS',DIRECTORY_SEPARATOR);
     define('ROOT',realpath(dirname(__FILE__)).DS);
-    define('URL',"http://localhost/601_2018/Prueba_ISC601/HP_M/");
+
+    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
+
+
 
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
-
     //require_once ("Views/Template.php);
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
     Views\Template::header();
@@ -20,6 +22,3 @@
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
     Views\Template::footer();
 ?>
-
-
-

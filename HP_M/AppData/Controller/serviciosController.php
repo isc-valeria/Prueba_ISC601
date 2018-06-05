@@ -23,14 +23,17 @@ class serviciosController
         return $datos;
     }
 
-    public function crear()
-    {
-        $this->habitaciones->set('descripcion_ser',$_POST["numero_habitacion"]);
-        $this->habitaciones->set('hora_inicio',$_POST["descripcion"]);
-        $this->habitaciones->set('hora_fin',$_POST["id_tipoh"]);
-        $this->habitaciones->add();
-        $datos=$this->habitaciones->getAll();
-        return $datos;
+    public function crear(){
+        if(isset($_POST))
+        {
+            $this->servicios->set('id_servicio',$_POST["id_servicio"]);
+            $this->servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
+            $this->servicios->set('hora_inicio',$_POST["hora_inicio"]);
+            $this->servicios->set('hora_fin',$_POST["hora_fin"]);
+            $this->servicios->add();
+            $datos=$this->servicios->getAll();
+            return $datos;
+        }
     }
 
     public function eliminar($id)
@@ -40,7 +43,7 @@ class serviciosController
         return $datos;
     }
 
-    public function modificar()
+    public function modificar($id)
     {
         $datos=$this->servicios->getOne($id[0]);
         return $datos;

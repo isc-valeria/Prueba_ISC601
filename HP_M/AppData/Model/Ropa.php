@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Ropa
 {
+    private $tabla="Ropa";
     private $id_ropa;
     private $descripcion_ropa;
 
@@ -22,17 +23,25 @@ class Ropa
     }
 
     function add(){
-
-    }
-    function get(){
-        $sql="select*from Ropa";
+        $sql="insert into Ropa VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-    function update(){
+    function getAll(){
+        $sql="select * from Ropa";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
+    }
 
+
+    function update(){
+        $sql="update Ropa set descripcion_ropa='variable' where id_ropa='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
     function delete(){
-        
+        $sql="delete from Ropa WHERE id_color='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
 }

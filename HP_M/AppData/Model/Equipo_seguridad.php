@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Equipo_seguridad
 {
+    private $tabla="Equipo_seguridad";
     private $id_equiposegu;
     private $nombre_equisegu;
     private $id_tipoequisegu;
@@ -23,10 +24,10 @@ class Equipo_seguridad
     {
 
     }
-    function get()
+    function getAll()
     {
-        $sql="select * from Equipo_seguridad";
-        $datos= $this->conexion ->queryResultados($sql);
+        $sql="select * from {$this->tabla}";
+        $datos= $this->conexion ->queryResultado($sql);
         return $datos;
     }
     function update()
