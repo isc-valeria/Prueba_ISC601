@@ -70,7 +70,7 @@
                     <th>Hora de fin</th>
                 </tr>
             </thead>
-        <tbody>
+        <tbody id="body_table">
         <?php
             require_once ('tabla.php');
         ?>
@@ -102,6 +102,7 @@
             //console.log("ok")
            console.log($("#save_servicios").serialize());
             $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function (res) {
+                console.log(res)
             //console.log($("#save_servcios_ok").serialize());
                 $("#body_table").empty().append(res);
 
