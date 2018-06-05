@@ -90,7 +90,7 @@ Rodrigo Juan =)
 
 Alexander Orozco
 
-<<<<<<< HEAD
+
 Alexander Orozco
 
 
@@ -114,4 +114,4 @@ jonathan :)
 navor------
 
 -
->>>>>>> dc68b926cc7269b83c6c4d913f92f51b78874a51
+Jazmin
