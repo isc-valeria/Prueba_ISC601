@@ -7,8 +7,7 @@ commit sullivan
 
 commit proyecto
 
-<<<<<<< HEAD
-=======
+
 <<<<<------HARLOCK------>>>>>
  __^__                                      __^__
 ( ___ )------------------------------------( ___ )
@@ -16,11 +15,10 @@ commit proyecto
  | / |                CRIS                  | \ |
  |___|                                      |___|
 (_____)------------------------------------(_____) 
->>>>>>> f65ccab0abe4230f4170100a89883efae36ecb68
 
 -----F R Y------
 
-=======
+
 Yareli
 
 Juan Carlos Palma Cruz Blanca
@@ -51,10 +49,10 @@ hola -val
 Jose Luis..
 
 Jaciel
-Alexander Orozco
-<<<<<<< HEAD
 
-=======
+Alexander Orozco
+
+
 Jaciel****
 
 
@@ -63,15 +61,13 @@ Jesus Emerith
 
 Sullivan 
 
-
-<<<<<<< HEAD
 Miquiztli
 
 Rodrigo Isaac 
 
 
 Miquiztli
-=======
+
 Jabneel 
 
 Miquiztli
@@ -80,10 +76,38 @@ Miquiztli
 Jabneel 
 
 Diego °-°
-<<<<<<< HEAD
+
+ 
+ miriam
+
 
 Rodrigo Juan =)
 
 
 
+Alexander Orozco
 
+<<<<<<< HEAD
+Alexander Orozco
+
+
+
+
+
+Maricruz 
+
+Nemii 
+
+
+
+
+
+
+
+
+jonathan :)
+
+
+navor------
+
+-

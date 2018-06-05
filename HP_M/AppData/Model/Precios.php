@@ -11,6 +11,7 @@ namespace AppData\Model;
 
 class Precios
 {
+    private $tabla="Precios";
     private $id_precio;
     private $descripcion_precio;
 
@@ -22,17 +23,23 @@ class Precios
     }
 
     function add(){
-
+        $sql="insert into Precios VALUES ('datos')";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
-    function get(){
-        $sql="select*from Precios";
+    function getAll(){
+        $sql="select * from Precios";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function update(){
-
+        $sql="update Precios set descripcion_precio='variable' where id_precio='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
     function delete(){
-
+        $sql="delete from Precios WHERE id_precio='id'";
+        $datos=$this->conexion->queryResultado($sql);
+        return $datos;
     }
 }
