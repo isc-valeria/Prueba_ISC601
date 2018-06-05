@@ -34,9 +34,11 @@ class Productos
     {
         return $this->$atributo;
     }
-
-    function add(){
-
+    function add()
+    {
+        $sql="insert into {$this->tabla} values('0','{$this->nombre_pro}','{$this->id_categoriapro}',
+          '{$this->id_tipopro}', '{$this->existencias}', '{$this->stock_min}', '{$this->stock_max}')";
+        $this->conexion->QuerySimple($sql);
     }
     function getAll(){
         $sql="SELECT productos.id_producto, productos.nombre_pro, categorias_producto.descripcion_cat, 
@@ -47,7 +49,11 @@ class Productos
         return $datos;
     }
     function update(){
-
+        $sql="update productos set nombre_pro='{$this->nombre_pro}',
+               id_categoriapro='{$this->id_categoriapro}', id_tipopro='{$this->id_tipopro}',
+               existencias='{$this->existencias}',stock_min='{$this->stock_min}',
+               stock_max='{$this->stock_max}'where id_producto='{$this->id_producto}'";
+        $this->conexion->QuerySimple($sql);
     }
     function delete($id)
     {
@@ -60,5 +66,4 @@ class Productos
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-
 }

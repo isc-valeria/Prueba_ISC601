@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="input-field col l3 offset-l3 ">
                                 <label>Fecha de recepción</label>
-                                <input id="fecha_recep" type="text" class="datepicker">
+                                <input id="fecha_recep" type="text" class="datepicker" name="fecha_recep">
                             </div>
 
                             <div class="input-field col s1">
@@ -45,14 +45,14 @@
 
                             <div class="input-field col l3">
                                 <label>Fecha de entrega</label>
-                                <input id="fecha_entre" type="text" class="datepicker">
+                                <input id="fecha_entre" type="text" class="datepicker" name="fecha_entre">
                             </div>
                         </div>
 
                         <div class="row">
                             <div>
                                 <div class="input-field col l2 offset-l1">
-                                    <select id="tiporopa" type="text" class="validate">
+                                    <select id="tiporopa" type="text" class="validate" name="tiporopa">
 
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
@@ -73,7 +73,7 @@
 
                             <div>
                                 <div class="input-field col l2 ">
-                                    <select id="estadoprenda" type="text" class="validate">
+                                    <select id="estadoprenda" type="text" class="validate" name="estadoprenda">
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
                                         $result2=$datos[3];
@@ -93,7 +93,7 @@
 
                             <div>
                                 <div class="input-field col l2 ">
-                                    <select id="tipotela" type="text" class="validate">
+                                    <select id="tipotela" type="text" class="validate" name="tipotela">
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
                                         $result3=$datos[4];
@@ -112,7 +112,7 @@
                         <div class="row">
                             <div>
                                 <div class="input-field col l2 offset-l1">
-                                    <select id="color" type="text" class="validate">
+                                    <select id="color" type="text" class="validate" name="color">
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
                                         $result4=$datos[5];
@@ -132,7 +132,7 @@
 
                             <div>
                                 <div class="input-field col l2 ">
-                                    <select id="tratamiento" type="text" class="validate">
+                                    <select id="tratamiento" type="text" class="validate" name="tratamiento">
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
                                         $result5=$datos[6];
@@ -152,7 +152,7 @@
 
                             <div>
                                 <div class="input-field col l2 ">
-                                    <select id="precio" type="text" class="validate">
+                                    <select id="precio" type="text" class="validate" name="precio">
                                         <option value="" disabled selected>Selecciona</option>
                                         <?php
                                         $result6=$datos[7];

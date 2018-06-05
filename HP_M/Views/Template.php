@@ -36,9 +36,9 @@ class Template
         <!------------------------------------------------------------>
             <header id="header" class="page-topbar">
 
-                <div class="navbar-fixed">
+                <div class="navbar-fixed ">
                     <nav class="navbar-color">
-                        <div class="nav-wrapper">
+                        <div class="nav-wrapper cyan #4dd0e1">
                             <ul class="left">
                                 <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="<?php echo URL?>/public/imagenes/logo.gif" ></a></h1></li>
                             </ul>
@@ -54,7 +54,7 @@ class Template
                 <aside id="left-sidebar-nav">
                     <ul id="slide-out" class="side-nav fixed leftside-navigation">
 
-                        <li class="user-details cyan darken-2">
+                        <li class="user-details cyan lighten-3 ">
                             <div class="row">
                                 <div class="col col s4 m4 l4">
                                     <img src="<?php echo URL?>/public/imagenes/cesar.PNG" alt="" class="circle responsive-img valign profile-image">
@@ -150,11 +150,16 @@ class Template
             </div>
         </main>
         </body>
-        <footer class="page-footer">
-            <div class="footer-copyright">
-                <div class="container">
-                    <span>Copyright © 2018 <a class="grey-text text-lighten-4"></a> TESVB</span>
-                    <span class="right">601 <a class="grey-text text-lighten-4" ></a></span>
+        <footer class="page-footer cyan #4dd0e1">
+            <div class="row">
+                <div class="col l9 offset-l3">
+
+                    <div class="footer-copyright ">
+                        <div class="container ">
+                            <span>Copyright © 2018 <a class="grey-text text-lighten-4"></a> TESVB</span>
+                            <span class="right">601 <a class="grey-text text-lighten-4" ></a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

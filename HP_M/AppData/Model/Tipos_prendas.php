@@ -37,7 +37,7 @@ class Tipos_prendas
 
     function getAll()
     {
-        $sql="SELECT Tipos_prendas.id_tipopren, Tipos_tela.id_tela, Tratamientos.id_trata, Colores.id_color, Ropa.id_ropa, Tipos_prendas.cantidad 
+        $sql="SELECT Tipos_prendas.id_tipopren, Tipos_tela.id_tela, Tratamientos.id_tratatamiento, Colores.id_color, Ropa.id_ropa, Tipos_prendas.cantidad 
         FROM Tipos_prendas,Tipos_tela,Tratamientos,Colores, Ropa
         WHERE Tipos_prendas.id_tela=Tipos_tela.id_tela AND Tipos_prendas.id_tratamiento=tratamientos.id_tratamiento AND
         Tipos_prendas.id_color=Colores.id_color AND Tipos_prendas.id_ropa=Ropa.id_ropa  ORDER BY id_tipopren ASC ";
