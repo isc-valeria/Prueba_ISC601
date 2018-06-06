@@ -11,20 +11,24 @@ namespace AppData\Controller;
 
 class empleadosController
 {
-    private $empleados,$Puestos;
+    private $empleados,$Puestos,$Turnos;
 
     public function __construct()
     {
         $this->empleados= new \AppData\Model\Empleados();
         $this->Puestos= new \AppData\Model\Puestos();
+        $this->Turnos=new \AppData\Model\Turnos();
     }
 
     public function index()
     {
         $datos1=$this->empleados->getAll();
         $datos2=$this->Puestos->getAll();
+        $datos3=$this->Turnos->getAll();
+
         $datos[0]=$datos1;
         $datos[1]=$datos2;
+        $datos[2]=$datos3;
 
         return $datos;
     }
