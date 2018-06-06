@@ -150,6 +150,7 @@
 
 
 
+
 <div id="modal_registroa" class="modal">
     <div class="modal-content">
         <div class="card-panel">

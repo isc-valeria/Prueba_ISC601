@@ -11,9 +11,12 @@ class Tareas
     private  $id_tarea;
     private  $id_tipotarea;
     private  $id_empleado;
-    private  $num_habitacion;
+    private  $id_habitacion;
     private  $fecha_inicio;
     private  $fecha_fin;
+
+    private $tabla="tareas";
+
 
     function __construct()
     {
@@ -32,8 +35,7 @@ class Tareas
 
     function add()
     {
-        //$sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_hab}','{$this->id_tipoh}','{$this->id_estadoh}')";
-        $sql="";
+        $sql="insert into {$this->tabla} values('0','{$this->id_tipotarea}','{$this->id_empleado}','{$this->id_habitacion}','{$this->fecha_inicio}','{$this->fecha_fin}')";
         $this->conexion->QuerySimple($sql);
     }
 
