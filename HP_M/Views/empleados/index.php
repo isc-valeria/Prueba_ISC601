@@ -56,6 +56,17 @@
                             <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_turnos" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="input-field input-field col s5">
+                            <input id="Correo_Empleado" type="text" class="validate" name="Correo_Empleado">
+                            <label for="Correo_Empleado"  data-error="Incorrecto" data-success="Correcto" >Correo</label>
+                        </div>
+                        <div class="input-field col s3.5">
+                            <input id="Contraseña_Empleado" type='text' class="validate" name="Contraseña_Empleado">
+                            <label for="Contraseña_Empleado"  data-error="incorrecto" data-success="Correcto">Contraseña</label>
+                        </div>
+
+                    </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
@@ -95,6 +106,8 @@
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Puestos</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
             <th></th>
             <th></th>
 
