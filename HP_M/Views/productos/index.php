@@ -199,7 +199,7 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Asirgacion de Productos<span class="right"><a href="#modal_registroa" class="btn green white-text modal-trigger" id="add_producto">
+    <h4 align="center">Asignacion de Productos<span class="right"><a href="#modal_registroa" class="btn green white-text modal-trigger" id="add_producto">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
