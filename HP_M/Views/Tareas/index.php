@@ -48,7 +48,7 @@
                         </div>
                         <div class="input-field col l3">
                             <label>Fecha de Fiin</label>
-                            <input id="fecha_f" type="text" class="datepicker"fecha_f>
+                            <input id="fecha_f" type="text" class="datepicker" name="fecha_f">
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
@@ -181,17 +181,19 @@
             $("#update_tarea_ok").hide();
             $("#save_tarea_ok").show();
         });
+
         $("#save_tarea_ok").click(function(){
             //console.log("ok")
-           //console.log($("#save_habitacion").serialize());
+           console.log($("#save_tarea").serialize());
             $.post("<?php echo URL?>Tareas/crear",$("#save_tarea").serialize(),function(res){
               $("#body_table").empty().append(res);
-              $('#save_habitacion').find('input, select, textarea').val('');
+              $('#save_tarea').find('input, select, textarea').val('');
               Materialize.updateTextFields();
               //$("#modal_registro").modal("close");
               Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
+
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>Tareas/eliminar/'+id;
@@ -221,6 +223,7 @@
                 $("#modal_registro").modal("open");
             });
         });
+
         $("#update_habitaciones_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){

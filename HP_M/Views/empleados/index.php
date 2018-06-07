@@ -43,8 +43,8 @@
                             <select id="" type="text" class="validate" name="nomestadohabitacion">
                                 <option value="" disabled selected>Selecciona turno</option>
                                 <?php
-                                $result2=$datos[3];
-                                while ($row=mysqli_fetch_array($result2))
+                                $result3=$datos[2];
+                                while ($row=mysqli_fetch_array($result3))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>

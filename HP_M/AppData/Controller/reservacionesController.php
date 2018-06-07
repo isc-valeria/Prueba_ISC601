@@ -70,27 +70,26 @@ class reservacionesController
 
     public function eliminar($id)
     {
-        $this->habitaciones->delete($id[0]);
-        $datos1=$this->habitaciones->getAll();
+        $this->reservaciones->delete($id[0]);
+        $datos1=$this->reservaciones->getAll();
         $datos[0]=$datos1;
         return $datos;
     }
     public function modificar($id)
     {
-        $datos=$this->habitaciones->getOne($id[0]);
+        $datos=$this->reservaciones->getOne($id[0]);
         return $datos;
     }
     public function actualizar($id)
     {
         if($_POST)
         {
-            $this->habitaciones->set("id_habitacion",$id[0]);
-            $this->habitaciones->set('num_habitacion',$_POST["numero_habitacion"]);
-            $this->habitaciones->set('descripcion_hab',$_POST["descripcion"]);
-            $this->habitaciones->set('id_tipoh',$_POST["id_tipoh"]);
-            $this->habitaciones->set('id_estadoh',$_POST["nomestadohabitacion"]);
-            $this->habitaciones->update();
-            $datos1=$this->habitaciones->getAll();
+            $this->reservaciones->set("id_reservacion",$id[0]);
+            $this->reservaciones->set('no_personas',$_POST["no_personas"]);
+            $this->reservaciones->set('fecha_llegada',$_POST["fecha_llegada"]);
+            $this->reservaciones->set('fecha_salida',$_POST["fecha_salida"]);
+            $this->reservaciones->update();
+            $datos1=$this->reservaciones->getAll();
             $datos[0]=$datos1;
             return $datos;
         }

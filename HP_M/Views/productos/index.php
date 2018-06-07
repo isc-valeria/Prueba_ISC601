@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="cat" type="text" class="validate" name="id_tipopro">
+                            <select id="tipopro" type="text" class="validate" name="id_tipopro">
                                 <option value="" disabled selected>Selecciona Tipo de producto</option>
                                 <?php
                                 $result23=$datostipp[1];
@@ -49,12 +49,13 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="cat" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
+                            <label for="id_tipopro" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
                         </div>
 
 
+
                         <div class="input-field col s5">
-                            <input id="existencias" type="text" class="validate" name="existencias">
+                            <input id="existencias" type="number" class="validate" name="existencias">
                             <label for="existencias" data-error="incorrecto" data-success="Correcto" >Existencias</label>
                         </div>
 
@@ -70,12 +71,12 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_min" type="text" class="validate" name="stock_min">
+                            <input id="stock_min" type="number" class="validate" name="stock_min">
                             <label for="stock_min" data-error="incorrecto" data-success="Correcto">Stock minimo</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_max" type="text" class="validate" name="stock_max">
+                            <input id="stock_max" type="number" class="validate" name="stock_max">
                             <label for="stock_max" data-error="incorrecto" data-success="Correcto" >Stock maximo</label>
                         </div>
 
@@ -88,7 +89,11 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_productos_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_productos" class="btn modal-close">Registrar</a>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_producto_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
 
@@ -128,7 +133,6 @@
             <th>Stock Min</th>
             <th></th>
             <th></th>
-
         </tr>
         </thead>
         <tbody id="body_table">
@@ -136,8 +140,98 @@
         require_once ("tabla.php");
         ?>
         </tbody>
+
     </table>
 </div>
+
+
+
+
+
+
+
+
+<div id="modal_registroa" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
+                <h4 align="center">Asigna Productos</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s1">
+                        </div>
+
+                        <div class="input-field col s5">
+                            <input id="nombre_pro" type="text" class="validate" name="nombre_pro">
+                            <label for="nombre_pro"  data-error="incorrecto" data-success="Correcto">Producto</label>
+                        </div>
+
+
+                        <div class="input-field input-field col s4 text">
+                            <i class="mdi-action-verified-user prefix"></i>
+                            <input id="numero_habitacion" type="number" class="validate" >
+                            <label for="numero_habitacion"  data-error="Incorrecto" data-success="Correcto" >Número de Habitación</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s1">
+                        </div>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_productos" class="btn modal-close">Registrar</a>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_producto_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="card-panel">
+    <h4 align="center">Asignacion de Productos<span class="right"><a href="#modal_registroa" class="btn green white-text modal-trigger" id="add_producto">
+                <i class="material-icons">add</i>
+            </a></span></h4>
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="input-field col s4 offset-s8">
+            <i class="mdi-action-verified-user prefix icon-search"></i>
+            <input id="buscar" placeholder="Buscar" type="text">
+        </div>
+    </div>
+
+
+    <table class="responsive-table">
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Numero Habitacion</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="body_table">
+        <?php
+        require_once ("tabla.php");
+        ?>
+        </tbody>
+
+    </table>
+</div>
+
+
+
 
 
 
@@ -151,9 +245,6 @@
         <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-
-
-
 
 <script type="text/javascript">
     $(document).ready(function(){
