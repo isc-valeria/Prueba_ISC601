@@ -12,5 +12,6 @@ while($row=mysqli_fetch_array($datos))
     <td>{$row['estador']}</td>
     <td style='text-align: center'>{$row['no_personas']}</td>
     <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row['id_reservacion']}'></a></td>
-    <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row['id_reservacion']}' href='#!'></a></td></tr>";
+    <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row['id_reservacion']}' href='#!'></a></td>
+    </tr>";
 ?>

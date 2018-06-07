@@ -26,11 +26,11 @@ class tareasController
     public function crear(){
         if($_POST)
         {
-            $this->Tareas->set('descripcion_tarea',$_POST["tipotarea"]);
-            $this->Tareas->set('nombre_emp',$_POST["empleado"]);
-            $this->Tareas->set('num_habitacion',$_POST["habitacion"]);
-            $this->Tareas->set('fecha_inicio',$_POST["fechai"]);
-            $this->Tareas->set('fecha_fin',$_POST["fechaf"]);
+            $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
+            $this->Tareas->set('id_empleado',$_POST["empleados"]);
+            $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
+            $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
+            $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
             $this->Tareas->add();
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;

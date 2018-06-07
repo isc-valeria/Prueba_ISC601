@@ -47,9 +47,18 @@ class Reservaciones
         return $datos;
     }
     function update(){
-
+        $sql="update reservaciones set no_personas='{$this->no_personas}',fecha_llegada='{$this->fecha_llegada}',fecha_salida='{$this->fecha_salida}'
+        where id_reservacion='{$this->id_reservacion}'";
+        $this->conexion->QuerySimple($sql);
     }
-    function delete(){
-
+    function delete($id){
+        $sql="delete from {$this->tabla} where id_reservacion='{$id}'";
+        $this->conexion->QuerySimple($sql);
+    }
+    function getOne($id)
+    {
+        $sql="select * from  {$this->tabla} where id_reservacion='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 }

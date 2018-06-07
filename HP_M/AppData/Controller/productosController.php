@@ -41,12 +41,34 @@ class productosController
         }
 
     }
+    public function modificar($id)
+    {
+        $datos=$this->productos->getOne($id[0]);
+        return $datos;
+    }
 
     public function eliminar($id)
     {
         $this->productos->delete($id[0]);
         $datos=$this->productos->getAll();
         return $datos;
+    }
+    public function actualizar($id)
+    {
+        if($_POST)
+        {
+            $this->habitaciones->set("id_producto",$id[0]);
+            $this->habitaciones->set('nombre_pro',$_POST["nombre_producto"]);
+            $this->habitaciones->set('id_categoriapro',$_POST["id_categoria"]);
+            $this->habitaciones->set('id_tipopro',$_POST["id_tipopro"]);
+            $this->habitaciones->set('existencia',$_POST["existencia"]);
+            $this->habitaciones->set('stock_min',$_POST["stock_min"]);
+            $this->habitaciones->set('stock_min',$_POST["stock_max"]);
+            $this->habitaciones->update();
+            $datos1=$this->habitaciones->getAll();
+            $datos[0]=$datos1;
+            return $datos;
+        }
     }
 
 }

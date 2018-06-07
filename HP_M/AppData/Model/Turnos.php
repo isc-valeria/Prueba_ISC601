@@ -23,25 +23,29 @@ class Turnos
     {
         return $this->$atributo;
     }
-	function add()
-	{
-		$sql=
-		$datos= $this->conexion ->querySimple($sql);
-	}
+
 	function getAll()
 	{
-		$sql=
+		$sql="select *from turnos";
 		$datos= $this->conexion ->QueryResultado($sql);
 		return $datos;
 	}
+    function add()
+    {
+        $sql="insert into turnos VALUES ('datos')";
+        $datos= $this->conexion ->querySimple($sql);
+        return $datos;
+    }
 	function update() 
 	{
-		$sql=
+		$sql="update puestos set descripcion_turno='variable' where id_turno='id'";
 		$datos= $this->conexion ->querySimple($sql);
+		return $datos;
 	}
 	function delete() 
 	{
-		$sql=
+		$sql="delete from turno WHERE id_turno='id'";
 		$datos= $this->conexion ->querySimple($sql);
+		return $datos;
 	}
 }

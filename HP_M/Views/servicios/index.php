@@ -70,7 +70,7 @@
                     <th>Hora de fin</th>
                 </tr>
             </thead>
-        <tbody>
+        <tbody id="body_table">
         <?php
             require_once ('tabla.php');
         ?>
@@ -98,18 +98,12 @@
             $("#save_servicios_ok").show();
         });
         $("#save_servicios_ok").click(function () {
-<<<<<<< HEAD
-            //console.log($("#save_servicios").serialize());
-=======
+
             //console.log("ok")
-<<<<<<< HEAD
            console.log($("#save_servicios").serialize());
             $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function (res) {
-=======
+                console.log(res)
             //console.log($("#save_servcios_ok").serialize());
->>>>>>> 8d12754b81bbf4a75e481b9cb383ec32ec90a44e
-            $.post("<?php echo URL?>servicios/crear"),$("#save_servicios").serialize(),function (res) {
->>>>>>> dc68b926cc7269b83c6c4d913f92f51b78874a51
                 $("#body_table").empty().append(res);
 
                $('#save_servicios').find('input, select, textarea').val('');

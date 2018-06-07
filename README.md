@@ -72,10 +72,15 @@ Rodrigo Juan =)
 
 Alexander Orozco
 
+Alexander Orozco
+
 Maricruz 
 
 Nemii 
 
-jonathan :)
+jonathan :
 
-navor
+Jazmin hola
+
+Jazmin1
+commit Jazmin
