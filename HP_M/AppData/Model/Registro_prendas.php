@@ -48,13 +48,10 @@ class Registro_prendas
         WHERE Registro_prendas.id_tipopren=Tipos_prendas.id_tipopren 
         AND Registro_prendas.id_estadop = Estados_prendas.id_estadop
         
-        AND Registro_prendas.id_tipopren = Tipos_prendas.id_tipopren
         AND Tipos_prendas.id_tela = Tipos_tela.id_tela 
         
-        AND Registro_prendas.id_tipopren = Tipos_prendas.id_tipopren
         AND Tipos_prendas.id_color = Colores.id_color 
         
-        AND Registro_prendas.id_tipopren = Tipos_prendas.id_tipopren
         AND Tipos_prendas.id_tratamiento = Tratamientos.id_tratamiento
         
         AND Tratamientos.id_precio = Precios.id_precio 
