@@ -16,6 +16,9 @@
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
     //require_once ("Views/Template.php);
+
+
+  //  echo $_GET["url"];
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
     Views\Template::header();
     AppData\Config\Enrutador::run(new AppData\Config\Request());

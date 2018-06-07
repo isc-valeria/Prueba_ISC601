@@ -1,4 +1,4 @@
-create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int);
+﻿create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int);
 create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puesto varchar(30));
 create table Turnos (id_turno int primary key AUTO_INCREMENT,descripcion_turno varchar(15), hr_entrada time, hr_salida time);
 create table Asigna_turno (id_asignaturno int primary key AUTO_INCREMENT, id_empleado int, id_turno int);
@@ -39,7 +39,7 @@ create table Estado_servicios(id_estados int primary key AUTO_INCREMENT, descrip
 create table Estado_habitacion(id_estadoh int primary key AUTO_INCREMENT, estado_ha varchar(50));
 create table Tipos_habitacion(id_tipoh int primary key AUTO_INCREMENT, tipo_ha varchar(50), precio int,maximo_personas int);
 create table Habitaciones (id_habitacion int primary key AUTO_INCREMENT, num_habitacion int, descripcion_hab varchar(100), id_tipoh int, id_estadoh int);
-create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10),clave_cli int );
+create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), id_puesto int);
 create table Estado_reserva(id_estador int primary key AUTO_INCREMENT, estador varchar(20));
 create table Reservaciones(id_reservacion int primary key AUTO_INCREMENT, clave_reserva varchar(10), id_cliente int, fecha_reserva timestamp, fecha_llegada timestamp, fecha_salida timestamp, id_estador int,no_personas int);
 create table Asigna_reservaciones(id_asignares int primary key AUTO_INCREMENT, id_habitacion int, id_reservacion int);
@@ -49,9 +49,11 @@ create table Facturacion(id_factura int primary key AUTO_INCREMENT, id_asignares
 create table Checkin(id_checkin int primary key AUTO_INCREMENT, id_asignares int, fecha_checkin timestamp);
 create table Checkout(id_checkout int primary key AUTO_INCREMENT, id_asignares int, fecha_checkout timestamp);
 
+create TABLE usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
+create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20));
 
-
-
+insert into tipo_usuario values(1,'Empleado');
+insert into tipo_usuario values(2,'Cliente');
 
 
 insert into Colores values (1, 'Blanco');
@@ -333,11 +335,13 @@ insert into Empleados  values(303, 'Jorge','Benitez', 'Cruz', 311);
 
 
 
-insert into Puestos values(310, 'Camarero');
+insert into Puestos values(1, 'Camarero');
 
-insert into Puestos values(311, 'Recepcionista');
+insert into Puestos values(2, 'Recepcionista');
 
-insert into Puestos values(312, 'Gerente');
+insert into Puestos values(3, 'Cliente');
+
+insert into Puestos values(4, 'Administrador');
 
 
 
