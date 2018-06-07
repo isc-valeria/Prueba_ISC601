@@ -24,7 +24,12 @@ class productosController
 
     public function index()
     {
-        $datos=$this->productos->getAll();
+        $datos1=$this->productos->getAll();
+        $datos2=$this->categorias_productos->getAll();
+        $datos3=$this->tipo_producto->getAll();
+        $datos[0]=$datos1;
+        $datos[1]=$datos2;
+        $datos[2]=$datos3;
         return $datos;
     }
     public function crear(){

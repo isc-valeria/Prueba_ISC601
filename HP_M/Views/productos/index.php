@@ -24,7 +24,7 @@
                             <select id="cat" type="text" class="validate" name="id_categoriapro">
                                 <option value="" disabled selected>Selecciona Categoria del producto</option>
                                 <?php
-                                $result22=$datoscatp[1];
+                                $result22=$datos[1];
                                 while ($row=mysqli_fetch_array($result22))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
@@ -44,7 +44,7 @@
                             <select id="tipopro" type="text" class="validate" name="id_tipopro">
                                 <option value="" disabled selected>Selecciona Tipo de producto</option>
                                 <?php
-                                $result23=$datostipp[1];
+                                $result23=$datos[2];
                                 while ($row=mysqli_fetch_array($result23))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
