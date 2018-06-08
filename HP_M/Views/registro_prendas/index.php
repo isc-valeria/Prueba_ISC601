@@ -8,7 +8,7 @@
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">mode_edit</i>
+                            <img class="materialboxed" width="650" src="imagenes/Imageneslavanderia/22.png">
                         </a>
                         <p class="center">Servicios Hoy</p>
                     </div>
