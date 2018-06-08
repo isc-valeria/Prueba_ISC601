@@ -374,11 +374,11 @@ insert into  Tipo_tarea values(392, 'Cambiar chapas');
 
 
 
-insert into  Tareas values(400, 390,301,150,'23/06/2017','26/06/2017');
+insert into  Tareas values(400, 390,301,150,'2017/06/17','2017/06/15');
 
-insert into  Tareas values(401, 391,301,151,'25/06/2017','28/06/2017');
+insert into  Tareas values(401, 391,301,151,'2017/06/12','2017/06/12');
 
-insert into  Tareas values(402, 392,302,152,'27/01/2017','17/08/2017');
+insert into  Tareas values(402, 392,302,152,'2017/01/23','2017/08/31');
 
 
 
