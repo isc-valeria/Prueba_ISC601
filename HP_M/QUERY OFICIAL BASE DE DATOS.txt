@@ -1,7 +1,7 @@
-﻿create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int);
-create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puesto varchar(30));
+﻿
 create table Turnos (id_turno int primary key AUTO_INCREMENT,descripcion_turno varchar(15), hr_entrada time, hr_salida time);
-create table Asigna_turno (id_asignaturno int primary key AUTO_INCREMENT, id_empleado int, id_turno int);
+create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int , id_turno int);
+create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puesto varchar(30));
 
 
 create table Equipo_seguridad (id_equiposegu int primary key AUTO_INCREMENT, nombre_equisegu varchar(30),id_tipoequisegu int);
@@ -322,16 +322,11 @@ insert into Asignadestino_servicios values (252, 222, 52);
 
 
 
+insert into Empleados  values(301, 'Jesus','Lopez','Santana', 1,321);
 
+insert into Empleados  values(302, 'Gabriela','Morales','Guadarrama', 2,322);
 
-
-
-insert into Empleados  values(301, 'Jesus','Lopez','Santana', 310);
-
-insert into Empleados  values(302, 'Gabriela','Morales','Guadarrama', 312);
-
-insert into Empleados  values(303, 'Jorge','Benitez', 'Cruz', 311);
-
+insert into Empleados  values(303, 'Jorge','Benitez', 'Cruz', 3,320);
 
 
 
@@ -352,19 +347,6 @@ insert into Turnos  values(321,'Vespertino', '15:00:00', '23:00:00');
 
 
 insert into Turnos  values(322,'Nocturno', '23:00:00', '07:00:00');
-
-
-
-
-
-insert into Asigna_turno values(330, 301, 320);
-
-insert into Asigna_turno values(331, 302, 321);
-
-insert into Asigna_turno values(332, 303, 321);
-
-
-
 
 
 
