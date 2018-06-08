@@ -20,15 +20,13 @@ create table Categorias_producto (id_categoriapro int primary key AUTO_INCREMENT
 create table Asignadestino_servicios(id_destinoser int primary key AUTO_INCREMENT, id_salida int, id_servicio int);
 
 
-create table Colores (id_color int primary key AUTO_INCREMENT, descripcion_color  varchar(30));
-create table Ropa (id_ropa int primary key AUTO_INCREMENT, descripcion_ropa varchar(50));
-create table Tipos_prendas (id_tipopren int primary key AUTO_INCREMENT, id_tela int, id_tratamiento int, id_color int, id_ropa int, cantidad int);
-create table Tipos_tela (id_tela int primary key AUTO_INCREMENT, descripcion_tela varchar(30));
-create table Tratamientos (id_tratamiento int primary key AUTO_INCREMENT, descripcion_trata varchar(50), id_precio int);
-create table Estados_prendas (id_estadop int primary key AUTO_INCREMENT, descripcion varchar(30));
-create table Registro_prendas (id_registropren int primary key AUTO_INCREMENT, fecha_entrega timestamp, fecha_recepcion timestamp, id_tipopren int, id_estadop int );
-create table Asignaprenda_habitacion(id_asignaprenda int primary key AUTO_INCREMENT, id_habitacion int, id_registropren int);
-create table Precios(id_precio int primary key AUTO_INCREMENT, descripcion_precio float);
+create table Colores(id_color int primary key AUTO_INCREMENT, descripcion_color varchar(30));
+create table Tipos_prendas(id_tipoprenda int primary key AUTO_INCREMENT, descripcion_prenda varchar(20));
+create table Servicios_lavanderia(id_serviciolavanderia int primary key AUTO_INCREMENT, nombre_servicio varchar(20),codigo_servicio varchar(30));
+create table Estado_orden (id_estadoorden int primary key AUTO_INCREMENT, estado_orden varchar(30));
+create table Prendas (id_prenda int primary key AUTO_INCREMENT, codigo_prenda varchar(30), id_serviciolavanderia int, id_tipoprenda int, precio float);
+create table Ordenes (id_orden int primary key AUTO_INCREMENT, id_prenda int, cantidad int, id_color int, id_estadoorden int, subtotal float);
+create table Ticket(id_ticket int primary key AUTO_INCREMENT, id_habitacion int, fecha_entrada timestamp, fecha_salida timestamp, id_orden int, total float);
 
 
 create table Servicios(id_servicio int primary key AUTO_INCREMENT, descripcion_ser varchar(30), hora_inicio time, hora_fin time);
@@ -55,7 +53,6 @@ create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuar
 insert into tipo_usuario values(1,'Empleado');
 insert into tipo_usuario values(2,'Cliente');
 
-
 insert into Colores values (1, 'Blanco');
 
 insert into Colores values (2, 'Rojo');
@@ -63,87 +60,45 @@ insert into Colores values (2, 'Rojo');
 insert into Colores values (3, 'Negro');
 
 
-insert into Ropa values(10, 'Playera');
+insert into Tipos_prendas values(10, 'Playera');
 
-insert into Ropa values(11, 'Pantalon');
+insert into Tipos_prendas values(11, 'Pantalon');
 
-insert into Ropa values(12, 'Camisa');
+insert into Tipos_prendas values(12, 'Camisa');
 
-insert into Ropa values(13, 'Saco');
+insert into Tipos_prendas values(13, 'Saco');
 
-insert into Ropa values(14, 'Chamarra');
-
-
+insert into Tipos_prendas values(14, 'Chamarra');
 
 
 
-insert into Tipos_prendas values (130, 20, 120,1,10, 5);
+insert into Servicios_lavanderia values (20, 'Planchado','PLA01');
 
-insert into Tipos_prendas values (131, 21, 121,2,11, 15);
+insert into Servicios_lavanderia values (21, 'Lavado','LAV01');
 
-insert into Tipos_prendas values (132, 22, 122,3,12, 25);
-
-
-
-
-insert into Tipos_tela values (20, 'Mezclilla');
-
-insert into Tipos_tela values (21, 'Algod�n');
-
-insert into Tipos_tela values (22, 'Franela');
-
-insert into Tipos_tela values (23, 'Crepe');
-
-insert into Tipos_tela values (24, 'Algodon');
+insert into Servicios_lavanderia values (22, 'Tintoreria','TIN01');
 
 
 
+insert into Estado_orden values (30, 'Urgente');
 
-insert into Tratamientos values (120, 'Lavado', 40);
-
-insert into Tratamientos values (121, 'Planchado', 41);
-
-insert into Tratamientos values (122, 'Tintoreria', 42);
+insert into Estado_orden values (31, 'Normal');
 
 
+insert into Prendas values(130, 'CHA01',20, 14, 200 );
+insert into Prendas values(131, 'PAN01',20, 11, 150 );
+insert into Prendas values(132, 'SAC01',21, 13, 250 );
+insert into Prendas values(133, 'CAM01',22, 12, 100 );
+insert into Prendas values(134, 'PLA01',21, 10, 100 );
 
+insert into Ordenes values (40, 130,1,1,30, 200);
+insert into Ordenes values (41, 131,3,2,31, 300);
+insert into Ordenes values (42, 132,1,1,31, 250);
 
+insert into Ticket values (140, 150, sysdate(), sysdate(),41,300);
+insert into Ticket values (141, 151, sysdate(), sysdate(),42,250);
+insert into Ticket values (142, 152, sysdate(), sysdate(),40,200);
 
-
-
-insert into Estados_prendas values (30, 'Buen Estado');
-
-insert into Estados_prendas values (31, 'Mal Estado');
-
-
-
-
-insert into Registro_prendas values (140, sysdate(), sysdate(),130,30);
-
-insert into Registro_prendas values (141, sysdate(), sysdate(),131,31);
-
-insert into Registro_prendas values (142, sysdate(), sysdate(),132,30);
-
-
-
-insert into Asignaprenda_habitacion values (170, 150, 140);
-
-insert into Asignaprenda_habitacion values (171, 151, 141);
-
-insert into Asignaprenda_habitacion values (172, 152, 142);
-
-
- 
-
-insert into Precios values (40, 100);
-
-insert into Precios values (41, 150);
-
-insert into Precios values (42, 50);
-
-insert into Precios values (43, 200);
-
-insert into Precios values (44, 170);
 
 
 

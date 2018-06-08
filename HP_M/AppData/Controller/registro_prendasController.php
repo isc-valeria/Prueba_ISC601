@@ -85,6 +85,8 @@ class registro_prendasController
 
             return $datos;
         }
+
     }
+   
 
 }
