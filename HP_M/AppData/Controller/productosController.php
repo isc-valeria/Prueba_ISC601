@@ -24,7 +24,12 @@ class productosController
 
     public function index()
     {
-        $datos=$this->productos->getAll();
+        $datos1=$this->productos->getAll();
+        $datos2=$this->categorias_productos->getAll();
+        $datos3=$this->tipo_producto->getAll();
+        $datos[0]=$datos1;
+        $datos[1]=$datos2;
+        $datos[2]=$datos3;
         return $datos;
     }
     public function crear(){
@@ -57,15 +62,15 @@ class productosController
     {
         if($_POST)
         {
-            $this->habitaciones->set("id_producto",$id[0]);
-            $this->habitaciones->set('nombre_pro',$_POST["nombre_producto"]);
-            $this->habitaciones->set('id_categoriapro',$_POST["id_categoria"]);
-            $this->habitaciones->set('id_tipopro',$_POST["id_tipopro"]);
-            $this->habitaciones->set('existencia',$_POST["existencia"]);
-            $this->habitaciones->set('stock_min',$_POST["stock_min"]);
-            $this->habitaciones->set('stock_min',$_POST["stock_max"]);
-            $this->habitaciones->update();
-            $datos1=$this->habitaciones->getAll();
+            $this->productos->set("id_producto",$id[0]);
+            $this->productos->set('nombre_pro',$_POST["nombre_producto"]);
+            $this->productos->set('id_categoriapro',$_POST["id_categorias"]);
+            $this->productos->set('id_tipopro',$_POST["id_tipoprod"]);
+            $this->productos->set('existencia',$_POST["existencias"]);
+            $this->productos->set('stock_minn',$_POST["stock_min"]);
+            $this->productos->set('stock_maxx',$_POST["stock_max"]);
+            $this->productos->update();
+            $datos1=$this->productos->getAll();
             $datos[0]=$datos1;
             return $datos;
         }

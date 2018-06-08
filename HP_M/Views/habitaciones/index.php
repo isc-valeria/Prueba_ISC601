@@ -139,14 +139,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
+                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -177,15 +173,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
-                        >Registar
-
-                        </button>
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
