@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 09/05/2018
- * Time: 02:25 PM
- */
 
 namespace AppData\Model;
 
@@ -27,6 +21,7 @@ class Colores
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function getAll(){
         $sql="select * from Colores";
         $datos=$this->conexion->queryResultado($sql);
@@ -40,6 +35,7 @@ class Colores
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function delete(){
         $sql="delete from Colores WHERE id_color='id'";
         $datos=$this->conexion->queryResultado($sql);
