@@ -5,7 +5,7 @@ namespace AppData\Model;
 
 class Ticket
 {
-    private $tabla="Ticket";
+    private $tabla="registro_prendas";
     private $id_ticket;
     private $id_habitacion;
     private $fecha_entrada;
@@ -37,11 +37,11 @@ class Ticket
 
     function getAll()
     {
-        $sql="SELECT Ticket.id_ticket, Habitaciones.num_habitacion, Ticket.fecha_entrada, Ticket.id_fecha_salida, Ordenes.id_orden, Ticket.total   
-        FROM Ticket, Habitaciones, Ordenes 
+        $sql="SELECT registro_prendas.id_ticket, Habitaciones.num_habitacion, registro_prendas.fecha_entrada, registro_prendas.id_fecha_salida, Ordenes.id_orden, registro_prendas.total   
+        FROM registro_prendas, Habitaciones, Ordenes 
         
-        WHERE Ticket.id_habitacion=Habitaciones.id_habitacion 
-        AND Ticket.id_orden = Ordenes.id_orden
+        WHERE registro_prendas.id_habitacion=Habitaciones.id_habitacion 
+        AND registro_prendas.id_orden = Ordenes.id_orden
         
         ORDER BY id_ticket ASC ";
         $datos=$this->conexion->QueryResultado($sql);
@@ -62,7 +62,7 @@ class Ticket
     }
 
     function update(){
-        $sql="update Ticket set id_habitacion='{$this->id_habitacion}',
+        $sql="update registro_prendas set id_habitacion='{$this->id_habitacion}',
                fecha_entrada='{$this->fecha_entrada}',
                fecha_salida='{$this->fecha_salida}',
                id_orden='{$this->id_orden}',

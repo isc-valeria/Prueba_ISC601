@@ -9,9 +9,8 @@
 namespace AppData\Controller;
 
 
-class registro_prendasController
+class ticketController
 {
-
     private $registro_prendas;
     private $ropa;
     private $estado_prenda;
@@ -23,13 +22,13 @@ class registro_prendasController
 
     public function __construct()
     {
-        $this->registro_prendas= new \AppData\Model\Registro_prendas();
+        $this->registro_prendas= new \AppData\Model\Ticket();
 
-        $this->ropa= new \AppData\Model\Ropa();
-        $this->estado_prenda= new \AppData\Model\estados_prendas();
+        $this->ropa= new \AppData\Model\Prendas();
+        $this->estado_prenda= new \AppData\Model\estadoorden();
         $this->tipo_tela = new \AppData\Model\Tipos_tela();
         $this->color = new \AppData\Model\Colores();
-        $this->tratamiento = new \AppData\Model\Tratamientos();
+        $this->tratamiento = new \AppData\Model\Servicioslavanderia();
         $this->precio = new \AppData\Model\Precios();
         $this->tipo_prenda= new \AppData\Model\Tipos_prendas();
     }
@@ -56,10 +55,10 @@ class registro_prendasController
     }
 
     public function crear(){
-      //  echo "fsdfsdf";
+        //  echo "fsdfsdf";
         if(isset($_POST))
         {
-           // echo "asdasdadasdasd";
+            // echo "asdasdadasdasd";
             $this->tipo_prenda->set('id_tela', $_POST["tipotela"]);
             $this->tipo_prenda->set('id_tratamiento', $_POST["tratamiento"]);
             $this->tipo_prenda->set('id_color', $_POST["color"]);
@@ -81,12 +80,11 @@ class registro_prendasController
             $datos1=$this->registro_prendas->getAll();
 
             $datos[1]=$datos1;
-
-
             return $datos;
         }
 
-    }
-   
 
-}
+
+
+
+    }
