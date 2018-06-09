@@ -1,14 +1,13 @@
 <?php
 
-
 namespace AppData\Model;
 
 
-class estados_prendas
+class Estado_orden
 {
-    private $tabla="estados_prendas";
-    private $id_estadop;
-    private $descripcion;
+    private $tabla="estadoorden";
+    private $id_estadoorden;
+    private $estado_orden;
 
     private $conexion;
 
@@ -18,22 +17,22 @@ class estados_prendas
     }
 
     function add(){
-        $sql="insert into estados_prendas VALUES ('datos')";
+        $sql="insert into Estado_orden VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function getAll(){
-        $sql="select * from estados_prendas";
+        $sql="select * from Estado_orden";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function update(){
-        $sql="update estados_prendas set descripcion='variable' where id_estadop='id'";
+        $sql="update Estado_orden set estado_orden='variable' where id_estadoorden='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function delete(){
-        $sql="delete from estados_prendas WHERE id_estadop='id'";
+        $sql="delete from Estado_orden WHERE id_estadoorden='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
