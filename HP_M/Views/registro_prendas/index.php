@@ -78,7 +78,6 @@
             <a href="#modal_reportes" class="btn #7bb1b3 white-text modal-trigger" id="add_orden">
                 Reportes
             </a>
-
         </div>
         <div class="row"></div>
         <div class="divider"></div>
@@ -127,15 +126,46 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <div id="modal_servicios" class="modal modal_c">
     <div class="modal-content">
-        <div class="card">
         <ul id="tabs-swipe-demo" class="tabs black-text">
             <li class="tab col s3"><a class="active black-text" href="#test-swipe-1">Servicios de Lavanderia</a></li>
             <li class="tab col s3"><a href="#test-swipe-2">Lista de Precios</a></li>
         </ul>
         <div class="divider"></div>
-        <div id="test-swipe-1" class="col s12 white">nuevo registro de servicios de lavandería</div>
-        <div id="test-swipe-2" class="col s12 white">Test 2</div>
+        <div id="test-swipe-1" class="col s12 white">
+            <div class="card-panel">
+                <div class="row">
+                    <div>
+                        <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
+                            Agregar
+                        </a>
+                    </div>
+                    <div class="row"></div>
+                    <div class="divider"></div>
+                    <div class="input-field col s4 offset-s8">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+                    <table class="responsive-table" id="tabla_prin">
+                        <thead>
+                        <tr>
+                            <th>Id           </th>
+                            <th>Nombre del Servicio</th>
+                            <th>Codigo Corto</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+                        </thead>
+                    </table>
+                    <div id="container"></div>
+                    <div class="col-md-12 center text-center">
+                        <span class="left" id="total_reg"></span>
+                        <ul class="pagination pager" id="myPager"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div id="test-swipe-2" class="col s12 white">Test 2</div>
     </div>
 </div>
 <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -154,6 +184,24 @@
     </div>
 </div>
 <!-- //////////////////////////////////////////////////////////////////////////// -->
+<div id="modal_servicios_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+
+            <div class="row">
+                <div class="input-field input-field col s5 center">
+                    <input id="nombre_servi" type="text" class="validate" name="nombre_servi">
+                    <label for="nombre_servi"  data-error="Incorrecto" data-success="Correcto" >Nombre del Servicio</label>
+                </div>
+
+                <div class="input-field input-field col s5 center">
+                    <input id="codigo_corto" type="text" class="validate" name="codigo_corto">
+                    <label for="codigo_corto"  data-error="Incorrecto" data-success="Correcto" >Codigo_Corto</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <script type="text/javascript">
     $(document).ready(function(){
