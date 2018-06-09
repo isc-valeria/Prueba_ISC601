@@ -8,7 +8,7 @@
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <img class="materialboxed" width="650" src="imagenes/Imageneslavanderia/22.png">
+                            <i class="material-icons">local_laundry_service</i>
                         </a>
                         <p class="center">Servicios Hoy</p>
                     </div>
@@ -23,7 +23,7 @@
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">mode_edit</i>
+                            <i class="material-icons">priority_high</i>
                         </a>
                         <p class="center">Pendientes</p>
                     </div>
@@ -38,7 +38,7 @@
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">mode_edit</i>
+                            <i class="material-icons">playlist_add_check</i>
                         </a>
                         <p class="center">Entregados</p>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">mode_edit</i>
+                            <i class="material-icons">people_outline</i>
                         </a>
                         <p class="center">Clientes</p>
                     </div>
