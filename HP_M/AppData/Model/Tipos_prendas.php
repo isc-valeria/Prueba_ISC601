@@ -4,11 +4,11 @@
 namespace AppData\Model;
 
 
-class estados_prendas
+class Tipos_prendas
 {
-    private $tabla="estados_prendas";
-    private $id_estadop;
-    private $descripcion;
+    private  $tabla="Tipos_prendas";
+    private $id_tipoprenda;
+    private $descripcion_prenda;
 
     private $conexion;
 
@@ -18,22 +18,25 @@ class estados_prendas
     }
 
     function add(){
-        $sql="insert into estados_prendas VALUES ('datos')";
+        $sql="insert into Tipos_prendas VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function getAll(){
-        $sql="select * from estados_prendas";
+        $sql="select * from Tipos_prendas";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function update(){
-        $sql="update estados_prendas set descripcion='variable' where id_estadop='id'";
+        $sql="update Tipos_prendas set descripcion_prenda='variable' where id_tipoprenda='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function delete(){
-        $sql="delete from estados_prendas WHERE id_estadop='id'";
+        $sql="delete from Tipos_prendas WHERE id_tipoprenda='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
