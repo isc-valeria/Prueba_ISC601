@@ -156,8 +156,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
->Registar
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar
 
                         </button>
                     </div>
@@ -235,7 +234,6 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
     });
         $(document).ready(function(){
             $('select').material_select();

@@ -35,10 +35,12 @@ class productosController
     public function crear(){
         if($_POST)
         {
-            $this->productos->set('nombre_pro',$_POST["nombre_producto"]);
-            $this->productos->set('descripcion_cat',$_POST["descripcion_categoria"]);
-            $this->productos->set('id_tipoh',$_POST["id_tipoh"]);
-            $this->productos->set('id_estadoh',$_POST["nomestadohabitacion"]);
+            $this->productos->set('nombre_pro',$_POST["nombre_pro"]);
+            $this->productos->set('id_categoriapro',$_POST["id_categoriapro"]);
+            $this->productos->set('id_tipopro',$_POST["id_tipopro"]);
+            $this->productos->set('existencias',$_POST["existencias"]);
+            $this->productos->set('stock_min',$_POST["stock_min"]);
+            $this->productos->set('stock_max',$_POST["stock_max"]);
             $this->productos->add();
             $datos1=$this->productos->getAll();
             $datos[0]=$datos1;
@@ -63,12 +65,12 @@ class productosController
         if($_POST)
         {
             $this->productos->set("id_producto",$id[0]);
-            $this->productos->set('nombre_pro',$_POST["nombre_producto"]);
-            $this->productos->set('id_categoriapro',$_POST["id_categorias"]);
-            $this->productos->set('id_tipopro',$_POST["id_tipoprod"]);
-            $this->productos->set('existencia',$_POST["existencias"]);
-            $this->productos->set('stock_minn',$_POST["stock_min"]);
-            $this->productos->set('stock_maxx',$_POST["stock_max"]);
+            $this->productos->set('nombre_pro',$_POST["nombre_pro"]);
+            $this->productos->set('id_categoriapro',$_POST["id_categoriapro"]);
+            $this->productos->set('id_tipopro',$_POST["id_tipopro"]);
+            $this->productos->set('existencias',$_POST["existencias"]);
+            $this->productos->set('stock_min',$_POST["stock_min"]);
+            $this->productos->set('stock_max',$_POST["stock_max"]);
             $this->productos->update();
             $datos1=$this->productos->getAll();
             $datos[0]=$datos1;
