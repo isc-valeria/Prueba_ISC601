@@ -31,6 +31,8 @@ class habitacionesController
             $this->habitaciones->set('descripcion_hab',$_POST["descripcion"]);
             $this->habitaciones->set('id_tipoh',$_POST["id_tipoh"]);
             $this->habitaciones->set('id_estadoh',$_POST["nomestadohabitacion"]);
+
+
             $this->habitaciones->add();
             $datos1=$this->habitaciones->getAll();
             $datos[0]=$datos1;

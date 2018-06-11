@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s5">
-                            <input id="clave_cli" type="text"  name="clave_cli">
+                            <input id="clave_cli" type="text" readonly name="clave_cli">
                             <label for="clave_cli"  >Clave Cliente</label>
                         </div>
                     </div>
@@ -119,6 +119,12 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
+
+
+            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+            $("#clave_cli").val(clave);
+            Materialize.updateTextFields();
+
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
         });
@@ -173,14 +179,17 @@
 
         ///validar formulario
         $("#save_clientes").validate({
+
             rules:{
                 nombre_cli:{
                     required:true,
                     maxlength: 8,
                     minlength: 4,
+                    lettersonly:true,
                 },
                 ap_cli:{
                     required:true,
+                    lettersonly:true,
                 },
                 am_cli:{
                     required:true,
@@ -220,7 +229,6 @@
                     $('#save_clientes').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
                     $("#modal_registro").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
                 })
             }
         });
