@@ -28,13 +28,21 @@ class Template
             <link rel="stylesheet" type="text/css" href="Public/css/materialize.css">
             <link rel="stylesheet" type="text/css" href="Public/css/stylo.css">
             <script type="text/javascript" src="Public/js/jquery.js"></script>
-            <script type="text/javascript" src="Public/js/materialize.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
             <link rel="stylesheet" href="Public/style.css">
             <link rel="stylesheet" href="<?php echo URL?>/Public/fonts/material-icons.css" />
             <link rel="stylesheet" href="<?php echo URL?>/Public/css/elcss.css" type="text/css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                    $('.parallax').parallax();
+                });
+            </script>
+
         </head>
         <body>
         <!------------------------------------------------------------>
