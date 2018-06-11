@@ -1,8 +1,8 @@
 <?php
-//$datos=$datos[0];
+$datos=$datos[0];
 while($row=mysqli_fetch_array($datos))
                     echo "<tr><td>{$row[0]}</td>
-                   <!-- <td></td> -->
+                    <td>{$row[0]}</td>
                     <td>{$row['nombre_pro']}</td>
                     <td>{$row['descripcion_cat']}</td>
                     <td>{$row['descripcion_pro']}</td>

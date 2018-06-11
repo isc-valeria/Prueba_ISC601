@@ -1,19 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 09/05/2018
- * Time: 02:25 PM
- */
 
 namespace AppData\Model;
 
 
-class Precios
+class Servicios_lavanderia
 {
-    private $tabla="Precios";
-    private $id_precio;
-    private $descripcion_precio;
+    private  $tabla="Servicios_lavanderia";
+    private $id_serviciolavanderia;
+    private $nombre_servicio;
+    private $codigo_servicio;
 
     private $conexion;
 
@@ -23,22 +18,27 @@ class Precios
     }
 
     function add(){
-        $sql="insert into Precios VALUES ('datos')";
+        $sql="insert into Servicios_lavanderia VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function getAll(){
-        $sql="select * from Precios";
+        $sql="select * from Servicios_lavanderia";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
+
+
     function update(){
-        $sql="update Precios set descripcion_precio='variable' where id_precio='id'";
+        $sql="update Servicios_lavanderia set nombre_servicio='variable' where id_serviciolavanderia='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
+
     function delete(){
-        $sql="delete from Precios WHERE id_precio='id'";
+        $sql="delete from Servicios_lavanderia WHERE id_serviciolavanderia='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

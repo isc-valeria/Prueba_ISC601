@@ -12,3 +12,19 @@ footer {
     bottom: -100%;
     width: 100%;
 }
+.padding-4
+{
+    padding: 7px;
+}
+
+.modal_c {
+    display: none;
+    position: center;
+    background-color: #fafafa;
+    max-height: 100%;
+    width: 85%;
+    max-width: 100%;
+    height: 84%;
+    border-radius: 8px;
+    will-change: opacity;
+}

@@ -120,7 +120,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 <div id="modal_estado_habitacion" class="modal center-align ">
@@ -139,14 +139,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
+                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -177,15 +173,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
-                        >Registar
-
-                        </button>
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -212,6 +203,7 @@
               Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
+
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>habitaciones/eliminar/'+id;
@@ -224,6 +216,7 @@
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
+
         $("#body_table").on("click","a.btn_modificar",function(){
             $("#save_habitaciones_ok").hide();
             $("#update_habitaciones_ok").show();
@@ -245,12 +238,10 @@
             $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
                 $('#save_habitacion').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
-
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
     });
 </script>
