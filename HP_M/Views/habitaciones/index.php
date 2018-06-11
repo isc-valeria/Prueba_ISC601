@@ -23,15 +23,15 @@
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="tipohabitacion" type="text" class="validate" name="id_tipoh">
-                                <option value="" disabled selected>Selecciona Tipo de la Habitacion</option>
+                            <select id="tipohabitacion" type="text" name="tipohabitacion">
+                                <option disabled selected>Selecciona Tipo de la Habitacion</option>
                                 <?php
                                 $result3=$datos[1];
                                 while ($row=mysqli_fetch_array($result3))
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
+                            <label for="tipohabitacion">Tipo de Habitación</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_habitaciones_ok" class="btn">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -193,15 +193,16 @@
             $("#save_habitaciones_ok").show();
         });
         $("#save_habitaciones_ok").click(function(){
-            //console.log("ok")
-           //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
+            $("#save_habitacion").submit();
+            /*
+            $.post("<?php //echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
               $("#body_table").empty().append(res);
               $('#save_habitacion').find('input, select, textarea').val('');
               Materialize.updateTextFields();
               //$("#modal_registro").modal("close");
               Materialize.toast('Se ha insertado correctamente', 2500);
             })
+           */
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -243,5 +244,17 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
+
+        $("#save_habitacion").validate({
+           rules:{
+                tipohabitacion:{
+                    required:true,
+                }
+            },
+            submitHandler:function(form){
+                console.log("ok")
+            }
+        })
     });
 </script>

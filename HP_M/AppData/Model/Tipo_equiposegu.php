@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Tipo_equiposegu
 {
-    private $tabla="Tipo_equiposegu";
+    private $tabla="tipo_equiposegu";
     private  $id_tipoequisegu;
     private  $descripcion_tipo;
 
