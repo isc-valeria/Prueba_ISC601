@@ -79,14 +79,10 @@
                             <a href="#!" id="save_productos_ok" class="btn modal-close">Registrar</a>
                         </div>
 
-                        <div class="input-field col s12 ">
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-
-                        </div>
-
                         <div class="input-field col s12">
                             <a href="#!" id="update_productos_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
+
                     </div>
                 </div>
             </form>
