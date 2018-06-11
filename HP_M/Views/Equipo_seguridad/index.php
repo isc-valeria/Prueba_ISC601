@@ -1,66 +1,43 @@
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
+            <form action="" id="save_equipo" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Equipo</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="numero_habitacion" type="text" class="validate" name="numero_habitacion">
-                            <label for="numero_habitacion"  data-error="Incorrecto" data-success="Correcto" >Número de Hábitación</label>
-                        </div>
-
-                        <div class="input-field col s1">
-
+                            <input id="nombre_equisegu" type="text" class="validate" name="nombre_equisegu">
+                            <label for="nombre_equisegu"  data-error="Incorrecto" data-success="Correcto" >Nombre De Equipo</label>
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion" type="text" class="validate" name="descripcion">
-                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="input-field col s5">
-                            <select id="tipohabitacion" type="text" class="validate" name="id_tipoh">
-                                <option value="" disabled selected>Selecciona Tipo de la Habitacion</option>
+                            <select id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
+                                <option value="" disabled selected>Selecciona La Descripcion</option>
                                 <?php
                                 $result3=$datos[1];
                                 while ($row=mysqli_fetch_array($result3))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
+                            <label for="descripcion_tipo" data-error="incorrecto" data-success="Correcto" >Descripción</label>
                         </div>
 
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                        </div>
+                        <!--<div class="input-field col s1">
 
+                        </div>
                         <div class="input-field col s5">
-                            <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
-                                <option value="" disabled selected>Selecciona Estado de la Habitacion</option>
-                                <?php
-                                $result2=$datos[3];
-                                while ($row=mysqli_fetch_array($result2))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                ?>
-                            </select>
-                            <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Habitación</label>
-
-                        </div>
-
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_estado_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                        </div>
+                            <input id="descripcion" type="text" class="validate" name="descripcion">
+                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                        </div>-->
                     </div>
+
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_equipo_ok" class="btn modal-close">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_equipo_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +46,7 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Equipo De Seguridad <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_equiposeguridad">
+    <h4 align="center">Equipo De Seguridad <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_equipo">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -170,8 +147,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
-                        >Registar
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar
 
                         </button>
                     </div>
@@ -192,16 +168,16 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-        $("#add_habitacion").click(function(){
-            $("#update_habitaciones_ok").hide();
-            $("#save_habitaciones_ok").show();
+        $("#add_equipo").click(function(){
+            $("#update_equipo_ok").hide();
+            $("#save_equipo_ok").show();
         });
-        $("#save_habitaciones_ok").click(function(){
+        $("#save_equipo_ok").click(function(){
             //console.log("ok")
             //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
+            $.post("<?php echo URL?>Equipo_seguridad/crear",$("#save_equipo").serialize(),function(res){
                 $("#body_table").empty().append(res);
-                $('#save_habitacion').find('input, select, textarea').val('');
+                $('#save_equipo').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
@@ -209,7 +185,7 @@
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>habitaciones/eliminar/'+id;
+            var url='<?php echo URL?>Equipo_seguridad/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
