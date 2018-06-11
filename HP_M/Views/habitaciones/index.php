@@ -23,15 +23,15 @@
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="tipohabitacion" type="text" class="validate" name="id_tipoh">
-                                <option value="" disabled selected>Selecciona Tipo de la Habitacion</option>
+                            <select id="tipohabitacion" type="text" name="tipohabitacion">
+                                <option disabled selected>Selecciona Tipo de la Habitacion</option>
                                 <?php
                                 $result3=$datos[1];
                                 while ($row=mysqli_fetch_array($result3))
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
+                            <label for="tipohabitacion">Tipo de Habitación</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_habitaciones_ok" class="btn">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -120,7 +120,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 <div id="modal_estado_habitacion" class="modal center-align ">
@@ -139,14 +139,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
+                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -177,15 +173,10 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
-                        >Registar
-
-                        </button>
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar</button>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
+                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -202,16 +193,18 @@
             $("#save_habitaciones_ok").show();
         });
         $("#save_habitaciones_ok").click(function(){
-            //console.log("ok")
-           //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
+            $("#save_habitacion").submit();
+            /*
+            $.post("<?php //echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
               $("#body_table").empty().append(res);
               $('#save_habitacion').find('input, select, textarea').val('');
               Materialize.updateTextFields();
               //$("#modal_registro").modal("close");
               Materialize.toast('Se ha insertado correctamente', 2500);
             })
+           */
         });
+
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>habitaciones/eliminar/'+id;
@@ -224,6 +217,7 @@
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
+
         $("#body_table").on("click","a.btn_modificar",function(){
             $("#save_habitaciones_ok").hide();
             $("#update_habitaciones_ok").show();
@@ -245,12 +239,22 @@
             $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
                 $('#save_habitacion').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
-
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
 
+
+        $("#save_habitacion").validate({
+           rules:{
+                tipohabitacion:{
+                    required:true,
+                }
+            },
+            submitHandler:function(form){
+                console.log("ok")
+            }
+        })
     });
 </script>

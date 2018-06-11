@@ -25,12 +25,12 @@ class Productos
         $this->conexion=new conexion();
     }
 
-    function get($atributo,$valor)
+    public function set($atributo,$valor)
     {
         $this->$atributo=$valor;
     }
 
-    function set($atributo)
+    public function get($atributo)
     {
         return $this->$atributo;
     }

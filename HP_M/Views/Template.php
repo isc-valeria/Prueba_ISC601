@@ -25,9 +25,19 @@ class Template
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
             <link href="<?php echo URL?>/Public/css/style.min.css" type="text/css" rel="stylesheet">
             <link href="<?php echo URL?>/Public/css/custom.min.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>/Public/css/stilo.css" type="text/css" rel="stylesheet">
             <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
             <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/pagination.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery.validate.min.js"></script>
+        <script type="text/javascript">
+            $.validator.setDefaults({ ignore: [],
+                errorClass: 'invalid',
+                validClass: "valid",
+            });
+        </script>
+
 
         <title>Inicio</title>
         </head>
@@ -96,8 +106,8 @@ class Template
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
-                                            <
-                                            <li><a href="<?php echo URL?>Registro_prendas" class="icon-jira">   Lavanderia</a></li>
+
+                                            <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
                                             <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
                                             <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
 

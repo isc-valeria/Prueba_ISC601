@@ -18,6 +18,7 @@
                             </select>
                             <label for="tareas" data-error="incorrecto" data-success="Correcto" >Seleciona Tarea</label>
                         </div>
+
                         <div class="input-field col s6">
                             <select id="empleados" type="text" class="validate" name="empleados">
                                 <option value="" disabled selected>Selecciona Empleado</option>
@@ -30,6 +31,7 @@
                             <label for="empleados" data-error="incorrecto" data-success="Correcto" >Seleciona Empleado</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s6">
                             <select id="habitacion" type="text" class="validate" name="habitacion">
@@ -42,14 +44,17 @@
                             </select>
                             <label for="habitacion" data-error="incorrecto" data-success="Correcto" >Tipo de Habitación</label>
                         </div>
+
                         <div class="input-field col l3">
                             <label>Fecha de Inicio</label>
                             <input id="fecha_i" type="text" class="datepicker" name="fecha_i">
                         </div>
+
                         <div class="input-field col l3">
                             <label>Fecha de Fiin</label>
                             <input id="fecha_f" type="text" class="datepicker" name="fecha_f">
                         </div>
+
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
@@ -156,8 +161,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
->Registar
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar
 
                         </button>
                     </div>
@@ -184,7 +188,7 @@
 
         $("#save_tarea_ok").click(function(){
             //console.log("ok")
-           console.log($("#save_tarea").serialize());
+            console.log($("#save_tarea").serialize());
             $.post("<?php echo URL?>Tareas/crear",$("#save_tarea").serialize(),function(res){
               $("#body_table").empty().append(res);
               $('#save_tarea').find('input, select, textarea').val('');
@@ -208,40 +212,41 @@
             });
         });
         $("#body_table").on("click","a.btn_modificar",function(){
-            $("#save_habitaciones_ok").hide();
-            $("#update_habitaciones_ok").show();
+            $("#update_tarea_ok").show();
+            $("#save_tarea_ok").hide();
             var id=$(this).data("id");
             $.get("<?php echo URL?>Tareas/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
-                $("#numero_habitacion").val(datos["num_habitacion"]);
-                $("#descripcion").val(datos["descripcion_hab"]);
-                $("#tipohabitacion").val(datos["id_tipoh"]);
-                $("#nomestadohabitacion").val(datos["id_estadoh"]);
+                $("#update_tarea_ok").data("id",datos["id_tarea"]);
+                $("#tareas").val(datos["id_tipotarea"]);
+                $("#empleados").val(datos["id_empleado"]);
+                $("#habitacion").val(datos["id_habitacion"]);
+                $("#fecha_i").val(datos["fecha_inicio"]);
+                $("#fecha_f").val(datos["fecha_fin"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
 
-        $("#update_habitaciones_ok").click(function(){
+        $("#update_tarea_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
-                $("#body_table").empty().append(res);
+            console.log($("#save_tarea").serialize());
 
+            $.post("<?php echo URL?>tareas/actualizar/"+id,$("#save_tarea").serialize(),function(res){
+                $('#save_tarea').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
+<<<<<<< HEAD
+=======
+        $('select').material_select();
+        $('.datepicker').pickadate();
+>>>>>>> 35aa94c5f09c78a8fac048197ca35a59b80d5d90
     });
-        $(document).ready(function(){
-            $('select').material_select();
-            $('.datepicker').pickadate();
-        });
-
 </script>
 
 
