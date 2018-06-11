@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 09/05/2018
- * Time: 02:26 PM
- */
+
 
 namespace AppData\Model;
 

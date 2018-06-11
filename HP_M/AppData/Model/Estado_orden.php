@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 09/05/2018
- * Time: 02:25 PM
- */
 
 namespace AppData\Model;
 
 
-class Ropa
+class Estado_orden
 {
-    private $tabla="Ropa";
-    private $id_ropa;
-    private $descripcion_ropa;
+    private $tabla="estadoorden";
+    private $id_estadoorden;
+    private $estado_orden;
 
     private $conexion;
 
@@ -23,24 +17,22 @@ class Ropa
     }
 
     function add(){
-        $sql="insert into Ropa VALUES ('datos')";
+        $sql="insert into Estado_orden VALUES ('datos')";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function getAll(){
-        $sql="select * from Ropa";
+        $sql="select * from Estado_orden";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-
-
     function update(){
-        $sql="update Ropa set descripcion_ropa='variable' where id_ropa='id'";
+        $sql="update Estado_orden set estado_orden='variable' where id_estadoorden='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
     function delete(){
-        $sql="delete from Ropa WHERE id_color='id'";
+        $sql="delete from Estado_orden WHERE id_estadoorden='id'";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

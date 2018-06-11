@@ -1,7 +1,7 @@
 <div id="modal_registro" class="modal"  >
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_habitacion" enctype="multipart/form-data" autocomplete="off">
+            <form action="" id="save_empleado" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Empleados</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
@@ -24,7 +24,7 @@
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="descripcion_puesto" type="text" class="validate" name="id_puesto">
+                            <select id="id_puesto" type="text" class="validate" name="id_puesto">
                                 <option value="" disabled selected>Selecciona Puesto</option>
                                 <?php
                                 $result2=$datos[1];
@@ -32,7 +32,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="descripcion_puesto" data-error="incorrecto" data-success="Correcto" >Tipo de Puestos</label>
+                            <label for="id_puesto" data-error="incorrecto" data-success="Correcto" >Tipo de Puestos</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="" type="text" class="validate" name="nomestadohabitacion">
+                            <select id="id_turno" type="text" class="validate" name="id_turno">
                                 <option value="" disabled selected>Selecciona turno</option>
                                 <?php
                                 $result3=$datos[2];
@@ -48,7 +48,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Tipo de Turnos </label>
+                            <label for="id_turno" data-error="incorrecto" data-success="Correcto">Tipo de Turnos </label>
 
                         </div>
 
@@ -69,7 +69,7 @@
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_habitaciones_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_empleados_ok" class="btn modal-close">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_empleados_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -103,13 +103,15 @@
         <tr>
             <th>Numero</th>
             <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Puestos</th>
-            <th>Usuario</th>
-            <th>Contraseña</th>
+            <th>Apellido</th>
+            <th>Apellido</th>
+            <th>Puesto</th>
+            <th>Turno</th>
+            <th>Entrada</th>
+            <th>Salida</th>
             <th></th>
             <th></th>
+
 
         </tr>
         </thead>
@@ -133,68 +135,6 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-<div id="modal_turnos" class="modal center-align ">
-    <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Turnos</h4></div>
-
-
-        <div class="row">
-            <form class="col s12 pad" autocomplete="off">
-                <div class="row">
-                    <div class="input-field input-field col s10">
-                        <i class="mdi-action-verified-user prefix icon-circleci"></i>
-                        <input id="descripcion_estado" type="number" class="validate center" >
-                        <label for="descripcion_estado"  data-error="Incorrecto" data-success="Correcto">Turnos</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<div id="modal_tipo_Puesto" class="modal center-align ">
-    <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Puesto</h4></div>
-
-        <div class="row">
-            <form class="col s12 " autocomplete="off">
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                        <input id="nonmbretipohabitacion" type="text" class="validate center">
-                        <label for="nonmbretipohabitacion"  data-error="incorrecto" data-success="Correcto">Descripcion del Puesto</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit"
-                        >Registar
-
-                        </button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -202,14 +142,14 @@
         $(".modal").modal();
         $("#add_empleado").click(function(){
             $("#update_empleados_ok").hide();
-            $("#save_habitaciones_ok").show();
+            $("#save_empleados_ok").show();
         });
-        $("#save_habitaciones_ok").click(function(){
+        $("#save_empleados_ok").click(function(){
             //console.log("ok")
             //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>empleados/crear",$("#save_habitacion").serialize(),function(res){
+            $.post("<?php echo URL?>empleados/crear",$("#save_empleado").serialize(),function(res){
                 $("#body_table").empty().append(res);
-                $('#save_habitacion').find('input, select, textarea').val('');
+                $('#save_empleado').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
@@ -228,7 +168,7 @@
             });
         });
         $("#body_table").on("click","a.btn_modificar",function(){
-            $("#save_habitaciones_ok").hide();
+            $("#save_empleados_ok").hide();
             $("#update_empleados_ok").show();
             var id=$(this).data("id");
             $.get("<?php echo URL?>empleados/modificar/"+id,function(res){
@@ -238,6 +178,7 @@
                 $("#ap_emp").val(datos["ap_emp"]);
                 $("#am_emp").val(datos["am_emp"]);
                 $("#id_puesto").val(datos["id_puesto"]);
+                $("#id_turno").val(datos["id_turno"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
@@ -245,8 +186,8 @@
         });
         $("#update_empleados_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>empleados/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>empleados/actualizar/"+id,$("#save_empleado").serialize(),function(res){
+                $('#save_empleado').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
                 Materialize.updateTextFields();
