@@ -112,6 +112,7 @@ class Template
 
                                             <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
                                             <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
+                                            <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
 
 
                                         </ul>
