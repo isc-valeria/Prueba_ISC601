@@ -13,7 +13,7 @@ class inicioController
 {
     public function index()
     {
-
+    $_SESSION["ejemplo"]="hola";
     }
     public function Habitaciones()
     {

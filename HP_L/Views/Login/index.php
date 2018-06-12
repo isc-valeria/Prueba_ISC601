@@ -203,9 +203,10 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function(){
-        $('select').material_select();
+
         $(".modal").modal();
         $("#add_empleado").click(function(){
             $("#update_empleados_ok").hide();
@@ -214,12 +215,12 @@
         $("#save_habitaciones_ok").click(function(){
             //console.log("ok")
             //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>empleados/crear",$("#save_habitacion").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_habitacion').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
+            //$.post("<?php //echo URL?>//empleados/crear",$("#save_habitacion").serialize(),function(res){
+            //    $("#body_table").empty().append(res);
+            //    $('#save_habitacion').find('input, select, textarea').val('');
+            //    Materialize.updateTextFields();
+            //    //$("#modal_registro").modal("close");
+            //    Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -228,39 +229,26 @@
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
-        $("#eliminar_ok").click(function(){
-            $.get($(this).attr("url"),function(res){
-                $("#body_table").empty().append(res);
-                Materialize.toast('Se ha eliminado correctamente', 2500);
-            });
-        });
-        $("#body_table").on("click","a.btn_modificar",function(){
-            $("#save_habitaciones_ok").hide();
-            $("#update_empleados_ok").show();
-            var id=$(this).data("id");
-            $.get("<?php echo URL?>empleados/modificar/"+id,function(res){
-                var datos=JSON.parse(res);
-                $("#update_empleados_ok").data("id",datos["id_empleado"]);
-                $("#nombre_emp").val(datos["nombre_emp"]);
-                $("#ap_emp").val(datos["ap_emp"]);
-                $("#am_emp").val(datos["am_emp"]);
-                $("#id_puesto").val(datos["id_puesto"]);
-                Materialize.updateTextFields();
-                $('select').material_select();
-                $("#modal_registro").modal("open");
-            });
-        });
-        $("#update_empleados_ok").click(function(){
-            var id=$(this).data("id");
-            $.post("<?php echo URL?>empleados/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
-                $("#body_table").empty().append(res);
-
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha modificado correctamente', 2500);
-            })
-        });
+        $("#add_empleado").validate({
+            rules:{
+                email:{
+                    required:true,
+                    //ValidateEmail:true,
+                },
+                password:{
+                    required:true,
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function (form) {
+                console.log("okis");
+            }
+        })
 
     });
 </script>
