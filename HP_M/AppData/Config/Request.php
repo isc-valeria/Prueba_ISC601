@@ -17,6 +17,7 @@ class Request
 
     public function __construct()
     {
+        if(isset($_SESSION["username"]))
         if (isset($_GET['url']))
         {
             $ruta = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
@@ -40,6 +41,13 @@ class Request
         {
             $this->controlador = "inicio";
             $this->metodo = "index";
+        }
+        else{
+            $this->controlador = "login";
+            if(isset($_POST["email"]))
+                $this->metodo = "verify";
+            else
+                $this->metodo = "index";
         }
 
     }

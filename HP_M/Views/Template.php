@@ -31,10 +31,6 @@ class Template
             <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery-1.11.2.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/pagination.js"></script>
 
-            <link rel="stylesheet" href="<?php echo URL?>Public/style.css">
-            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
-            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
-
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery.validate.min.js"></script>
         <script type="text/javascript">
@@ -69,6 +65,10 @@ class Template
         <!------------------------------------------------------------>
         <div >
             <!--Inicio Menu Vertical-->
+        <?php
+        if(isset($_SESSION["username"]))
+        {
+        ?>
             <div class="wrapper">
                 <aside id="left-sidebar-nav">
                     <ul id="slide-out" class="side-nav fixed leftside-navigation">
@@ -83,7 +83,7 @@ class Template
                                         <li><a href="#"></i> Perfil</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Salir</a>
+                                        <li><a href="<?php echo URL?>login/logout">Salir</a>
                                         </li>
                                     </ul>
                                     <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn " href="#" data-activates="profile-dropdown">cesar Primero<i class="mdi-navigation-arrow-drop-down right"></i></a>
@@ -157,6 +157,9 @@ class Template
                 </aside>
             </div>
             <!--fin Menu Vertical-->
+        <?php
+        }
+        ?>
         </div>
         <!------------------------------------------------------------>
         <main class="container">
