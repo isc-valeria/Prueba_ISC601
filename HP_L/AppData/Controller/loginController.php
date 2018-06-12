@@ -15,11 +15,7 @@ class loginController
     }
     public function index()
     {
-        $datos1=$this->login->getAll();
-        $datos2=$this->tipo_usuario->getAll();
-        $datos[0]=$datos1;
-        $datos[1]=$datos2;
-        return $datos;
+
     }
     public function crear(){
         if($_POST)
@@ -60,6 +56,23 @@ class loginController
             $datos[0]=$datos1;
             return $datos;
         }
+    }
+
+    public function pasa()
+    {
+        if ($_POST){
+            $datos[1]=false;
+            if (mysqli_num_rows($this->login->verify())==0)
+            {
+//                console.log("okis");
+                $datos[1]=true;
+            }
+            else{
+//                console.log("not okis");
+                $datos[1]=false;
+            }
+        }
+
     }
 
 }

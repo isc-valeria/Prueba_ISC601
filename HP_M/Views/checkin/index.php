@@ -77,7 +77,7 @@
             <input id="buscar" placeholder="Buscar" type="text">
         </div>
     </div>
-    <div style="overflow-x: auto">
+    <div >
         <table class="responsive-table">
             <thead>
             <tr>
@@ -217,7 +217,7 @@
         });
         $("#save_checkin_ok").click(function () {
             alert("Aqui Agregas amigo");
-            //$.post("<?php //echo URL?>//Checkin/crear",$("#save_checkin").serialize(),function(res){
+
             //    $("#body_table").empty().append(res);
             //    $('#save_checkin').find('input, select, textarea').val('');
             //    Materialize.updateTextFields();
@@ -226,7 +226,7 @@
             });
         $("#body_table").on("click","a.btn_eliminar",function(){
             //var id=$(this).data("id");
-            //var url='<?php echo URL?>habitaciones/eliminar/'+id;
+
             // $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -241,7 +241,7 @@
         //    $("#save_checkin_ok").hide();
         //    $("#update_checkin_ok").show();
         //    var id=$(this).data("id");
-        //    $.get("<?php //echo URL?>//Checkin/modificar/"+id,function(/*res*/){
+
         //        var datos=JSON.parse(res);
         //        $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
         //        $("#numero_habitacion").val(datos["num_habitacion"]);
