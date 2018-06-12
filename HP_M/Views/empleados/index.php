@@ -8,23 +8,23 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s3.5">
-                            <input id="nombre_emp" type="text" class="validate" name="nombre_emp">
-                            <label for="nombre_emp"  data-error="Incorrecto" data-success="Correcto" >Nombre del Empleado</label>
+                            <input id="nombre_emp" type="text" name="nombre_emp">
+                            <label for="nombre_emp"   >Nombre del Empleado</label>
                         </div>
                         <div class="input-field col s3.5">
-                            <input id="ap_emp" type="text" class="validate" name="ap_emp">
-                            <label for="ap_emp"  data-error="incorrecto" data-success="Correcto">Apellido Paterno</label>
+                            <input id="ap_emp" type="text"  name="ap_emp">
+                            <label for="ap_emp"  >Apellido Paterno</label>
                         </div>
 
                         <div class="input-field col s3.5">
-                            <input id="am_emp" type="text" class="validate" name="am_emp">
-                            <label for="am_emp"  data-error="incorrecto" data-success="Correcto">Apellido Materno</label>
+                            <input id="am_emp" type="text"  name="am_emp">
+                            <label for="am_emp"  >Apellido Materno</label>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="id_puesto" type="text" class="validate" name="id_puesto">
+                            <select id="id_puesto" type="text" name="id_puesto">
                                 <option value="" disabled selected>Selecciona Puesto</option>
                                 <?php
                                 $result2=$datos[1];
@@ -32,7 +32,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_puesto" data-error="incorrecto" data-success="Correcto" >Tipo de Puestos</label>
+                            <label for="id_puesto" >Tipo de Puestos</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="id_turno" type="text" class="validate" name="id_turno">
+                            <select id="id_turno" type="text"  name="id_turno">
                                 <option value="" disabled selected>Selecciona turno</option>
                                 <?php
                                 $result3=$datos[2];
@@ -48,7 +48,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_turno" data-error="incorrecto" data-success="Correcto">Tipo de Turnos </label>
+                            <label for="id_turno" >Tipo de Turnos </label>
 
                         </div>
 
@@ -69,10 +69,13 @@
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_empleados_ok" class="btn modal-close">Registrar</a>
+                                <a href="#!" id="save_empleados_ok" class="btn">Registrar</a>
                         </div>
-                        <div class="input-field col s12">
-                            <a href="#!" id="update_empleados_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        <div class="input-field col s12" >
+
+                            <a href="#!" id="update_empleados_ok" class="btn modal-close "   data-id="" >Actualizar</a>
+
+
                         </div>
                     </div>
                 </div>
@@ -141,20 +144,21 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_empleado").click(function(){
+
             $("#update_empleados_ok").hide();
             $("#save_empleados_ok").show();
         });
+
+
         $("#save_empleados_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>empleados/crear",$("#save_empleado").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_empleado').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+                $("#save_empleado").submit();
+            /*
+
+             */
+
         });
+
+
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>empleados/eliminar/'+id;
@@ -196,5 +200,79 @@
             })
         });
 
+
+        ///validar formulario
+        $("#save_empleado").validate({
+
+            rules:{
+                nombre_emp:{
+                    required:true,
+                    maxlength: 13,
+                    minlength: 4,
+                    lettersonly:true,
+                },
+                ap_emp:{
+                    required:true,
+                    maxlength: 12,
+                    minlength: 4,
+                    lettersonly:true,
+                },
+                am_emp:{
+                    required:true,
+                    maxlength: 12,
+                    minlength: 4,
+                    lettersonly:true,
+                },
+                id_puesto:{
+                    required:true,
+                },
+                id_turno:{
+                    required:true,
+                }
+            },
+            messages:{
+                nombre_emp:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 13 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                ap_emp:{
+                    required:"Ingresa un Apellido",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                am_emp:{
+                    required:"Ingresa un Apellido",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                id_puesto:{
+                    required:"Selecciona un Puesto",
+                },
+                id_turno:{
+                    required:"Selecciona Un Turno",
+                },
+
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>empleados/crear",$("#save_empleado").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_empleado').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
+        });
     });
 </script>
