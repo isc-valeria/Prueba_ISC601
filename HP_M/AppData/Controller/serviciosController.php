@@ -26,7 +26,6 @@ class serviciosController
     public function crear(){
         if(isset($_POST))
         {
-            $this->servicios->set('id_servicio',$_POST["id_servicio"]);
             $this->servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
             $this->servicios->set('hora_inicio',$_POST["hora_inicio"]);
             $this->servicios->set('hora_fin',$_POST["hora_fin"]);
