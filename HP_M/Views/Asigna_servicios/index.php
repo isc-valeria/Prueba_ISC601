@@ -1,8 +1,6 @@
 <?php
 ?>
-
-<div id="main">
-    <div id="panel1" class="row col pad">
+    <div id="panel1" class="row pad">
         <div class="col l12 ">
             <div class="card-panel responsive">
                 <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
@@ -12,8 +10,6 @@
                 <div class="row">
                     <!--********************************-->
                     <form class="col s12 right-alert">
-
-
                         <div class="row">
                             <div class="input-field col s4 offset-s8">
                                 <i class="mdi-action-verified-user prefix icon-search"></i>
@@ -309,7 +305,6 @@
                                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
                             </div>
                         </div>
-
                     </form>
 
                     <div class="row">
@@ -319,55 +314,40 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <div id="paneltablas" class="row col ">
-            <div class="col s12 m10 offset-m1">
+
+<div id="modal_eliminar" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+</div>
+    <div id="paneltablas" class="row">
+            <div class="col l12 s12 m10 offset-m1">
                 <div class="card-panel">
                     <h4 align="center">Salidas Registradas</h4>
                     <div class="divider"></div>
-
-
-                    <!-- Modal eliminar -->
-                    <div id="modal_eliminar" class="modal">
-                        <div class="modal-content">
-                            <h5>¿Desea Eliminar el Registro?</h5>
-                            <hr />
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                        </div>
-                    </div>
                     <!--*********************final modal eliminar***********-->
 
 
-                    <table class="centered">
+                    <table class="centered" id="body_table">
                         <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Habitaciónes</th>
                             <th>Servicios</th>
-                            <th>Fecha</th>
                             <th>Estado</th>
-
+                            <th>fecha de registro</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <?php
-                        $datos=$datos[0];
-                        while ($row=mysqli_fetch_array($datos))
-                        echo "
-                        <tr>
-                            <td>{$row[0]}</td>
-                            <td>{$row[1]}</td>
-                            <td>{$row[2]}</td>
-                            <td>{$row[3]}</td>
-                            <td><a class=\"btn-flat modal-trigger icon-cross red-text\" href=\"#modal_eliminar\"></a></td>
-                            <td><a class=\"btn-flat modal-trigger icon-pencil blue-text\" href=\"#!\"></a></td>
-                        </tr>
-                        ";
+                            require_once("tabla.php");
                         ?>
                         </tbody>
                         <div class="divider"></div>
@@ -379,12 +359,10 @@
             </div>
     </div>
 
-</div>
-
 <script type="text/javascript">
             $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>habitaciones/eliminar/'+id;
+            var url='<?php echo URL?>asigna_servicios/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
 </script>
