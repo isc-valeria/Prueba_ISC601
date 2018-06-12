@@ -29,7 +29,7 @@ class tipos_productoController
         if($_POST)
         {
             $this->descripcion_pro->set('id_tipopro',$_POST["tipos_producto"]);
-            $this->descripcion_pro->set('descripcion_pro',$_POST["descripcion_prodcutos"]);
+            $this->descripcion_pro->set('descripcion_pro',$_POST["descripcion_productos"]);
             $this->descripcion_pro->add();
             $datos1=$this->descripcion_pro->getAll();
             $datos[0]=$datos1;
@@ -40,9 +40,9 @@ class tipos_productoController
     public function eliminar($id)
     {
         $this->descripcion_pro->delete($id[0]);
-
         $datos1=$this->descripcion_pro->getAll();
         $datos[0]=$datos1;
+
         return $datos;
     }
 
@@ -57,7 +57,7 @@ class tipos_productoController
         if($_POST)
         {
             $this->descripcion_pro->set("id_tipopro",$id[0]);
-            $this->descripcion_pro->set('descripcion_',$_POST["tipotarea"]);
+            $this->descripcion_pro->set('descripcion_tipos',$_POST["tipos_producto"]);
             $this->descripcion_pro->update();
             $datos1=$this->descripcion_pro->getAll();
             $datos[0]=$datos1;
