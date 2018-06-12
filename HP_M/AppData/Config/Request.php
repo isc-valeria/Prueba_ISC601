@@ -43,6 +43,7 @@ class Request
             $this->metodo = "index";
         }
         else{
+
             $this->controlador = "login";
             if(isset($_POST["email"]))
                 $this->metodo = "verify";

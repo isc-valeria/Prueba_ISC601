@@ -1,7 +1,3 @@
-<?php
-echo $_SESSION["ejemplo"];
-?>
-
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
