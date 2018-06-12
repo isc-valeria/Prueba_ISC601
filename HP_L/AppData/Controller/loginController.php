@@ -62,4 +62,21 @@ class loginController
         }
     }
 
+    public function pasa()
+    {
+        if ($_POST){
+            $datos[1]=false;
+            if (mysqli_num_rows($this->login->verify())==0)
+            {
+                console.log("okis");
+                $datos[1]=true;
+            }
+            else{
+                console.log("not okis");
+                $datos[1]=false;
+            }
+        }
+
+    }
+
 }

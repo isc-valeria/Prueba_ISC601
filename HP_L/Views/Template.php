@@ -42,6 +42,25 @@ class Template
                     $('.parallax').parallax();
                 });
             </script>
+            <script type="text/javascript">
+                $.validator.setDefaults({ ignore: [],
+                    errorClass: 'invalid',
+                    validClass: "valid",
+                });
+                jQuery.validator.addMethod("lettersonly", function(value, element) {
+                    return this.optional(element) || /^[a-z, ]+$/i.test(value);
+                }, "Solo Letras");
+                jQuery.validator.addMethod( "ValidateEmail" , function(mail)
+                {
+                    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+                    {
+                        return (true)
+                    }
+                    alert("You have entered an invalid email address!")
+                    return (false)
+                })
+            </script>
+
 
         </head>
         <body>

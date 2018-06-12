@@ -251,6 +251,7 @@
                 numero_habitacion:{
                     required:true,
                     maxlength: 3,
+                    number:true,
                 },
                 descripcion:{
                     required:true,
@@ -270,6 +271,7 @@
                 numero_habitacion:{
                     required:"Ingresa un número",
                     maxlength:"Máximo 3 digitos",
+                    number:"Solo números",
 
                 },
                 descripcion:{
