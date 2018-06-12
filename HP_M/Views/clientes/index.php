@@ -59,6 +59,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="card-panel">
     <h4 align="center">Clientes Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
                 <i class="material-icons">add</i>
