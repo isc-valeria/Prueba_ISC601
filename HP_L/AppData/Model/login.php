@@ -6,7 +6,7 @@
 
 class login
 {
-     private $tabla="usuarios";
+     private $tabla="clientes";
      private $id_usuario, $email, $pass, $id_tipouser, $id_persona;
 
      function __construct()
@@ -24,20 +24,11 @@ class login
         return $this->$atributo;
     }
 
-    function getAll()
+
+    function verify()
     {
-        $sql="SELECT * FROM usuarios";
-        $datos=$this->conexion->QueryResultado($sql);
-        return $datos;
+        $sql = "SELECT * FROM {$this->tabla} WHERE email={$this->email} and pass={$this->pass}";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
     }
-
-    function add()
-    {
-        $sql="INSERT INTO {$this->tabla} VALUES ('','{$this->email}','{$this->pass}','{$this->id_tipouser}','{$this->id_persona}')";
-        $datos=$this->conexion->QuerySimple($sql);
-
-    }
-
-
-
 }
