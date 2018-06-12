@@ -67,4 +67,9 @@ class Habitaciones
                id_estadoh='{$this->id_estadoh}' where id_habitacion='{$this->id_habitacion}'";
         $this->conexion->QuerySimple($sql);
     }
+    function verify(){
+        $sql = "select * from {$this->tabla} where num_habitacion='{$this->num_habitacion}'";
+        $dato=$this->conexion->QueryResultado($sql);
+        return $dato;
+    }
 }

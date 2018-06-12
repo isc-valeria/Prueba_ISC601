@@ -226,6 +226,18 @@
         });
     });
     ///////////////////////////////////////////////////funcion buscar
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            _this = this;
+            // buscar en tabla
+            $.each($("#tabla_prin tbody tr"), function() {
+                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
 
 
 </script>

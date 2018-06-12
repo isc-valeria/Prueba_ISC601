@@ -41,5 +41,13 @@ class equipo_seguridadController
         }
 
     }
+    public function eliminar($id)
+    {
+        $this->equipo_seguridad->delete($id[0]);
+        $datos1=$this->equipo_seguridad->getAll();
+        $datos[0]=$datos1;
+        return $datos;
+    }
+
 
 }
