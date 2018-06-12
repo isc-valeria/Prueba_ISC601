@@ -11,9 +11,14 @@ namespace AppData\Controller;
 
 class loginController
 {
-    private $email, $pass;
+    private $login;
 
     public function __construct()
+    {
+        $this->login= new \AppData\Model\login();
+    }
+
+    public function index()
     {
 
     }
