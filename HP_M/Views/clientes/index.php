@@ -1,4 +1,5 @@
 <?php
+echo $_SESSION["ejemplo"];
 ?>
 
 <div id="modal_registro" class="modal">

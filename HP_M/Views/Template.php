@@ -43,7 +43,7 @@ class Template
                 validClass: "valid",
             });
             jQuery.validator.addMethod("lettersonly", function(value, element) {
-                return this.optional(element) || /^[a-z]+$/i.test(value);
+                return this.optional(element) || /^[a-z, ]+$/i.test(value);
             }, "Solo Letras");
         </script>
 
