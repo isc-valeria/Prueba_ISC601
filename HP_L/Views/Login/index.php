@@ -246,7 +246,7 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function (form) {
-
+                console.log("okis");
             }
         })
 
