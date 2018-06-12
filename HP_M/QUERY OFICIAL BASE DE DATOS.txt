@@ -153,26 +153,12 @@ insert into Estado_servicios values (81, 'Ocupado');
 
 
 
-insert into Clientes values (90, 'Jazmin', 'Estaislao', 'Mart�nez', '7221542915', 1005);
-
-insert into Clientes values (91, 'Jes�s', 'Ramirez', 'Ocampo', '7221566615', 1006);
-
-insert into Clientes values (92, 'Valeria', 'Rodriguez', 'S�nchez', '7221556785', 1007);
-
-
 
 
 insert into Estado_reserva values (62, 'Confirmado');
 
 insert into Estado_reserva values (63, 'Cancelado');
 
-
-
-insert into Reservaciones values (180, 2001, 90, sysdate(),'10/10/2018' , '12/10/2018', 63,2);
-
-insert into Reservaciones values (181, 2002, 91, sysdate(),'05/06/2018','12/06/2018' , 62,4);
-
-insert into Reservaciones values (182, 2003, 92, sysdate(),'22/07/2018' ,'25/07/2018', 62,6);
 
 
 
