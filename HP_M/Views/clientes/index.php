@@ -11,23 +11,23 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="nombre_cli" type="text" class="validate" name="nombre_cli">
-                            <label for="nombre_cli"  data-error="Incorrecto" data-success="Correcto" >Nombre de Cliente</label>
+                            <input id="nombre_cli" type="text" name="nombre_cli" >
+                            <label for="nombre_cli" >Nombre de Cliente</label>
                         </div>
 
                         <div class="input-field col s1">
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="ap_cli" type="text" class="validate" name="ap_cli">
-                            <label for="ap_cli"  data-error="incorrecto" data-success="Correcto">Apellido Paterno</label>
+                            <input id="ap_cli" type="text" name="ap_cli">
+                            <label for="ap_cli"  >Apellido Paterno</label>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <input id="am_cli" type="text" class="validate" name="am_cli">
-                            <label for="am_cli" data-error="incorrecto" data-success="Correcto" >Apellido Materno</label>
+                            <input id="am_cli" type="text" name="am_cli">
+                            <label for="am_cli"  >Apellido Materno</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -35,8 +35,8 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="telefono" type="text" class="validate" name="telefono">
-                            <label for="telefono" data-error="incorrecto" data-success="Correcto">Telefono</label>
+                            <input id="telefono" type="text" name="telefono">
+                            <label for="telefono">Telefono</label>
 
                         </div>
 
@@ -45,13 +45,13 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s5">
-                            <input id="clave_cli" type="text" class="validate" name="clave_cli">
-                            <label for="clave_cli" data-error="incorrecto" data-success="Correcto" >Clave Cliente</label>
+                            <input id="clave_cli" type="text" readonly name="clave_cli">
+                            <label for="clave_cli"  >Clave Cliente</label>
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clientes_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_clientes_ok" class="btn ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_clientes_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -119,19 +119,21 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
+
+
+            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+            $("#clave_cli").val(clave);
+            Materialize.updateTextFields();
+
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
         });
         $("#save_clientes_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>clientes/crear",$("#save_clientes").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_clientes').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+           $("#save_clientes").submit();
+
+            /*
+
+            */
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -173,6 +175,65 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
+
+        ///validar formulario
+        $("#save_clientes").validate({
+
+            rules:{
+                nombre_cli:{
+                    required:true,
+                    maxlength: 8,
+                    minlength: 4,
+                    lettersonly:true,
+                },
+                ap_cli:{
+                    required:true,
+                    lettersonly:true,
+                },
+                am_cli:{
+                    required:true,
+                },
+                telefono:{
+                    required:true,
+                    number:true,
+                },
+                clave_cli:{
+                    required:true,
+                    number:true,
+                }
+            },
+            messages:{
+                nombre_cli:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 8 caracteres",
+                    minlength:"Minimo 4 caracteres"
+
+                },
+                telefono:{
+                    number:"solo Numeros",
+                },
+                clave_cli:{
+                    number:"solo Numeros",
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>clientes/crear",$("#save_clientes").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_clientes').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
+            }
+        });
+
+
 
     });
 </script>

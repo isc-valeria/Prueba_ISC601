@@ -36,7 +36,7 @@ commit Jazmin
 
 maricela
 
-------COMO HACER UN COMMIT---------------
+-----------------COMO HACER UN COMMIT------------------
 [git Status] <<Ver cambios realizados al repositorio>>
 [git add * ] <<Guardar tus cambios>>
 [git commit -m "Nombre"]	<<<Commit>>>
@@ -46,74 +46,39 @@ maricela
 hola -val
 
 
-Jose Luis..
+Jose Luis...
 
 Jaciel
 
 Alexander Orozco
 
-
-Jaciel****
-
-
 --christian--
+
 Jesus Emerith
 
-<<<<<<< HEAD
-Sullivan    
-=======
-Sullivan 
-
-Miquiztli
+Sullivan   
 
 Rodrigo Isaac 
 
-
-Miquiztli
-
-Jabneel 
-
-Miquiztli
 Miquiztli
 
 Jabneel 
 
 Diego °-°
 
- 
- miriam
-
+Miriam
 
 Rodrigo Juan =)
 
-
-
 Alexander Orozco
 
-
 Alexander Orozco
-
-
-
-
 
 Maricruz 
 
 Nemii 
 
-
-
-
-
-
-
-
-jonathan :)
-
-
-navor------
-
--
+jonathan :
 
 Jazmin hola
 

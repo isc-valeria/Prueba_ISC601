@@ -67,4 +67,11 @@ class Clientes
                telefono='{$this->telefono}', clave_cli='{$this->clave_cli}' where id_cliente='{$this->id_cliente}'";
         $this->conexion->QuerySimple($sql);
     }
+    function verify(){
+        $sql = "select * from clientes where nombre_cli='{$this->nombre_cli}' 
+                and ap_cli='{$this->ap_cli}' and am_cli='{$this->am_cli}' 
+                and telefono='{$this->telefono}'";
+        $dato=$this->conexion->QueryResultado($sql);
+        return $dato;
+    }
 }

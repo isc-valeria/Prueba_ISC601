@@ -90,12 +90,12 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".modal").modal();
-        $(".timepicker").pickatime();
-        $("#add_servicios").click(function () {
-            $("#update_servicios_ok").hide();
-            $("#save_servicios_ok").show();
+        $(document).ready(function () {
+            $(".modal").modal();
+            $(".timepicker").pickatime();
+            $("#add_servicios").click(function () {
+                $("#update_servicios_ok").hide();
+                $("#save_servicios_ok").show();
         });
         $("#save_servicios_ok").click(function () {
 

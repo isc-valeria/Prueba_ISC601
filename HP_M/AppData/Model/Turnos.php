@@ -38,13 +38,13 @@ class Turnos
     }
 	function update() 
 	{
-		$sql="update puestos set descripcion_turno='variable' where id_turno='id'";
+		$sql="update turnos set descripcion_turno='variable' where id_turno='id'";
 		$datos= $this->conexion ->querySimple($sql);
 		return $datos;
 	}
 	function delete() 
 	{
-		$sql="delete from turno WHERE id_turno='id'";
+		$sql="delete from turnos WHERE id_turno='id'";
 		$datos= $this->conexion ->querySimple($sql);
 		return $datos;
 	}

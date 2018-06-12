@@ -1,0 +1,7 @@
+create TABLE usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int);
+create or replace table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20), privilegios int);
+
+--pruebas
+INSERT into usuarios values('','crishobbes@gmail.com','123456',1);
+insert into tipo_usuario values('','Administrador',0);
+insert into tipo_usuario values('','Cliente', 1);

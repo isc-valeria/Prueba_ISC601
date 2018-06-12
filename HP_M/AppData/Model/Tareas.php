@@ -62,7 +62,9 @@ class Tareas
         return $datos;
     }
     function update(){
-        $sql="";
+
+        $sql="update {$this->tabla} set id_tipotarea='{$this->id_tipotarea}', id_empleado='{$this->id_empleado}',
+               id_habitacion='{$this->id_habitacion}', fecha_inicio='{$this->fecha_inicio}', fecha_fin='{$this->fecha_fin}' where id_tarea='{$this->id_tarea}'";
         $this->conexion->QuerySimple($sql);
     }
 }

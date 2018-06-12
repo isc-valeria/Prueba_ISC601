@@ -20,7 +20,7 @@ class clientesController
 
     public function index()
     {
-        $datos=$this->clientes->getAll();
+        $datos[0]=$this->clientes->getAll();
         return $datos;
     }
 
@@ -32,8 +32,16 @@ class clientesController
             $this->clientes->set('am_cli',$_POST["am_cli"]);
             $this->clientes->set('telefono',$_POST["telefono"]);
             $this->clientes->set('clave_cli',$_POST["clave_cli"]);
-            $this->clientes->add();
-            $datos=$this->clientes->getAll();
+
+            $datos[1]=false;
+
+            if(mysqli_num_rows($this->clientes->verify())==0) {
+
+                $this->clientes->add();
+                $datos[1]=true;
+
+            }
+            $datos[0]=$this->clientes->getAll();
             return $datos;
         }
 
@@ -41,7 +49,7 @@ class clientesController
     public function eliminar($id)
     {
         $this->clientes->delete($id[0]);
-        $datos=$this->clientes->getAll();
+        $datos[0]=$this->clientes->getAll();
         return $datos;
     }
     public function modificar($id)
@@ -60,7 +68,7 @@ class clientesController
             $this->clientes->set('telefono',$_POST["telefono"]);
             $this->clientes->set('clave_cli',$_POST["clave_cli"]);
             $this->clientes->update();
-            $datos=$this->clientes->getAll();
+            $datos[0]=$this->clientes->getAll();
             return $datos;
         }
     }
