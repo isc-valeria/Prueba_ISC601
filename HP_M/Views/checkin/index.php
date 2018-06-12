@@ -122,7 +122,7 @@
 
 
 <!--asdgf-->
-<div id="modal_registro2" class="modal">
+<div id="modal_registro_res" class="modal">
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_reserva" enctype="multipart/form-data" autocomplete="off">

@@ -19,17 +19,51 @@ class tipos_productoController
 
     public function index()
     {
-        $datos= $this->descripcion_pro->getAll();
+        $datos1= $this->descripcion_pro->getAll();
+        $datos[0]=$datos1;
+
         return $datos;
-       // echo "Hola desde mi controlador";
     }
     public function crear()
     {
         if($_POST)
         {
-            $this->descripcion_pro->set("descripcion_pro",$_POST['descripcion_producto']);
+            $this->descripcion_pro->set('id_tipopro',$_POST["tipos_producto"]);
+            $this->descripcion_pro->set('descripcion_pro',$_POST["descripcion_productos"]);
             $this->descripcion_pro->add();
-            header("Location:".URL."descripcion_producto?msg=ok");
+            $datos1=$this->descripcion_pro->getAll();
+            $datos[0]=$datos1;
+
+            return $datos;
+        }
+    }
+    public function eliminar($id)
+    {
+        $this->descripcion_pro->delete($id[0]);
+        $datos1=$this->descripcion_pro->getAll();
+        $datos[0]=$datos1;
+
+        return $datos;
+    }
+
+    public function modificar($id)
+    {
+        $datos=$this->descripcion_pro->getOne($id[0]);
+
+        return $datos;
+    }
+    public function actualizar($id)
+    {
+        if($_POST)
+        {
+            $this->descripcion_pro->set("id_tipopro",$id[0]);
+            $this->descripcion_pro->set('descripcion_tipos',$_POST["tipos_producto"]);
+            $this->descripcion_pro->update();
+            $datos1=$this->descripcion_pro->getAll();
+            $datos[0]=$datos1;
+
+            return $datos;
+
         }
     }
 
