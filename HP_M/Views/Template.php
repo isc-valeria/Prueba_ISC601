@@ -23,9 +23,9 @@ class Template
             <meta charset="UTF-8">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-            <link href="<?php echo URL?>/Public/css/style.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>/Public/css/custom.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>/Public/css/stilo.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>Public/css/style.min.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>Public/css/custom.min.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>Public/css/stilo.css" type="text/css" rel="stylesheet">
             <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
             <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery-1.11.2.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/pagination.js"></script>
@@ -130,6 +130,7 @@ class Template
                                             <li><a href="<?php echo URL?>productos" class="icon-jira">   Admin Almacen</a></li>
                                         </ul>
                                     </div>
+
                                 </li>
                             </ul>
                         </li>

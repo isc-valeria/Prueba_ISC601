@@ -13,21 +13,21 @@
                         <div class="input-field col s1">
                         </div>
                         <div class="input-field col s5">
-                            <input id="nombre_pro" type="text" class="validate" name="nombre_pro">
-                            <label for="nombre_pro"  data-error="incorrecto" data-success="Correcto">Nombre</label>
+                            <input id="nombre_pro" type="text"  name="nombre_pro">
+                            <label for="nombre_pro"  >Nombre</label>
                         </div>
 
-                        <div class="input-field col s5">
-                            <select id="id_categoriapro" type="text" class="validate" name="id_categoriapro">
-                                <option value="" disabled selected>Selecciona Categoria del producto</option>
+                        <dikkv class="input-field col s5">
+                            <select id="id_categoriapro" type="text"  name="id_categoriapro">
+                                <option  disabled selected>Selecciona Categoria del producto</option>
                                 <?php
                                 $result22=$datos[1];
                                 while ($row=mysqli_fetch_array($result22))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_categoriapro" data-error="incorrecto" data-success="Correcto" >Categoria producto</label>
-                        </div>
+                            <label for="id_categoriapro" >Categoria producto</label>
+                        </dikkv>
                     </div>
 
                     <div class="row">
@@ -35,22 +35,21 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="id_tipopro" type="text" class="validate" name="id_tipopro">
-                                <option value="" disabled selected>Selecciona Tipo de producto</option>
+                            <select id="id_tipopro" type="text"  name="id_tipopro">
+                                <option  disabled selected>Selecciona Tipo de producto</option>
                                 <?php
                                 $result23=$datos[2];
                                 while ($row=mysqli_fetch_array($result23))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_tipopro" data-error="incorrecto" data-success="Correcto" >Tipo producto</label>
+                            <label for="id_tipopro" >Tipo producto</label>
                         </div>
 
 
-
                         <div class="input-field col s5">
-                            <input id="existencias" type="number" class="validate" name="existencias">
-                            <label for="existencias" data-error="incorrecto" data-success="Correcto" >Existencias</label>
+                            <input id="stock_min" type="number"  name="stock_min">
+                            <label for="stock_min" >Stock minimo</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -63,20 +62,22 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_min" type="number" class="validate" name="stock_min">
-                            <label for="stock_min" data-error="incorrecto" data-success="Correcto">Stock minimo</label>
+                            <input id="stock_max" type="number"  name="stock_max">
+                            <label for="stock_max"  >Stock maximo</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <input id="stock_max" type="number" class="validate" name="stock_max">
-                            <label for="stock_max" data-error="incorrecto" data-success="Correcto" >Stock maximo</label>
+                            <input id="existencias" type="number"  name="existencias">
+                            <label for="existencias"  >Existencias</label>
                         </div>
+
+
 
                     </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_productos_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
                         </div>
 
                         <div class="input-field col s12">
@@ -131,6 +132,7 @@
 </div>
 
 
+
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -151,15 +153,16 @@
             $("#save_productos_ok").show();
         });
         $("#save_productos_ok").click(function(){
+            $("#save_productos_ok").submit();
             //console.log("ok")
           //  console.log($("#save_productos_almacen").serialize());
-            $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+            /*$.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
                 $("#body_table").empty().append(res);
                 $('#save_productos_almacen').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            })*/
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -203,5 +206,73 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
+
+
+        ///validar formulario
+        $("#save_productos_almacen").validate({
+
+            rules:{
+                nombre_pro:{
+                    required:true,
+                    maxlength: 30,
+                    minlength: 10,
+                    lettersonly:true,
+                },
+                id_categoriapro:{
+                    required:true,
+                    lettersonly:true,
+                },
+                id_tipopro:{
+                    required:true,
+                },
+                existencias:{
+                    required:true,
+                    number:true,
+                },
+                stock_min:{
+                    required:true,
+                    number:true,
+                },
+                stock_max:{
+                    required:true,
+                    number:true,
+                }
+            },
+
+            messages:{
+                nombre_pro:{
+                    required:"Nombre del producto",
+                    maxlength:"Maximo 30 caracteres",
+                    minlength:"Minimo 10 caracteres"
+                },
+                existencias:{
+                    number:"Solo Numeros"
+                },
+                stock_min:{
+                    number:"Solo Numeros",
+                },
+                stock_max:{
+                    number:"Solo Numeros",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_productos_almacen').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
+            }
+        });
+
+
+
     });
 </script>
