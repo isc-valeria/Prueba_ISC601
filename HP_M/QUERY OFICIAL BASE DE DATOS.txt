@@ -37,7 +37,7 @@ create table Estado_servicios(id_estados int primary key AUTO_INCREMENT, descrip
 create table Estado_habitacion(id_estadoh int primary key AUTO_INCREMENT, estado_ha varchar(50));
 create table Tipos_habitacion(id_tipoh int primary key AUTO_INCREMENT, tipo_ha varchar(50), precio int,maximo_personas int);
 create table Habitaciones (id_habitacion int primary key AUTO_INCREMENT, num_habitacion int, descripcion_hab varchar(100), id_tipoh int, id_estadoh int);
-create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), id_puesto int);
+create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), clave_cli int);
 create table Estado_reserva(id_estador int primary key AUTO_INCREMENT, estador varchar(20));
 create table Reservaciones(id_reservacion int primary key AUTO_INCREMENT, clave_reserva varchar(10), id_cliente int, fecha_reserva timestamp, fecha_llegada timestamp, fecha_salida timestamp, id_estador int,no_personas int);
 create table Asigna_reservaciones(id_asignares int primary key AUTO_INCREMENT, id_habitacion int, id_reservacion int);
@@ -47,7 +47,7 @@ create table Facturacion(id_factura int primary key AUTO_INCREMENT, id_asignares
 create table Checkin(id_checkin int primary key AUTO_INCREMENT, id_asignares int, fecha_checkin timestamp);
 create table Checkout(id_checkout int primary key AUTO_INCREMENT, id_asignares int, fecha_checkout timestamp);
 
-create TABLE usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
+create table usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
 create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20));
 
 insert into tipo_usuario values(1,'Empleado');
@@ -153,12 +153,26 @@ insert into Estado_servicios values (81, 'Ocupado');
 
 
 
+insert into Clientes values (90, 'Jazmin', 'Estanislao', 'Gonzalez', '7221542915', 1005);
+
+insert into Clientes values (91, 'Jesus', 'Ramirez', 'Ocampo', '7221566615', 1006);
+
+insert into Clientes values (92, 'Valeria', 'Rodriguez', 'Flores', '7221556785', 1007);
+
+
 
 
 insert into Estado_reserva values (62, 'Confirmado');
 
 insert into Estado_reserva values (63, 'Cancelado');
 
+
+
+insert into Reservaciones values (180, 2001, 90, sysdate(),'2018/10/08' , '2018/10/12', 63,2);
+
+insert into Reservaciones values (181, 2002, 91, sysdate(),'2018/06/05','2018/06/12' , 62,4);
+
+insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 62,6);
 
 
 
@@ -291,7 +305,7 @@ insert into Turnos  values(322,'Nocturno', '23:00:00', '07:00:00');
 
 
 
-insert into  Equipo_seguridad values(370, 'C�maras', 380);
+insert into  Equipo_seguridad values(370, 'Camaras', 380);
 
 insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381);
 
@@ -328,11 +342,3 @@ insert into  Asigna_equiposegu values(410, 370,400);
 insert into  Asigna_equiposegu values(411, 371,401);
 
 insert into  Asigna_equiposegu values(412, 372,402);
-
-
-
-
-
-
-
-
