@@ -31,7 +31,7 @@ class clientesController
             $this->clientes->set('ap_cli',$_POST["ap_cli"]);
             $this->clientes->set('am_cli',$_POST["am_cli"]);
             $this->clientes->set('telefono',$_POST["telefono"]);
-            $this->clientes->set('clave_cli',$_POST["clave_cli"]);
+            $this->clientes->set('email',$_POST["email"]);
 
             $datos[1]=false;
 
@@ -41,6 +41,7 @@ class clientesController
                 $datos[1]=true;
 
             }
+
             $datos[0]=$this->clientes->getAll();
             return $datos;
         }
@@ -66,7 +67,7 @@ class clientesController
             $this->clientes->set('ap_cli',$_POST["ap_cli"]);
             $this->clientes->set('am_cli',$_POST["am_cli"]);
             $this->clientes->set('telefono',$_POST["telefono"]);
-            $this->clientes->set('clave_cli',$_POST["clave_cli"]);
+            $this->clientes->set('email',$_POST["email"]);
             $this->clientes->update();
             $datos[0]=$this->clientes->getAll();
             return $datos;

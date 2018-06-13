@@ -42,7 +42,7 @@ class Ticket
 
     function getAll()
     {
-        $sql="select * from {$this->tabla} order by id_observacion ASC  ";
+        $sql="select * from {$this->tabla} order by id_ticket ASC  ";
         $datos= $this->conexion ->QueryResultado($sql);
         return $datos;
     }
@@ -62,7 +62,8 @@ class Ticket
 
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET fecha_entrada='{$this->fecha_entrada}', fecha_salida='{$this->fecha_salida}', total='{$this->total}'";
+        $sql="UPDATE {$this->tabla} SET fecha_entrada='{$this->fecha_entrada}', fecha_salida='{$this->fecha_salida}', total='{$this->total}'
+              where id_ticket='id'";
         $this->conexion->QuerySimple($sql);
 
     }

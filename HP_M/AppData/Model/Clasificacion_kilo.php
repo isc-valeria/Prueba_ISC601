@@ -11,15 +11,11 @@ namespace AppData\Model;
 
 class Clasificacion_kilo
 {
+    private $tabla="Clasificacion_kilo";
     private  $id_clasificacionkilo;
     private  $id_serviciolav;
     private  $cantidadkg;
     private  $id_observacion;
-
-
-
-    private $tabla="Clasificacion_kilo";
-
 
     function __construct()
     {
@@ -44,29 +40,30 @@ class Clasificacion_kilo
 
     function getAll()
     {
-        $sql="select id_clasificacionkilo,servicios_lavanderia.id_serviciolav, clasificacion_kilo.id_clasificacionkilo,ticket.id_ticket,subtotal
-              from ventahab_kilo, habitaciones,clasificacion_kilo,ticket 
-              WHERE clasificacion_kilo.id_serviciolav=servicios_lavanderia.id_serviciolav 
-              and clasificacion_kilo.id_observacion=observaciones.id_observacion";
+        $sql="SELECT Clasificacion_kilo.id_clasificacionkilo, Servicios_lavanderia.id_serviciolav, Clasificacion_kilo.cantidadkg, Observaciones.id_observacion
+              FROM Clasificacion_kilo, Servicios_lavanderia, Observaciones 
+              WHERE Clasificacion_kilo.id_serviciolav = Servicios_lavanderia.id_serviciolav 
+              and Clasificacion_kilo.id_observacion = Observaciones.id_observacion
+              ORDER BY id_clasificacionkilo ASC ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
 
     function delete($id)
     {
-        $sql="delete from clasificacion_kilo where id_clasificacionkilo='{$id}'";
+        $sql="delete from Clasificacion_kilo where id_clasificacionkilo='{$id}'";
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
     {
-        $sql="select * from clasificacion_kilo where id_clasificacionkilo='{$id}'";
+        $sql="select * from Clasificacion_kilo where id_clasificacionkilo='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
 
         $sql="update {$this->tabla} set id_serviciolav='{$this->id_serviciolav}', cantidadkg='{$this->cantidadkg}',
-               id_observacion='{$this->id_observacion}'";
+               id_observacion='{$this->id_observacion}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
         $this->conexion->QuerySimple($sql);
     }
 }
