@@ -285,12 +285,14 @@
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
+
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-        </div>
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
 </div>
+
 <div id="paneltablas" class="row">
     <div class="col l12 s12 m10 offset-m1">
         <div class="card-panel">
@@ -327,9 +329,20 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();
-        $('.datepicker').datepicker();
+        //$('.datepicker').datepicker();
         $(".modal").modal();
-
+            $("#body_table").on("click","a.btn_eliminar",function(){
+                var id=$(this).data("id");
+                var url='<?php echo URL?>servicios/eliminar/'+id;
+                $("#eliminar_ok").attr("url",url);
+                $("#modal_eliminar").modal("open");
+                });
+            $("#eliminar_ok").click(function(){
+                $.get($(this).attr("url"),function(res){
+                    $("#body_table").empty().append(res);
+                    Materialize.toast('Se ha eliminado correctamente', 2500);
+                });
+            });    
     });
 
 </script>
