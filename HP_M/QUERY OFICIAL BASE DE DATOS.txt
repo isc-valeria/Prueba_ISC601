@@ -37,7 +37,7 @@ create table Estado_servicios(id_estados int primary key AUTO_INCREMENT, descrip
 create table Estado_habitacion(id_estadoh int primary key AUTO_INCREMENT, estado_ha varchar(50));
 create table Tipos_habitacion(id_tipoh int primary key AUTO_INCREMENT, tipo_ha varchar(50), precio int,maximo_personas int);
 create table Habitaciones (id_habitacion int primary key AUTO_INCREMENT, num_habitacion int, descripcion_hab varchar(100), id_tipoh int, id_estadoh int);
-create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), clave_cli int);
+create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), email varchar(50));
 create table Estado_reserva(id_estador int primary key AUTO_INCREMENT, estador varchar(20));
 create table Reservaciones(id_reservacion int primary key AUTO_INCREMENT, clave_reserva varchar(10), id_cliente int, fecha_reserva timestamp, fecha_llegada timestamp, fecha_salida timestamp, id_estador int,no_personas int);
 create table Asigna_reservaciones(id_asignares int primary key AUTO_INCREMENT, id_habitacion int, id_reservacion int);
