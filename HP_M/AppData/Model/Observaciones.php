@@ -3,18 +3,18 @@
  * Created by PhpStorm.
  * User: Mary
  * Date: 12/06/2018
- * Time: 16:22
+ * Time: 16:23
  */
 
 namespace AppData\Model;
 
 
-class Servicios_lavanderia
+class Observaciones
 {
-    private $tabla="Servicios_lavanderia";
-    private $id_serviciolav;
-    private $descripcion_servicio;
-    private $precio;
+    private $tabla="Observaciones";
+    private $id_observacion;
+    private $descripcion_observacion;
+    private $cargo;
 
     function __construct()
     {
@@ -32,33 +32,34 @@ class Servicios_lavanderia
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values ('0','{$this->descripcion_servicio}', '{$this->precio}')";
+        $sql="insert into {$this->tabla} values ('0','{$this->descripcion_observacion}', '{$this->cargo}')";
         $this->conexion ->QuerySimple($sql);
     }
     function getAll()
     {
-        $sql="select * from {$this->tabla} order by id_serviciolav ASC  ";
+        $sql="select * from {$this->tabla} order by id_observacion ASC  ";
         $datos= $this->conexion ->QueryResultado($sql);
         return $datos;
     }
 
     function delete($id)
     {
-        $sql="DELETE FROM {$this->tabla} WHERE id_serviciolav='{$id}'";
+        $sql="DELETE FROM {$this->tabla} WHERE id_observacion='{$id}'";
         $this->conexion ->QuerySimple($sql);
     }
 
     function getOne($id)
     {
-        $sql="SELECT * FROM {$this->tabla} where id_serviciolav='{$id}'";
+        $sql="SELECT * FROM {$this->tabla} where id_observacion='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
 
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}'";
+        $sql="UPDATE {$this->tabla} SET descripcion_observacion='{$this->descripcion_observacion}', cargo='{$this->cargo}'";
         $this->conexion->QuerySimple($sql);
 
     }
+
 }
