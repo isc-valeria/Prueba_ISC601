@@ -7,11 +7,6 @@
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
-                        <div class="input-field input-field col s5">
-                            <input id="id_servicio" type="text" class="validate" name="id_servicio">
-                            <label for="id_servicio"  data-error="incorrecto" data-success="Correcto">Folio</label>
-                        </div>
-
                         <div class="input-field col s1">
 
                         </div>

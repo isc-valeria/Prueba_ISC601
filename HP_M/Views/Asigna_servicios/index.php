@@ -42,49 +42,38 @@
                                                 <th>Estado</th>
                                                 <th></th>
                                                 <th></th>
-
                                             </tr>
                                             </thead>
-
                                             <tbody>
                                             <tr>
                                                 <td>12</td>
                                                 <td>Platino</td>
                                                 <td>Ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
                                             </tr>
                                             <tr>
                                                 <td>13</td>
                                                 <td>Dorada</td>
                                                 <td>Ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
-
                                             </tr>
                                             <tr>
                                                 <td>14</td>
                                                 <td>Estrella</td>
                                                 <td>ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
-
                                             </tr>
                                             </tbody>
                                         </table>
                                         <!--********************************-->
-
                                         <div class="row">
                                             <div class="input-field col s9">
-
-                                            </div>
-
+                                           </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                         <!--*******************fin modal tipo habitacion*************-->
 
 
@@ -179,11 +168,6 @@
                                     ?>
                                 </select>
                                 <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
 
                             <div class="input-field col s1">
@@ -211,11 +195,6 @@
                                     ?>
                                 </select>
                                 <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Servcios</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
 
                             <div class="input-field col s1">
@@ -239,15 +218,7 @@
                                     ?>
                                 </select>
                                 <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Estados</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
-
-
-
                         </div>
                         <div>
                             <div class="input-field col s1">
@@ -256,14 +227,8 @@
                             <div class="input-field col s4 ">
                                 <label>Fecha de registro</label>
                                 <input type="text" class="datepicker">
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('.datepicker').datepicker();
-                                    });
-                                </script>
                             </div>
                         </div>
-
                         <div id="modal_estado" class="modal center-align ">
                             <div class="modal-content">
                                 <h4>Estado del Servicio</h4>
@@ -360,9 +325,11 @@
 </div>
 
 <script type="text/javascript">
-            $("#body_table").on("click","a.btn_eliminar",function(){
-            var id=$(this).data("id");
-            var url='<?php echo URL?>asigna_servicios/eliminar/'+id;
-            $("#eliminar_ok").attr("url",url);
-            $("#modal_eliminar").modal("open");
+    $(document).ready(function() {
+        $('select').material_select();
+        $('.datepicker').datepicker();
+        $(".modal").modal();
+
+    });
+
 </script>

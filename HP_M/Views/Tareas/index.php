@@ -85,7 +85,7 @@
             <input id="buscar" placeholder="Buscar" type="text">
         </div>
     </div>
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
             <tr>
                 <th>Id</th>
@@ -240,6 +240,9 @@
 
         $('select').material_select();
         $('.datepicker').pickadate();
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
 
     });
 </script>
