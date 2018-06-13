@@ -291,38 +291,38 @@
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
         </div>
 </div>
-    <div id="paneltablas" class="row">
-            <div class="col l12 s12 m10 offset-m1">
-                <div class="card-panel">
-                    <h4 align="center">Salidas Registradas</h4>
-                    <div class="divider"></div>
-                    <!--*********************final modal eliminar***********-->
+<div id="paneltablas" class="row">
+    <div class="col l12 s12 m10 offset-m1">
+        <div class="card-panel">
+            <h4 align="center">Salidas Registradas</h4>
+            <div class="divider"></div>
+            <!--*********************final modal eliminar***********-->
 
 
-                    <table class="centered" id="body_table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Habitaciónes</th>
-                            <th>Servicios</th>
-                            <th>Estado</th>
-                            <th>fecha de registro</th>
-                        </tr>
-                        </thead>
+            <table class="centered" id="body_table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Habitaciónes</th>
+                    <th>Servicios</th>
+                    <th>Estado</th>
+                    <th>fecha de registro</th>
+                </tr>
+                </thead>
 
-                        <tbody>
-                        <?php
-                            require_once("tabla.php");
-                        ?>
-                        </tbody>
-                        <div class="divider"></div>
-                    </table>
-                    <div class="divider"></div>
-                    <!--********************************-->
+                <tbody>
+                <?php
+                    require_once("tabla.php");
+                ?>
+                </tbody>
+                <div class="divider"></div>
+            </table>
+            <div class="divider"></div>
+            <!--********************************-->
 
-                </div>
-            </div>
+        </div>
     </div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function() {
