@@ -38,27 +38,22 @@ class loginController
                 exit();
             }
 
-<<<<<<< HEAD
+
         }
     public function logout()
         {
             session_destroy();
             header("Location:".URL);
         }
-=======
-           $this->redireccionar();
-        }
 
-    }
+
+
+
     public function redireccionar()
     {
         header("Location:".URL);
     }
-    public function logout()
-    {
-        session_destroy();
+    
 
-    }
->>>>>>> 82cc03a203a1aae2e430b9fb79ae9e33f3d9fe0e
 
 }
