@@ -6,14 +6,8 @@ namespace AppData\Model;
 class conexion
 {
 
-<<<<<<< HEAD
     private $datos=array("server"=>"localhost","user"=>"root", "password"=>"123456", "db"=>"hotel");
-=======
 
-    private $datos=array("server"=>"localhost","user"=>"root", "password"=>"", "db"=>"test_hotel");
-
-
->>>>>>> 8403e78c041f34411f8c7793817aaf91fea14daf
 
     private $conexion;
 
