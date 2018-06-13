@@ -53,10 +53,10 @@ class serviciosController
     {
         if($_POST)
         {
-            $this->servicios->set("id_habitacion",$id[0]);
-            $this->servicios->set('num_habitacion',$_POST["numero_habitacion"]);
-            $this->servicios->set('descripcion_hab',$_POST["descripcion"]);
-            $this->servicios->set('id_tipoh',$_POST["id_tipoh"]);
+            $this->servicios->set("id_servicio",$id[0]);
+            $this->servicios->set("descripcion_ser",$_POST["descripcion_ser"]);
+            $this->servicios->set("hora_inicio",$_POST["hora_inicio"]);
+            $this->servicios->set("hora_fin",$_POST["hora_fin"]);
             $this->servicios->update();
             $datos=$this->servicios->getAll();
             return $datos;
