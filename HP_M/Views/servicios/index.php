@@ -33,6 +33,9 @@
                         <div class="input-field col s12">
                             <a href="#!" id="save_servicios_ok" class="btn modal-close">Registrar</a>
                         </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_servicios_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -126,19 +129,19 @@
             $.get("<?php echo URL?>servicios/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_servicios_ok").data("id",datos["id_servicio"]);
-                $("#Folio").val(datos["num_habitacion"]);
-                $("#descripcion").val(datos["descripcion_hab"]);
-                $("#tipohabitacion").val(datos["id_tipoh"]);
-                $("#nomestadohabitacion").val(datos["id_estadoh"]);
+                $("#id_servicio").val(datos["id_servicio"]);
+                $("#descripcion_ser").val(datos["descripcion_ser"]);
+                $("#hora_inicio").val(datos["hora_inicio"]);
+                $("#hora_fin").val(datos["hora_fin"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
-                $("#modal_registro").modal("open");
+                $("#modal_servicio").modal("open");
             });
         });
-        $("#update_habitaciones_ok").click(function(){
+        $("#update_servicios_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>servicios/actualizar/"+id,$("#save_servicios").serialize(),function(res){
+                $('#save_servicios').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
                 Materialize.updateTextFields();

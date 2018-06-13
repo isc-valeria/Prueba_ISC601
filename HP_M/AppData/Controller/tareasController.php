@@ -39,7 +39,7 @@ class tareasController
             $this->Tareas->add();
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
-            console.log("mensaje");
+            //console.log("mensaje");
             return $datos;
 
         }
@@ -50,6 +50,7 @@ class tareasController
         $datos1=$this->Tareas->getAll();
         $datos[0]=$datos1;
         return $datos;
+
     }
     public function modificar($id)
     {

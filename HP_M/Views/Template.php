@@ -155,10 +155,12 @@ class Template
                                 <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan">  <i class="material-icons">build</i>Mantenimiento</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
+                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Control tareas</a></li>
                                             <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
                                             <li><a href="<?php echo URL?>" class="icon-jira">   Tipos de Equipo</a></li>
                                             <li><a href="<?php echo URL?>" class="icon-jira">   Estados</a></li>
+                                            <li><a href="<?php echo URL?>tipo_tarea" class="icon-jira">   Tareas</a></li>
+
                                         </ul>
                                     </div>
                                 </li>

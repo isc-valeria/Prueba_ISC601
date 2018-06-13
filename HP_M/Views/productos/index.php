@@ -48,30 +48,23 @@
 
 
                         <div class="input-field col s5">
+                            <input id="existencias" type="number"  name="existencias">
+                            <label for="existencias"  >Existencias</label>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s5">
                             <input id="stock_min" type="number"  name="stock_min">
                             <label for="stock_min" >Stock minimo</label>
-                        </div>
-
-                        <div class="input-field col s1">
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s1">
                         </div>
 
                         <div class="input-field col s5">
                             <input id="stock_max" type="number"  name="stock_max">
                             <label for="stock_max"  >Stock maximo</label>
                         </div>
-
-                        <div class="input-field col s5">
-                            <input id="existencias" type="number"  name="existencias">
-                            <label for="existencias"  >Existencias</label>
-                        </div>
-
-
 
                     </div>
 
@@ -91,9 +84,7 @@
     </div>
 </div>
 <div class="card-panel">
-    <h4 align="center">Registro de Productos <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_producto">
-                <i class="material-icons">add</i>
-            </a></span></h4>
+    <h4 align="center">Registro de Productos <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_producto"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
 
     <div class="row">
@@ -152,17 +143,8 @@
             $("#update_productos_ok").hide();
             $("#save_productos_ok").show();
         });
-        $("#save_productos_ok").click(function(){
-            $("#save_productos_ok").submit();
-            //console.log("ok")
-          //  console.log($("#save_productos_almacen").serialize());
-            /*$.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_productos_almacen').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })*/
+        $("#save_productos_ok").click(function() {
+            $("#save_productos_almacen").submit();
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -262,8 +244,11 @@
                     .find("label[for='" + element.attr("id") + "']")
                     .attr('data-error', error.text());
             },
+
             submitHandler:function(form){
+                console.log($("#save_productos_almacen").serialize());
                 $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+
                     $("#body_table").empty().append(res);
                     $('#save_productos_almacen').find('input, select, textarea').val('');
                     Materialize.updateTextFields();

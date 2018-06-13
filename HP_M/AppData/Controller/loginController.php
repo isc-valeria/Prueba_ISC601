@@ -14,28 +14,38 @@ class loginController
     private $login;
 
     public function __construct()
-    {
-        $this->login= new \AppData\Model\Login();
-    }
+        {
+            $this->login= new \AppData\Model\Login();
+        }
 
     public function index()
-    {
-        session_destroy();
-    }
+        {
+            session_destroy();
+        }
     public function verify()
-    {
-        if(isset($_POST)) {
-            $this->login->set("email", $_POST["email"]);
-            $this->login->set("pass", $_POST["password"]);
-            $datos = $this->login->verify();
-            if (mysqli_num_rows($datos) > 0) {
-                $datos=mysqli_fetch_assoc($datos);
-                $_SESSION["username"]=$datos["email"];
+        {
+            if(isset($_POST)) {
+                $this->login->set("email", $_POST["email"]);
+                $this->login->set("pass", $_POST["password"]);
+                $datos = $this->login->verify();
+                if (mysqli_num_rows($datos) > 0) {
+                    $datos=mysqli_fetch_assoc($datos);
+                    $_SESSION["username"]=$datos["email"];
+                }
+                else
+                    $_SESSION["error_login"]="los datos no coinciden con nuestros registros";
+                header("Location:".URL);
+                exit();
             }
-            else
-                $_SESSION["error_login"]="los datos no coinciden con nuestros registros";
-           // print_r($datos);
 
+<<<<<<< HEAD
+        }
+    public function logout()
+        {
+            session_destroy();
+            header("Location:".URL);
+        }
+=======
            $this->redireccionar();
         }
 
@@ -49,5 +59,6 @@ class loginController
         session_destroy();
 
     }
+>>>>>>> 82cc03a203a1aae2e430b9fb79ae9e33f3d9fe0e
 
 }
