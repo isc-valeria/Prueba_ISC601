@@ -118,15 +118,11 @@ class Template
                                         <ul>
                                             <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
                                             <li><a href="<?php echo URL?>Asigna_servicios" class="icon-jira">   Asignar Servicios</a></li>
-<<<<<<< HEAD
                                             <li><a href="<?php echo URL?>ticket" class="icon-jira">   Lavanderia</a></li>
                                             <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
                                             <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
 
-
-=======
                                             <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
->>>>>>> 3f2b5a7e2d39eab425b7f63dfabb34bef8169f80
                                         </ul>
                                     </div>
                                 </li>   
