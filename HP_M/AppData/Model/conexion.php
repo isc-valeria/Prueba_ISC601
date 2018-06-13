@@ -7,6 +7,10 @@ class conexion
 {
 
 
+<<<<<<< HEAD
+    private $datos=array("server"=>"localhost","user"=>"root", "password"=>"", "db"=>"hotel");
+=======
+>>>>>>> 82cc03a203a1aae2e430b9fb79ae9e33f3d9fe0e
 
     private $datos=array("server"=>"localhost","user"=>"root", "password"=>"", "db"=>"hotel");
 
