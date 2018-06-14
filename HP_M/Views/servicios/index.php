@@ -11,8 +11,8 @@
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion_ser" type="text" class="validate" name="descripcion_ser">
-                            <label for="descripcion_ser"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                            <input id="descripcion_ser" type="text" name="descripcion_ser">
+                            <label for="descripcion_ser">Descripción</label>
                         </div>
                     </div>
                     <div class="row">
@@ -149,6 +149,37 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
+//validar
+        $("#save_servicios").validate({
+            rules:{
+                descripcion_ser:{
+                    required:true,
+                    minlenght:3,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                required:"Información requerida",
+                minlenght:"Minimo de caracteres 3"
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                console.log($("#save_servicios").serialize());
+                $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_servicios').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_servicio").modal("close");
+                })
+            }
+        });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
     });
 </script>
