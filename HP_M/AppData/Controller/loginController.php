@@ -36,18 +36,18 @@ class loginController
                 $_SESSION["error_login"]="los datos no coinciden con nuestros registros";
            // print_r($datos);
 
-            header("Location:".URL);
-            exit();
+           $this->redireccionar();
         }
 
+    }
+    public function redireccionar()
+    {
+        header("Location:".URL);
     }
     public function logout()
     {
         session_destroy();
-        ob_start();
-        header("Location:".URL);
 
-        ob_end_flush();
     }
 
 }

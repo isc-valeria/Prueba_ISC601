@@ -1,7 +1,3 @@
-<?php
-echo $_SESSION["ejemplo"];
-?>
-
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
@@ -63,6 +59,8 @@ echo $_SESSION["ejemplo"];
         </div>
     </div>
 </div>
+
+
 <div class="card-panel">
     <h4 align="center">Clientes Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
                 <i class="material-icons">add</i>
@@ -76,10 +74,6 @@ echo $_SESSION["ejemplo"];
         </div>
     </div>
 
-
-    <!-- Modal eliminar -->
-
-    <!--*********************final modal eliminar***********-->
     <table class="responsive-table">
         <thead>
         <tr>
@@ -103,16 +97,6 @@ echo $_SESSION["ejemplo"];
 </div>
 
 
-<div id="modal_eliminar" class="modal">
-    <div class="modal-content">
-        <h5>¿Desea Eliminar el Registro?</h5>
-        <hr />
-    </div>
-    <div class="modal-footer">
-        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-    </div>
-</div>
 
 
 <script type="text/javascript">
@@ -122,7 +106,9 @@ echo $_SESSION["ejemplo"];
         $("#add_cliente").click(function(){
 
 
-            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
             $("#clave_cli").val(clave);
             Materialize.updateTextFields();
 
@@ -176,7 +162,6 @@ echo $_SESSION["ejemplo"];
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
 
         ///validar formulario
         $("#save_clientes").validate({
@@ -233,8 +218,5 @@ echo $_SESSION["ejemplo"];
                 })
             }
         });
-
-
-
     });
 </script>
