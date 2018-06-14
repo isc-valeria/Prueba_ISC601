@@ -9,6 +9,8 @@
 namespace Views;
 
 
+use http\Url;
+
 new Template();
 class Template
 {
@@ -16,32 +18,23 @@ class Template
     {
        ?>
         <!DOCTYPE html>
-        <html lang="en">
+        <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <title>Parallax Template - Materialize</title>
-
-            <!-- CSS  -->
-
-            <link rel="stylesheet" type="text/css" href="Public/css/Normalize.css">
-            <link rel="stylesheet" type="text/css" href="Public/css/materialize.css">
-            <link rel="stylesheet" type="text/css" href="Public/css/stylo.css">
-            <script type="text/javascript" src="<?php echo URL?>/Public/js/jquery.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-            <link rel="stylesheet" href="Public/style.css">
-            <link rel="stylesheet" href="<?php echo URL?>/Public/fonts/material-icons.css" />
-            <link rel="stylesheet" href="<?php echo URL?>/Public/css/elcss.css" type="text/css">
+            <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="<?php echo URL?>Public/css/style.min.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>Public/css/custom.min.css" type="text/css" rel="stylesheet">
+            <link href="<?php echo URL?>Public/css/stilo.css" type="text/css" rel="stylesheet">
+            <link rel="stylesheet" href="<?php echo URL?>Public/style.css">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
 
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('.sidenav').sidenav();
-                    $('.parallax').parallax();
-                });
-            </script>
+            <!--Aquí van los escripts-->
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
+
             <script type="text/javascript">
                 $.validator.setDefaults({ ignore: [],
                     errorClass: 'invalid',
@@ -50,42 +43,37 @@ class Template
                 jQuery.validator.addMethod("lettersonly", function(value, element) {
                     return this.optional(element) || /^[a-z, ]+$/i.test(value);
                 }, "Solo Letras");
-                jQuery.validator.addMethod( "ValidateEmail" , function(mail)
-                {
-                    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
-                    {
-                        return (true)
-                    }
-                    alert("You have entered an invalid email address!")
-                    return (false)
-                })
             </script>
-
-
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </head>
-        <body>
-        <!------------------------------------------------------------>
-        <nav class="teal" role="navigation">
-            <div class="nav-wrapper container">
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Reservaciones</a></li>
-                    <li><a href="#">Mi Reserva</a></li>
-                    <li><a href="<?php echo URL?>/Login">Login</a></li>
 
+        <body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <a href="#!" class="brand-logo">Logo</a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#!">Reservaciones</a></li>
+                    <li><a href="#!">Mi Reserva</a></li>
+                    <li><a href="<?php echo URL?>Login">Login</a></li>
                 </ul>
             </div>
         </nav>
 
 
-        <main class="container">
+
+        <!--Import jQuery before materialize.js-->
+
+
+
 
         <?php
     }
     public static function footer()
     {
         ?>
-
-        </main>
         </body>
         <footer class="page-footer teal">
             <div class="container">
@@ -111,6 +99,7 @@ class Template
                 </div>
             </div>
         </footer>
+
         </html>
         <?php
     }

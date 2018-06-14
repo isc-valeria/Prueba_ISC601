@@ -7,7 +7,7 @@
             <br><br>
         </div>
     </div>
-    <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
 </div>
 
 
