@@ -27,13 +27,13 @@ class Template
             <link href="<?php echo URL?>Public/css/custom.min.css" type="text/css" rel="stylesheet">
             <link href="<?php echo URL?>Public/css/stilo.css" type="text/css" rel="stylesheet">
 
-            <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
-            <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery-1.11.2.min.js"></script>
-            <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/pagination.js"></script>
+            <link rel="stylesheet" href="<?php echo URL?>Public/style.css">
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/uifilter.js"></script>
+        <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
 
         <script type="text/javascript">
             $.validator.setDefaults({ ignore: [],
@@ -118,11 +118,11 @@ class Template
                                         <ul>
                                             <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
                                             <li><a href="<?php echo URL?>Asigna_servicios" class="icon-jira">   Asignar Servicios</a></li>
-                                            <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
+                                            <li><a href="<?php echo URL?>ticket" class="icon-jira">   Lavanderia</a></li>
                                             <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
                                             <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
 
-
+                                            <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
                                         </ul>
                                     </div>
                                 </li>   
@@ -149,6 +149,22 @@ class Template
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="<?php echo URL?>Empleados" class="icon-jira">   Configuración</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="no-padding">
+                            <ul class="collapsible collapsible-accordion">
+                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan">  <i class="material-icons">build</i>Mantenimiento</a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Control tareas</a></li>
+                                            <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
+                                            <li><a href="<?php echo URL?>" class="icon-jira">   Tipos de Equipo</a></li>
+                                            <li><a href="<?php echo URL?>" class="icon-jira">   Estados</a></li>
+                                            <li><a href="<?php echo URL?>tipo_tarea" class="icon-jira">   Tareas</a></li>
+
                                         </ul>
                                     </div>
                                 </li>

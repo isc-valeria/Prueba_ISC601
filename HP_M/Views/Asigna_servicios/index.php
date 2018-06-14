@@ -42,49 +42,38 @@
                                                 <th>Estado</th>
                                                 <th></th>
                                                 <th></th>
-
                                             </tr>
                                             </thead>
-
                                             <tbody>
                                             <tr>
                                                 <td>12</td>
                                                 <td>Platino</td>
                                                 <td>Ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
                                             </tr>
                                             <tr>
                                                 <td>13</td>
                                                 <td>Dorada</td>
                                                 <td>Ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
-
                                             </tr>
                                             <tr>
                                                 <td>14</td>
                                                 <td>Estrella</td>
                                                 <td>ocupada</td>
-
                                                 <td><a class="btn-flat modal-trigger icon-cross red-text" href="#modal_eliminar"></a></td>
-
                                             </tr>
                                             </tbody>
                                         </table>
                                         <!--********************************-->
-
                                         <div class="row">
                                             <div class="input-field col s9">
-
-                                            </div>
-
+                                           </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                         <!--*******************fin modal tipo habitacion*************-->
 
 
@@ -179,11 +168,6 @@
                                     ?>
                                 </select>
                                 <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
 
                             <div class="input-field col s1">
@@ -211,11 +195,6 @@
                                     ?>
                                 </select>
                                 <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Servcios</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
 
                             <div class="input-field col s1">
@@ -239,15 +218,7 @@
                                     ?>
                                 </select>
                                 <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Estados</label>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('select').formSelect();
-                                    });
-                                </script>
                             </div>
-
-
-
                         </div>
                         <div>
                             <div class="input-field col s1">
@@ -256,14 +227,8 @@
                             <div class="input-field col s4 ">
                                 <label>Fecha de registro</label>
                                 <input type="text" class="datepicker">
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('.datepicker').datepicker();
-                                    });
-                                </script>
                             </div>
                         </div>
-
                         <div id="modal_estado" class="modal center-align ">
                             <div class="modal-content">
                                 <h4>Estado del Servicio</h4>
@@ -320,49 +285,64 @@
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
+
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-        </div>
-</div>
-    <div id="paneltablas" class="row">
-            <div class="col l12 s12 m10 offset-m1">
-                <div class="card-panel">
-                    <h4 align="center">Salidas Registradas</h4>
-                    <div class="divider"></div>
-                    <!--*********************final modal eliminar***********-->
-
-
-                    <table class="centered" id="body_table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Habitaciónes</th>
-                            <th>Servicios</th>
-                            <th>Estado</th>
-                            <th>fecha de registro</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <?php
-                            require_once("tabla.php");
-                        ?>
-                        </tbody>
-                        <div class="divider"></div>
-                    </table>
-                    <div class="divider"></div>
-                    <!--********************************-->
-
-                </div>
-            </div>
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
+</div>
+
+<div id="paneltablas" class="row">
+    <div class="col l12 s12 m10 offset-m1">
+        <div class="card-panel">
+            <h4 align="center">Salidas Registradas</h4>
+            <div class="divider"></div>
+            <!--*********************final modal eliminar***********-->
+
+
+            <table class="centered" id="body_table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Habitaciónes</th>
+                    <th>Servicios</th>
+                    <th>Estado</th>
+                    <th>fecha de registro</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <?php
+                    require_once("tabla.php");
+                ?>
+                </tbody>
+                <div class="divider"></div>
+            </table>
+            <div class="divider"></div>
+            <!--********************************-->
+
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+        //$('.datepicker').datepicker();
+        $(".modal").modal();
             $("#body_table").on("click","a.btn_eliminar",function(){
-            var id=$(this).data("id");
-            var url='<?php echo URL?>asigna_servicios/eliminar/'+id;
-            $("#eliminar_ok").attr("url",url);
-            $("#modal_eliminar").modal("open");
+                var id=$(this).data("id");
+                var url='<?php echo URL?>servicios/eliminar/'+id;
+                $("#eliminar_ok").attr("url",url);
+                $("#modal_eliminar").modal("open");
+                });
+            $("#eliminar_ok").click(function(){
+                $.get($(this).attr("url"),function(res){
+                    $("#body_table").empty().append(res);
+                    Materialize.toast('Se ha eliminado correctamente', 2500);
+                });
+            });    
+    });
+
 </script>

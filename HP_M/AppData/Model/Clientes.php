@@ -17,7 +17,7 @@ class Clientes
     private $ap_cli;
     private $am_cli;
     private $telefono;
-    private $clave_cli;
+    private $email;
 
     private $conexion;
 
@@ -37,7 +37,7 @@ class Clientes
     }
 
     function add(){
-        $sql="insert into clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},{$this->clave_cli})";
+        $sql="insert into clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},'{$this->email}')";
         $this->conexion->QuerySimple($sql);
     }
 
@@ -64,13 +64,11 @@ class Clientes
     {
         $sql = "update clientes set nombre_cli='{$this->nombre_cli}',
                ap_cli='{$this->ap_cli}', am_cli='{$this->am_cli}',
-               telefono='{$this->telefono}', clave_cli='{$this->clave_cli}' where id_cliente='{$this->id_cliente}'";
+               telefono='{$this->telefono}', email='{$this->email}' where id_cliente='{$this->id_cliente}'";
         $this->conexion->QuerySimple($sql);
     }
     function verify(){
-        $sql = "select * from clientes where nombre_cli='{$this->nombre_cli}' 
-                and ap_cli='{$this->ap_cli}' and am_cli='{$this->am_cli}' 
-                and telefono='{$this->telefono}'";
+        $sql = "select * from clientes where  telefono='{$this->telefono}' or email='{$this->email}'";
         $dato=$this->conexion->QueryResultado($sql);
         return $dato;
     }

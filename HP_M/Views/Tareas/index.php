@@ -77,7 +77,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tarea"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Control Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tarea"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -85,7 +85,7 @@
             <input id="buscar" placeholder="Buscar" type="text">
         </div>
     </div>
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
             <tr>
                 <th>Id</th>
@@ -120,7 +120,7 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-        $("#add_habitacion").click(function(){
+        $("#add_tarea").click(function(){
             $("#update_tarea_ok").hide();
             $("#save_tarea_ok").show();
         });
@@ -229,6 +229,7 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
+                console.log($("#save_tarea").serialize());
                 $.post("<?php echo URL?>tareas/crear",$("#save_tarea").serialize(),function(res){
                     $("#body_table").empty().append(res);
                     $('#save_tarea').find('input, select, textarea').val('');
@@ -240,6 +241,10 @@
 
         $('select').material_select();
         $('.datepicker').pickadate();
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
 
     });
 </script>
