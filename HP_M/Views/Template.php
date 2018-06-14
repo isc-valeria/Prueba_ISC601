@@ -11,7 +11,6 @@ namespace Views;
 
 use http\Url;
 
-new Template();
 class Template
 {
     public static function header()
@@ -20,6 +19,7 @@ class Template
         <!DOCTYPE html>
         <html>
         <head>
+            <title>Habitaciones</title>
             <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -39,6 +39,7 @@ class Template
             <script type="text/javascript">
                 $('document').ready(function () {
                     $(".button-collapse").sideNav();
+                    $('.tooltipped').tooltip();
                 })
                 $.validator.setDefaults({ ignore: [],
                     errorClass: 'invalid',
