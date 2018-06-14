@@ -32,19 +32,19 @@ class Servicios_lavanderia
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values ('0','{$this->descripcion_servicio}', '{$this->precio}')";
+        $sql="insert into Servicios_lavanderia values ('0','{$this->descripcion_servicio}', '{$this->precio}')";
         $this->conexion ->QuerySimple($sql);
     }
     function getAll()
     {
-        $sql="select * from {$this->tabla} order by id_serviciolav ASC  ";
+        $sql="select * from {$this->tabla} order by  id_serviciolav ASC";
         $datos= $this->conexion ->QueryResultado($sql);
         return $datos;
     }
 
     function delete($id)
     {
-        $sql="DELETE FROM {$this->tabla} WHERE id_serviciolav='{$id}'";
+        $sql="DELETE FROM Servicios_lavanderia WHERE id_serviciolav='{$id}'";
         $this->conexion ->QuerySimple($sql);
     }
 
@@ -57,7 +57,7 @@ class Servicios_lavanderia
 
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}'";
+        $sql="UPDATE {$this->tabla} SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}') ";
         $this->conexion->QuerySimple($sql);
 
     }

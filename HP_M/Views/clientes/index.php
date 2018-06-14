@@ -42,8 +42,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s5">
-                            <input id="clave_cli" type="text" readonly name="clave_cli">
-                            <label for="clave_cli"  >Clave Cliente</label>
+                            <input id="email" type="email"  name="email">
+                            <label for="email"  >Correo Electronico</label>
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
@@ -74,14 +74,22 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <table class="responsive-table">
+=======
+
+    <!-- Modal eliminar -->
+
+    <!--*********************final modal eliminar***********-->
+    <table class="responsive-table" id="tabla_content">
+>>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
         <thead>
         <tr>
             <th>Nombre del Cliente</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Telefono</th>
-            <th>Clave Cliente</th>
+            <th>Correo Electronico</th>
             <th></th>
             <th></th>
 
@@ -104,6 +112,7 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
+<<<<<<< HEAD
 
 
             var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
@@ -111,9 +120,14 @@
             ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
             $("#clave_cli").val(clave);
             Materialize.updateTextFields();
+=======
+            //var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+>>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
 
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
+            $("#email").val(clave);
+            Materialize.updateTextFields();
         });
         $("#save_clientes_ok").click(function(){
            $("#save_clientes").submit();
@@ -145,7 +159,7 @@
                 $("#ap_cli").val(datos["ap_cli"]);
                 $("#am_cli").val(datos["am_cli"]);
                 $("#telefono").val(datos["telefono"]);
-                $("#clave_cli").val(datos["clave_cli"]);
+                $("#email").val(datos["email"]);
                 Materialize.updateTextFields();
                 //$('select').material_select();
                 $("#modal_registro").modal("open");
@@ -179,29 +193,45 @@
                 },
                 am_cli:{
                     required:true,
+                    lettersonly:true,
                 },
                 telefono:{
                     required:true,
                     number:true,
+                    maxlength: 10,
+                    minlength: 10,
                 },
-                clave_cli:{
+                email:{
                     required:true,
-                    number:true,
+                    email:true,
                 }
             },
             messages:{
                 nombre_cli:{
                     required:"Ingresa un nombre",
-                    maxlength:"Maximo 8 caracteres",
-                    minlength:"Minimo 4 caracteres"
+                    maxlength:"Maximo 30 caracteres",
+                    minlength:"Minimo 2 caracteres"
+
+                },
+                ap_cli:{
+                    required:"Ingresa un apellido",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 2 caracteres"
+
+                },
+                am_cli:{
+                    required:"Ingresa un apellido",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 2 caracteres"
 
                 },
                 telefono:{
                     number:"solo Numeros",
+                    maxlength:"Maximo 10 numeros",
+                    minlength:"Minimo 10 numeros"
                 },
-                clave_cli:{
-                    number:"solo Numeros",
-                },
+
+
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -218,5 +248,13 @@
                 })
             }
         });
+<<<<<<< HEAD
+=======
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
+
+
+>>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
     });
 </script>

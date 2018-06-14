@@ -16,7 +16,7 @@ class Productos
     private $nombre_pro;
     private $id_categoriapro;
     private $id_tipopro;
-    private $existencias;
+    private $existencias ;
     private $stock_min;
     private $stock_max;
 
@@ -36,8 +36,15 @@ class Productos
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->nombre_pro}','{$this->id_categoriapro}',
-          '{$this->id_tipopro}', '{$this->existencias}', '{$this->stock_min}', '{$this->stock_max}')";
+        $sql="insert into {$this->tabla} 
+        values
+        ('0','{$this->nombre_pro}'
+        ,'{$this->id_categoriapro}'
+        ,'{$this->id_tipopro}'
+        , '{$this->existencias}'
+        , '{$this->stock_min}'
+        , '{$this->stock_max}')";
+
         $this->conexion->QuerySimple($sql);
     }
     function getAll(){

@@ -57,7 +57,7 @@ class Observaciones
 
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET descripcion_observacion='{$this->descripcion_observacion}', cargo='{$this->cargo}'";
+        $sql="UPDATE {$this->tabla} SET descripcion_observacion='{$this->descripcion_observacion}', cargo='{$this->cargo}' where id_observacion='id'";
         $this->conexion->QuerySimple($sql);
 
     }
