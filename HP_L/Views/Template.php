@@ -31,11 +31,16 @@ class Template
 
             <!--Aquí van los escripts-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
 
             <script type="text/javascript">
+                $('document').ready(function () {
+                    $(".button-collapse").sideNav();
+                })
                 $.validator.setDefaults({ ignore: [],
                     errorClass: 'invalid',
                     validClass: "valid",
@@ -49,7 +54,6 @@ class Template
         </head>
 
         <body>
-
         <nav>
             <div class="nav-wrapper teal">
                 <a href="#!" class="brand-logo">Logo</a>
@@ -61,6 +65,23 @@ class Template
                 </ul>
             </div>
         </nav>
+
+        <ul id="slide-out" class="side-nav">
+            <li><div class="user-view">
+                    <div class="background">
+                        <img src="images/office.jpg">
+                    </div>
+                    <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+                    <a href="#!name"><span class="white-text name">John Doe</span></a>
+                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
 
 

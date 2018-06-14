@@ -22,17 +22,16 @@ class Template
         <head>
             <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link href="<?php echo URL?>Public/css/style.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>Public/css/custom.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>Public/css/stilo.css" type="text/css" rel="stylesheet">
-            <link rel="stylesheet" href="<?php echo URL?>Public/style.css">
+
             <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
 
             <!--Aquí van los escripts-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/materialize.min.js"></script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+            <!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
@@ -95,7 +94,6 @@ class Template
     public static function footer()
     {
         ?>
-        </body>
         <footer class="page-footer teal">
             <div class="container">
                 <div class="row">
@@ -117,12 +115,12 @@ class Template
             </div>
             <div class="footer-copyright">
                 <div class="container">
+                    2018
                 </div>
             </div>
         </footer>
-
+        </body>
         </html>
         <?php
     }
 }
-
