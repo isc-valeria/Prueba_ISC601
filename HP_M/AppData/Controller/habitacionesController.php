@@ -11,7 +11,7 @@ class habitacionesController
     {
         $this->habitaciones= new \AppData\Model\Habitaciones();
         $this->tipo_habitaciones=new \AppData\Model\Tipos_habitacion();
-        $this->estado_habitaciones= new \AppData\Model\Estado_habitacion();
+        $this->estado_habitaciones= new \AppData\Model\EstadoHabitaciones();
     }
 
     public function index()
