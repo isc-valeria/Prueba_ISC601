@@ -19,34 +19,34 @@ class Request
 //    private $log=URL.Login;
     public function __construct()
     {
-        if(isset($_SESSION["username"]))
-        if (isset($_GET['url']))
+        if (isset($_SESSION["username"]))
         {
-            $ruta = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
-            $ruta = explode("/", $ruta);
-            $ruta = array_filter($ruta);
-            //print_r($ruta); //sirve para imprimir arreglos
-            if ($ruta[0] == "index.php")
-            {
-                $this->controlador = "inicio";
+            if (isset($_GET['url'])) {
+                $ruta = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
+                $ruta = explode("/", $ruta);
+                $ruta = array_filter($ruta);
+                //print_r($ruta); //sirve para imprimir arreglos
+                if ($ruta[0] == "index.php") {
+                    $this->controlador = "inicio";
+                } else {
+                    $this->controlador = strtolower(array_shift($ruta));
+                }
+                $this->metodo = strtolower(array_shift($ruta));
+                if (!$this->metodo)
+                    $this->metodo = "index";
+                $this->argumento = $ruta;
             }
-            else
-            {
-                $this->controlador = strtolower(array_shift($ruta));
-            }
-            $this->metodo=strtolower(array_shift($ruta));
-            if (!$this->metodo)
-                $this->metodo="index";
-            $this->argumento=$ruta;
         }
         else
         {
+            $this->controlador="login";
 
             if(isset($_POST["email"]))
                 $this->metodo = "verify";
             else
                 $this->metodo = "index";
         }
+
     }
     public function getControlador()
     {
