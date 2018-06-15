@@ -34,7 +34,7 @@ class Template
             <!--Aquí van los escripts-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/materialize.min.js"></script>
-
+            <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
             <!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>

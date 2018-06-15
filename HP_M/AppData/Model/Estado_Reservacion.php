@@ -1,20 +1,22 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: JAZMIN
- * Date: 08/05/2018
- * Time: 02:43 PM
+ * User: Lenovo
+ * Date: 09/05/2018
+ * Time: 10:57 PM
  */
 
 namespace AppData\Model;
 
 
-class EstadoHabitaciones
+class Estado_Reservacion
 {
 
-    private $id_estadoh;
-    private $estado_ha;
-    private $tabla="estado_habitacion";
+    private $id_estador;
+    private $estador;
+    private $tabla="estado_reserva";
+
+    private $conexion;
 
     function __construct()
     {
@@ -28,33 +30,34 @@ class EstadoHabitaciones
     {
         return $this->$atributo;
     }
+
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->estado_ha}')";
+        $sql="insert into {$this->tabla} values('0','{$this->estador}')";
         $this->conexion->QuerySimple($sql);
     }
 
     function getAll()
     {
-        $sql="select id_estadoh, estado_ha from estado_habitacion";
+        $sql="select id_estador, estador from estado_reserva";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
 
     function delete($id)
     {
-        $sql="delete from estado_habitacion where id_estadoh='{$id}'";
+        $sql="delete from estado_reserva where id_estador='{$id}'";
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
     {
-        $sql="select * from  {$this->tabla}  where id_estadoh='{$id}'";
+        $sql="select * from  {$this->tabla}  where id_estador='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
 
-        $sql="update {$this->tabla} set estado_ha='{$this->estado_ha}'where id_estadoh='{$this->id_estadoh}'";
+        $sql="update {$this->tabla} set estador='{$this->estador}'where id_estador='{$this->id_estador}'";
         $this->conexion->QuerySimple($sql);
     }
 }
