@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Luis
- * Date: 07/06/2018
- * Time: 10:22 PM
- */?>
+
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -13,7 +7,7 @@
             <br><br>
         </div>
     </div>
-    <div class="parallax"><img src="<?php echo URL?>/Public/imagenes/home.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
 </div>
 
 

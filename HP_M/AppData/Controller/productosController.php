@@ -41,6 +41,8 @@ class productosController
             $this->productos->set('existencias',$_POST["existencias"]);
             $this->productos->set('stock_min',$_POST["stock_min"]);
             $this->productos->set('stock_max',$_POST["stock_max"]);
+
+
             $this->productos->add();
             $datos1=$this->productos->getAll();
             $datos[0]=$datos1;
@@ -76,6 +78,11 @@ class productosController
             $datos[0]=$datos1;
             return $datos;
         }
+    }
+
+    public function print_pdf(){
+        $datos=$this->productos->getAll();
+        return $datos;
     }
 
 }

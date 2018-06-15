@@ -2,13 +2,15 @@
 namespace AppData\Controller;
 class tareasController
 {
-    private $Tareas,$Tipo_tarea,$empleados,$habitaciones;
+    private $Tareas,$Tipo_tarea,$empleados,$habitaciones,$herramientas;
     public function __construct()
     {
         $this->Tareas= new \AppData\Model\Tareas();
         $this->Tipo_tarea=new \AppData\Model\Tipo_tarea();
         $this->empleados=new \AppData\Model\Empleados();
         $this->habitaciones=new \AppData\Model\Habitaciones();
+        $this->herramientas=new \AppData\Model\Equipo_seguridad();
+
     }
     public function index()
     {
@@ -16,16 +18,19 @@ class tareasController
         $datos2=$this->Tipo_tarea->getAll();
         $datos3=$this->empleados->getAll();
         $datos4=$this->habitaciones->getAll();
+        $datos5=$this->herramientas->getAll();
         $datos[0]=$datos1;
         $datos[1]=$datos2;
         $datos[2]=$datos3;
         $datos[3]=$datos4;
+        $datos[4]=$datos5;
 
         return $datos;
     }
     public function crear(){
         if($_POST)
         {
+            //print_r($_POST["eq[]"]);
             $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
             $this->Tareas->set('id_empleado',$_POST["empleados"]);
             $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
@@ -34,24 +39,22 @@ class tareasController
             $this->Tareas->add();
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
+            //console.log("mensaje");
             return $datos;
+
         }
-
     }
-
     public function eliminar($id)
     {
         $this->Tareas->delete($id[0]);
-
         $datos1=$this->Tareas->getAll();
         $datos[0]=$datos1;
         return $datos;
-    }
 
+    }
     public function modificar($id)
     {
         $datos=$this->Tareas->getOne($id[0]);
-
         return $datos;
     }
     public function actualizar($id)
@@ -68,7 +71,6 @@ class tareasController
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
             return $datos;
-
         }
     }
 }

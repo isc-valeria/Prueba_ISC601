@@ -8,22 +8,22 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="numero_habitacion" type="text" class="validate" name="numero_habitacion">
-                            <label for="numero_habitacion"  data-error="Incorrecto" data-success="Correcto" >Número de Hábitación</label>
+                            <input id="numero_habitacion" type="text"  name="numero_habitacion">
+                            <label for="numero_habitacion"  >Número de Habitación</label>
                         </div>
 
                         <div class="input-field col s1">
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion" type="text" class="validate" name="descripcion">
-                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                            <input id="descripcion" type="text"  name="descripcion">
+                            <label for="descripcion" >Descripción</label>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <select id="tipohabitacion" type="text" name="tipohabitacion">
+                            <select id="id_tipoh" type="text" name="id_tipoh">
                                 <option disabled selected>Selecciona Tipo de la Habitacion</option>
                                 <?php
                                 $result3=$datos[1];
@@ -31,7 +31,7 @@
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="tipohabitacion">Tipo de Habitación</label>
+                            <label for="id_tipoh">Tipo de Habitación</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="nomestadohabitacion" type="text" class="validate" name="nomestadohabitacion">
+                            <select id="nomestadohabitacion" type="text" name="nomestadohabitacion">
                                 <option value="" disabled selected>Selecciona Estado de la Habitacion</option>
                                 <?php
                                 $result2=$datos[3];
@@ -47,7 +47,7 @@
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto"> Estado de la Habitación</label>
+                            <label for="nomestadohabitacion" > Estado de la Habitación</label>
 
                         </div>
 
@@ -90,7 +90,7 @@
     <!-- Modal eliminar -->
 
     <!--*********************final modal eliminar***********-->
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
             <th>id</th>
@@ -110,6 +110,13 @@
         ?>
         </tbody>
     </table>
+    <div class="right-align">
+        <a href="<?php echo URL?>Habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue"><i class="material-icons">print</i></a>
+
+    <div class="center">
+        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+
+    </div>
 </div>
 
 
@@ -194,15 +201,7 @@
         });
         $("#save_habitaciones_ok").click(function(){
             $("#save_habitacion").submit();
-            /*
-            $.post("<?php //echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
-              $("#body_table").empty().append(res);
-              $('#save_habitacion').find('input, select, textarea').val('');
-              Materialize.updateTextFields();
-              //$("#modal_registro").modal("close");
-              Materialize.toast('Se ha insertado correctamente', 2500);
-            })
-           */
+
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -227,7 +226,7 @@
                 $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
                 $("#numero_habitacion").val(datos["num_habitacion"]);
                 $("#descripcion").val(datos["descripcion_hab"]);
-                $("#tipohabitacion").val(datos["id_tipoh"]);
+                $("#id_tipoh").val(datos["id_tipoh"]);
                 $("#nomestadohabitacion").val(datos["id_estadoh"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
@@ -247,14 +246,64 @@
 
 
         $("#save_habitacion").validate({
-           rules:{
-                tipohabitacion:{
+            rules:{
+                numero_habitacion:{
                     required:true,
+                    maxlength: 3,
+                    number:true,
+                },
+                descripcion:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                id_tipoh:{
+                    required:true,
+                },
+                nomestadohabitacion:{
+                    required:true,
+                },
+
+            },
+            messages:{
+                numero_habitacion:{
+                    required:"Ingresa un número",
+                    maxlength:"Máximo 3 digitos",
+                    number:"Solo números",
+
+                },
+                descripcion:{
+                    required:"Agrega una descripción",
+                    minlength: "Descripcion insuficiente",
+                },
+                id_tipoh:{
+                    required:"Selecciona un tipo ",
+                },
+                nomestadohabitacion:{
+                    required:"Selecciona un estado ",
                 }
+
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                console.log("ok")
+                $.post("<?php echo URL?>habitaciones/crear",$("#save_habitacion").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_habitacion').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
             }
-        })
+        });
+
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
     });
 </script>

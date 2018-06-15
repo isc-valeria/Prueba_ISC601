@@ -7,17 +7,12 @@
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
-                        <div class="input-field input-field col s5">
-                            <input id="id_servicio" type="text" class="validate" name="id_servicio">
-                            <label for="id_servicio"  data-error="incorrecto" data-success="Correcto">Folio</label>
-                        </div>
-
                         <div class="input-field col s1">
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="descripcion_ser" type="text" class="validate" name="descripcion_ser">
-                            <label for="descripcion_ser"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                            <input id="descripcion_ser" type="text" name="descripcion_ser">
+                            <label for="descripcion_ser">Descripción</label>
                         </div>
                     </div>
                     <div class="row">
@@ -37,6 +32,9 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_servicios_ok" class="btn modal-close">Registrar</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_servicios_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -91,13 +89,13 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".modal").modal();
-        $(".timepicker").pickatime();
-        $("#add_servicios").click(function () {
-            $("#update_servicios_ok").hide();
-            $("#save_servicios_ok").show();
-        });
-        $("#save_servicios_ok").click(function () {
+            $(".modal").modal();
+            $(".timepicker").pickatime();
+            $("#add_servicios").click(function () {
+                $("#update_servicios_ok").hide();
+                $("#save_servicios_ok").show();
+            });
+            $("#save_servicios_ok").click(function () {
 
             //console.log("ok")
            console.log($("#save_servicios").serialize());
@@ -131,19 +129,19 @@
             $.get("<?php echo URL?>servicios/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_servicios_ok").data("id",datos["id_servicio"]);
-                $("#Folio").val(datos["num_habitacion"]);
-                $("#descripcion").val(datos["descripcion_hab"]);
-                $("#tipohabitacion").val(datos["id_tipoh"]);
-                $("#nomestadohabitacion").val(datos["id_estadoh"]);
+                $("#id_servicio").val(datos["id_servicio"]);
+                $("#descripcion_ser").val(datos["descripcion_ser"]);
+                $("#hora_inicio").val(datos["hora_inicio"]);
+                $("#hora_fin").val(datos["hora_fin"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
-                $("#modal_registro").modal("open");
+                $("#modal_servicio").modal("open");
             });
         });
-        $("#update_habitaciones_ok").click(function(){
+        $("#update_servicios_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>servicios/actualizar/"+id,$("#save_servicios").serialize(),function(res){
+                $('#save_servicios').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
                 Materialize.updateTextFields();
@@ -151,6 +149,37 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
+//validar
+        $("#save_servicios").validate({
+            rules:{
+                descripcion_ser:{
+                    required:true,
+                    minlenght:3,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                required:"Información requerida",
+                minlenght:"Minimo de caracteres 3"
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                console.log($("#save_servicios").serialize());
+                $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_servicios').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_servicio").modal("close");
+                })
+            }
+        });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
     });
 </script>

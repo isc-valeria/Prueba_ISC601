@@ -13,7 +13,6 @@ class inicioController
 {
     public function index()
     {
-
     }
     public function Habitaciones()
     {

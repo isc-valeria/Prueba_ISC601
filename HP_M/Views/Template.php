@@ -9,177 +9,173 @@
 namespace Views;
 
 
-new Template();
+use http\Url;
+
 class Template
 {
     public static function header()
     {
        ?>
         <!DOCTYPE html>
-        <!------------------------------------------------------------------------------->
-        <html lang="en">
-        <!------------------------------------------------------------------------------->
+        <html>
         <head>
-            <meta charset="UTF-8">
+            <title>Habitaciones</title>
+            <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-            <link href="<?php echo URL?>/Public/css/style.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>/Public/css/custom.min.css" type="text/css" rel="stylesheet">
-            <link href="<?php echo URL?>/Public/css/stilo.css" type="text/css" rel="stylesheet">
-            <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
-            <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery-1.11.2.min.js"></script>
-            <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/pagination.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script type="text/javascript" src="<?php echo URL?>/Public/js/plugins/jquery.validate.min.js"></script>
-        <script type="text/javascript">
-            $.validator.setDefaults({ ignore: [],
-                errorClass: 'invalid',
-                validClass: "valid",
-            });
-            jQuery.validator.addMethod("lettersonly", function(value, element) {
-                return this.optional(element) || /^[a-z]+$/i.test(value);
-            }, "Solo Letras");
-        </script>
+
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
+
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/fonts/material-icons.css">
+
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/style.min.css" media="screen,projection"/>
 
 
-        <title>Inicio</title>
+            <!--Aquí van los escripts-->
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/materialize.min.js"></script>
+
+            <!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
+
+            <script type="text/javascript">
+                $('document').ready(function () {
+                    $(".button-collapse").sideNav();
+
+                    $('.collapsible').collapsible();
+
+                    $('.tooltipped').tooltip();
+
+                })
+
+                $.validator.setDefaults({ ignore: [],
+                    errorClass: 'invalid',
+                    validClass: "valid",
+                });
+                jQuery.validator.addMethod("lettersonly", function(value, element) {
+                    return this.optional(element) || /^[a-z, ]+$/i.test(value);
+                }, "Solo Letras");
+            </script>
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </head>
-        <!------------------------------------------------------------------------------->
 
-        <!------------------------------------------------------------>
-            <header id="header" class="page-topbar">
-
-                <div class="navbar-fixed ">
-                    <nav class="navbar-color">
-                        <div class="nav-wrapper cyan #4dd0e1">
-                            <ul class="left">
-                                <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="<?php echo URL?>/public/imagenes/logo.gif" ></a></h1></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </header>
         <body>
-        <!------------------------------------------------------------>
-        <div >
-            <!--Inicio Menu Vertical-->
-            <div class="wrapper">
-                <aside id="left-sidebar-nav">
-                    <ul id="slide-out" class="side-nav fixed leftside-navigation">
-
-                        <li class="user-details cyan lighten-3 ">
-                            <div class="row">
-                                <div class="col col s4 m4 l4">
-                                    <img src="<?php echo URL?>/public/imagenes/cesar.PNG" alt="" class="circle responsive-img valign profile-image">
-                                </div>
-                                <div class="col col s8 m8 l8">
-                                    <ul id="profile-dropdown" class="dropdown-content">
-                                        <li><a href="#"></i> Perfil</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Salir</a>
-                                        </li>
-                                    </ul>
-                                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn " href="#" data-activates="profile-dropdown">cesar Primero<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                    <p class="user-roal">Administrador</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-myspace"></i>Reservaciones</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>clientes" class="icon-jira">   Clientes</a></li>
-                                            <li><a href="<?php echo URL?>reservaciones" class="icon-jira">   Reservaciones</a></li>
-                                            <li><a href="<?php echo URL?>habitaciones" class="icon-jira">   Habitaciones</a></li>
-
-                                            <li><a href="<?php echo URL?>checkin" class="icon-jira">   Check In</a></li>
-                                            <li><a href="<?php echo URL?>checkout" class="icon-jira">   Check Out</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-simpleicons"></i>Servicios</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
-
-                                            <li><a href="<?php echo URL?>registro_prendas" class="icon-jira">   Lavanderia</a></li>
-                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
-                                            <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
 
 
-                                        </ul>
-                                    </div>
-                                </li>   
-                            </ul>
-                        </li>
+        <nav id="menusito">
+            <div class="nav-wrapper teal">
+                <?php if (!isset($_SESSION["username"])){?>
+                <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
 
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-dropbox2"></i>Almacen</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>productos" class="icon-jira">   Admin Almacen</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-user-check"></i>Empleados</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>Empleados" class="icon-jira">   Configuración</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </aside>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#!">Reservaciones</a></li>
+                    <li><a href="#!">Mi Reserva</a></li>
+                    <li><a href="<?php echo URL?>Login">Login</a></li>
+                </ul>
+                <?php }?>
             </div>
-            <!--fin Menu Vertical-->
-        </div>
-        <!------------------------------------------------------------>
-        <main class="container">
-            <div class="row">
-                <div class="col offset-l3 l9 m12 s12">
+        </nav>
+
+        <?php
+
+        if (isset($_SESSION["username"]))
+
+        {
+        ?>
+
+        <ul id="slide-out" class="side-nav collapsible" data-collapsible="accordion" style="overflow-y: auto;">
+            <li><div class="user-view">
+                    <div class="background">
+                        <img src="<?php echo URL?>Public/imagenes/user-bg.jpg">
+                    </div>
+                    <a href="#!user"><img class="circle" src="<?php echo URL?>Public/imagenes/cesar.png"></a>
+                    <a href="#!name"><span class="white-text name">John Doe</span></a>
+                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div></li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>clientes" class="btn teal"><i class="material-icons">chevron_right</i>Clientes</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>reservaciones" class="btn teal"><i class="material-icons">chevron_right</i>Reservaciones</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>habitaciones" class="btn teal"><i class="material-icons">chevron_right</i>Habitaciones</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn teal"><i class="material-icons">chevron_right</i>Check-In</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn teal"><i class="material-icons">chevron_right</i>Check-Out</a></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn teal"><i class="material-icons">chevron_right</i>Servicios</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>asigna_servicios" class="btn teal"><i class="material-icons">chevron_right</i>Asignar Servicios</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>ticket" class="btn teal"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn teal"><i class="material-icons">chevron_right</i>Tareas</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>equipo_seguridad" class="btn teal"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>registro_prendas" class="btn teal"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn teal"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>empleados" class="btn teal"><i class="material-icons">chevron_right</i>Configuración</a></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn teal"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Equipo_seguridad" class="btn teal"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Estados</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn teal"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
+            </li>
+
+            <li>
+                <div class="collapsible-header">Logout</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal""></a></div>
+            </li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+        <!--Import jQuery before materialize.js-->
+
+        <?php
+        }
+        ?>
+
+
         <?php
     }
     public static function footer()
     {
         ?>
-                </div>
-            </div>
-        </main>
-        </body>
-        <footer class="page-footer cyan #4dd0e1">
-            <div class="row">
-                <div class="col l9 offset-l3">
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Ubicación</h5>
+                        <p class="grey-text text-lighten-4">Carretera Federal Valle de Bravo Km 30,
+                            Ejido San Antonio Laguna, 51200 Valle de Bravo, Méx.</p>
 
-                    <div class="footer-copyright ">
-                        <div class="container ">
-                            <span>Copyright © 2018 <a class="grey-text text-lighten-4"></a> TESVB</span>
-                            <span class="right">601 <a class="grey-text text-lighten-4" ></a></span>
-                        </div>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Redes Sociales</h5>
+                        <ul>
+                            <i class="material-icons">group</i>
+                            <i class="material-icons">group</i>
+                            <i class="material-icons">group</i>
+                        </ul>
                     </div>
                 </div>
             </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    2018
+                </div>
+            </div>
         </footer>
-
+        </body>
         </html>
         <?php
     }
 }
-

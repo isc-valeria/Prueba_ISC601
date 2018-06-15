@@ -20,14 +20,13 @@ create table Categorias_producto (id_categoriapro int primary key AUTO_INCREMENT
 create table Asignadestino_servicios(id_destinoser int primary key AUTO_INCREMENT, id_salida int, id_servicio int);
 
 
-create table Colores(id_color int primary key AUTO_INCREMENT, descripcion_color varchar(30));
-create table Tipos_prendas(id_tipoprenda int primary key AUTO_INCREMENT, descripcion_prenda varchar(20));
-create table Servicios_lavanderia(id_serviciolavanderia int primary key AUTO_INCREMENT, nombre_servicio varchar(20),codigo_servicio varchar(30));
-create table Estado_orden (id_estadoorden int primary key AUTO_INCREMENT, estado_orden varchar(30));
-create table Prendas (id_prenda int primary key AUTO_INCREMENT, codigo_prenda varchar(30), id_serviciolavanderia int, id_tipoprenda int, precio float);
-create table Ordenes (id_orden int primary key AUTO_INCREMENT, id_prenda int, cantidad int, id_color int, id_estadoorden int, subtotal float);
-create table Ticket(id_ticket int primary key AUTO_INCREMENT, id_habitacion int, fecha_entrada timestamp, fecha_salida timestamp, id_orden int, total float);
-
+create table Servicios_lavanderia (id_serviciolav int primary key AUTO_INCREMENT, descripcion_servicio varchar(30), precio int);
+create table Observaciones (id_observacion int primary key AUTO_INCREMENT, descripcion_observacion varchar(50),cargo float);
+create table Clasificacion_kilo(id_clasificacionkilo int primary key AUTO_INCREMENT, id_serviciolav int, cantidadkg int, id_observacion int);
+create table Clasificacion_pieza(id_clasificacionpieza int primary key AUTO_INCREMENT,descripcion_pieza varchar(30),cantidad int, id_serviciolav int, id_observacion int);
+create table Ticket (id_ticket int primary key AUTO_INCREMENT, fecha_entrada timestamp, fecha_salida timestamp, total float);
+create table Ventahab_kilo(id_ventahabkilo int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionkilo int, id_ticket int, subtotal float);
+create table Ventahab_pieza(id_ventahabpieza int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionpieza int, id_ticket int, subtotal float);
 
 create table Servicios(id_servicio int primary key AUTO_INCREMENT, descripcion_ser varchar(30), hora_inicio time, hora_fin time);
 create table Asigna_servicios(id_asignaser int primary key AUTO_INCREMENT, id_habitacion int, id_servicio int, id_estados int, fecha_reg timestamp);
@@ -37,7 +36,7 @@ create table Estado_servicios(id_estados int primary key AUTO_INCREMENT, descrip
 create table Estado_habitacion(id_estadoh int primary key AUTO_INCREMENT, estado_ha varchar(50));
 create table Tipos_habitacion(id_tipoh int primary key AUTO_INCREMENT, tipo_ha varchar(50), precio int,maximo_personas int);
 create table Habitaciones (id_habitacion int primary key AUTO_INCREMENT, num_habitacion int, descripcion_hab varchar(100), id_tipoh int, id_estadoh int);
-create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), id_puesto int);
+create table Clientes(id_cliente int primary key AUTO_INCREMENT, nombre_cli varchar(30), ap_cli varchar(20),am_cli varchar(20), telefono varchar(10), email varchar(50));
 create table Estado_reserva(id_estador int primary key AUTO_INCREMENT, estador varchar(20));
 create table Reservaciones(id_reservacion int primary key AUTO_INCREMENT, clave_reserva varchar(10), id_cliente int, fecha_reserva timestamp, fecha_llegada timestamp, fecha_salida timestamp, id_estador int,no_personas int);
 create table Asigna_reservaciones(id_asignares int primary key AUTO_INCREMENT, id_habitacion int, id_reservacion int);
@@ -47,57 +46,56 @@ create table Facturacion(id_factura int primary key AUTO_INCREMENT, id_asignares
 create table Checkin(id_checkin int primary key AUTO_INCREMENT, id_asignares int, fecha_checkin timestamp);
 create table Checkout(id_checkout int primary key AUTO_INCREMENT, id_asignares int, fecha_checkout timestamp);
 
-create TABLE usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
+create table usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
 create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20));
 
 insert into tipo_usuario values(1,'Empleado');
 insert into tipo_usuario values(2,'Cliente');
 
-insert into Colores values (1, 'Blanco');
+insert into  Observaciones values (500, 'No Manchado',0);
 
-insert into Colores values (2, 'Rojo');
+insert into Observaciones values (501, 'Mancha pequeña',20);
 
-insert into Colores values (3, 'Negro');
-
-
-insert into Tipos_prendas values(10, 'Playera');
-
-insert into Tipos_prendas values(11, 'Pantalon');
-
-insert into Tipos_prendas values(12, 'Camisa');
-
-insert into Tipos_prendas values(13, 'Saco');
-
-insert into Tipos_prendas values(14, 'Chamarra');
+insert into Observaciones values (502, 'Mancha grande',50);
 
 
+insert into Servicios_lavanderia values (20, 'Planchado',20);
+insert into Servicios_lavanderia values (21, 'Lavado',50);
+insert into Servicios_lavanderia values (22, 'Lavado y planchado',40);
+insert into Servicios_lavanderia values (23, 'Planchado por kilo',42);
+insert into Servicios_lavanderia values (24, 'Lavado por kilo',52);
+insert into Servicios_lavanderia values (25, 'Lavado y planchado por kilo',84);
 
-insert into Servicios_lavanderia values (20, 'Planchado','PLA01');
+insert into Clasificacion_kilo values(10, 23, 2, 500);
 
-insert into Servicios_lavanderia values (21, 'Lavado','LAV01');
+insert into Clasificacion_kilo values(11, 24,4, 501 );
 
-insert into Servicios_lavanderia values (22, 'Tintoreria','TIN01');
+insert into Clasificacion_kilo values(12, 25, 2, 502);
 
 
 
-insert into Estado_orden values (30, 'Urgente');
-
-insert into Estado_orden values (31, 'Normal');
 
 
-insert into Prendas values(130, 'CHA01',20, 14, 200 );
-insert into Prendas values(131, 'PAN01',20, 11, 150 );
-insert into Prendas values(132, 'SAC01',21, 13, 250 );
-insert into Prendas values(133, 'CAM01',22, 12, 100 );
-insert into Prendas values(134, 'PLA01',21, 10, 100 );
+insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500);
+insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501);
+insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502);
 
-insert into Ordenes values (40, 130,1,1,30, 200);
-insert into Ordenes values (41, 131,3,2,31, 300);
-insert into Ordenes values (42, 132,1,1,31, 250);
+insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502);
 
-insert into Ticket values (140, 150, sysdate(), sysdate(),41,300);
-insert into Ticket values (141, 151, sysdate(), sysdate(),42,250);
-insert into Ticket values (142, 152, sysdate(), sysdate(),40,200);
+
+insert into Ticket values(130, sysdate(),sysdate(), 111 );
+insert into Ticket values(131, sysdate(),sysdate(), 110 );
+insert into Ticket values(132, sysdate(),sysdate(), 100 );
+insert into Ticket values(133, sysdate(),sysdate(), 100 );
+
+insert into Ventahab_kilo values (40, 150,10,130, 84);
+insert into Ventahab_kilo values (41, 151,11,131, 228);
+insert into Ventahab_kilo values (42, 152,12,132, 218);
+
+insert into Ventahab_pieza values (140, 150,30,130, 250);
+insert into Ventahab_pieza values (141, 151,31,131, 210);
+insert into Ventahab_pieza values (142, 152,32,132, 360);
+insert into Ventahab_pieza values (143, 152,33,133, 200);
 
 
 
@@ -153,11 +151,11 @@ insert into Estado_servicios values (81, 'Ocupado');
 
 
 
-insert into Clientes values (90, 'Jazmin', 'Estaislao', 'Mart�nez', '7221542915', 1005);
+insert into Clientes values (90, 'Jazmin', 'Estanislao', 'Gonzalez', '7221542915', 1005);
 
-insert into Clientes values (91, 'Jes�s', 'Ramirez', 'Ocampo', '7221566615', 1006);
+insert into Clientes values (91, 'Jesus', 'Ramirez', 'Ocampo', '7221566615', 1006);
 
-insert into Clientes values (92, 'Valeria', 'Rodriguez', 'S�nchez', '7221556785', 1007);
+insert into Clientes values (92, 'Valeria', 'Rodriguez', 'Flores', '7221556785', 1007);
 
 
 
@@ -168,11 +166,11 @@ insert into Estado_reserva values (63, 'Cancelado');
 
 
 
-insert into Reservaciones values (180, 2001, 90, sysdate(),'10/10/2018' , '12/10/2018', 63,2);
+insert into Reservaciones values (180, 2001, 90, sysdate(),'2018/10/08' , '2018/10/12', 63,2);
 
-insert into Reservaciones values (181, 2002, 91, sysdate(),'05/06/2018','12/06/2018' , 62,4);
+insert into Reservaciones values (181, 2002, 91, sysdate(),'2018/06/05','2018/06/12' , 62,4);
 
-insert into Reservaciones values (182, 2003, 92, sysdate(),'22/07/2018' ,'25/07/2018', 62,6);
+insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 62,6);
 
 
 
@@ -305,7 +303,7 @@ insert into Turnos  values(322,'Nocturno', '23:00:00', '07:00:00');
 
 
 
-insert into  Equipo_seguridad values(370, 'C�maras', 380);
+insert into  Equipo_seguridad values(370, 'Camaras', 380);
 
 insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381);
 
@@ -342,11 +340,3 @@ insert into  Asigna_equiposegu values(410, 370,400);
 insert into  Asigna_equiposegu values(411, 371,401);
 
 insert into  Asigna_equiposegu values(412, 372,402);
-
-
-
-
-
-
-
-
