@@ -74,15 +74,8 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <table class="responsive-table">
-=======
 
-    <!-- Modal eliminar -->
-
-    <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
->>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
         <thead>
         <tr>
             <th>Nombre del Cliente</th>
