@@ -48,7 +48,8 @@ class Template
                     $('.collapsible').collapsible();
 
                     $('.tooltipped').tooltip();
-                });
+
+                })
 
                 $.validator.setDefaults({ ignore: [],
                     errorClass: 'invalid',
@@ -68,7 +69,7 @@ class Template
         <nav id="menusito">
             <div class="nav-wrapper teal">
                 <?php if (!isset($_SESSION["username"])){?>
-                <a href="#!" class="brand-logo">Logo</a>
+                <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
 
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
@@ -127,6 +128,11 @@ class Template
                 <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Estados</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn teal"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
+            </li>
+
+            <li>
+                <div class="collapsible-header">Logout</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal""></a></div>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
