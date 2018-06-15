@@ -113,10 +113,6 @@
     <div class="right-align">
         <a href="<?php echo URL?>Habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue"><i class="material-icons">print</i></a>
 
-    <div class="center">
-        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-
-    </div>
 </div>
 
 

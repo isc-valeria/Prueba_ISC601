@@ -68,15 +68,12 @@ class Template
 
         <nav id="menusito">
             <div class="nav-wrapper teal">
-                <?php if (!isset($_SESSION["username"])){?>
                 <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
-
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login">Login</a></li>
                 </ul>
-                <?php }?>
             </div>
         </nav>
 
