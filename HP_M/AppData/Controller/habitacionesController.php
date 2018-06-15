@@ -75,4 +75,10 @@ class habitacionesController
         $datos=$this->habitaciones->getAll();
         return $datos;
     }
+
+    public function graficar()
+    {
+        $datos=$this->habitaciones->graficar();
+        return $datos;
+    }
 }
