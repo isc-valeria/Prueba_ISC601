@@ -112,17 +112,13 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
-<<<<<<< HEAD
-
 
             var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
             ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
             ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
             $("#clave_cli").val(clave);
             Materialize.updateTextFields();
-=======
-            //var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
->>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
+
 
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
@@ -248,13 +244,12 @@
                 })
             }
         });
-<<<<<<< HEAD
-=======
+
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
 
 
->>>>>>> 11b087627e52ffdfe7fbc3e1bc44c4ec58d535ae
+
     });
 </script>

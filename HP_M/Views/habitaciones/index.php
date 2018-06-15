@@ -110,6 +110,8 @@
         ?>
         </tbody>
     </table>
+    <div class="center " >
+        <a href="<?php echo URL?>habitaciones/print_pdf" class="btn tooltipped" data-position="bottom" data-tooltip="Imprimir PDF"><i class="material-icons left">picture_as_pdf</i>PDF</a>   </div>
 </div>
 
 
@@ -306,5 +308,13 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
+        $("#buscar").keyup(function ()
+        {
+            $.uiTableFilter($("#tabla_content"), this.value)
+        });
+        $("#imprimir_pdf").click(function())
+        {
+            window.open("<?php echo URL?>habitaciones/print_pdf")
+        }
     });
 </script>

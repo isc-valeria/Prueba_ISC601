@@ -67,4 +67,9 @@ class habitacionesController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->habitaciones->getAll();
+        return $datos;
+    }
 }
