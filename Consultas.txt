@@ -1,0 +1,1 @@
+select sum(asigna_reservaciones.id_habitacion), habitaciones.num_habitacion from asigna_reservaciones, habitaciones where asigna_reservaciones.id_habitacion=habitaciones.id_habitacion;

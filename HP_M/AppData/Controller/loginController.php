@@ -20,7 +20,7 @@ class loginController
 
     public function index()
         {
-            session_destroy();
+            //session_destroy();
         }
     public function verify()
         {
