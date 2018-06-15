@@ -112,6 +112,10 @@
     </table>
     <div class="right-align">
         <a href="<?php echo URL?>Habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue"><i class="material-icons">print</i></a>
+
+    <div class="center">
+        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+
     </div>
 </div>
 
@@ -197,15 +201,7 @@
         });
         $("#save_habitaciones_ok").click(function(){
             $("#save_habitacion").submit();
-            /*
-            $.post(habitaciones/crear",$("#save_habitacion").serialize(),function(res){
-              $("#body_table").empty().append(res);
-              $('#save_habitacion').find('input, select, textarea').val('');
-              Materialize.updateTextFields();
-              //$("#modal_registro").modal("close");
-              Materialize.toast('Se ha insertado correctamente', 2500);
-            })
-           */
+
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){

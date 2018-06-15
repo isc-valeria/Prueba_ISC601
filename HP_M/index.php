@@ -6,16 +6,24 @@
 //
 
 
-    define('URL',"http://localhost/posesta/Prueba_ISC601/HP_M/");
+    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
     //require_once ("Views/Template.php);
+
 
   //  echo $_GET["url"];
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))
     Views\Template::header();
     AppData\Config\Enrutador::run(new AppData\Config\Request());
     if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))
+
+//echo isset($_GET['url'])?$_GET["url"]:"no";
+    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'], 'print'))&&(stristr($_GET['url'], 'pdf'))):TRUE))
+    Views\Template::header();
+    AppData\Config\Enrutador::run(new AppData\Config\Request());
+    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'], 'print'))&&(stristr($_GET['url'], 'pdf'))):TRUE))
+
     Views\Template::footer();
 ?>
