@@ -78,6 +78,8 @@ class habitacionesController
 
     public function graficar()
     {
-        
+        $datos=$this->habitaciones->graficar();
+        return $datos;
+
     }
 }

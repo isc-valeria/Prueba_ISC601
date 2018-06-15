@@ -110,11 +110,27 @@
         ?>
         </tbody>
     </table>
-    <div class="right-align">
-        <a href="<?php echo URL?>Habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue"><i class="material-icons">print</i></a>
 
+
+    <div class="center">
+        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+    </div>
+    <div class="center">
+        <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+    </div>
 </div>
 
+<div id="modal_grafica" class="modal">
+    <div class="modal-content">
+        <h5>Grafica habitaciones</h5>
+        <p>
+
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+</div>
 
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
@@ -297,9 +313,17 @@
             }
         });
 
-
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
+
+        $("#graficar_habitaciones").click(function(){
+            $.get("<?php echo URL?>habitaciones/graficar",function(res){
+                $("#modal_grafica .modal-content p").empty().append(res);
+                $("#modal_grafica").modal("open");
+
+            });
+        });
+
     });
 </script>
