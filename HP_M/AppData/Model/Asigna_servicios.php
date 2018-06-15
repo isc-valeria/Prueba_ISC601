@@ -38,24 +38,6 @@ class Asigna_servicios
         return $datos;
     }
 
-    function getDatos1()
-    {
-        $sql="SELECT * FROM habitaciones ";
-        $returnhab=$this->conexion->QueryResultado($sql);
-        return $returnhab;
-    }
-    function getDatos2()
-    {
-        $sql="SELECT * FROM servicios";
-        $returnser=$this->conexion->QueryResultado($sql);
-        return $returnser;
-    }
-    function getDatos3()
-    {
-        $sql="SELECT * FROM estado_servicios";
-        $returnest=$this->conexion->QueryResultado($sql);
-        return $returnest;
-    }
 
     function update()
 	{
