@@ -80,4 +80,9 @@ class productosController
         }
     }
 
+    public function print_pdf(){
+        $datos=$this->productos->getAll();
+        return $datos;
+    }
+
 }

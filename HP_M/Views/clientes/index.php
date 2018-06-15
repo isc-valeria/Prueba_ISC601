@@ -102,6 +102,9 @@
         ?>
         </tbody>
     </table>
+    <div class="center">
+        <a href="<?php echo URL ?>clientes/print_pdf" target="_blank" id="imprime_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
 
 

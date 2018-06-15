@@ -73,4 +73,11 @@ class clientesController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->clientes->getAll();
+        return $datos;
+    }
+
+
 }

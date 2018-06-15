@@ -39,24 +39,15 @@ class Request
                 $this->metodo="index";
             $this->argumento=$ruta;
         }
-        elseif (isset($_GET['url/login']))
+
+
+        if(isset($_SESSION["username"]))
         {
-            if(isset($_SESSION["username"]))
-            {
-                if(isset($_POST["email"]))
-                    $this->metodo = "verify";
-                else
-                    $this->metodo = "index";
-            }
+            if(isset($_POST["email"]))
+                $this->metodo = "verify";
+            else
+                $this->metodo = "index";
         }
-        else
-        {
-            $this->controlador = "inicio";
-            $this->metodo = "index";
-        }
-
-
-
     }
     public function getControlador()
     {
