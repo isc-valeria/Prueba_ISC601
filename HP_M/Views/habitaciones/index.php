@@ -110,6 +110,9 @@
         ?>
         </tbody>
     </table>
+    <div class="right-align">
+        <a href="<?php echo URL?>Habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue"><i class="material-icons">print</i></a>
+    </div>
 </div>
 
 

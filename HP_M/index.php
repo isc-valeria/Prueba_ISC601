@@ -13,9 +13,9 @@
     //require_once ("Views/Template.php);
 
   //  echo $_GET["url"];
-    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
+    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))
     Views\Template::header();
     AppData\Config\Enrutador::run(new AppData\Config\Request());
-    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]))
+    if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))
     Views\Template::footer();
 ?>

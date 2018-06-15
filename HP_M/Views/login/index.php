@@ -43,10 +43,10 @@
             </center>
         </form>
     </div>
-</div><script type="text/javascript">
+</div>
+
+<script type="text/javascript">
     $(document).ready(function(){
         Materialize.updateTextFields();
-
-
     });
 </script>
