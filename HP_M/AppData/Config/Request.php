@@ -41,7 +41,7 @@ class Request
         }
         else
         {
-            
+
             if(isset($_POST["email"]))
                 $this->metodo = "verify";
             else
