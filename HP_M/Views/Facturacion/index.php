@@ -90,10 +90,10 @@
     });
 ////////////////////////////////////////////////////////
     $("#body_table").on("click","a.btn_modificar",function(){
-        $("#save_clientes_ok").hide();
-        $("#update_clientes_ok").show();
+        $("#save_factura_ok").hide();
+        $("#update_factura_ok").show();
         var id=$(this).data("id");
-        $.get("<?php echo URL?>Facturacion/modificar/"+id,function(res){
+        $.get("<?php echo URL?>facturacion/modificar/"+id,function(res){
             var datos=JSON.parse(res);
             $("#update_factura_ok").data("id",datos["id_cliente"]);
             $("#id_factura").val(datos["id_factura"]);
