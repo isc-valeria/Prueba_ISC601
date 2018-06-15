@@ -40,6 +40,7 @@ class Template
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery.validate.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/uifilter.js"></script>
+            <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/highcharts.js"></script>
 
             <script type="text/javascript">
                 $('document').ready(function () {
