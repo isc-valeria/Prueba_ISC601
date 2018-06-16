@@ -155,6 +155,6 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
-        
+
     });
 </script>

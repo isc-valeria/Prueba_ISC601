@@ -34,7 +34,7 @@ class Template
             <!--Aquí van los escripts-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/jquery-1.11.2.min.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/materialize.min.js"></script>
-
+            <link rel="stylesheet" href="<?php echo URL?>/Public/style.css">
             <!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
             <script type="text/javascript" src="<?php echo URL?>Public/js/plugins/pagination.js"></script>
@@ -69,15 +69,12 @@ class Template
 
         <nav id="menusito">
             <div class="nav-wrapper teal">
-                <?php if (!isset($_SESSION["username"])){?>
                 <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
-
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login">Login</a></li>
                 </ul>
-                <?php }?>
             </div>
         </nav>
 

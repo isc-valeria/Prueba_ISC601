@@ -3,7 +3,6 @@
     define('DS',DIRECTORY_SEPARATOR);
     define('ROOT',realpath(dirname(__FILE__)).DS);
 //    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
-//
 
 
     define('URL',"http://localhost/Prueba_ISC601/HP_M/");

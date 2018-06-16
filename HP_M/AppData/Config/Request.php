@@ -37,22 +37,17 @@ class Request
                 $this->argumento = $ruta;
             }
         }
+        else if ($this->controlador="login")
+        {
+
+            if(isset($_POST["email"]))
+                $this->metodo = "verify";
+            else
+                $this->metodo = "index";
+        }
         else
         {
-            if(!isset($_GET["url"]))
-            {
-                $this->controlador = "login";
-                if (isset($_POST["email"]))
-                    $this->metodo = "verify";
-                else
-                    $this->metodo = "index";
-            }
-            else{
-
-                $this->controlador =$_GET["url"];
-                $this->metodo = "index";
-
-            }
+            $this->controlador="inicio";
         }
 
     }
