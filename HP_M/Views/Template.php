@@ -121,6 +121,7 @@ class Template
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                 <div class="collapsible-body"><a href="<?php echo URL?>empleados" class="btn teal"><i class="material-icons">chevron_right</i>Configuración</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Puestos" class="btn teal"><i class="material-icons">chevron_right</i>Puestos</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
