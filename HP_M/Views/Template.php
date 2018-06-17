@@ -68,8 +68,8 @@ class Template
 
 
         <nav id="menusito">
-            <div class="nav-wrapper teal">
-                <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
+            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+                <a href="<?php echo URL?>inicio" class="brand-logo"></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -96,41 +96,42 @@ class Template
                 </div></li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>clientes" class="btn teal"><i class="material-icons">chevron_right</i>Clientes</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>reservaciones" class="btn teal"><i class="material-icons">chevron_right</i>Reservaciones</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>habitaciones" class="btn teal"><i class="material-icons">chevron_right</i>Habitaciones</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn teal"><i class="material-icons">chevron_right</i>Check-In</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn teal"><i class="material-icons">chevron_right</i>Check-Out</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>clientes" class="btn white black-text"><i class="material-icons">chevron_right</i>Clientes</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>reservaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>habitaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-In</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-Out</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn teal"><i class="material-icons">chevron_right</i>Servicios</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>asigna_servicios" class="btn teal"><i class="material-icons">chevron_right</i>Asignar Servicios</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>ticket" class="btn teal"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn teal"><i class="material-icons">chevron_right</i>Tareas</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>equipo_seguridad" class="btn teal"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>registro_prendas" class="btn teal"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Servicios</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>asigna_servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>ticket" class="btn white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Tareas</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>registro_prendas" class="btn white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn teal"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>empleados" class="btn teal"><i class="material-icons">chevron_right</i>Configuración</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>empleados" class="btn white black-text"><i class="material-icons">chevron_right</i>Configuración</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Puestos" class="btn white black-text"><i class="material-icons">chevron_right</i>Puestos</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn teal"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>Equipo_seguridad" class="btn teal"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn teal"><i class="material-icons">chevron_right</i>Estados</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn teal"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Estados</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
             </li>
 
             <li>
-                <div class="collapsible-header">Logout</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal""></a></div>
+                <div class="collapsible-header">Cerrar sesión</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal"">Salir</a></div>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

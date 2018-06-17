@@ -13,9 +13,6 @@
          $vary[]=intval($row[2]);
 
      }
- print_r(json_encode($varx));
- print_r(json_encode($vary));
-
 ?>
 <div id="container_grafica"></div>
 <script type="text/javascript">
@@ -24,7 +21,7 @@
                  type: 'column'
              },
          title: {
-                 text: 'Stacked column chart'
+                 text: ''
              },
          xAxis: {
                  categories: <?php echo json_encode($varx)?>
@@ -32,7 +29,7 @@
          yAxis: {
                  min: 0,
                      title: {
-                         text: 'Total fruit consumption'
+                         text: 'Número de reservaciones'
                      },
                  stackLabels: {
                          enabled: true,
