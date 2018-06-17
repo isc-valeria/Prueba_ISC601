@@ -65,7 +65,7 @@ class Habitaciones
 
     function update()
     {
-        $sql = "update habitaciones set num_habitacion='{$this->num_habitacion}',
+        $sql = "update {$this->tabla} set num_habitacion='{$this->num_habitacion}',
                descripcion_hab='{$this->descripcion_hab}', id_tipoh='{$this->id_tipoh}',
                id_estadoh='{$this->id_estadoh}' where id_habitacion='{$this->id_habitacion}'";
         $this->conexion->QuerySimple($sql);
