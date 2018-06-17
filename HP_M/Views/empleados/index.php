@@ -101,7 +101,7 @@
     <!-- Modal eliminar -->
 
     <!--*********************final modal eliminar***********-->
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
             <th>Numero</th>
@@ -274,5 +274,9 @@
                 })
             }
         });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
+
     });
 </script>

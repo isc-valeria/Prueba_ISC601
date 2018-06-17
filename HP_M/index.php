@@ -5,8 +5,12 @@
 //    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
 
+<<<<<<< HEAD
 
     define('URL',"http://localhost/posesta/Prueba_ISC601/HP_M/");
+=======
+    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
+>>>>>>> 08c5531db945e9ac89cb6925634b77419c8b0c5b
 
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
