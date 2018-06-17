@@ -17,40 +17,19 @@
                             <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
                         </div>
                         <div class="input-field col s4">
-    <!--                        <select id="tipohabitacion" type="text" class="validate">-->
-    <!--                            <option value="" disabled selected>Selecciona Tipo de Habitación</option>-->
-    <!--                            --><?php
-    //                            $returnhab=$datos[1];
-    //                            while ($row=mysqli_fetch_array($returnhab))
-    //                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-    //                            ?>
-    <!--                        </select>-->
+
                             <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
 
                         </div>
                         <div class="col s1"></div>
                         <div class="input-field col s4">
-    <!--                        <select id="servicios1" type="text" class="validate">-->
-    <!--                            <option value="" disabled selected>Selecciona servicio</option>-->
-    <!--                            --><?php
-    //                            $returnser=$datos[2];
-    //                            while ($row=mysqli_fetch_array($returnser))
-    //                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-    //                            ?>
-    <!--                        </select>-->
+
                             <label for="servicios1" data-error="incorrecto" data-success="Correcto">Servcios</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
-    <!--                        <select id="estadohabitacion" type="text" class="validate">-->
-    <!--                            <option value="" disabled selected>Selecciona estado</option>-->
-    <!--                            --><?php
-    //                            $returnest=$datos[3];
-    //                            while ($row=mysqli_fetch_array($returnest))
-    //                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-    //                            ?>
-    <!--                        </select>-->
+
                             <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Estados</label>
                         </div>
                         <div class="col s2"></div>
