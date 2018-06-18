@@ -28,9 +28,7 @@ class facturacionController
             $this->facturacion->set('id_factura', $_POST["id_factura"]);
             $this->facturacion->set('id_asignares', $_POST["id_asignares"]);
             $this->facturacion->set('total', $_POST["total"]);
-
             $datos[1] = false;
-
             if (mysqli_num_rows($this->facturacion->verify()) == 0) {
 
                 $this->facturacion->add();
