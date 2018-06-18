@@ -115,7 +115,6 @@ class Template
                 <div class="collapsible-body"><a href="<?php echo URL?>ticket" class="btn white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Tareas</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>registro_prendas" class="btn white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
