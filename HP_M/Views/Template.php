@@ -68,14 +68,10 @@ class Template
 
 
         <nav id="menusito">
-<<<<<<< HEAD
 
             <div class="nav-wrapper teal">
                 <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
 
-
-=======
->>>>>>> 29796a0f6cc5574b651d7a9d62cff7ce13d556e1
             <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
                 <ul class="right hide-on-med-and-down">

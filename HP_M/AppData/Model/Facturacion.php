@@ -27,7 +27,7 @@ class Facturacion
     )";
 
     }
-    function get(){
+    function getAll(){
         $sql="select*from Facturacion";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
@@ -38,5 +38,6 @@ class Facturacion
     function delete(){
 
     }
+
 
 }
