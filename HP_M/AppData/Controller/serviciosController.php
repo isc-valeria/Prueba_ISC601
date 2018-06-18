@@ -19,7 +19,7 @@ class serviciosController
 
     public function index()
     {
-        $datos=$this->servicios->getAll();
+        $datos[0]=$this->servicios->getAll();
         return $datos;
     }
 
@@ -29,8 +29,11 @@ class serviciosController
             $this->servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
             $this->servicios->set('hora_inicio',$_POST["hora_inicio"]);
             $this->servicios->set('hora_fin',$_POST["hora_fin"]);
+
+            //$datos[1]=false;
+
             $this->servicios->add();
-            $datos=$this->servicios->getAll();
+            $datos[0]=$this->servicios->getAll();
             return $datos;
         }
     }
@@ -38,7 +41,7 @@ class serviciosController
     public function eliminar($id)
     {
         $this->servicios->delete($id[0]);
-        $datos=$this->servicios->getAll();
+        $datos[0]=$this->servicios->getAll();
         return $datos;
     }
 
@@ -60,5 +63,11 @@ class serviciosController
             $datos=$this->servicios->getAll();
             return $datos;
         }
+    }
+
+    public function print_pdf()
+    {
+        $datos=$this->servicios->getAll();
+        return $datos;
     }
 }
