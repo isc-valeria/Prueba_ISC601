@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joseluis
- * Date: 16/05/2018
- * Time: 12:05 PM
- */
+
 
 namespace AppData\Model;
 
@@ -46,7 +41,10 @@ class Equipo_seguridad
     }
     function update()
     {
-
+        $sql = "update equipo_seguridad set nombre_equisegu='{$this->nombre_equisegu}',
+               id_tipoequisegu='{$this->id_tipoequisegu}'
+                where id_equiposegu='{$this->id_equiposegu}'";
+        $this->conexion->QuerySimple($sql);
     }
     function delete($id)
     {
@@ -54,4 +52,11 @@ class Equipo_seguridad
         $this->conexion->QuerySimple($sql);
 
     }
+    function getOne($id)
+    {
+        $sql="select * from  {$this->tabla} where id_equiposegu='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
 }

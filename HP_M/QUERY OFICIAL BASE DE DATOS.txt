@@ -9,6 +9,7 @@ create table Tipo_equiposegu (id_tipoequisegu int primary key AUTO_INCREMENT, de
 create table Tipo_tarea (id_tipotarea int primary key AUTO_INCREMENT, descripcion_tarea varchar(50));
 create table Tareas (id_tarea int primary key AUTO_INCREMENT, id_tipotarea int,id_empleado int,id_habitacion int,fecha_inicio timestamp,fecha_fin timestamp);
 create table Asigna_equiposegu (id_asignaequiposegu int primary key AUTO_INCREMENT, id_equiposegu int, id_tarea int);
+create table Estado_mantenimiento (id_estadomantenimiento int primary key AUTO_INCREMENT, descripcion_estadomantenimiento varchar(25));
 
 
 create table Asignadestino_habitacion (id_destinohab int primary key AUTO_INCREMENT, id_habitacion int, id_salida int );

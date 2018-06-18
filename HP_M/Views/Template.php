@@ -128,8 +128,8 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
                 <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>Equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Estados</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Tipo_equiposegu" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>Estado_mantenimiento" class="btn white black-text"><i class="material-icons">chevron_right</i>Estados</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
             </li>
 
