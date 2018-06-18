@@ -19,8 +19,8 @@ $pdf->SetX(25);
 $pdf->Cell(35,10,utf8_decode('Nombre del cliente'),1,0,'C',true);
 $pdf->Cell(35,10,utf8_decode('Apellido Paterno'),1,0,'C',true);
 $pdf->Cell(35,10,utf8_decode('Apellido Materno'),1,0,'C',true);
-$pdf->Cell(35,10,utf8_decode('Teléfono'),1,0,'C',true);
-$pdf->Cell(35,10,utf8_decode('Correo electrónico'),1,0,'C',true);
+$pdf->Cell(30,10,utf8_decode('Teléfono'),1,0,'C',true);
+$pdf->Cell(30,10,utf8_decode('E-mail'),1,0,'C',true);
 $pdf->SetFillColor(255,255, 255);
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Arial','',10);
@@ -31,8 +31,8 @@ while($row=mysqli_fetch_row($datos))
     $pdf->Cell(35,8,utf8_decode($row [1]),1,0,'C',true);
     $pdf->Cell(35,8,utf8_decode($row [2]),1,0,'C',true);
     $pdf->Cell(35,8,utf8_decode($row [3]),1,0,'C',true);
-    $pdf->Cell(35,8,utf8_decode($row [4]),1,0,'C',true);
-    $pdf->Cell(35,8,utf8_decode($row [5]),1,0,'C',true);
+    $pdf->Cell(30,8,utf8_decode($row [4]),1,0,'C',true);
+    $pdf->Cell(30,8,utf8_decode($row [5]),1,0,'C',true);
 
 }
 $pdf->Output();

@@ -37,7 +37,7 @@ class Clientes
     }
 
     function add(){
-        $sql="insert into clientes VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},'{$this->email}')";
+        $sql="insert into {$this->tabla} VALUES ('0','{$this->nombre_cli}','{$this->ap_cli}','{$this->am_cli}',{$this->telefono},'{$this->email}')";
         $this->conexion->QuerySimple($sql);
     }
 
@@ -49,7 +49,7 @@ class Clientes
 
     function getAll()
     {
-        $sql="Select * from clientes";
+        $sql="Select * from {$this->tabla}";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
@@ -62,14 +62,22 @@ class Clientes
     }
     function update()
     {
-        $sql = "update clientes set nombre_cli='{$this->nombre_cli}',
+        $sql = "update {$this->tabla} set nombre_cli='{$this->nombre_cli}',
                ap_cli='{$this->ap_cli}', am_cli='{$this->am_cli}',
                telefono='{$this->telefono}', email='{$this->email}' where id_cliente='{$this->id_cliente}'";
         $this->conexion->QuerySimple($sql);
     }
     function verify(){
-        $sql = "select * from clientes where  telefono='{$this->telefono}' or email='{$this->email}'";
+        $sql = "select * from {$this->tabla} where  telefono='{$this->telefono}' or email='{$this->email}'";
         $dato=$this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+    function graficar()
+    {
+        $sql="SELECT clientes.nombre_cli,clientes.id_cliente,(select count(Asigna_reservaciones.id_asignares)
+              from Asigna_reservaciones where Asigna_reservaciones.id_habitacion=Habitaciones.id_habitacion)as numero
+             from habitaciones,clientes,reservaciones where clientes.id_cliente=reservaciones.id_cliente GROUP BY clientes.nombre_cli  ";
+        $dato = $this->conexion->QueryResultado($sql);
         return $dato;
     }
 }

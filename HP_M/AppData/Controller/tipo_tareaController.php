@@ -48,4 +48,9 @@ class tipo_tareaController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->tipo_tarea->getAll();
+        return $datos;
+    }
 }

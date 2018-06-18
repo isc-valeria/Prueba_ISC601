@@ -74,18 +74,14 @@
         </div>
     </div>
 
-
-    <!-- Modal eliminar -->
-
-    <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
             <th>Nombre del Cliente</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
-            <th>Telefono</th>
-            <th>Correo Electronico</th>
+            <th>Teléfono</th>
+            <th>Correo Electrónico</th>
             <th></th>
             <th></th>
 
@@ -100,10 +96,20 @@
     </table>
     <div class="center">
         <a href="<?php echo URL ?>clientes/print_pdf" target="_blank" id="imprime_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
     </div>
 </div>
+<div id="modal_grafica" class="modal">
+    <div class="modal-content">
+        <h5>Gráfica de clientes frecuentes</h5>
+        <p>
 
-
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+</div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -121,7 +127,14 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
-            //var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+
+
+            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+            $("#clave_cli").val(clave);
+            Materialize.updateTextFields();
+
 
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
@@ -130,10 +143,6 @@
         });
         $("#save_clientes_ok").click(function(){
            $("#save_clientes").submit();
-
-            /*
-
-            */
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -226,12 +235,15 @@
 
                 },
                 telefono:{
-                    number:"solo Numeros",
+                    number:"Sólo números",
+                    required:"Ingresa un número",
                     maxlength:"Maximo 10 numeros",
                     minlength:"Minimo 10 numeros"
                 },
-
-
+                email:{
+                    required:"Ingresa un correo electrónico",
+                    email:"Correo no válido",
+                },
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -252,6 +264,11 @@
             $.uiTableFilter($("#tabla_content"), this.value);
         });
 
-
+        $("#graficar_habitaciones").click(function(){
+            $.get("<?php echo URL?>clientes/graficar",function(res){
+                $("#modal_grafica .modal-content p").empty().append(res);
+                $("#modal_grafica").modal("open");
+            });
+        });
     });
 </script>

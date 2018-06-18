@@ -78,4 +78,16 @@ class empleadosController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->empleados->getAll();
+        return $datos;
+    }
+
+    public function graficar()
+    {
+        $datos=$this->empleados->graficar();
+        return $datos;
+
+    }
 }

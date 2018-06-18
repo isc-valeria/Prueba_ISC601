@@ -78,6 +78,11 @@ class clientesController
         $datos=$this->clientes->getAll();
         return $datos;
     }
+    public function graficar()
+    {
+        $datos=$this->clientes->graficar();
+        return $datos;
 
+    }
 
 }
