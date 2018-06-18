@@ -30,10 +30,8 @@ class facturacionController
             $this->facturacion->set('total', $_POST["total"]);
             $datos[1] = false;
             if (mysqli_num_rows($this->facturacion->verify()) == 0) {
-
                 $this->facturacion->add();
                 $datos[1] = true;
-
             }
             $datos[0] = $this->facturacion->getAll();
             return $datos;
