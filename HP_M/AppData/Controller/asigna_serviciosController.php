@@ -12,21 +12,21 @@ namespace AppData\Controller;
 
 class asigna_serviciosController
 {
-    private $asignacion_de_servicios,$habitaciones,$servicios,$estado_habitacion,$tipos_habitacion;
+    private $asigna_servicios,$habitaciones,$servicios,$estado_habitacion,$tipos_habitacion;
 
     public function __construct()
     {
-        $this->asignacion_de_servicios= new \AppData\Model\Asigna_servicios();
+        $this->asigna_servicios= new \AppData\Model\Asigna_servicios();
         $this->habitaciones=new \AppData\Model\Habitaciones();
         $this->servicios=new \AppData\Model\Servicios();
         $this->estado_habitacion=new \AppData\Model\EstadoHabitaciones();
-        $this->tipos_habitacion=new \AppData\Model\Tipo_habitacion();
+        $this->tipos_habitacion=new \AppData\Model\Tipos_habitacion();
     }
 
     public function index()
     {
 
-        $datos1=$this->asignacion_de_servicios->getAll();
+        $datos1=$this->asigna_servicios->getAll();
         $datos2=$this->habitaciones->getAll();
         $datos3=$this->servicios->getAll();
         $datos4=$this->estado_habitacion->getAll();
@@ -38,6 +38,30 @@ class asigna_serviciosController
         $datos[3]=$datos4;
         $datos[4]=$datos5;
 
+        return $datos;
+    }
+    public function crear(){
+        if(isset($_POST))
+        {
+            $this->asigna_servicios->set('num_habitacion',$_POST["num_habitacion"]);
+            $this->asigna_servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
+            $this->asigna_servicios->set('descripcion_est',$_POST["descripcion_est"]);
+            $this->asigna_servicios->set('fecha_reg',$_POST["fecha_reg"]);
+            $this->asigna_servicios->add();
+            $datos=$this->asigna_servicios->getAll();
+            return $datos;
+        }
+    }
+    public function eliminar($id)
+    {
+        $this->asigna_servicios->delete($id[0]);
+        $datos=$this->asigna_servicios->getAll();
+        return $datos;
+    }
+
+    public function modificar($id)
+    {
+        $datos=$this->asigna_servicios->getOne($id[0]);
         return $datos;
     }
 }
