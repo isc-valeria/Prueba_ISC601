@@ -16,8 +16,6 @@ class Tareas
     private  $fecha_fin;
 
     private $tabla="tareas";
-
-
     function __construct()
     {
         $this->conexion=new conexion();
@@ -35,6 +33,7 @@ class Tareas
 
     function add()
     {
+
         $sql=" INSERT into {$this->tabla} (`id_tarea`,`id_tipotarea`,`id_empleado`,`id_habitacion`,`fecha_inicio`,`fecha_fin`) 
         values('0'
         ,'{$this->id_tipotarea}'
@@ -42,7 +41,9 @@ class Tareas
         ,'{$this->id_habitacion}'
         ,STR_TO_DATE('{$this->fecha_inicio}','%d/%m/%Y')
         ,STR_TO_DATE('{$this->fecha_fin}','%d/%m/%Y'))";
+
         print_r($sql);
+
         $this->conexion->QuerySimple($sql);
     }
 

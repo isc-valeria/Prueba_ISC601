@@ -5,7 +5,7 @@ while($row=mysqli_fetch_array($dato))
 echo "<tr>
     <td>{$row[0]}</td>
     <td>{$row['descripcion_tarea']}</td>
-    <td>{$row['nombre_emp']}.{$row['ap_emp']}.{$row['am_emp']}</td>
+    <td>{$row['nombre_emp']} {$row['ap_emp']} {$row['am_emp']}</td>
     <td>{$row['num_habitacion']}</td>
     <td>{$row['fecha_inicio']}</td>
     <td>{$row['fecha_fin']}</td>

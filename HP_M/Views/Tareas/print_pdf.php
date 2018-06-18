@@ -23,7 +23,7 @@ while($row=mysqli_fetch_row($datos))
     $pdf->ln();
     $pdf->SetX(10);
     $pdf->Cell(45,8,utf8_decode($row[1]),1,0,'C',true);
-    $pdf->Cell(50,8,utf8_decode($row[2]." ".$row[3]."".$row[4]),1,0,'C',true);
+    $pdf->Cell(50,8,utf8_decode($row[2]." ".$row[3]." ".$row[4]),1,0,'C',true);
     $pdf->Cell(25,8,utf8_decode($row[5]),1,0,'C',true);
     $pdf->Cell(35,8,utf8_decode($row[6]),1,0,'C',true);
     $pdf->Cell(35,8,utf8_decode($row[7]),1,0,'C',true);

@@ -19,6 +19,7 @@ class tareasController
         $datos3=$this->empleados->getAll();
         $datos4=$this->habitaciones->getAll();
         $datos5=$this->herramientas->getAll();
+
         $datos[0]=$datos1;
         $datos[1]=$datos2;
         $datos[2]=$datos3;
@@ -28,15 +29,25 @@ class tareasController
         return $datos;
     }
     public function crear(){
-        if($_POST)
+       // print_r($_POST);
+        if(isset($_POST))
         {
-            //print_r($_POST["eq[]"]);
+            $herramientas=$_POST["eq"];
+           for($i=0;$i<count($herramientas);$i++)
+           {
+               $id_herramineta=$herramientas[$i];
+               echo $id_herramineta;
+               $this->herramientas->update();
+
+           }
+
             $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
             $this->Tareas->set('id_empleado',$_POST["empleados"]);
             $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
             $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
             $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
             $this->Tareas->add();
+
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
             //console.log("mensaje");

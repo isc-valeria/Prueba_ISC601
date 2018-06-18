@@ -31,7 +31,6 @@
                             <label for="empleados">Seleciona Empleado</label>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="input-field col s6">
                             <select id="habitacion" type="text"  name="habitacion">
@@ -48,7 +47,7 @@
                             <?php
                             $result4=$datos[4];
                             while ($row=mysqli_fetch_array($result4))
-                                echo "<input type='checkbox' id='$row[0]' name='eq[]' value='$row[1]'><label for='$row[0]'>{$row[1]}</label>";
+                                echo "<input type='checkbox' id='$row[0]' name='eq[]' value='$row[0]'><label for='$row[0]'>{$row[1]}</label>";
                             ?>
                         </div>
                         <div class="input-field col l3">
@@ -131,8 +130,6 @@
         <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
     </div>
 </div>
-
-
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
@@ -141,24 +138,8 @@
             $("#update_tarea_ok").hide();
             $("#save_tarea_ok").show();
         });
-
         $("#save_tarea_ok").click(function() {
             $("#save_tarea").submit();
-
-            /*var selected = '';
-            $('#save_tarea input[type=checkbox]').each(function () {
-                if (this.checked) {
-                    selected += $(this).val() + ', ';
-                }
-            });
-            $.post(//"<//?php echo URL?>Tareas/crear",$("#save_tarea").serialize(),function(res){
-
-              $("#body_table").empty().append(res);
-              $('#save_tarea').find('input, select, textarea').val('');
-              Materialize.updateTextFields();
-              //$("#modal_registro").modal("close");
-              Materialize.toast('Se ha insertado correctamente', 2500);
-            })*/
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -166,7 +147,6 @@
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
-
         $("#eliminar_ok").click(function(){
             $.get($(this).attr("url"),function(res){
                 $("#body_table").empty().append(res);
@@ -190,7 +170,6 @@
                 $("#modal_registro").modal("open");
             });
         });
-
         $("#update_tarea_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>tareas/actualizar/"+id,$("#save_tarea").serialize(),function(res){
@@ -200,8 +179,6 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
-
         $("#save_tarea").validate({
 
             rules:{
@@ -237,7 +214,6 @@
                 fecha_f:{
                     required:"Deves selecionar una fecha",
                 },
-
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -246,11 +222,11 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                console.log($("#save_tarea").serialize());
                 $.post("<?php echo URL?>tareas/crear",$("#save_tarea").serialize(),function(res){
+                    console.log(res);
                     $("#body_table").empty().append(res);
                     $('#save_tarea').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
+                     Materialize.updateTextFields();
                     $("#modal_registro").modal("close");
                 })
             }
@@ -266,11 +242,7 @@
             $.get("<?php echo URL?>tareas/graficar",function(res){
                 $("#modal_grafica .modal-content p").empty().append(res);
                 $("#modal_grafica").modal("open");
-
             });
         });
-
     });
 </script>
-
-
