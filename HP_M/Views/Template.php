@@ -71,7 +71,7 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper blue lighten-5"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+            <div class="nav-wrapper cyan lighten-2"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!" class="black-text">Reservaciones</a></li>
@@ -91,55 +91,78 @@ class Template
         <ul id="slide-out" class="side-nav collapsible" data-collapsible="accordion" style="overflow-y: auto;">
             <li><div class="user-view">
                     <div class="background">
-                        <img src="<?php echo URL?>Public/imagenes/user-bg.jpg">
+                        <img src="<?php echo URL?>Public/imagenes/fondo.jpg">
                     </div>
 
-                    <a href="#!name"><span class="white-text name">John Doe</span></a>
-                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                    <a href="#!name"><span class="black-text name">John Doe</span></a>
+                    <a href="#!email"><span class="black-text email">jdandturk@gmail.com</span></a>
                 </div></li>
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
-
-                <div class="collapsible-body"><a href="<?php echo URL?>clientes" class="btn white black-text"><i class="material-icons">chevron_right</i>Clientes</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>reservaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>habitaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-In</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-Out</a></div>
+                <div class="collapsible-body cyan lighten-3">
+                    <ul>
+                        <li><a href="<?php echo URL?>clientes" class="black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="black-text"><i class="material-icons">chevron_right</i>Check-In</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="black-text"><i class="material-icons">chevron_right</i>Check-Out</a></li>
+                    </ul>
+                </div>
             </li>
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Servicios</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>asigna_servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>ticket" class="btn white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Tareas</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                    <div class="collapsible-body cyan lighten-3">
+                        <ul>
+                            <div><a href="<?php echo URL?>servicios" class="black-text"><i class="material-icons">chevron_right</i>Servicios</a></div>
+                            <div><a href="<?php echo URL?>asigna_servicios" class="black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></div>
+                            <div><a href="<?php echo URL?>ticket" class="black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></div>
+                            <div><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Tareas</a></div>
+                            <div><a href="<?php echo URL?>equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                        </ul>
+                    </div>
+
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
-
-                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></div>
+                    <div class="collapsible-body cyan lighten-3">
+                        <ul>
+                            <div><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
+                            <div><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></div>
+                            <div><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></div>
+                        </ul>
+                    </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>empleados" class="btn white black-text"><i class="material-icons">chevron_right</i>Configuración</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>Puestos" class="btn white black-text"><i class="material-icons">chevron_right</i>Puestos</a></div>
+                    <div class="collapsible-body cyan lighten-3">
+                            <ul>
+                                <div><a href="<?php echo URL?>empleados" class="black-text"><i class="material-icons">chevron_right</i>Configuración</a></div>
+                                <div><a href="<?php echo URL?>Puestos" class="black-text"><i class="material-icons">chevron_right</i>Puestos</a></div>
+                            </ul>
+                    </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tareas" class="btn white black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>Equipo_seguridad" class="btn white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>" class="btn white black-text"><i class="material-icons">chevron_right</i>Estados</a></div>
-                <div class="collapsible-body"><a href="<?php echo URL?>tipo_tarea" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
+                    <div class="collapsible-body cyan lighten-3">
+                        <ul>
+                            <div><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
+                            <div><a href="<?php echo URL?>Equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></div>
+                            <div><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></div>
+                            <div><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Estados</a></div>
+                            <div><a href="<?php echo URL?>tipo_tarea" class="black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
+                        </ul>
+                    </div>
             </li>
 
             <li>
                 <div class="collapsible-header">Cerrar sesión</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn white black-text"">Salir</a></div>
+                    <div class="collapsible-body cyan lighten-3">
+                            <ul>
+                                <div><a href="<?php echo URL?>login/logout" class="black-text"">Salir</a></div>
+                            </ul>
+                    </div>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -157,7 +180,7 @@ class Template
     public static function footer()
     {
         ?>
-        <footer class="page-footer blue lighten-5">
+        <footer class="page-footer cyan lighten-2">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
