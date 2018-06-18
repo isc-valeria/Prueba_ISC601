@@ -74,10 +74,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
@@ -108,9 +104,6 @@
         <h5>Gráfica de clientes frecuentes</h5>
         <p>
 
-<<<<<<< HEAD
-
-=======
         </p>
     </div>
     <div class="modal-footer">
@@ -127,7 +120,6 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
 
 
 <script type="text/javascript">
@@ -135,16 +127,13 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
-<<<<<<< HEAD
+
 
             var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
             ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
             ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
             $("#clave_cli").val(clave);
             Materialize.updateTextFields();
-
-=======
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
 
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
@@ -273,17 +262,12 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
-<<<<<<< HEAD
 
-
-
-=======
         $("#graficar_habitaciones").click(function(){
             $.get("<?php echo URL?>clientes/graficar",function(res){
                 $("#modal_grafica .modal-content p").empty().append(res);
                 $("#modal_grafica").modal("open");
             });
         });
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
     });
 </script>

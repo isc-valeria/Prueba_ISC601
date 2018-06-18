@@ -70,7 +70,6 @@ class Template
         <nav id="menusito">
 
             <div class="nav-wrapper teal">
-                <?php if (!isset($_SESSION["username"])){?>
                 <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
 
 
@@ -157,7 +156,7 @@ class Template
 
         <?php
     }
-    }
+
     public static function footer()
     {
         ?>

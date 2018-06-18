@@ -75,7 +75,9 @@
 </div>
 
 <script type="text/javascript">
-
+$("document").ready(function () {
+    $(".modal").modal();
+})
     $("#body_table").on("click","a.btn_eliminar",function(){
         var id=$(this).data("id");
         var url='<?php echo URL?>Facturacion/eliminar/'+id;
