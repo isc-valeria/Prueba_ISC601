@@ -128,7 +128,7 @@
             var id=$(this).data("id");
             $.get("<?php echo URL?>tipos_habitacion/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#update_clientes_ok").data("id",datos["id_cliente"]);
+                $("#update_clientes_ok").data("id",datos["id_tipoh"]);
                 $("#tipo_ha").val(datos["tipo_ha"]);
                 $("#precio").val(datos["precio"]);
                 $("#maximo_personas").val(datos["maximo_personas"]);

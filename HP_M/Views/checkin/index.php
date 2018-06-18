@@ -237,7 +237,6 @@
             //     Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
-
         //$("#body_table").on("click","a.btn_modificar",function(){
         //    $("#save_checkin_ok").hide();
         //    $("#update_checkin_ok").show();

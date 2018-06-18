@@ -135,6 +135,7 @@
             $("#clave_cli").val(clave);
             Materialize.updateTextFields();
 
+
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
             $("#email").val(clave);
@@ -183,6 +184,7 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
 
         ///validar formulario
         $("#save_clientes").validate({
@@ -258,7 +260,6 @@
                 })
             }
         });
-
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
