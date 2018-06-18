@@ -27,6 +27,7 @@ class Template
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
 
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/fonts/material-icons.css">
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/scroll.css">
 
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/style.min.css" media="screen,projection"/>
 
@@ -68,8 +69,11 @@ class Template
 
 
         <nav id="menusito">
-            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+
+            <div class="nav-wrapper light-blue accent-4"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+
+
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -90,18 +94,21 @@ class Template
                     <div class="background">
                         <img src="<?php echo URL?>Public/imagenes/user-bg.jpg">
                     </div>
-                    <a href="#!user"><img class="circle" src="<?php echo URL?>Public/imagenes/cesar.png"></a>
+
                     <a href="#!name"><span class="white-text name">John Doe</span></a>
                     <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div></li>
+
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
+
                 <div class="collapsible-body"><a href="<?php echo URL?>clientes" class="btn white black-text"><i class="material-icons">chevron_right</i>Clientes</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>reservaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>habitaciones" class="btn white black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-In</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-Out</a></div>
             </li>
+
             <li>
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
                 <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Servicios</a></div>
@@ -113,7 +120,10 @@ class Template
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
+
                 <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
@@ -145,10 +155,11 @@ class Template
 
         <?php
     }
+
     public static function footer()
     {
         ?>
-        <footer class="page-footer teal">
+        <footer class="page-footer  light-blue accent-4">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">

@@ -76,6 +76,7 @@ class habitacionesController
         return $datos;
     }
 
+
     public function graficar()
     {
         $datos=$this->habitaciones->graficar();

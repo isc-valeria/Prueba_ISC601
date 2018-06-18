@@ -6,8 +6,8 @@
             <h1 class="header center teal-text text-lighten-2">Hotel Casa Blanca</h1>
             <br><br>
         </div>
+        <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
     </div>
-    <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
 </div>
 
 
