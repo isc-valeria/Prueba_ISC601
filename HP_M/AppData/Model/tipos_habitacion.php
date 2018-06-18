@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class tipos_habitacion
 {
-    private $tabla='tipos_habitacion';
+    private $tabla="tipos_habitacion";
     private $id_tipoh;
     private $tipo_ha;
     private $precio;

@@ -128,6 +128,14 @@
         $(".modal").modal();
         $("#add_cliente").click(function(){
 
+
+            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
+            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
+            $("#clave_cli").val(clave);
+            Materialize.updateTextFields();
+
+
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
             $("#email").val(clave);
@@ -255,6 +263,7 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
+
         $("#graficar_habitaciones").click(function(){
             $.get("<?php echo URL?>clientes/graficar",function(res){
                 $("#modal_grafica .modal-content p").empty().append(res);
