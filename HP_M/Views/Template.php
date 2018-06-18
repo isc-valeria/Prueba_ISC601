@@ -126,6 +126,7 @@ class Template
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
+
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
                             <div><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
@@ -133,6 +134,7 @@ class Template
                             <div><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></div>
                         </ul>
                     </div>
+
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
@@ -145,6 +147,7 @@ class Template
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
+
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
                             <div><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></div>
@@ -154,6 +157,8 @@ class Template
                             <div><a href="<?php echo URL?>tipo_tarea" class="black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></div>
                         </ul>
                     </div>
+
+
             </li>
 
             <li>

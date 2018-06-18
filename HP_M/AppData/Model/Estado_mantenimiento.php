@@ -4,11 +4,11 @@
 namespace AppData\Model;
 
 
-class Tipo_equiposegu
+class Estado_mantenimiento
 {
-    private $tabla="tipo_equiposegu";
-    private  $id_tipoequisegu;
-    private  $descripcion_tipo;
+    private $tabla="estado_mantenimiento";
+    private  $id_estadomantenimiento;
+    private  $descripcion_estadomantenimiento;
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class Tipo_equiposegu
     function add()
     {
 
-        $sql="insert into {$this->tabla} values('0','{$this->descripcion_tipo}')";
+        $sql="insert into {$this->tabla} values('0','{$this->descripcion_estadomantenimiento}')";
         $this->conexion->QuerySimple($sql);
 
     }
@@ -38,22 +38,23 @@ class Tipo_equiposegu
     }
     function update()
     {
-        $sql = "update tipo_equiposegu set descripcion_tipo='{$this->descripcion_tipo}'
-                where id_tipoequisegu='{$this->id_tipoequisegu}'";
+        $sql = "update estado_mantenimiento set descripcion_estadomantenimiento='{$this->descripcion_estadomantenimiento}'
+                where id_estadomantenimiento='{$this->id_estadomantenimiento}'";
         $this->conexion->QuerySimple($sql);
 
     }
     function delete($id)
     {
-        $sql="delete from {$this->tabla} where id_tipoequisegu='{$id}'";
+        $sql="delete from {$this->tabla} where id_estadomantenimiento='{$id}'";
         $this->conexion->QuerySimple($sql);
 
     }
     function getOne($id)
     {
-        $sql="select * from  {$this->tabla} where id_tipoequisegu='{$id}'";
+        $sql="select * from  {$this->tabla} where id_estadomantenimiento='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
+
 
 }

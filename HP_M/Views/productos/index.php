@@ -1,34 +1,6 @@
 <?php
 ?>
-<div id="modal_categoria_producto" class="modal">
-    <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
-        <div class="row">
-            <form class="col s12 ">
-                <div class="row">
-                    <div class="input-field col s9">
-                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                        <input id="categoria_producto" type="text" class="validate">
-                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <div id="modal_registro" class="modal">
     <div class="modal-content">
@@ -124,6 +96,36 @@
     </div>
 </div>
 
+<div id="modal_categoria_producto" class="modal">
+    <div class="modal-content">
+        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+        <div class="row">
+            <form class="col s12 ">
+                <div class="row">
+                    <div class="input-field col s9">
+                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                        <input id="categoria_producto" type="text" class="validate">
+                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s9">
+                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+
+                        </button>
+                    </div>
+                    <div class="input-field col s3">
+                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!--*********************************modal entradas**********************-->
 <?php
 ?>
@@ -144,7 +146,7 @@
                             <label for="nombre_pro"  >Nombre</label>
                         </div>
 
-                        <dikkv class="input-field col s5">
+                        <div class="input-field col s5">
                             <select id="id_categoriapro" type="text"  name="id_categoriapro">
                                 <option  disabled selected>Selecciona Categoria del producto</option>
                                 <?php
@@ -154,7 +156,7 @@
                                 ?>
                             </select>
                             <label for="id_categoriapro" >Categoria producto</label>
-                        </dikkv>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -176,7 +178,7 @@
 
                         <div class="input-field col s5">
                             <input id="stock_min" type="number"  name="stock_min">
-                            <label for="stock_min" >Stock minimo</label>
+                            <label for="stock_min" >Stock mínimo</label>
                         </div>
 
                         <div class="input-field col s1">
@@ -190,15 +192,13 @@
 
                         <div class="input-field col s5">
                             <input id="stock_max" type="number"  name="stock_max">
-                            <label for="stock_max"  >Stock maximo</label>
+                            <label for="stock_max"  >Stock máximo</label>
                         </div>
 
                         <div class="input-field col s5">
                             <input id="existencias" type="number"  name="existencias">
                             <label for="existencias"  >Existencias</label>
                         </div>
-
-
 
                     </div>
 
@@ -408,8 +408,6 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
-
-
 
 
     });
