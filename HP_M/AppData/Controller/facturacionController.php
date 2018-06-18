@@ -1,4 +1,5 @@
 <?php
+
 namespace AppData\Controller;
 
 class facturacionController
@@ -8,6 +9,7 @@ class facturacionController
     public function __construct()
     {
         $this->facturacion = new \AppData\Model\Facturacion();
+
     }
 
     public function index()
@@ -18,3 +20,6 @@ class facturacionController
 
 }
     ?>
+
+    }
+}

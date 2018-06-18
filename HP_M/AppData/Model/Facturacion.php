@@ -23,12 +23,17 @@ class Facturacion
 
     function add()
     {
-        $sql="insert into Facturacion(id_factura,id_asignares,total) values($id_factura,$id_asignares,$total
-    )";
+        $sql="insert into Facturacion(id_factura,id_asignares,total) values(0,'{$this->id_asignares}','{$this->total}
+    ')";
 
     }
-    function getAll(){
-        $sql="select*from Facturacion";
+
+    function getAll()
+    {
+        $sql = "select*from Facturacion";
+    }
+    function get(){
+        $sql="select*from {$this->tabla}";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

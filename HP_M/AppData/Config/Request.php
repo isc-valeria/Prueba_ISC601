@@ -44,9 +44,12 @@ class Request
         {
 
             if(isset($_POST["email"]))
+
                 $this->metodo = "verify";
+
             else
                 $this->metodo = "index";
+//            $emple=1;
         }
         else
         {

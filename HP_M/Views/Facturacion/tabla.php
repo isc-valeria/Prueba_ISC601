@@ -15,3 +15,4 @@ if(isset($datos[1]))
     if($datos[1])echo "<script>Materialize.toast('Se ha insertado correctamente', 2500);</script>";
     else echo "<script> Materialize.toast('No se ha podido registrar porque el cliente ya existe', 2500);</script>";
 
+
