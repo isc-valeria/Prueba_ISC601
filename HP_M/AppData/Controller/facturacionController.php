@@ -1,23 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Luis
- * Date: 17/06/2018
- * Time: 12:24 AM
- */
 
 namespace AppData\Controller;
 
-
 class facturacionController
 {
+    private $facturacion;
+
     public function __construct()
     {
+        $this->facturacion = new \AppData\Model\Facturacion();
 
     }
 
     public function index()
     {
-
+        $datos[0] = $this->facturacion->getAll();
+        return $datos;
     }
+
 }
+    ?>
+
+
