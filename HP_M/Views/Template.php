@@ -70,7 +70,7 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+            <div class="nav-wrapper light-blue accent-4"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
 
 
