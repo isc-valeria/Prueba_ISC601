@@ -63,6 +63,7 @@ class tipos_habitacion
         $sql = "update {$this->tabla} set tipo_ha='{$this->tipo_ha}',
                precio='{$this->precio}', maximo_personas='{$this->maximo_personas}'
                where id_tipoh='{$this->id_tipoh}'";
+        print ($sql);
         $this->conexion->QuerySimple($sql);
     }
     function verify(){
