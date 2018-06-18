@@ -67,4 +67,18 @@ class Empleados
                 where id_empleado='{$this->id_empleado}'";
         $this->conexion->QuerySimple($sql);
     }
+    function verify()
+    {
+        $sql = "select * from {$this->tabla} where nombre_emp='{$this->nombre_emp}'";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+
+    function graficar()
+    {
+        $sql="select empleados.id_empleado,puestos.descripcion_puesto as Puesto, COUNT(descripcion_puesto) as Cantidad_Empleados 
+        from empleados, puestos where empleados.id_puesto = puestos.id_puesto GROUP BY descripcion_puesto";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
 }

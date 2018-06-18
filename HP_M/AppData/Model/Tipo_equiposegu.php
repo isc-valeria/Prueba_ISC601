@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joseluis
- * Date: 16/05/2018
- * Time: 12:06 PM
- */
+
 
 namespace AppData\Model;
 
@@ -19,10 +14,21 @@ class Tipo_equiposegu
     {
         $this->conexion=new conexion();
     }
+    public function set($atributo, $valor)
+    {
+        $this->$atributo=$valor;
+    }
 
-    function add(){
+    public function get($atributo)
+    {
+        return $this->$atributo;
+    }
 
+    function add()
+    {
 
+        $sql="insert into {$this->tabla} values('0','{$this->descripcion_tipo}')";
+        $this->conexion->QuerySimple($sql);
 
     }
     function getAll(){
@@ -30,11 +36,24 @@ class Tipo_equiposegu
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-    function update(){
+    function update()
+    {
+        $sql = "update tipo_equiposegu set descripcion_tipo='{$this->descripcion_tipo}'
+                where id_tipoequisegu='{$this->id_tipoequisegu}'";
+        $this->conexion->QuerySimple($sql);
 
     }
-    function delete(){
+    function delete($id)
+    {
+        $sql="delete from {$this->tabla} where id_tipoequisegu='{$id}'";
+        $this->conexion->QuerySimple($sql);
 
+    }
+    function getOne($id)
+    {
+        $sql="select * from  {$this->tabla} where id_tipoequisegu='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 
 }

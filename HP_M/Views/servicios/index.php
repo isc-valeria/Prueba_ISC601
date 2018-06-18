@@ -4,15 +4,15 @@
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Servicios</h4>
                 <div class="divider"></div>
-                <code class=" language-markup"><!--********************************--></code>
+                <code class=" language-markup"></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s1">
 
                         </div>
-                        <div class="input-field col s5">
-                            <input id="descripcion_ser" type="text" class="validate" name="descripcion_ser">
-                            <label for="descripcion_ser"  data-error="incorrecto" data-success="Correcto">Descripción</label>
+                        <div class="input-field col s9">
+                            <input id="descripcion_ser" type="text" name="descripcion_ser">
+                            <label for="descripcion_ser">Descripción</label>
                         </div>
                     </div>
                     <div class="row">
@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 <div class="card-panel">
     <h4 align="center">Servicios que se Ofrecen
         <span class="right">
@@ -55,11 +56,11 @@
     <div class="row">
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
-            <input id="buscar" type="text">
-            <label for="buscar"  data-error="incorrecto" data-success="Correcto">Buscar</label>
+            <input id="buscar" type="text" placeholder="Buscar">
         </div>
     </div>
-    <table class="responsive-table">
+
+    <table class="responsive-table" id="tabla_content">
             <thead>
                 <tr>
                     <th>Folio</th>
@@ -75,7 +76,11 @@
         </tbody>
         <div class="divider"></div>
     </table>
+    <div class="center">
+        <a href="<?php echo URL ?> servicios/print_pdf" target="_blank" id="imprime_pdf" class="btn #00838f accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
+
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -88,25 +93,18 @@
 </div>
 
 <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
             $(".modal").modal();
             $(".timepicker").pickatime();
             $("#add_servicios").click(function () {
                 $("#update_servicios_ok").hide();
                 $("#save_servicios_ok").show();
-        });
-        $("#save_servicios_ok").click(function () {
-
-            //console.log("ok")
-           console.log($("#save_servicios").serialize());
+            });
+            $("#save_servicios_ok").click(function () {
             $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function (res) {
-                console.log(res)
-            //console.log($("#save_servcios_ok").serialize());
                 $("#body_table").empty().append(res);
-
                $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
             });
         });
@@ -149,6 +147,37 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
+//validar
+        $("#save_servicios").validate({
+            rules:{
+                descripcion_ser:{
+                    required:true,
+                    minlenght:3,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                required:"Información requerida",
+                minlenght:"Minimo de caracteres 3"
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                console.log($("#save_servicios").serialize());
+                $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_servicios').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_servicio").modal("close");
+                })
+            }
+        });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
     });
 </script>

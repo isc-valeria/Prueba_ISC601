@@ -90,10 +90,10 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!"  class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-<div id="modal_estado_habitacion" class="modal center-align ">
+<!--<div id="modal_estado_habitacion" class="modal center-align ">
     <div class="modal-content">
         <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Estado de la Habitación</h4></div>
 
@@ -122,10 +122,10 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 
-<div id="modal_tipo_habitacion" class="modal center-align ">
+<!--<div id="modal_registro" class="modal center-align ">
     <div class="modal-content">
         <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Habitación</h4></div>
 
@@ -160,7 +160,7 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
@@ -196,25 +196,23 @@
             });
         });
         $("#body_table").on("click","a.btn_modificar",function(){
-            $("#save_habitaciones_ok").hide();
-            $("#update_habitaciones_ok").show();
+            $("#save_equipo_ok").hide();
+            $("#update_equipo_ok").show();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>habitaciones/modificar/"+id,function(res){
+            $.get("<?php echo URL?>Equipo_seguridad/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
-                $("#numero_habitacion").val(datos["num_habitacion"]);
-                $("#descripcion").val(datos["descripcion_hab"]);
-                $("#tipohabitacion").val(datos["id_tipoh"]);
-                $("#nomestadohabitacion").val(datos["id_estadoh"]);
+                $("#update_equipo_ok").data("id",datos["id_equiposegu"]);
+                $("#nombre_equisegu").val(datos["nombre_equisegu"]);
+                $("#descripcion_tipo").val(datos["id_tipoequisegu"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
-        $("#update_habitaciones_ok").click(function(){
+        $("#update_equipo_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>Equipo_seguridad/actualizar/"+id,$("#save_equipo").serialize(),function(res){
+                $('#save_equipo_ok').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
                 Materialize.updateTextFields();
@@ -225,3 +223,14 @@
 
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+

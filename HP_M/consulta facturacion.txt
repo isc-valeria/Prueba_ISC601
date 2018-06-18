@@ -1,0 +1,1 @@
+select reservaciones.clave_reserva, facturacion.total from reservaciones,facturacion,asigna_reservaciones where reservaciones.id_reservacion=asigna_reservaciones.id_reservacion and asigna_reservaciones.id_asignares=facturacion.id_asignares 

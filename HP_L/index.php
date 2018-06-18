@@ -10,7 +10,7 @@
     define('ROOT',realpath(dirname(__FILE__)).DS);
 
 
-    define('URL',"http://localhost/601_2018/Prueba_ISC601/HP_L/");
+    define('URL',"http://localhost/Prueba_ISC601/HP_L/");
 
 
     require_once ("AppData/Config/Autoload.php");

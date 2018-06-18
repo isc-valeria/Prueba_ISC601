@@ -68,9 +68,9 @@ class Template
         <nav class="teal" role="navigation">
             <div class="nav-wrapper container">
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Reservaciones</a></li>
+                    <li><a href="<?php echo URL?>Habitaciones">Reservaciones</a></li>
                     <li><a href="#">Mi Reserva</a></li>
-                    <li><a href="<?php echo URL?>/Login">Login</a></li>
+                    <li><a href="<?php echo URL?>Login">Login</a></li>
 
                 </ul>
             </div>

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container center">
     <div>
         <h5 class="red-text">
             <?php echo isset($_SESSION["error_login"])?$_SESSION["error_login"]:""?>
@@ -27,11 +27,6 @@
                     <input class='validate' type='password' name='password' id='password' />
                     <label for='password'>  Ingresa tu contraseña</label>
                 </div>
-
-
-                <label style='float: right;'>
-                    <a class='red-text' href='#!'><b>Olvidaste tu contraseña?</b></a>
-                </label>
             </div>
 
             <br />
@@ -39,14 +34,14 @@
                 <div class='row'>
                     <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Entrar</button>
                 </div>
-                <a href="#!">Crear una cuenta</a>
+
             </center>
         </form>
     </div>
-</div><script type="text/javascript">
+</div>
+
+<script type="text/javascript">
     $(document).ready(function(){
         Materialize.updateTextFields();
-
-
     });
 </script>

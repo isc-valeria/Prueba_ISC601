@@ -101,7 +101,7 @@
     <!-- Modal eliminar -->
 
     <!--*********************final modal eliminar***********-->
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
             <th>Numero</th>
@@ -125,8 +125,22 @@
         ?>
         </tbody>
     </table>
+    <div class="center">
+        <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+    </div>
 </div>
+<div id="modal_grafica" class="modal">
+    <div class="modal-content">
+        <h5>Gráfica de Empleados</h5>
+        <p>
 
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+</div>
 
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
@@ -274,5 +288,18 @@
                 })
             }
         });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
+
+
+        $("#graficar_empleados").click(function(){
+            $.get("<?php echo URL?>empleados/graficar",function(res){
+                $("#modal_grafica .modal-content p").empty().append(res);
+                $("#modal_grafica").modal("open");
+
+            });
+        });
+
     });
 </script>
