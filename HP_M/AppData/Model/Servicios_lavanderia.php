@@ -57,7 +57,7 @@ class Servicios_lavanderia
 
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}') ";
+        $sql="UPDATE Servicios_lavanderia SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}') ";
         $this->conexion->QuerySimple($sql);
 
     }
