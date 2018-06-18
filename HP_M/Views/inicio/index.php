@@ -3,11 +3,11 @@
     <div class="section no-pad-bot">
         <div class="container">
             <br><br>
-            <h1 class="header center teal-text text-lighten-2">Hotel Casa Blanca</h1>
+            <h1 class="header center teal-text text-lighten-5">Hotel Casa Blanca</h1>
             <br><br>
         </div>
+        <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
     </div>
-    <div class="parallax"><img src="<?php echo URL?>Public/imagenes/home.jpg" alt="Unsplashed background img 1"/></div>
 </div>
 
 
@@ -22,7 +22,7 @@
                     <h2 class="center brown-text "> <a href="#modal_eliminar" class="modal-trigger " ><i class="material-icons large ">local_play</i></a></h2>
                     <h5 class="center">Servicios</h5>
 
-                    <p class="light" align="justify"> El hotel casa blanca ofrece distintos servicios, para que durante su estancia
+                    <p class="light" align="justify" class=""> El hotel casa blanca ofrece distintos servicios, para que durante su estancia
                         usted disfrute de unas excelentes vacaciones y sume una experiencia mas en su vida. </p>
                 </div>
             </div>
