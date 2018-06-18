@@ -67,19 +67,12 @@ insert into Servicios_lavanderia values (24, 'Lavado por kilo',52);
 insert into Servicios_lavanderia values (25, 'Lavado y planchado por kilo',84);
 
 insert into Clasificacion_kilo values(10, 23, 2, 500);
-
 insert into Clasificacion_kilo values(11, 24,4, 501 );
-
 insert into Clasificacion_kilo values(12, 25, 2, 502);
-
-
-
-
 
 insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500);
 insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501);
 insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502);
-
 insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502);
 
 

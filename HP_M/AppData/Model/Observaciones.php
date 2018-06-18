@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Observaciones
 {
-    private $tabla="Observaciones";
+    private $tabla="observaciones";
     private $id_observacion;
     private $descripcion_observacion;
     private $cargo;
@@ -32,34 +32,39 @@ class Observaciones
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values ('0','{$this->descripcion_observacion}', '{$this->cargo}')";
+        $sql="insert into Observaciones  values ('0','{$this->descripcion_observacion}', '{$this->cargo}')";
         $this->conexion ->QuerySimple($sql);
     }
     function getAll()
     {
-        $sql="select * from {$this->tabla} order by id_observacion ASC  ";
+        $sql="select * from Observaciones order by id_observacion ASC  ";
         $datos= $this->conexion ->QueryResultado($sql);
         return $datos;
     }
 
     function delete($id)
     {
-        $sql="DELETE FROM {$this->tabla} WHERE id_observacion='{$id}'";
+        $sql="DELETE FROM Observaciones WHERE id_observacion='{$id}'";
         $this->conexion ->QuerySimple($sql);
     }
 
     function getOne($id)
     {
-        $sql="SELECT * FROM {$this->tabla} where id_observacion='{$id}'";
+        $sql="SELECT * FROM Observaciones where id_observacion='{$id}}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
 
+
     function update()
     {
-        $sql="UPDATE {$this->tabla} SET descripcion_observacion='{$this->descripcion_observacion}', cargo='{$this->cargo}' where id_observacion='id'";
+        $sql = "update observaciones set descripcion_observacion='{$this->descripcion_observacion}',
+              cargo='{$this->cargo}'
+                where id_observacion='{$this->id_observacion}'";
         $this->conexion->QuerySimple($sql);
-
     }
+
+
+
 
 }

@@ -11,9 +11,9 @@ namespace AppData\Controller;
 
 class ticketController
 {
-    private $servicio;
-    private $observaciones;
+
     private $clasi_kilo;
+    private $observaciones;
     private $clasi_pieza;
     private $venta_kilo;
     private $venta_pieza;
@@ -39,6 +39,7 @@ class ticketController
         $datos5=$this->venta_kilo->getAll();
         $datos6=$this->venta_pieza->getAll();
         $datos7=$this->ticket->getAll();
+
         $datos[0]=$datos1;
         $datos[1]=$datos2;
         $datos[2]=$datos3;
@@ -46,6 +47,7 @@ class ticketController
         $datos[4]=$datos5;
         $datos[5]=$datos6;
         $datos[6]=$datos7;
+        $datos[7]=$datos1;
         return $datos;
     }
 
@@ -54,12 +56,12 @@ class ticketController
         if(isset($_POST))
         {
             //echo "asdasdadasdasd";
-            $this->servicio->set('descripcion_servicio', $_POST["nombre_servi"]);
-            $this->servicio->set('precio', $_POST["precio"]);
-            $this->servicio->add();
-            $datos1=$this->servicio->getAll();
-            $datos[0]=$datos1;
-            return $datos;
+            //$this->servicio->set('descripcion_servicio', $_POST["nombre_servi"]);
+            //$this->servicio->set('precio', $_POST["precio"]);
+            //$this->servicio->add();
+            //$datos1=$this->servicio->getAll();
+            //$datos[0]=$datos1;
+            //return $datos;
         }
     }
 
@@ -70,4 +72,26 @@ class ticketController
         $datos[0]=$datos1;
         return $datos;
     }
+
+    public function modificar($id)
+    {
+        $datos=$this->servicio->getOne($id[0]);
+        return $datos;
+    }
+
+    public function actualizar($id)
+    {
+        if ($_POST) {
+            $this->servicio->set("id_serviciolav", $id[0]);
+            $this->servicio->set('descripcion_servicio', $_POST["nombre_servi"]);
+            $this->servicio->set('precio', $_POST["precio"]);
+            $this->servicio->update();
+            $datos1 = $this->servicio->getAll();
+            $datos[0] = $datos1;
+            return $datos;
+        }
+    }
+
+
+
 }

@@ -66,8 +66,5 @@ class Empleados
                ap_emp='{$this->ap_emp}', am_emp='{$this->am_emp}',id_puesto='{$this->id_puesto}',id_turno='{$this->id_turno}'
                 where id_empleado='{$this->id_empleado}'";
         $this->conexion->QuerySimple($sql);
-
-
-
     }
 }

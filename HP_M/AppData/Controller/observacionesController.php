@@ -9,19 +9,19 @@
 namespace AppData\Controller;
 
 
-class observacioneslavanderiaController
+class observacionesController
 {
-    private $observacion;
+    private $observaciones;
 
     public function __construct()
     {
-        $this->observacion= new \AppData\Model\Observaciones();
+        $this->observaciones= new \AppData\Model\Observaciones();
     }
 
     public function index(){
-        $datos2=$this->observacion->getAll();
+        $datos2=$this->observaciones->getAll();
 
-        $datos[0]=$datos2;
+        $datos[1]=$datos2;
 
         return $datos;
     }
@@ -31,11 +31,38 @@ class observacioneslavanderiaController
         if(isset($_POST))
         {
             //echo "asdasdadasdasd";
-            $this->observacion->set('descripcion_observacion', $_POST["nombre_observa"]);
-            $this->observacion->set('cargo', $_POST["precio_car"]);
-            $this->observacion->add();
-            $datos2=$this->observacion->getAll();
-            $datos[0]=$datos2;
+            $this->observaciones->set('descripcion_observacion', $_POST["descripcion_observacion"]);
+            $this->observaciones->set('cargo', $_POST["cargo"]);
+            $this->observaciones->add();
+            $datos2=$this->observaciones->getAll();
+            $datos[1]=$datos2;
+            return $datos;
+        }
+    }
+
+    public function eliminar($id)
+    {
+        $this->observaciones->delete($id[0]);
+        $datos2=$this->observaciones->getAll();
+        $datos[1]=$datos2;
+        return $datos;
+    }
+
+    public function modificar($id)
+    {
+        $datos2=$this->observaciones->getOne($id[0]);
+        return $datos2;
+    }
+
+    public function actualizar($id)
+    {
+        if ($_POST) {
+            $this->observaciones->set("id_observacion", $id[]);
+            $this->observaciones->set('descripcion_observacion', $_POST["descripcion_observacion"]);
+            $this->observaciones->set('cargo', $_POST["cargo"]);
+            $this->observaciones->update();
+            $datos2 = $this->observaciones->getAll();
+            $datos[1] = $datos2;
             return $datos;
         }
     }

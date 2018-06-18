@@ -50,15 +50,20 @@ class Servicios_lavanderia
 
     function getOne($id)
     {
-        $sql="SELECT * FROM {$this->tabla} where id_serviciolav='{$id}'";
+        $sql="SELECT * FROM Servicios_lavanderia where id_serviciolav='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
 
     function update()
     {
-        $sql="UPDATE Servicios_lavanderia SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}') ";
+        $sql="UPDATE Servicios_lavanderia SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}'";
         $this->conexion->QuerySimple($sql);
 
+    }
+
+    function graficas()
+    {
+        //aqui va la consulta de sql
     }
 }

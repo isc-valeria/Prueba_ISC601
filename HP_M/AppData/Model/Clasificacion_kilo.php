@@ -40,7 +40,7 @@ class Clasificacion_kilo
 
     function getAll()
     {
-        $sql="SELECT Clasificacion_kilo.id_clasificacionkilo, Servicios_lavanderia.id_serviciolav, Clasificacion_kilo.cantidadkg, Observaciones.id_observacion
+        $sql="SELECT Clasificacion_kilo.id_clasificacionkilo, Servicios_lavanderia.descripcion_servicio, Clasificacion_kilo.cantidadkg, Observaciones.descripcion_observacion
               FROM Clasificacion_kilo, Servicios_lavanderia, Observaciones 
               WHERE Clasificacion_kilo.id_serviciolav = Servicios_lavanderia.id_serviciolav 
               and Clasificacion_kilo.id_observacion = Observaciones.id_observacion
@@ -65,5 +65,11 @@ class Clasificacion_kilo
         $sql="update {$this->tabla} set id_serviciolav='{$this->id_serviciolav}', cantidadkg='{$this->cantidadkg}',
                id_observacion='{$this->id_observacion}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
         $this->conexion->QuerySimple($sql);
+    }
+    function combo_servicio(){
+
+        $sql="select * from servicios_lavanderia";
+        $this->conexion->QuerySimple($sql);
+        return $datos;
     }
 }
