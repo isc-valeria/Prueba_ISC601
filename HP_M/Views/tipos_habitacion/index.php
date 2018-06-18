@@ -1,7 +1,7 @@
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_tipo" enctype="multipart/form-data" autocomplete="off">
+            <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Tipo de habitaciones</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
@@ -34,10 +34,10 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipo_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="save_clientes_ok" class="btn ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_tipo_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_clientes_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
 
 <div class="card-panel">
-    <h4 align="center">Tipos de habitaciones <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tipo">
+    <h4 align="center">Tipos de habitaciones <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -100,15 +100,15 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-        $("#add_tipo").click(function(){
+        $("#add_cliente").click(function(){
 
-            $("#update_tipo_ok").hide();
-            $("#save_tipo_ok").show();
+            $("#update_clientes_ok").hide();
+            $("#save_clientes_ok").show();
             $("#email").val(clave);
             Materialize.updateTextFields();
         });
-        $("#save_tipo_ok").click(function(){
-            $("#save_tipo").submit();
+        $("#save_clientes_ok").click(function(){
+            $("#save_clientes").submit();
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -123,12 +123,12 @@
             });
         });
         $("#body_table").on("click","a.btn_modificar",function(){
-            $("#save_tipo_ok").hide();
-            $("#update_tipo_ok").show();
+            $("#save_clientes_ok").hide();
+            $("#update_clientes_ok").show();
             var id=$(this).data("id");
             $.get("<?php echo URL?>tipos_habitacion/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#update_tipo_ok").data("id",datos["id_tipoh"]);
+                $("#update_clientes_ok").data("id",datos["id_cliente"]);
                 $("#tipo_ha").val(datos["tipo_ha"]);
                 $("#precio").val(datos["precio"]);
                 $("#maximo_personas").val(datos["maximo_personas"]);
@@ -136,10 +136,10 @@
                 $("#modal_registro").modal("open");
             });
         });
-        $("#update_tipo_ok").click(function(){
+        $("#update_clientes_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>tipos_habitacion/actualizar/"+id,$("#save_tipo").serialize(),function(res){
-                $('#save_tipo').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>tipos_habitacion/actualizar/"+id,$("#save_clientes").serialize(),function(res){
+                $('#save_clientes').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
                 Materialize.updateTextFields();
@@ -149,7 +149,7 @@
         });
 
 
-        $("#save_tipo").validate({
+        $("#save_clientes").validate({
 
             rules:{
                tipo_ha:{
@@ -191,9 +191,9 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                $.post("<?php echo URL?>tipos_habitacion/crear",$("#save_tipo").serialize(),function(res){
+                $.post("<?php echo URL?>tipos_habitacion/crear",$("#save_clientes").serialize(),function(res){
                     $("#body_table").empty().append(res);
-                    $('#save_tipo').find('input, select, textarea').val('');
+                    $('#save_clientes').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
                     $("#modal_registro").modal("close");
                 })

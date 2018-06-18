@@ -59,13 +59,11 @@ class tipos_habitacionController
         if($_POST)
         {
             $this->tipos_habitacion->set("id_tipoh",$id[0]);
-//            print_r($id);
             $this->tipos_habitacion->set('tipo_ha',$_POST["tipo_ha"]);
             $this->tipos_habitacion->set('precio',$_POST["precio"]);
             $this->tipos_habitacion->set('maximo_personas',$_POST["maximo_personas"]);
             $this->tipos_habitacion->update();
-            $datos1=$this->tipos_habitacion->getAll();
-            $datos[0]=$datos1;
+            $datos[0]=$this->tipos_habitacion->getAll();
             return $datos;
         }
     }
