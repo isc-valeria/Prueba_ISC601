@@ -45,6 +45,7 @@ class Template
 
             <script type="text/javascript">
                 $('document').ready(function () {
+                    $('.parallax').parallax();
                     $(".button-collapse").sideNav();
 
                     $('.collapsible').collapsible();
@@ -70,14 +71,12 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper light-blue accent-4"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+            <div class="nav-wrapper blue lighten-5"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
-
-
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#!">Reservaciones</a></li>
-                    <li><a href="#!">Mi Reserva</a></li>
-                    <li><a href="<?php echo URL?>Login">Login</a></li>
+                    <li><a href="#!" class="black-text">Reservaciones</a></li>
+                    <li><a href="#!" class="black-text">Mi Reserva</a></li>
+                    <li><a href="<?php echo URL?>Login" class="black-text">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -141,7 +140,7 @@ class Template
 
             <li>
                 <div class="collapsible-header">Cerrar sesión</div>
-                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal"">Salir</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn white black-text"">Salir</a></div>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -159,27 +158,28 @@ class Template
     public static function footer()
     {
         ?>
-        <footer class="page-footer  light-blue accent-4">
+        <footer class="page-footer blue lighten-5">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Ubicación</h5>
-                        <p class="grey-text text-lighten-4">Carretera Federal Valle de Bravo Km 30,
+                        <h5 class="black-text">Ubicación</h5>
+                        <p class="grey-text black-text">Carretera Federal Valle de Bravo Km 30,
                             Ejido San Antonio Laguna, 51200 Valle de Bravo, Méx.</p>
 
                     </div>
                     <div class="col l3 s12">
-                        <h5 class="white-text">Redes Sociales</h5>
+                        <h5 class="black-text">Redes Sociales</h5>
                         <ul>
-                            <i class="material-icons">group</i>
-                            <i class="material-icons">group</i>
-                            <i class="material-icons">group</i>
+                            <a href="#!"><span class="icon-facebook"></span></a>
+                            <a href="#!"><span class="icon-whatsapp"></span></a>
+                            <a href="#!"><span class="icon-instagram"></span></a>
+                            <a href="#!"><span class="icon-gmail"></span></a>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container">
+                <div class="container black-text">
                     2018
                 </div>
             </div>
