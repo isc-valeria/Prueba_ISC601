@@ -99,67 +99,7 @@ class Template
         {
         ?>
 
-            <div class="wrapper">
-                <aside id="left-sidebar-nav">
-                    <ul id="slide-out" class="side-nav fixed leftside-navigation">
-
-                        <li class="user-details cyan lighten-3 ">
-                            <div class="row">
-                                <div class="col col s4 m4 l4">
-                                    <img src="<?php echo URL?>/public/imagenes/cesar.PNG" alt="" class="circle responsive-img valign profile-image">
-                                </div>
-                                <div class="col col s8 m8 l8">
-                                    <ul id="profile-dropdown" class="dropdown-content">
-                                        <li><a href="#"></i> Perfil</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="<?php echo URL?>login/logout">Salir</a>
-                                        </li>
-                                    </ul>
-                                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn " href="#" data-activates="profile-dropdown">cesar Primero<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                    <p class="user-roal">Administrador</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-myspace"></i>Reservaciones</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>clientes" class="icon-jira">   Clientes</a></li>
-                                            <li><a href="<?php echo URL?>reservaciones" class="icon-jira">   Reservaciones</a></li>
-                                            <li><a href="<?php echo URL?>habitaciones" class="icon-jira">   Habitaciones</a></li>
-
-                                            <li><a href="<?php echo URL?>checkin" class="icon-jira">   Check In</a></li>
-                                            <li><a href="<?php echo URL?>checkout" class="icon-jira">   Check Out</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li class="no-padding"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-simpleicons"></i>Servicios</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="<?php echo URL?>Servicios" class="icon-jira">   Servicios</a></li>
-                                            <li><a href="<?php echo URL?>Asigna_servicios" class="icon-jira">   Asignar Servicios</a></li>
-
-                                            <li><a href="<?php echo URL?>ticket " class="icon-jira">   Lavanderia</a></li>
-                                            <li><a href="<?php echo URL?>Tareas" class="icon-jira">   Tareas</a></li>
-                                            <li><a href="<?php echo URL?>Equipo_seguridad" class="icon-jira">   Equipo De Seguridad</a></li>
-
-
-                                        </ul>
-                                    </div>
-                                </li>   
-                            </ul>
-                        </li>
-
-
-
+            
         <ul id="slide-out" class="side-nav collapsible" data-collapsible="accordion" style="overflow-y: auto;">
             <li><div class="user-view">
                     <div class="background">
