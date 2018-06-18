@@ -51,6 +51,9 @@
             ?>
         </tbody>
     </table>
+    <div class="center">
+        <a href="<?php echo URL?>tipo_tarea/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">

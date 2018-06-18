@@ -10,7 +10,7 @@
                         <div class="input-field col s1">
 
                         </div>
-                        <div class="input-field col s5">
+                        <div class="input-field col s9">
                             <input id="descripcion_ser" type="text" name="descripcion_ser">
                             <label for="descripcion_ser">Descripción</label>
                         </div>
@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 <div class="card-panel">
     <h4 align="center">Servicios que se Ofrecen
         <span class="right">
@@ -55,11 +56,11 @@
     <div class="row">
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
-            <input id="buscar" type="text">
-            <label for="buscar"  data-error="incorrecto" data-success="Correcto">Buscar</label>
+            <input id="buscar" type="text" placeholder="Buscar">
         </div>
     </div>
-    <table class="responsive-table">
+
+    <table class="responsive-table" id="tabla_content">
             <thead>
                 <tr>
                     <th>Folio</th>
@@ -75,7 +76,11 @@
         </tbody>
         <div class="divider"></div>
     </table>
+    <div class="center">
+        <a href="<?php echo URL ?> servicios/print_pdf" target="_blank" id="imprime_pdf" class="btn #00838f accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
+
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>

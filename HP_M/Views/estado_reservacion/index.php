@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="input-field input-field col s5">
                             <input id="descripcion_estadoreserva" type="text"  name="descripcion_estadoreserva">
-                            <label for="descripcion_estadoreserva"  >Descripcion del estado de reservación</label>
+                            <label for="descripcion_estadoreserva" >Descripcion del estado de reservación</label>
                         </div>
                     </div>
 

@@ -69,7 +69,9 @@ class Template
 
 
         <nav id="menusito">
-            <div class="nav-wrapper teal"><a href="<?php echo URL?>inicio"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
+            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+                <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -116,7 +118,10 @@ class Template
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
+
                 <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></div>
+                <div class="collapsible-body"><a href="<?php echo URL?>productos" class="btn white black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
@@ -148,6 +153,7 @@ class Template
 
         <?php
     }
+
     public static function footer()
     {
         ?>

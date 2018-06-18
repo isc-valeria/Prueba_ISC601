@@ -18,24 +18,6 @@ class facturacionController
 
     public function index()
     {
-        5..
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     }
 }

@@ -14,16 +14,20 @@ class Asigna_servicios
 	{
 		$this->conexion= new conexion();
 	}
+    function get($atributo)
+    {
+        return $this->$atributo;
+    }
+
+    function set($atributo,$valor)
+    {
+        $this->$atributo=$valor;
+    }
 	function add()
 	{
-		$sql="insert into Asigna_servicios values (0, '{$this->id_servicio}', 100, 200, sysdate)";
-		$datos= $this->conexion ->QuerySimple($sql);
-	}
-	function get() 
-	{
-		$sql="select * from Asigna_servicios";
-		$datos= $this->conexion ->QueryResultado()($sql);
-		return $datos;
+        $sql = "insert into {$this->tabla} values('0','{$this->num_habitacion}',
+         '{$this->descripcion_ser}','{$this->descripcion_est}','{$this->fecha_reg}')";
+        $this->conexion->QuerySimple($sql);
 	}
 	function getAll()
     {
@@ -37,16 +41,25 @@ class Asigna_servicios
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
+    function delete($id)
+    {
+        $sql = "delete from {$this->tabla} where id_asignaser='{$id}'";
+        $this->conexion->QuerySimple($sql);
+    }
+    function getOne($id)
+    {
+        $sql = "select * from  {$this->tabla} where id_asignaser='{$id}'";
+        $datos = $this->conexion->QueryResultado($sql);
+        return $datos;
+    }
 
 
     function update()
 	{
-		$sql="update Asigna_servicios set id_habitacion = 3 where Asigna_servicios.id_asignaser=300";
-		$datos= $this->conexion ->querySimple($sql);
+        $sql = "update {$this->tabla} set num_habitacion='{$this->num_habitacion}',
+               descripcion_ser='{$this->descripcion_ser}', descripcion_est='{$this->descripcion_est}',
+               fecha_reg='{$this->fecha_reg}' where id_asignaser='{$this->id_asignaser}'";
+        $this->conexion->QuerySimple($sql);
 	}
-	function delete() 
-	{
-		$sql="delete Asigna_servicios where Asigna_servicios.id_asignaser=300";
-		$datos= $this->conexion ->querySimple($sql);
-	}
+
 }
