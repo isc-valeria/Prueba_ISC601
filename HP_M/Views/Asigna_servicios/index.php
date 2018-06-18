@@ -17,6 +17,9 @@
                             <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
                         </div>
                         <div class="input-field col s4">
+<<<<<<< HEAD
+
+=======
                             <select id="tipohabitacion" type="text" class="validate">
                                 <option value="" disabled selected>Selecciona Tipo de Habitación</option>
                                 <?php
@@ -25,11 +28,15 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
+>>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
                             <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
 
                         </div>
                         <div class="col s1"></div>
                         <div class="input-field col s4">
+<<<<<<< HEAD
+
+=======
                             <select id="servicios1" type="text" class="validate">
                                 <option value="" disabled selected>Selecciona servicio</option>
                                 <?php
@@ -38,11 +45,15 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
+>>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
                             <label for="servicios1" data-error="incorrecto" data-success="Correcto">Servcios</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
+<<<<<<< HEAD
+
+=======
                             <select id="estadohabitacion" type="text" class="validate">
                                 <option value="" disabled selected>Selecciona estado</option>
                                 <?php
@@ -51,6 +62,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
+>>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
                             <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Estados</label>
                         </div>
                         <div class="col s2"></div>
