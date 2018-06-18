@@ -27,6 +27,7 @@ class Template
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
 
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/fonts/material-icons.css">
+            <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/scroll.css">
 
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/style.min.css" media="screen,projection"/>
 
@@ -68,8 +69,7 @@ class Template
 
 
         <nav id="menusito">
-            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
-                <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+            <div class="nav-wrapper teal"><a href="<?php echo URL?>inicio"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -94,6 +94,7 @@ class Template
                     <a href="#!name"><span class="white-text name">John Doe</span></a>
                     <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div></li>
+
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
 
@@ -103,6 +104,7 @@ class Template
                 <div class="collapsible-body"><a href="<?php echo URL?>checkin" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-In</a></div>
                 <div class="collapsible-body"><a href="<?php echo URL?>checkout" class="btn white black-text"><i class="material-icons">chevron_right</i>Check-Out</a></div>
             </li>
+
             <li>
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
                 <div class="collapsible-body"><a href="<?php echo URL?>servicios" class="btn white black-text"><i class="material-icons">chevron_right</i>Servicios</a></div>

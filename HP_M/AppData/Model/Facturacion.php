@@ -28,7 +28,7 @@ class Facturacion
 
     }
     function get(){
-        $sql="select*from Facturacion";
+        $sql="select*from {$this->tabla}";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
