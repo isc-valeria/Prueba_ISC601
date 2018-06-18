@@ -68,8 +68,15 @@ class Template
 
 
         <nav id="menusito">
+
+            <div class="nav-wrapper teal">
+                <?php if (!isset($_SESSION["username"])){?>
+                <a href="<?php echo URL?>inicio" class="brand-logo">Logo</a>
+
+
             <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
                 <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -133,6 +140,11 @@ class Template
                 <div class="collapsible-header">Cerrar sesión</div>
                 <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal"">Salir</a></div>
             </li>
+
+            <li>
+                <div class="collapsible-header">Logout</div>
+                <div class="collapsible-body"><a href="<?php echo URL?>login/logout" class="btn teal""></a></div>
+            </li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
@@ -144,6 +156,7 @@ class Template
 
 
         <?php
+    }
     }
     public static function footer()
     {

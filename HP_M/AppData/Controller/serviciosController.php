@@ -60,7 +60,7 @@ class serviciosController
             $this->servicios->set("hora_inicio",$_POST["hora_inicio"]);
             $this->servicios->set("hora_fin",$_POST["hora_fin"]);
             $this->servicios->update();
-            $datos=$this->servicios->getAll();
+            $datos[0]=$this->servicios->getAll();
             return $datos;
         }
     }
