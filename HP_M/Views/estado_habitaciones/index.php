@@ -1,24 +1,24 @@
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_tipotarea" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Agregar un nuevo tipo de tarea</h4>
+            <form action="" id="save_estadohabitacion" enctype="multipart/form-data" autocomplete="off">
+                <h4 align="center">Estado de habitacion</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="descripcion_tarea" type="text"  name="descripcion_tarea">
-                            <label for="descripcion_tarea"  >Descripcion de la tarea</label>
+                            <input id="descripcion_estado" type="text"  name="descripcion_estado">
+                            <label for="descripcion_estado"  >Descripcion del estado</label>
                         </div>
                     </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipotarea_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="save_estadohabitacion_ok" class="btn ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_tipotarea_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_estadohabitacion_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tipotarea"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Estados de Habitaciones<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_estadohabitacion"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -40,7 +40,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Tarea</th>
+                <th>Estado</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -51,9 +51,6 @@
             ?>
         </tbody>
     </table>
-    <div class="center">
-        <a href="<?php echo URL?>tipo_tarea/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-    </div>
 </div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
@@ -70,17 +67,17 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-        $("#add_tipotarea").click(function(){
-            $("#update_tipotarea_ok").hide();
-            $("#save_tipotarea_ok").show();
+        $("#add_estadohabitacion").click(function(){
+            $("#update_estadohabitacion_ok").hide();
+            $("#save_estadohabitacion_ok").show();
         });
 
-        $("#save_tipotarea_ok").click(function() {
-            $("#save_tipotarea").submit();
+        $("#save_estadohabitacion_ok").click(function() {
+            $("#save_estadohabitacion").submit();
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>Tipo_tarea/eliminar/'+id;
+            var url='<?php echo URL?>estado_habitaciones/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -92,23 +89,23 @@
             });
         });
         $("#body_table").on("click","a.btn_modificar",function(){
-            $("#update_tipotarea_ok").show();
-            $("#save_tipotarea_ok").hide();
+            $("#update_estadohabitacion_ok").show();
+            $("#save_estadohabitacion_ok").hide();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>Tipo_tarea/modificar/"+id,function(res){
+            $.get("<?php echo URL?>estado_habitaciones/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#update_tipotarea_ok").data("id",datos["id_tipotarea"]);
-                $("#descripcion_tarea").val(datos["descripcion_tarea"]);
+                $("#update_estadohabitacion_ok").data("id",datos["id_estadoh"]);
+                $("#descripcion_estado").val(datos["estado_ha"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
 
-        $("#update_tipotarea_ok").click(function(){
+        $("#update_estadohabitacion_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>Tipo_tarea/actualizar/"+id,$("#save_tipotarea").serialize(),function(res){
-                $('#save_tipotarea').find('input, select, textarea').val('');
+            $.post("<?php echo URL?>estado_habitaciones/actualizar/"+id,$("#save_estadohabitacion").serialize(),function(res){
+                $('#save_estadohabitacion').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
@@ -116,15 +113,15 @@
         });
 
 
-        $("#save_tipotarea").validate({
+        $("#save_estadohabitacion").validate({
 
             rules:{
-                descripcion_tarea:{
+                descripcion_estado:{
                     required:true,
                 },
             },
             messages:{
-                descripcion_tarea:{
+                descripcion_estado:{
                     required:"Campo obligatorio",
 
                 },
@@ -136,9 +133,9 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                $.post("<?php echo URL?>tipo_tarea/crear",$("#save_tipotarea").serialize(),function(res){
+                $.post("<?php echo URL?>estado_habitaciones/crear",$("#save_estadohabitacion").serialize(),function(res){
                     $("#body_table").empty().append(res);
-                    $('#save_tipotarea').find('input, select, textarea').val('');
+                    $('#save_estadohabitacion').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
                     $("#modal_registro").modal("close");
                 })

@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: PROFESOR
- * Date: 14/06/2018
- * Time: 11:44 AM
- */
-$pdf = new \AppData\Config\libs\fpdf\FPDF();
+$pdf = new \AppData\Config\libs\fpdf\fpdf();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(190,10,'Lista de habitaciones.',0,0,'C');

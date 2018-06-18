@@ -2,50 +2,36 @@
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Clientes</h4>
+                <h4 align="center">Tipo de habitaciones</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="nombre_cli" type="text" name="nombre_cli" >
-                            <label for="nombre_cli" >Nombre de Cliente</label>
+                            <input id="tipo_ha" type="text" name="tipo_ha" >
+                            <label for="tipo_ha" >Tipo de habitación</label>
                         </div>
 
                         <div class="input-field col s1">
 
                         </div>
                         <div class="input-field col s5">
-                            <input id="ap_cli" type="text" name="ap_cli">
-                            <label for="ap_cli"  >Apellido Paterno</label>
+                            <input id="precio" type="text" name="precio">
+                            <label for="precio">Precio</label>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="input-field col s5">
-                            <input id="am_cli" type="text" name="am_cli">
-                            <label for="am_cli"  >Apellido Materno</label>
+                            <input id="maximo_personas" type="text" name="maximo_personas">
+                            <label for="maximo_personas"  >Máximo de personas</label>
                         </div>
 
                         <div class="input-field col s1">
 
                         </div>
-
-                        <div class="input-field col s5">
-                            <input id="telefono" type="text" name="telefono">
-                            <label for="telefono">Telefono</label>
-
-                        </div>
-
-                        <div class="input-field col s1">
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s5">
-                            <input id="email" type="email"  name="email">
-                            <label for="email"  >Correo Electronico</label>
-                        </div>
-                    </div>
+
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_clientes_ok" class="btn ">Registrar</a>
@@ -62,7 +48,7 @@
 
 
 <div class="card-panel">
-    <h4 align="center">Clientes Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
+    <h4 align="center">Tipos de habitaciones <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_cliente">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -74,18 +60,16 @@
         </div>
     </div>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
+    <!-- Modal eliminar -->
+
+    <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
-            <th>Nombre del Cliente</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Teléfono</th>
-            <th>Correo Electrónico</th>
+            <th>Tipo de habitación</th>
+            <th>Precio</th>
+            <th>Máximo de personas</th>
             <th></th>
             <th></th>
 
@@ -98,28 +82,11 @@
         ?>
         </tbody>
     </table>
-    <div class="center">
-        <a href="<?php echo URL ?>clientes/print_pdf" target="_blank" id="imprime_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
-    </div>
 </div>
-<div id="modal_grafica" class="modal">
-    <div class="modal-content">
-        <h5>Gráfica de clientes frecuentes</h5>
-        <p>
 
-<<<<<<< HEAD
-
-=======
-        </p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
-    </div>
-</div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
-        <h5>¿Desea Eliminar el Registro?</h5>
+        <h5>¿Desea eliminar el Registro?</h5>
         <hr />
     </div>
     <div class="modal-footer">
@@ -127,7 +94,6 @@
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
 
 
 <script type="text/javascript">
@@ -135,16 +101,6 @@
         $('select').material_select();
         $(".modal").modal();
         $("#add_cliente").click(function(){
-<<<<<<< HEAD
-
-            var clave=Math.floor((Math.random() * 9) + 0)+""+Math.floor
-            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+""+Math.floor
-            ((Math.random() * 9) + 0)+""+Math.floor((Math.random() * 9) + 0)+"";
-            $("#clave_cli").val(clave);
-            Materialize.updateTextFields();
-
-=======
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
 
             $("#update_clientes_ok").hide();
             $("#save_clientes_ok").show();
@@ -152,11 +108,11 @@
             Materialize.updateTextFields();
         });
         $("#save_clientes_ok").click(function(){
-           $("#save_clientes").submit();
+            $("#save_clientes").submit();
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>clientes/eliminar/'+id;
+            var url='<?php echo URL?>tipos_habitacion/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -170,22 +126,19 @@
             $("#save_clientes_ok").hide();
             $("#update_clientes_ok").show();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>clientes/modificar/"+id,function(res){
+            $.get("<?php echo URL?>tipos_habitacion/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_clientes_ok").data("id",datos["id_cliente"]);
-                $("#nombre_cli").val(datos["nombre_cli"]);
-                $("#ap_cli").val(datos["ap_cli"]);
-                $("#am_cli").val(datos["am_cli"]);
-                $("#telefono").val(datos["telefono"]);
-                $("#email").val(datos["email"]);
+                $("#tipo_ha").val(datos["tipo_ha"]);
+                $("#precio").val(datos["precio"]);
+                $("#maximo_personas").val(datos["maximo_personas"]);
                 Materialize.updateTextFields();
-                //$('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
         $("#update_clientes_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>clientes/actualizar/"+id,$("#save_clientes").serialize(),function(res){
+            $.post("<?php echo URL?>tipos_habitacion/actualizar/"+id,$("#save_clientes").serialize(),function(res){
                 $('#save_clientes').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
@@ -195,63 +148,40 @@
             })
         });
 
-        ///validar formulario
+
         $("#save_clientes").validate({
 
             rules:{
-                nombre_cli:{
+               tipo_ha:{
                     required:true,
-                    maxlength: 8,
+                    maxlength: 20,
                     minlength: 4,
                     lettersonly:true,
                 },
-                ap_cli:{
-                    required:true,
-                    lettersonly:true,
-                },
-                am_cli:{
-                    required:true,
-                    lettersonly:true,
-                },
-                telefono:{
+                precio:{
                     required:true,
                     number:true,
-                    maxlength: 10,
-                    minlength: 10,
                 },
-                email:{
+                maximo_personas:{
                     required:true,
-                    email:true,
-                }
+                    number:true,
+                },
             },
             messages:{
-                nombre_cli:{
-                    required:"Ingresa un nombre",
-                    maxlength:"Maximo 30 caracteres",
-                    minlength:"Minimo 2 caracteres"
+                tipo_ha:{
+                    required:"Ingresaa descripción",
+                    maxlength:"Maximo 20 caracteres",
+                    minlength:"Minimo 4 caracteres"
 
                 },
-                ap_cli:{
-                    required:"Ingresa un apellido",
-                    maxlength:"Maximo 12 caracteres",
-                    minlength:"Minimo 2 caracteres"
-
-                },
-                am_cli:{
-                    required:"Ingresa un apellido",
-                    maxlength:"Maximo 12 caracteres",
-                    minlength:"Minimo 2 caracteres"
-
-                },
-                telefono:{
+                precio:{
+                    required:"Ingresa un precio",
                     number:"Sólo números",
-                    required:"Ingresa un número",
-                    maxlength:"Maximo 10 numeros",
-                    minlength:"Minimo 10 numeros"
+
                 },
-                email:{
-                    required:"Ingresa un correo electrónico",
-                    email:"Correo no válido",
+                maximo_personas:{
+                    required:"Ingresa el máximo de personas",
+                    number:"Sólo números",
                 },
             },
             errorPlacement: function(error, element) {
@@ -261,7 +191,7 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                $.post("<?php echo URL?>clientes/crear",$("#save_clientes").serialize(),function(res){
+                $.post("<?php echo URL?>tipos_habitacion/crear",$("#save_clientes").serialize(),function(res){
                     $("#body_table").empty().append(res);
                     $('#save_clientes').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
@@ -269,21 +199,8 @@
                 })
             }
         });
-
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
-<<<<<<< HEAD
-
-
-
-=======
-        $("#graficar_habitaciones").click(function(){
-            $.get("<?php echo URL?>clientes/graficar",function(res){
-                $("#modal_grafica .modal-content p").empty().append(res);
-                $("#modal_grafica").modal("open");
-            });
-        });
->>>>>>> cc96c7e922048a943f3d2857004b31cc48838e92
     });
 </script>
