@@ -105,8 +105,6 @@
             $("#modal_registro").modal("open");
         });
     });
-
-    /////////////////////////////////////////////////
     $("#update_factura_ok").click(function(){
         var id=$(this).data("id");
         $.post("<?php echo URL?>Facturacion/actualizar/"+id,$("#save_factura").serialize(),function(res){
