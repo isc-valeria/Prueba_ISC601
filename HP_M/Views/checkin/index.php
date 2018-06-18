@@ -41,8 +41,8 @@
                     <div class="row">
                         <div class="input-field col s5">
                             <div class="input-field col s5">
-                                <input id="clave_cli" type="text" class="validate" name="clave_cli">
-                                <label for="clave_cli"  data-error="incorrecto" data-success="Correcto">Folio del Cliente</label>
+                                <input id="email" type="text" class="validate" name="email">
+                                <label for="email"  data-error="incorrecto" data-success="Correcto">Folio del Cliente</label>
                             </div>
                         </div>
                         <div class="input-field col s5">

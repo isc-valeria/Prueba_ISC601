@@ -69,8 +69,8 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper teal"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
-                <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+            <div class="nav-wrapper  light-blue accent-4"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
+
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#!">Reservaciones</a></li>
                     <li><a href="#!">Mi Reserva</a></li>
@@ -91,7 +91,7 @@ class Template
                     <div class="background">
                         <img src="<?php echo URL?>Public/imagenes/user-bg.jpg">
                     </div>
-                    <a href="#!user"><img class="circle" src="<?php echo URL?>Public/imagenes/cesar.png"></a>
+
                     <a href="#!name"><span class="white-text name">John Doe</span></a>
                     <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div></li>
@@ -153,7 +153,7 @@ class Template
     public static function footer()
     {
         ?>
-        <footer class="page-footer teal">
+        <footer class="page-footer  light-blue accent-4">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
