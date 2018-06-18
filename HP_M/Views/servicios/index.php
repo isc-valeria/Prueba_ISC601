@@ -4,7 +4,7 @@
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Servicios</h4>
                 <div class="divider"></div>
-                <code class=" language-markup"><!--********************************--></code>
+                <code class=" language-markup"></code>
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s1">
@@ -101,17 +101,10 @@
                 $("#save_servicios_ok").show();
             });
             $("#save_servicios_ok").click(function () {
-
-            //console.log("ok")
-           console.log($("#save_servicios").serialize());
             $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function (res) {
-                console.log(res)
-            //console.log($("#save_servcios_ok").serialize());
                 $("#body_table").empty().append(res);
-
                $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
             });
         });

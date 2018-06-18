@@ -5,9 +5,9 @@ namespace AppData\Model;
 class Asigna_servicios
 {
 	private $id_asignaser;
-	private $num_habitacion;
-	private $descripcion_ser;
-	private $descripcion_est;
+	private $id_servicio;
+	private $id_estados;
+	private $id_habitacion;
 	private $fecha_reg;
 
 	function __construct()
@@ -25,8 +25,7 @@ class Asigna_servicios
     }
 	function add()
 	{
-        $sql = "insert into {$this->tabla} values('0','{$this->num_habitacion}',
-         '{$this->descripcion_ser}','{$this->descripcion_est}','{$this->fecha_reg}')";
+        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_ser}','{$this->descripcion_est}',sysdate())";
         $this->conexion->QuerySimple($sql);
 	}
 	function getAll()

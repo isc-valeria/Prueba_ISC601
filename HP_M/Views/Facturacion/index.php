@@ -80,7 +80,7 @@ $("document").ready(function () {
 })
     $("#body_table").on("click","a.btn_eliminar",function(){
         var id=$(this).data("id");
-        var url='<?php echo URL?>Facturacion/eliminar/'+id;
+        var url='<?php echo URL?>facturacion/eliminar/'+id;
         $("#eliminar_ok").attr("url",url);
         $("#modal_eliminar").modal("open");
     });
@@ -109,7 +109,7 @@ $("document").ready(function () {
     });
     $("#update_factura_ok").click(function(){
         var id=$(this).data("id");
-        $.post("<?php echo URL?>Facturacion/actualizar/"+id,$("#save_factura").serialize(),function(res){
+        $.post("<?php echo URL?>facturacion/actualizar/"+id,$("#save_factura").serialize(),function(res){
             $('#save_factura').find('input, select, textarea').val('');
             $("#body_table").empty().append(res);
 

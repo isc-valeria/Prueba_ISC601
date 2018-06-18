@@ -12,17 +12,17 @@ namespace AppData\Model;
 class Categorias_producto
 {
     private $tabla="Categorias_producto";
-    private $descripcion_cat;
+    private $id_categoriapro,$descripcion_cat;
 
     function __construct()
     {
         $this->conexion=new conexion();
     }
-    public function get($atributo,$valor)
+    public function set($atributo,$valor)
     {
         $this->$atributo=$valor;
     }
-    public function set($atributo)
+    public function get($atributo)
     {
         return $this->$atributo;
     }
@@ -38,7 +38,7 @@ class Categorias_producto
         return $datos;
     }
     function update(){
-        $sql="update categorias_producto set descripcion_cat='{$this->descripcion_cat}')";
+        $sql="update {$this->tabla} set descripcion_cat='{$this->descripcion_cat}'where id_categoriapro='{$this->id_categoriapro}'";
         $this->conexion->QuerySimple($sql);
     }
     function delete($id)
