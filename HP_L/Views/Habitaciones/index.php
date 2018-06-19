@@ -16,13 +16,11 @@
 
     </div>
     <div class="col s2">
-        <input type="number" min="1" max="20" class="niños" id="niños" placeholder="Niños"  >
+        <input type="number" min="0" max="20" class="niños" id="niños" placeholder="Niños"  >
     </div>
-
-</div>
-<div class="input-field col s12">
-    <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Buscar</a>
-
+    <div class="input-field col s2">
+        <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Buscar</a>
+    </div>
 
 </div>
 
