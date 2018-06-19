@@ -34,25 +34,13 @@ class loginController
                 }
                 else
                     $_SESSION["error_login"]="los datos no coinciden con nuestros registros";
+               // header("Location:".URL."inicio");
 
             }
-
-
         }
     public function logout()
         {
             session_destroy();
-            header("Location:".URL);
+           // header("Location:".URL);
         }
-
-
-
-
-    public function redireccionar()
-    {
-        header("Location:".URL);
-    }
-    
-
-
 }
