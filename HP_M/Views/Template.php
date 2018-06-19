@@ -152,8 +152,14 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
+<<<<<<< HEAD
+                                <li><a href="<?php echo URL?>empleados" class="white black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
+                                <li><a href="<?php echo URL?>Puestos" class="white black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
+                                <li><a href="<?php echo URL?>Turnos" class="white black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
+=======
                                 <li><a href="<?php echo URL?>empleados" class="black-text"><i class="material-icons">chevron_right</i>Configuración</a></li>
                                 <li><a href="<?php echo URL?>Puestos" class="black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
+>>>>>>> 5dbf7f3e212938a998b1865d2f9027e062d44ce6
                             </ul>
                     </div>
             </li>
