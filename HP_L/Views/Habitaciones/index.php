@@ -3,20 +3,27 @@
 <script src="http://momentjs.com/downloads/moment.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" rel="stylesheet"/>
 
-<nav class="white">
-    <div>
-        <ul id="nav-mobile">
-            <li></li>
-            <li></li>
-        </ul>
+<div class="row">
+    <div class="col s2">
+        <input type="text" class="datepicker" id="inicio" placeholder="Fecha Inicio"  >
+
     </div>
-</nav>
+    <div class="col s2">
+        <input type="text" class="datepicker" id="final" placeholder="Fecha Final" >
+    </div>
+    <div class="col s2">
+        <input type="number" min="1" max="20" class="adultos" id="adultos" placeholder="Adultos"  >
 
-<input type="text" class="datepicker" id="inicio" placeholder="Fecha Inicio" >
-<input type="text" class="datepicker" id="final" placeholder="Fecha Final">
+    </div>
+    <div class="col s2">
+        <input type="number" min="1" max="20" class="niños" id="niños" placeholder="Niños"  >
+    </div>
 
+</div>
 <div class="input-field col s12">
     <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Buscar</a>
+
+
 </div>
 
 <script>
