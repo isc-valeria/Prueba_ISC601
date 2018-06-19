@@ -66,4 +66,9 @@ class observacionesController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->observaciones->getAll();
+        return $datos;
+    }
 }
