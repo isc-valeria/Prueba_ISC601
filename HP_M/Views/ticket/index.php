@@ -472,6 +472,127 @@
 
 
 
+<div id="modal_repieza" class="modal modal_c">
+    <div class="modal-content">
+        <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
+            <ul id="tabs-swipe-demo" class="tabs black-text" >
+                <h4 align="center">Registrar prendas por pieza </h4>
+            </ul>
+            <div class="divider"></div>
+            <code class="language-markup" ></code>
+            <div id="test-swipe-1" class="col s12 white">
+                <div class="card-panel">
+
+                    <div class="input-field col s4 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
+                                Agregar
+                            </a>
+                        </div>
+
+                        <table   class="responsive-table"  >
+                            <thead>
+                            <tr>
+                               
+                                <th>Id</th>
+                                <th>Descripcion pieza</th>
+                                <th>Cantidad</th>
+                                <th>Servicio</th>
+                                <th>Observaciones</th>
+                                <th>Eliminar</th>
+                                <th>Editar</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body_table_clasipieza" >
+                            <?php
+                            include(ROOT."Views/clasificacion_pieza/tabla.php");
+                            ?>
+                            </tbody>
+
+                        </table>
+
+                        
+
+                        <div id="container"></div>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="myPager"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div id="modal_clasipieza_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_clasificacionpieza" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro por pieza</h4>
+
+                  
+
+                    <div class="input-field input-field col s5 center">
+                        <input id="Descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
+                        <label for="descripcion_pieza"  data-error="Incorrecto" data-success="Correcto" >Descripcion de la pieza</label>
+                    </div>
+
+                    <div class="input-field input-field col s5 center">
+                        <input id="cantidad" type="text" class="validate" name="cantidad">
+                        <label for="cantidad"  data-error="Incorrecto" data-success="Correcto" >Cantidad </label>
+                    </div>
+                      <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="descripcion_serviciopieza" type="text" name="descripcion_serviciopieza">
+                            <option disabled selected>Selecciona servicio</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from servicios_lavanderia");
+                            while ($row=mysqli_fetch_array($result3))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="descripcion_serviciopieza">Tipo de servicio</label>
+                    </div>
+
+                    <div class="input-field col s5">
+                        <select id="descripcion_observacionpieza" type="text" name="descripcion_observacionpieza">
+                            <option disabled selected>Selecciona observacion</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result4=mysqli_query($link,"select * from observaciones");
+                            while ($row=mysqli_fetch_array($result4))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="descripcion_observacionpieza">Tipo de observacion</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_clasipieza_ok" class="btn green white-text btn center"">
+                            Registrar por pieza
+                            </a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_clasipieza_ok" class="btn modal-close" data-id="">Actualizar </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <script type="text/javascript">
@@ -607,6 +728,24 @@
             })
         });
 
+         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
+
+        $("#add_clasipieza").click(function(){
+            $("#update_servicioslav_ok").hide();
+            $("#save_servicioslav_ok").show();
+        });
+
+        $("#save_clasipieza_ok").click(function(){
+            $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
+                $("#body_table_clasipieza").empty().append(res);
+                $('#save_clasificacionpieza').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_clasipieza_agregar").modal("close");
+            })
+        });
+
 
         $('#body_table').pageMe({
             pagerSelector:'#myPager',
@@ -618,16 +757,6 @@
             perPage:3
         });
 
-        $("#search").keyup(function(){
-            _this = this;
-            // buscar en tabla
-            $.each($("#tabla_prin tbody tr"), function() {
-                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                    $(this).hide();
-                else
-                    $(this).show();
-            });
-        });
     });
 </script>
 
