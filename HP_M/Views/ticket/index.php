@@ -144,7 +144,7 @@
 
                     <div class="input-field col s4 offset-s0">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
+                        <input id="buscar" placeholder="Buscar" type="text">
                     </div>
 
                     <div class="row">
@@ -154,7 +154,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table"  id="tabla_servicio">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -201,17 +201,20 @@
                     <h4>Nuevo servicio</h4>
                     <div class="divider"></div>
                     <div class="input-field input-field col s5 center">
-                        <input id="nombre_servi" type="text" class="validate" name="nombre_servi">
-                        <label for="nombre_servi"  data-error="Incorrecto" data-success="Correcto" >Nombre del Servicio</label>
+                        <input id="nombre_servi" type="text"  name="nombre_servi">
+                        <label for="nombre_servi" >Nombre del Servicio</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="precio" type="text" class="validate" name="precio">
-                        <label for="precio"  data-error="Incorrecto" data-success="Correcto" >Precio</label>
+                        <input id="precio" type="number"  name="precio">
+                        <label for="precio"  >Precio</label>
                     </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
+                            <div>
+
+                            </div>
                             <a href="#!" id="save_servicioslav_ok" class="btn green white-text btn center"">
                             Registrar nuevo servicio
                             </a>
@@ -241,6 +244,7 @@
 </div>
 
 
+
 <!-- ////////////////////////////////////OBSERVACIONES//////////////////////////////////////// -->
 
 <div id="modal_observaciones" class="modal modal_c">
@@ -256,7 +260,7 @@
 
                     <div class="input-field col s4 offset-s0">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
+                        <input id="buscar1" placeholder="Buscar" type="text">
                     </div>
 
                     <div class="row">
@@ -266,7 +270,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -313,12 +317,12 @@
                     <div class="divider"></div>
                     <div class="input-field input-field col s5 center">
                         <input id="descripcion_observacion" type="text" class="validate" name="descripcion_observacion">
-                        <label for="descripcion_observacion"  data-error="Incorrecto" data-success="Correcto" >Nombre de observación</label>
+                        <label for="descripcion_observacion"  >Nombre de observación</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
                         <input id="cargo" type="text" class="validate" name="cargo">
-                        <label for="cargo"  data-error="Incorrecto" data-success="Correcto" >Cargo</label>
+                        <label for="cargo"   >Cargo</label>
                     </div>
 
                     <div class="modal-fixed-footer">
@@ -366,7 +370,7 @@
 
                     <div class="input-field col s4 offset-s0">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
+                        <input id="buscar2" placeholder="Buscar" type="text">
                     </div>
 
                     <div class="row">
@@ -376,7 +380,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table" id="tabla_clasikilo" >
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -710,6 +714,10 @@
             })
         });
 
+
+
+
+
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
 
         $("#add_clasikilo").click(function(){
@@ -747,17 +755,181 @@
         });
 
 
-        $('#body_table').pageMe({
-            pagerSelector:'#myPager',
-            activeColor: 'blue',
-            prevText:'Anterior',
-            nextText:'Siguiente',
-            showPrevNext:true,
-            hidePageNumbers:false,
-            perPage:3
+        //--------------------------Validacion servicio-------------------------------------------
+        $("#save_servicio_lavanderia").validate({
+            rules:{
+                nombre_servi:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                precio:{
+                    required:true,
+                    maxlength: 3,
+                    number:true,
+                    },
+
+                },
+
+                messages:{
+                    nombre_servi:{
+                        required:"Agrega una descripción",
+                        maxlength:"Maximo 12 caracteres",
+                        minlength:"Minimo 4 caracteres",
+                    },
+
+                    precio:{
+                        required:"Ingresa un número",
+                        maxlength:"Maximo 5 caracteres",
+                        minlength:"Minimo 1 caracteres",
+                        number:"Solo números",
+
+                    }
+
+                },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+                },
+
+            submitHandler:function(form){
+                $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
+                    $("#body_table_ser").empty().append(res);
+                    $('#save_servicio_lavanderia').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_servicios_agregar").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
         });
 
-    });
+
+
+        ///validar formulario
+        $("#save_servicio_lavanderia").validate({
+
+            rules:{
+                nombre_servi:{
+                    required:true,
+                    maxlength: 13,
+                    minlength: 4,
+                    lettersonly:true,
+                },
+                precio:{
+                    required:true,
+                    maxlength: 12,
+                    minlength: 4,
+                    number:true,
+                }
+            },
+            messages:{
+                nombre_servi:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 13 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                precio:{
+                    required:"Ingresa un precio",
+                    maxlength:"Maximo 4 caracteres",
+                    minlength:"Minimo 1 caracteres",
+
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>servicioslavaderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_servicio_lavanderia').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_servicios_agregar").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
+        });
+
+
+
+
+
+        //--------------------------Validacion observacion-------------------------------------------
+        $("#save_observaciones_lavanderia").validate({
+            rules:{
+                descripcion_observacion:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                cargo:{
+                    required:true,
+                    maxlength: 3,
+                    number:true,
+                },
+
+            },
+
+            messages:{
+                descripcion_observacion:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 13 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                cargo:{
+                    required:"Ingresa un Cargo",
+                    maxlength:"Maximo 4 caracteres",
+                    minlength:"Minimo 1 caracteres",
+
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>observaciones/crear",$("#save_observaciones_lavanderia").serialize(),function(res){
+                    $("#body_table_obser").empty().append(res);
+                    $('#save_observaciones_lavanderia').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_observaciones_agregar").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
+        });
+
+
+
+
+//---------------------------------------------------------------------------
+
+//--------------------------Buscar-------------------------------------------
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_servicio"), this.value);
+        });
+
+        $("#buscar1").keyup(function() {
+            $.uiTableFilter($("#tabla_observacion"), this.value);
+        });
+
+        $("#buscar2").keyup(function() {
+            $.uiTableFilter($("#tabla_clasikilo"), this.value);
+        });
+});
 </script>
 
 
