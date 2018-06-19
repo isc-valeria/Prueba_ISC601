@@ -57,7 +57,7 @@ class observacionesController
     public function actualizar($id)
     {
         if ($_POST) {
-            $this->observaciones->set("id_observacion", $id[]);
+            $this->observaciones->set("id_observacion", $id[0]);
             $this->observaciones->set('descripcion_observacion', $_POST["descripcion_observacion"]);
             $this->observaciones->set('cargo', $_POST["cargo"]);
             $this->observaciones->update();

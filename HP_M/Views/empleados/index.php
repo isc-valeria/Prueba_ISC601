@@ -165,6 +165,7 @@
 
 
         $("#save_empleados_ok").click(function(){
+
                 $("#save_empleado").submit();
             /*
 
