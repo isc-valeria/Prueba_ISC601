@@ -56,8 +56,8 @@ class puestosController
     {
         if($_POST)
         {
-            $this->puestos->set("id_tipoequisegu",$id[0]);
-            $this->puestos->set('descripcion_tipo',$_POST["descripcion_tipo"]);
+            $this->puestos->set("id_puesto",$id[0]);
+            $this->puestos->set('descripcion_puesto',$_POST["descripcion_puesto"]);
             $this->puestos->update();
             $datos1=$this->puestos->getAll();
             $datos[0]=$datos1;

@@ -4,7 +4,7 @@ $vary;
 while($row=mysqli_fetch_array($datos))
 {
     $varx[]=$row[0];
-    $vary[]=intval($row[2]);
+    $vary[]=intval($row[1]);
 
 }
 

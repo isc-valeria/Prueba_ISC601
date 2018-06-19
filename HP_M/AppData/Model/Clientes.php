@@ -74,9 +74,9 @@ class Clientes
     }
     function graficar()
     {
-        $sql="SELECT clientes.nombre_cli,clientes.id_cliente,(select count(Asigna_reservaciones.id_asignares)
-              from Asigna_reservaciones where Asigna_reservaciones.id_habitacion=Habitaciones.id_habitacion)as numero
-             from habitaciones,clientes,reservaciones where clientes.id_cliente=reservaciones.id_cliente GROUP BY clientes.nombre_cli  ";
+        $sql="SELECT clientes.nombre_cli,(select count(reservaciones.id_reservacion)as numero from reservaciones
+        where reservaciones.id_cliente=clientes.id_cliente)
+        from clientes,reservaciones where clientes.id_cliente=reservaciones.id_cliente GROUP BY clientes.email  ";
         $dato = $this->conexion->QueryResultado($sql);
         return $dato;
     }
