@@ -4,10 +4,11 @@ namespace AppData\Model;
 
 class Asigna_servicios
 {
+    private $tabla="asigna_servicios";
 	private $id_asignaser;
-	private $id_servicio;
-	private $id_estados;
-	private $id_habitacion;
+	private $num_habitacion;
+	private $descripcion_ser;
+	private $descripcion_est;
 	private $fecha_reg;
 
 	function __construct()

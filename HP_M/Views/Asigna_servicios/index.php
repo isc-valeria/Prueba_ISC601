@@ -12,14 +12,7 @@
                 <form action="" id="save_asigna_servicios" enctype="multipart/form-data" autocomplete="off">
                     <div class="row">
                         <div class="input-field col s4">
-<<<<<<< HEAD
                             <select id="num_habitacion" type="text" class="validate" name="num_habitacion">
-=======
-<<<<<<< HEAD
-
-=======
-                            <select id="tipohabitacion" type="text" class="validate">
->>>>>>> 8c0de04e9be9357a1aa5021740fb51519d67b64b
                                 <option value="" disabled selected>Selecciona Tipo de Habitación</option>
                                 <?php
                                 $returnhab=$datos[1];
@@ -27,24 +20,12 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-<<<<<<< HEAD
                             <label for="num_habitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
                         </div>
                         <div class="col s1"></div>
                         <div class="input-field col s4">
                             <select id="descripcion_ser" type="text" class="validate" name="descripcion_ser">
-=======
->>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
-                            <label for="tipohabitacion" data-error="incorrecto" data-success="Correcto" >Habitacion</label>
 
-                        </div>
-                        <div class="col s1"></div>
-                        <div class="input-field col s4">
-<<<<<<< HEAD
-
-=======
-                            <select id="servicios1" type="text" class="validate">
->>>>>>> 8c0de04e9be9357a1aa5021740fb51519d67b64b
                                 <option value="" disabled selected>Selecciona servicio</option>
                                 <?php
                                 $returnser=$datos[2];
@@ -52,24 +33,12 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-<<<<<<< HEAD
                             <label for="descripcion_ser" data-error="incorrecto" data-success="Correcto">Servcios</label>
-=======
->>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
-                            <label for="servicios1" data-error="incorrecto" data-success="Correcto">Servcios</label>
->>>>>>> 8c0de04e9be9357a1aa5021740fb51519d67b64b
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
-<<<<<<< HEAD
                             <select id="descripcion_est" type="text" class="validate" name="descripcion_est">
-=======
-<<<<<<< HEAD
-
-=======
-                            <select id="estadohabitacion" type="text" class="validate">
->>>>>>> 8c0de04e9be9357a1aa5021740fb51519d67b64b
                                 <option value="" disabled selected>Selecciona estado</option>
                                 <?php
                                 $returnest=$datos[3];
@@ -77,12 +46,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-<<<<<<< HEAD
-                            <label for="descripcion_est" data-error="incorrecto" data-success="Correcto">Estados</label>
-=======
->>>>>>> 1c1d11be138960cfe5c208557624153679824ff5
-                            <label for="nomestadohabitacion" data-error="incorrecto" data-success="Correcto">Estados</label>
->>>>>>> 8c0de04e9be9357a1aa5021740fb51519d67b64b
+                            <label for="descripcion_est " data-error="incorrecto" data-success="Correcto">Estados</label>
                         </div>
                         <div class="col s2"></div>
                         <div class="input-field col s4 ">
@@ -90,7 +54,6 @@
                             <input type="text" class="datepicker" name="fecha_reg">
                         </div>
                     </div>
-
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_asigna_servicios_ok" class="btn modal-close">Registrar</a>
