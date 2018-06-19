@@ -4,48 +4,58 @@ namespace AppData\Model;
 
 class Turnos
 {
-	private $id_turno;
-	private $descripcion_turno;
-	private $hr_entrada;
-	private $hr_salida;
+    private  $tabla="Turnos";
+    private $id_turno;
+    private $hr_entrada;
+    private  $hr_salida;
+    private $descripcion_turno;
+    function __construct()
+    {
+        $this->conexion=new conexion();
+    }
 
-	function __construct()
-	{
-		$this->conexion= new conexion();
-	}
-
-	function get($atributo,$valor)
+    public function set($atributo, $valor)
     {
         $this->$atributo=$valor;
     }
 
-    function set($atributo)
+    public function get($atributo)
     {
         return $this->$atributo;
     }
-
-	function getAll()
-	{
-		$sql="select *from turnos";
-		$datos= $this->conexion ->QueryResultado($sql);
-		return $datos;
-	}
     function add()
     {
-        $sql="insert into turnos VALUES ('datos')";
-        $datos= $this->conexion ->querySimple($sql);
-        return $datos;
+        $sql="insert into {$this->tabla} values('0','{$this->descripcion_turno}','{$this->hr_entrada}','{$this->hr_salida}')";
+        $this->conexion->QuerySimple($sql);
     }
-	function update() 
-	{
-		$sql="update turnos set descripcion_turno='variable' where id_turno='id'";
-		$datos= $this->conexion ->querySimple($sql);
-		return $datos;
-	}
-	function delete() 
-	{
-		$sql="delete from turnos WHERE id_turno='id'";
-		$datos= $this->conexion ->querySimple($sql);
-		return $datos;
-	}
+
+        function getAll()
+        {
+            $sql="select *from {$this->tabla}";
+            $datos=$this->conexion->queryResultado($sql);
+            return $datos;
+        }
+        function update()
+        {
+            $sql = "update turnos set descripcion_turno='{$this->descripcion_turno}',hr_entrada='{$this->hr_entrada}',hr_salida='{$this->hr_salida}'
+                    where id_turno='{$this->id_turno}'";
+            $this->conexion->QuerySimple($sql);
+
+        }
+        function delete($id)
+        {
+            $sql="delete from {$this->tabla} where id_turno='{$id}'";
+            $this->conexion->QuerySimple($sql);
+
+        }
+        function getOne($id)
+        {
+            $sql = "select * from  {$this->tabla} where id_turno='{$id}'";
+            $datos = $this->conexion->QueryResultado($sql);
+            return $datos;
+
+        }
 }
+
+
+
