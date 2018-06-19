@@ -114,11 +114,11 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
                 <div class="collapsible-body cyan lighten-3">
                     <ul>
-                        <li><a href="<?php echo URL?>clientes" class="white black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
-                        <li><a href="<?php echo URL?>reservaciones" class=" white black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></li>
-                        <li><a href="<?php echo URL?>habitaciones" class="white black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></li>
-                        <li><a href="<?php echo URL?>checkin" class="white black-text"><i class="material-icons">chevron_right</i>Check-In</a></li>
-                        <li><a href="<?php echo URL?>checkout" class="white black-text"><i class="material-icons">chevron_right</i>Check-Out</a></li>
+                        <li><a href="<?php echo URL?>clientes" class=" black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></li>
+                        <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></li>
+                        <li><a href="<?php echo URL?>checkin" class="black-text"><i class="material-icons">chevron_right</i>Check-In</a></li>
+                        <li><a href="<?php echo URL?>checkout" class="black-text"><i class="material-icons">chevron_right</i>Check-Out</a></li>
                     </ul>
                 </div>
             </li>
@@ -127,11 +127,11 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
-                            <li><a href="<?php echo URL?>servicios" class="white black-text"><i class="material-icons">chevron_right</i>Servicios</a></li>
-                            <li><a href="<?php echo URL?>asigna_servicios" class="white black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></li>
-                            <li><a href="<?php echo URL?>ticket" class="white black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></li>
-                            <li><a href="<?php echo URL?>tareas" class="white black-text"><i class="material-icons">chevron_right</i>Tareas</a></li>
-                            <li><a href="<?php echo URL?>equipo_seguridad" class="white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
+                            <li><a href="<?php echo URL?>servicios" class="black-text"><i class="material-icons">chevron_right</i>Servicios</a></li>
+                            <li><a href="<?php echo URL?>asigna_servicios" class="black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></li>
+                            <li><a href="<?php echo URL?>ticket" class="black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></li>
+                            <li><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Tareas</a></li>
+                            <li><a href="<?php echo URL?>equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
                         </ul>
                     </div>
 
@@ -141,9 +141,9 @@ class Template
 
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
-                            <li><a href="<?php echo URL?>productos" class="white black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></li>
-                            <li><a href="<?php echo URL?>productos" class="white black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
-                            <li><a href="<?php echo URL?>productos" class="white black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></li>
+                            <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></li>
+                            <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
+                            <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></li>
                         </ul>
                     </div>
 
@@ -152,9 +152,14 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
+<<<<<<< HEAD
                                 <li><a href="<?php echo URL?>empleados" class="white black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
                                 <li><a href="<?php echo URL?>Puestos" class="white black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
                                 <li><a href="<?php echo URL?>Turnos" class="white black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
+=======
+                                <li><a href="<?php echo URL?>empleados" class="black-text"><i class="material-icons">chevron_right</i>Configuración</a></li>
+                                <li><a href="<?php echo URL?>Puestos" class="black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
+>>>>>>> 5dbf7f3e212938a998b1865d2f9027e062d44ce6
                             </ul>
                     </div>
             </li>
@@ -163,11 +168,11 @@ class Template
 
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
-                            <li><a href="<?php echo URL?>tareas" class="white black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></li>
-                            <li><a href="<?php echo URL?>Equipo_seguridad" class="white black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
-                            <li><a href="<?php echo URL?>" class="white black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></li>
-                            <li><a href="<?php echo URL?>" class="white black-text"><i class="material-icons">chevron_right</i>Estados</a></li>
-                            <li><a href="<?php echo URL?>tipo_tarea" class="white black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></li>
+                            <li><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></li>
+                            <li><a href="<?php echo URL?>Equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
+                            <li><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></li>
+                            <li><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Estados</a></li>
+                            <li><a href="<?php echo URL?>tipo_tarea" class="black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></li>
                         </ul>
                     </div>
 
@@ -178,7 +183,7 @@ class Template
                 <div class="collapsible-header">Cerrar sesión</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
-                                <li><a href="<?php echo URL?>login/logout" class="white black-text"">Salir</a></li>
+                                <li><a href="<?php echo URL?>login/logout" class="black-text"">Salir</a></li>
                             </ul>
                     </div>
             </li>

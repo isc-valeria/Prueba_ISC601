@@ -11,13 +11,12 @@ namespace AppData\Model;
 
 class Clasificacion_pieza
 {
-    private $tabla="Clasificacionkilo_pieza";
+    private $tabla="Clasificacion_pieza";
     private  $id_clasificacionpieza;
-    private  $descripcion_pieza;
+    private $descripcion_pieza;
     private  $cantidad;
     private  $id_serviciolav;
     private  $id_observacion;
-
 
     function __construct()
     {
@@ -42,10 +41,10 @@ class Clasificacion_pieza
 
     function getAll()
     {
-        $sql="select Clasificacion_pieza.id_clasificacionpieza, Clasificacion_pieza.descripcion_pieza, Clasificacion_pieza.cantidad, Servicios_lavanderia.id_serviciolav, Observaciones.id_observacion
+        $sql="SELECT Clasificacion_pieza.id_clasificacionpieza, Clasificacion_pieza.descripcion_pieza,Servicios_lavanderia.descripcion_servicio, Clasificacion_pieza.cantidad, Observaciones.descripcion_observacion
               FROM Clasificacion_pieza, Servicios_lavanderia, Observaciones 
-              WHERE Clasificacion_pieza.id_serviciolav = Servicios_lavanderia.id_serviciolav
-              AND clasificacion_pieza.id_observacion = Observaciones.id_observacion
+              WHERE Clasificacion_pieza.id_serviciolav = Servicios_lavanderia.id_serviciolav 
+              and Clasificacion_pieza.id_observacion = Observaciones.id_observacion
               ORDER BY id_clasificacionpieza ASC ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
@@ -58,15 +57,19 @@ class Clasificacion_pieza
     }
     function getOne($id)
     {
-        $sql="select * from  Clasificacion_pieza where id_clasificacionpieza='{$id}'";
+        $sql="select * from Clasificacion_pieza where id_clasificacionpieza='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
 
-        $sql="update {$this->tabla} set descripcion_pieza='{$this->descripcion_pieza}', cantidad='{$this->cantidad}',
-               id_serviciolav='{$this->id_serviciolav}', id_observacion='{$this->id_observacion}' 
-               where id_clasificacionpieza='{$this->id_clasificacionpieza}'";
+        $sql="update {$this->tabla} set descripcion_pieza'{$this->descripcion_pieza}', id_serviciolav='{$this->id_serviciolav}', cantidad='{$this->cantidad}',id_observacion='{$this->id_observacion}' where id_clasificacionpieza='{$this->id_clasificacionpieza}'";
         $this->conexion->QuerySimple($sql);
+    }
+    function combo_servicio(){
+
+        $sql="select * from servicios_lavanderia";
+        $this->conexion->QuerySimple($sql);
+        return $datos;
     }
 }
