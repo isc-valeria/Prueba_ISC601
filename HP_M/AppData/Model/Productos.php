@@ -66,4 +66,10 @@ class Productos
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
+    function graficar()
+    {
+        $sql="SELECT productos.id_producto, productos.existencias, (SELECT count( productos.id_producto ) FROM productos WHERE productos.id_producto = productos.id_producto ) AS numero from productos";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
 }
