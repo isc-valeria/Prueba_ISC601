@@ -195,11 +195,10 @@ class Template
                     </div>
                     <div class="col l3 s12">
                         <h5 class="black-text">Redes Sociales</h5>
-                        <ul>
-                            <a href="#!"><span class="icon-facebook"></span></a>
-                            <a href="#!"><span class="icon-whatsapp"></span></a>
-                            <a href="#!"><span class="icon-instagram"></span></a>
-                            <a href="#!"><span class="icon-gmail"></span></a>
+                        <ul><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a>
+                            <a href="https://web.whatsapp.com/"><span class="icon-whatsapp"></span></a>
+                            <a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a>
+                            <a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a>
                         </ul>
                     </div>
                 </div>

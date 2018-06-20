@@ -71,13 +71,6 @@
                             <label for="stock_max"  >Stock máximo</label>
                         </div>
 
-                        <div class="input-field col s5">
-                            <input id="existencias" type="number"  readonly name="existencias">
-                            <label for="existencias"  >Existencias</label>
-                        </div>
-
-
-
                     </div>
 
                     <div class="modal-fixed-footer">
@@ -193,11 +186,6 @@
                         <div class="input-field col s5">
                             <input id="stock_max" type="number"  name="stock_max">
                             <label for="stock_max"  >Stock máximo</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <input id="existencias" type="number"  name="existencias">
-                            <label for="existencias"  >Existencias</label>
                         </div>
 
                     </div>
@@ -349,10 +337,6 @@
                 id_tipopro:{
                     required:true,
                 },
-                existencias:{
-                    required:true,
-                    number:true,
-                },
                 stock_min:{
                     required:true,
                     number:true,
@@ -368,9 +352,6 @@
                     required:"Nombre del producto",
                     maxlength:"Máximo 20 caracteres",
                     minlength:"Mínimo 5 caracteres"
-                },
-                existencias:{
-                    number:"Solo Números",
                 },
                 stock_min:{
                     required:"Campo obligatorio",
