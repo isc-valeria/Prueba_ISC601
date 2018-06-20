@@ -62,7 +62,7 @@
     <!-- Modal eliminar -->
 
     <!--*********************final modal eliminar***********-->
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_tipo">
         <thead>
         <tr>
             <th>id</th>
@@ -150,6 +150,10 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
+        });
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_tipo"), this.value);
         });
 
     });
