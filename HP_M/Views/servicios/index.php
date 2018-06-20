@@ -149,6 +149,9 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
     });
 
 </script>
