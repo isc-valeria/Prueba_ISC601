@@ -2,6 +2,7 @@
 ?>
 <!-- Modal registro -->
 <div id="modal_registro" class="modal">
+    <title>Asignar servicio</title>
     <div class="modal-content">
         <div class="card-pannel">
             <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
@@ -73,7 +74,7 @@
     <div class="col l12 s12 m10 offset-m1">
         <div class="card-panel">
 
-            <h4 align="center">Salidas Registradas
+            <h4 align="center">Asignación de servicios
                 <span class="right" >
                     <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_asigna_servicios">
                         <i class="material-icons">add</i>
@@ -82,8 +83,7 @@
             </h4>
             <div class="input-field col s4 offset-s8">
                 <i class="mdi-action-verified-user prefix icon-search"></i>
-                <input id="Folio" type="text">
-                <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
+                <input id="buscar" type="text" placeholder="Buscar">
             </div>
 
             <table class="centered" id="body_table">
@@ -127,6 +127,9 @@
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
             });
+        });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#body_table"), this.value);
         });
     });
 
