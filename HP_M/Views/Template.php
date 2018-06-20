@@ -19,7 +19,7 @@ class Template
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Habitaciones</title>
+
             <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
@@ -101,8 +101,10 @@ class Template
                 <div class="collapsible-body cyan lighten-3">
                     <ul>
                         <li><a href="<?php echo URL?>clientes" class=" black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
-                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></li>
-                        <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a>
+                        </li>
+                        <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a>
+                        </li>
                         <li><a href="<?php echo URL?>checkin" class="black-text"><i class="material-icons">chevron_right</i>Check-In</a></li>
                         <li><a href="<?php echo URL?>checkout" class="black-text"><i class="material-icons">chevron_right</i>Check-Out</a></li>
                     </ul>
@@ -195,10 +197,10 @@ class Template
                     </div>
                     <div class="col l3 s12">
                         <h5 class="black-text">Redes Sociales</h5>
-                        <ul><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a>
-                            <a href="https://web.whatsapp.com/"><span class="icon-whatsapp"></span></a>
-                            <a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a>
-                            <a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a>
+                        <ul><i class="small material-icons"><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a></i>
+                            <i class="small material-icons"><a href="https://web.whatsapp.com/"><span class="icon-whatsapp "></span></a></i>
+                            <i class="small material-icons"><a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a></i>
+                            <i class="small material-icons"><a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a></i>
                         </ul>
                     </div>
                 </div>
