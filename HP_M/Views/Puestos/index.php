@@ -134,7 +134,7 @@
             $.get("<?php echo URL?>Puestos/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_tipo_ok").data("id",datos["id_puesto"]);
-                $("#descripcion_tipo").val(datos["descripcion_puesto"]);
+                $("#descripcion_puesto").val(datos["descripcion_puesto"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
