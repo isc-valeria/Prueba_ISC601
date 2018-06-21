@@ -1,7 +1,6 @@
 <?php
 ?>
 
-
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
@@ -16,7 +15,7 @@
                         </div>
                         <div class="input-field col s5">
                             <input id="nombre_pro" type="text"  name="nombre_pro">
-                            <label for="nombre_pro"  >Nombre</label>
+                            <label for="nombre_pro">Nombre</label>
                         </div>
 
                         <div class="input-field col s5">
@@ -38,8 +37,7 @@
                     <div class="row">
                         <div class="input-field col s1">
                         </div>
-
-                        <div class="input-field col s5">
+                        <div class="input-field col s4">
                             <select id="id_tipopro" type="text"  name="id_tipopro">
                                 <option  disabled selected>Selecciona Tipo de producto</option>
                                 <?php
@@ -50,17 +48,15 @@
                             </select>
                             <label for="id_tipopro" >Tipo producto</label>
                         </div>
+                        <div class="input-field">
+                            <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_tipo_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                        </div>
 
-
-                        <div class="input-field col s5">
+                        <div class="input-field col s4">
                             <input id="stock_min" type="number"  name="stock_min">
                             <label for="stock_min" >Stock minimo</label>
                         </div>
-
-                        <div class="input-field col s1">
-                        </div>
                     </div>
-
 
                     <div class="row">
                         <div class="input-field col s1">
@@ -75,7 +71,6 @@
                             <input id="existencias" type="number"  readonly name="existencias">
                             <label for="existencias"  >Existencias</label>
                         </div>
-
 
 
                     </div>
@@ -107,7 +102,7 @@
         <div class="row">
             <form class="col s12 ">
                 <div class="row">
-                    <div class="input-field col s9">
+                    <div class="input-field col s12">
                         <i class="mdi-action-verified-user prefix icon-pencil"></i>
                         <input id="categoria_producto" type="text" class="validate">
                         <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
@@ -122,9 +117,32 @@
                         <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modal_tipo_producto" class="modal">
+    <div class="modal-content">
+        <div class="card-panel teal #00b8d4"><h4 align="center">Tipo del Producto</h4></div>
+        <div class="row">
+            <form class="col s12 ">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                        <input id="tipo_producto" type="text" class="validate">
+                        <label for="tipo_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de tipo producto</label>
+                    </div>
+                </div>
 
+                <div class="modal-fixed-footer">
 
+                    <div class="input-field col s12 ">
 
+                        <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
+                    </div>
                 </div>
             </form>
         </div>
