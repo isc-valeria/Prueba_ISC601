@@ -40,6 +40,7 @@ class empleadosController
             $this->empleados->set('am_emp',$_POST["am_emp"]);
             $this->empleados->set('id_puesto',$_POST["id_puesto"]);
             $this->empleados->set('id_turno',$_POST["id_turno"]);
+            $this->empleados->set('codigo',$_POST["codigo"]);
             $this->empleados->add();
             $datos1=$this->empleados->getAll();
             $datos[0]=$datos1;
@@ -72,6 +73,7 @@ class empleadosController
             $this->empleados->set('am_emp',$_POST["am_emp"]);
             $this->empleados->set('id_puesto',$_POST["id_puesto"]);
             $this->empleados->set('id_turno',$_POST["id_turno"]);
+            $this->empleados->set('codigo',$_POST["codigo"]);
             $this->empleados->update();
             $datos1=$this->empleados->getAll();
             $datos[0]=$datos1;

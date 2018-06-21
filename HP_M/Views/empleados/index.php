@@ -35,9 +35,7 @@
                             <label for="id_puesto" >Tipo de Puestos</label>
                         </div>
 
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_Puesto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                        </div>
+
 
                         <div class="input-field col s5">
                             <select id="id_turno" type="text"  name="id_turno">
@@ -51,10 +49,13 @@
                             <label for="id_turno" >Tipo de Turnos </label>
 
                         </div>
-
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_turnos" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                        <div class="input-field col s3.5">
+                            <input id="codigo" type="text"  name="codigo">
+                            <label for="codigo"  >Codigo</label>
                         </div>
+                    </div>
+
+
                     </div>
                     <div class="row">
                         <div class="input-field input-field col s5">
@@ -112,6 +113,7 @@
             <th>Turno</th>
             <th>Entrada</th>
             <th>Salida</th>
+            <th>Codigo</th>
             <th></th>
             <th></th>
 
@@ -198,6 +200,7 @@
                 $("#am_emp").val(datos["am_emp"]);
                 $("#id_puesto").val(datos["id_puesto"]);
                 $("#id_turno").val(datos["id_turno"]);
+                $("#codigo").val(datos["codigo"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
@@ -243,6 +246,12 @@
                 },
                 id_turno:{
                     required:true,
+                },
+                codigo:{
+                    required:true,
+                    maxlength: 12,
+                    minlength: 4,
+                    number:true,
                 }
             },
             messages:{
@@ -269,6 +278,14 @@
                 },
                 id_turno:{
                     required:"Selecciona Un Turno",
+                },
+                codigo:{
+                    required:"Ingresa un codigo numerico",
+                    maxlength:"Maximo 10 numero",
+                    minlength:"Minimo 4 numeros",
+                    number:"solo numeros",
+
+
                 },
 
             },
