@@ -1,7 +1,7 @@
 ﻿
 
 
-create table Equipo_seguridad (id_equiposegu int primary key AUTO_INCREMENT, nombre_equisegu varchar(30),id_tipoequisegu int);
+create table Equipo_seguridad (id_equiposegu int primary key AUTO_INCREMENT, nombre_equisegu varchar(30),id_tipoequisegu int,cantidad int,id_estadomantenimiento int);
 create table Tipo_equiposegu (id_tipoequisegu int primary key AUTO_INCREMENT, descripcion_tipo varchar(50));
 create table Tipo_tarea (id_tipotarea int primary key AUTO_INCREMENT, descripcion_tarea varchar(50));
 create table Tareas (id_tarea int primary key AUTO_INCREMENT, id_tipotarea int,id_empleado int,id_habitacion int,fecha_inicio timestamp,fecha_fin timestamp);
@@ -300,12 +300,14 @@ insert into Turnos  values(321,'Vespertino', '15:00:00', '23:00:00');
 insert into Turnos  values(322,'Nocturno', '23:00:00', '07:00:00');
 
 
+insert into Estado_mantenimiento values (1,'Disponible');
 
-insert into  Equipo_seguridad values(370, 'Camaras', 380);
 
-insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381);
+insert into  Equipo_seguridad values(370, 'Camaras', 380,2,1);
 
-insert into  Equipo_seguridad values(372, 'Llaves de repuesto', 382);
+insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381,3,1);
+
+insert into  Equipo_seguridad values(372, 'Llaves de repuesto', 382,4,1);
 
 
 

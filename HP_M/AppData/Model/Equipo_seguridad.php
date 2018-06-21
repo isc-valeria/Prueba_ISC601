@@ -10,6 +10,8 @@ class Equipo_seguridad
     private $id_equiposegu;
     private $nombre_equisegu;
     private $id_tipoequisegu;
+    private $cantidad;
+    private $id_estadomantenimiento;
 
     function __construct()
     {
@@ -26,14 +28,17 @@ class Equipo_seguridad
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->nombre_equisegu}','{$this->id_tipoequisegu}')";
+        $sql="insert into {$this->tabla} values('0','{$this->nombre_equisegu}','{$this->id_tipoequisegu}','{$this->cantidad}','{$this->id_estadomantenimiento}')";
         $this->conexion->QuerySimple($sql);
 
     }
     function getAll()
     {
-        $sql="select equipo_seguridad.id_equiposegu, equipo_seguridad.nombre_equisegu, tipo_equiposegu.descripcion_tipo
-        from equipo_seguridad,tipo_equiposegu WHERE equipo_seguridad.id_tipoequisegu=tipo_equiposegu.id_tipoequisegu
+        $sql="select equipo_seguridad.id_equiposegu, equipo_seguridad.nombre_equisegu, tipo_equiposegu.descripcion_tipo,
+        equipo_seguridad.cantidad,estado_mantenimiento.descripcion_estadomantenimiento
+        from equipo_seguridad,tipo_equiposegu,estado_mantenimiento 
+        WHERE equipo_seguridad.id_tipoequisegu=tipo_equiposegu.id_tipoequisegu
+        AND equipo_seguridad.id_estadomantenimiento=estado_mantenimiento.id_estadomantenimiento
         order by id_equiposegu ASC ";
         $datos= $this->conexion ->queryResultado($sql);
         return $datos;
@@ -42,7 +47,7 @@ class Equipo_seguridad
     function update()
     {
         $sql = "update equipo_seguridad set nombre_equisegu='{$this->nombre_equisegu}',
-               id_tipoequisegu='{$this->id_tipoequisegu}'
+               id_tipoequisegu='{$this->id_tipoequisegu}',cantidad='{$this->cantidad}',id_estadomantenimiento='{$this->id_estadomantenimiento}'
                 where id_equiposegu='{$this->id_equiposegu}'";
         $this->conexion->QuerySimple($sql);
     }
