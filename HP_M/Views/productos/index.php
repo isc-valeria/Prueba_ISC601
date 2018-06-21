@@ -226,11 +226,11 @@
             $("#save_productos_ok").submit();
             console.log("ok")
             console.log($("#save_productos_almacen").serialize());
-            $.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+            $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
                 $("#body_table").empty().append(res);
                 $('#save_productos_almacen').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
+                $("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
@@ -279,68 +279,8 @@
 
 
 
-        ///validar formulario
-        $("#save_productos_ok").validate({
 
-            rules:{
-                nombre_pro:{
-                    required:true,
-                    maxlength: 30,
-                    minlength: 10,
-                    lettersonly:true,
-                },
-                id_categoriapro:{
-                    required:true,
-                    lettersonly:true,
-                },
-                id_tipopro:{
-                    required:true,
-                },
-                existencias:{
-                    required:true,
-                    number:true,
-                },
-                stock_min:{
-                    required:true,
-                    number:true,
-                },
-                stock_max:{
-                    required:true,
-                    number:true,
-                }
-            },
-
-            messages:{
-                nombre_pro:{
-                    required:"Nombre del producto",
-                    maxlength:"Maximo 30 caracteres",
-                    minlength:"Minimo 10 caracteres"
-                },
-                existencias:{
-                    number:"Solo Numeros"
-                },
-                stock_min:{
-                    number:"Solo Numeros",
-                },
-                stock_max:{
-                    number:"Solo Numeros",
-                }
-            },
-            errorPlacement: function(error, element) {
-                $(element)
-                    .closest("form")
-                    .find("label[for='" + element.attr("id") + "']")
-                    .attr('data-error', error.text());
-            },
-            submitHandler:function(form){
-                $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
-                    $("#body_table").empty().append(res);
-                    $('#save_productos_almacen').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
-                    $("#modal_registro").modal("close");
-                })
-            }
-        });
+        
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
