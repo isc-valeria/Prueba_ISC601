@@ -22,7 +22,7 @@
                     </div>
                     <div class="row">
 
-                        <div class="input-field col s5">
+                        <div class="input-field col s10">
                             <select id="id_tipoh" type="text" name="id_tipoh">
                                 <option disabled selected>Selecciona Tipo de la Habitacion</option>
                                 <?php
@@ -34,26 +34,7 @@
                             <label for="id_tipoh">Tipo de Habitación</label>
                         </div>
 
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                        </div>
 
-                        <div class="input-field col s5">
-                            <select id="nomestadohabitacion" type="text" name="nomestadohabitacion">
-                                <option value="" disabled selected>Selecciona Estado de la Habitacion</option>
-                                <?php
-                                $result2=$datos[3];
-                                while ($row=mysqli_fetch_array($result2))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                ?>
-                            </select>
-                            <label for="nomestadohabitacion" > Estado de la Habitación</label>
-
-                        </div>
-
-                        <div class="input-field col s1">
-                            <a class="btn-floating disabled waves-effect waves-light btn modal-trigger " href="#modal_estado_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                        </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">

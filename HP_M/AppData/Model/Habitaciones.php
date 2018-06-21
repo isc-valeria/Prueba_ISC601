@@ -16,7 +16,7 @@ class Habitaciones
     private $num_habitacion;
     private $descripcion_hab;
     private $id_tipoh;
-    private $id_estadoh;
+    private $id_estadoh=60;
 
     function __construct()
     {
