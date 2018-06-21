@@ -52,7 +52,6 @@ class Request
 
             else
                 $this->metodo = "index";
-//            $emple=1;
         }
         else
         {
