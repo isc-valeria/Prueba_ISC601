@@ -86,8 +86,11 @@
                 Registrar por pieza
             </a>
 
-            <a href="#modal_reportes" class="btn #7bb1b3 white-text modal-trigger" id="add_orden">
-                Reportes
+            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
+                Ventas pieza
+            </a>
+            <a href="#modal_venkilo" class="btn #7bb1b3 white-text modal-trigger" id="add_ventakilo">
+                Ventas kilo
             </a>
         </div>
         <div class="row"></div>
@@ -592,7 +595,260 @@
     </div>
 </div>
 
+<!-- //////////////////VENTA POR PIEZA////////////////////////////// -->
 
+<div id="modal_venpieza" class="modal modal_c">
+    <div class="modal-content">
+        <form action="" id="sava_venpieza" enctype="multipart/form-data" autocomplete="off">
+            <ul id="tabs-swipe-demo" class="tabs black-text" >
+                <h4 align="center">Ventas de prendas por pieza </h4>
+            </ul>
+            <div class="divider"></div>
+            <code class="language-markup" ></code>
+            <div id="test-swipe-1" class="col s12 white">
+                <div class="card-panel">
+
+                    <div class="input-field col s4 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <a href="#modal_venpieza_agregar" class="btn green white-text modal-trigger right" id="add_ventapieza">
+                                Agregar
+                            </a>
+                        </div>
+
+                        <table   class="responsive-table"  >
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Numero de habitacion</th>
+                                <th>Cantidad de piezas</th>
+                                <th>Total</th>
+                                <th>Subtotal</th>
+                                <th>Eliminar</th>
+                                <th>Editar</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body_table_venpieza" >
+                            <?php
+                            include(ROOT."Views/venta_pieza/tabla.php");
+                            ?>
+                            </tbody>
+
+                        </table>
+
+                        <div id="container"></div>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="myPager"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div id="modal_venpieza_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_ventapieza" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro de venta por pieza</h4>
+
+                    
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="num_habitacion" type="text" name="num_habitacion">
+                            <option disabled selected>Numero de habitacion</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Habitaciones");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Numero de habitacion</label>
+                    </div>
+                   <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="cantidad" type="text" name="cantidad">
+                            <option disabled selected>selecciona la cantidad </option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from clasificacion_pieza");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Cantidad de piezas</label>
+                    </div>
+
+                   
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="total" type="text" name="total">
+                            <option disabled selected>Total</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Ticket");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="total">Total</label>
+                    </div>
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" class="validate" name="subtotal">
+                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            Registrar venta por pieza
+                            </a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //////////////////////////////VENTA POR KILO////////////////////////////////////////////// -->
+
+<div id="modal_venkilo" class="modal modal_c">
+    <div class="modal-content">
+        <form action="" id="sava_venkilo" enctype="multipart/form-data" autocomplete="off">
+            <ul id="tabs-swipe-demo" class="tabs black-text" >
+                <h4 align="center">Ventas de prendas por kilo </h4>
+            </ul>
+            <div class="divider"></div>
+            <code class="language-markup" ></code>
+            <div id="test-swipe-1" class="col s12 white">
+                <div class="card-panel">
+
+                    <div class="input-field col s4 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
+                                Agregar
+                            </a>
+                        </div>
+
+                        <table   class="responsive-table"  >
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Numero de habitacion</th>
+                                <th>Cantidad de kilos</th>
+                                <th>Total</th>
+                                <th>Subtotal</th>
+                                <th>Eliminar</th>
+                                <th>Editar</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body_table_venkilo" >
+                            <?php
+                            include(ROOT."Views/venta_kilo/tabla.php");
+                            ?>
+                            </tbody>
+
+                        </table>
+
+                        <div id="container"></div>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="myPager"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div id="modal_venkilo_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_ventakilo" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro de venta por kilos</h4>
+
+                    
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="num_habitacion" type="text" name="num_habitacion">
+                            <option disabled selected>Numero de habitacion</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Habitaciones");
+                            while ($row=mysqli_fetch_array($result4))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Numero de habitacion</label>
+                    </div>
+                   <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="cantidadkg" type="text" name="cantidadkg">
+                            <option disabled selected>selecciona la cantidad </option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from clasificacion_kilo");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Cantidad de kilos</label>
+                    </div>
+
+                   
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="total" type="text" name="total">
+                            <option disabled selected>Total</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Ticket");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="total">Total</label>
+                    </div>
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" class="validate" name="subtotal">
+                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            Registrar venta por kilo
+                            </a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dIV>
+</div>
 
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <script type="text/javascript">
@@ -746,7 +1002,38 @@
             })
         });
 
+         //--------------------------VENTA POR PIEZA-------------------------------------------
 
+        $("#add_ventapieza").click(function(){
+            $("#update_venpieza_ok").hide();
+            $("#save_venpieza_ok").show();
+        });
+
+        $("#save_venpieza_ok").click(function(){
+            $.post("<?php echo URL?>ventahab_pieza/crear",$("#save_ventapieza").serialize(),function(res){
+                $("#body_table_ventapieza").empty().append(res);
+                $('#save_ventapieza').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_venpieza_agregar").modal("close");
+            })
+        });
+        //--------------------------VENTA POR KILO-------------------------------------------
+
+        $("#add_ventakilo").click(function(){
+            $("#update_venkilo_ok").hide();
+            $("#save_venkilo_ok").show();
+        });
+
+        $("#save_venkilo_ok").click(function(){
+            $.post("<?php echo URL?>ventahab_kilo/crear",$("#save_ventakilo").serialize(),function(res){
+                $("#body_table_ventakilo").empty().append(res);
+                $('#save_ventakilo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_venkilo_agregar").modal("close");
+            })
+        });
 
 
         //--------------------------Validacion servicio-------------------------------------------
@@ -905,14 +1192,6 @@
             }
         });
 
-
-
-
-
-
-
-
-        -Validacion servicio-------------------------------------------
             $("#save_servicio_lavanderia").validate({
                 rules:{
                     nombre_servi:{
