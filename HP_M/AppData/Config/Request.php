@@ -53,6 +53,11 @@ class Request
             else
                 $this->metodo = "index";
         }
+        else if (isset($_GET['url'])?stristr($_GET['url'],'ReservacionesCliente'):false)
+        {
+            $this->controlador="ReservacionesCliente";
+            $this->metodo="index";
+        }
         else
         {
             $this->controlador="inicio";

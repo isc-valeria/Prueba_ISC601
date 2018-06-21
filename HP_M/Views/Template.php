@@ -69,7 +69,7 @@ class Template
     {?>
             <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#!" class="black-text">Reservaciones</a></li>
+                    <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text">Reservaciones</a></li>
                     <li><a href="#!" class="black-text">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login" class="black-text">Login</a></li>
                 </ul>
