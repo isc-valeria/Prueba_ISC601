@@ -8,7 +8,7 @@ class conexion
 
 
 
-    private $datos=array("server"=>"localhost","user"=>"root", "password"=>"", "db"=>"test_hotel");
+    private $datos=array("server"=>"localhost","user"=>"root", "password"=>"123456", "db"=>"hotel");
 
 
     private $conexion;
