@@ -225,11 +225,11 @@
             $("#save_productos_ok").submit();
             console.log("ok")
             console.log($("#save_productos_almacen").serialize());
-            $.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+            $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
                 $("#body_table").empty().append(res);
                 $('#save_productos_almacen').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
+                $("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
             })
         });
@@ -277,6 +277,11 @@
         });
 
 
+<<<<<<< HEAD
+
+
+        
+=======
         ///validar formulario
         $("#save_productos_ok").validate({
 
@@ -339,6 +344,7 @@
                 })
             }
         });
+>>>>>>> f39b0477d031e9d605d321babc0439bc13795266
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
