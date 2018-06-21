@@ -9,7 +9,7 @@
 namespace AppData\Controller;
 
 
-class clasificacionkiloController
+class clasificacion_kiloController
 {
     private $clasi_kilo;
 
@@ -20,23 +20,23 @@ class clasificacionkiloController
 
     public function index(){
         $datos3=$this->clasi_kilo->getAll();
-        $datos[2]=$datos3;
+        $datos["clasi_kilo"]=$datos3;
         return $datos;
     }
 
     public function crear(){
+        //echo "asdasdsadasd";
         if(isset($_POST))
         {
-            //echo "asdasdadasdasd";
-           $this->clasi_kilo->set('descripcion_serviciokilo', $_POST["descripcion_servicio"]);
+           //echo "asdasdadasdasd";
+           $this->clasi_kilo->set('id_serviciolav', $_POST["descripcion_servicio"]);
            $this->clasi_kilo->set('cantidadkg', $_POST["cantidadkg"]);
-           $this->clasi_kilo->set('descripcion_observacionkilo', $_POST["descripcion_observacion"]);
+           $this->clasi_kilo->set('id_observacion', $_POST["descripcion_observacion"]);
            $this->clasi_kilo->add();
            $datos3=$this->clasi_kilo->getAll();
-           $datos[2]=$datos3;
+           $datos["clasi_kilo"]=$datos3;
            return $datos;
         }
     }
-
 
 }

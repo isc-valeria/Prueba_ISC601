@@ -10,6 +10,7 @@
                             <i class="material-icons">local_laundry_service</i>
                         </a>
                         <p class="center">Servicios Hoy</p>
+
                     </div>
                     <div class="col s5 m4 right-align">
                         <h4><p>1</p></h4>
@@ -414,7 +415,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 
@@ -422,21 +422,23 @@
     <div class="modal-content">
         <div class="row center-align">
             <div class="row">
-                <form action="" id="save_clasificacionkilo" enctype="multipart/form-data" autocomplete="off">
+                <form action="" id="save_clasificacionkilo" method="post" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro por kilo</h4>
 
                     <div class="divider"></div>
                     <div class="input-field col s5">
-                        <select id="descripcion_serviciokilo" type="text" name="descripcion_serviciokilo">
-                            <option disabled selected>Selecciona serviciio</option>
-                            <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from servicios_lavanderia");
-                            while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                            ?>
+
+
+                        <select id="descripcion_serviciokilo"  type="text" name="descripcion_serviciokilo">
+                            <option value="" disabled selected>Selecciona servicio</option>
+                                <?php
+                                $dato=$datos["servicio"];
+                                while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                                $dato->data_seek(0);
+                                ?>
                         </select>
-                        <label for="descripcion_serviciokilo">Tipo de servicio</label>
+                        <label for="descripcion_serviciokilo" >Tipo de servicio</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
@@ -448,10 +450,10 @@
                         <select id="descripcion_observacionkilo" type="text" name="descripcion_observacionkilo">
                             <option disabled selected>Selecciona observacion</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result4=mysqli_query($link,"select * from observaciones");
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                $dato=$datos["observaciones"];
+                                while($row=mysqli_fetch_array($dato))
+                                    echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                                $dato->data_seek(0);
                             ?>
                         </select>
                         <label for="descripcion_observacionkilo">Tipo de observacion</label>
@@ -514,7 +516,7 @@
                             </thead>
                             <tbody id="body_table_clasipieza" >
                             <?php
-                            include(ROOT."Views/clasificacion_pieza/tabla.php");
+                                include(ROOT."Views/clasificacion_pieza/tabla.php");
                             ?>
                             </tbody>
 
@@ -713,10 +715,6 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
-
-
-
 
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
 

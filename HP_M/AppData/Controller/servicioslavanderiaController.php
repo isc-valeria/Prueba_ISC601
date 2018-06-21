@@ -21,7 +21,7 @@ class servicioslavanderiaController
     public function index(){
         $datos1=$this->servicio->getAll();
 
-        $datos[0]=$datos1;
+        $datos["servicio"]=$datos1;
 
         return $datos;
     }
@@ -35,7 +35,7 @@ class servicioslavanderiaController
             $this->servicio->set('precio', $_POST["precio"]);
             $this->servicio->add();
             $datos1=$this->servicio->getAll();
-            $datos[0]=$datos1;
+            $datos["servicio"]=$datos1;
             return $datos;
         }
     }
@@ -44,7 +44,7 @@ class servicioslavanderiaController
     {
         $this->servicio->delete($id[0]);
         $datos1=$this->servicio->getAll();
-        $datos[0]=$datos1;
+        $datos["servicio"]=$datos1;
         return $datos;
     }
 
@@ -62,7 +62,7 @@ class servicioslavanderiaController
             $this->servicio->set('precio', $_POST["precio"]);
             $this->servicio->update();
             $datos1 = $this->servicio->getAll();
-            $datos[0] = $datos1;
+            $datos["servicio"] = $datos1;
             return $datos;
         }
     }
@@ -77,6 +77,4 @@ class servicioslavanderiaController
     {
 
     }
-
-
 }

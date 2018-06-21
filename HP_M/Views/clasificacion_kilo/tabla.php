@@ -5,7 +5,7 @@
  * Date: 18/06/2018
  * Time: 10:42 AM
  */
-$dato=$datos[2];
+$dato=$datos["clasi_kilo"];
 while($row=mysqli_fetch_array($dato))
     echo "
         <tr>
