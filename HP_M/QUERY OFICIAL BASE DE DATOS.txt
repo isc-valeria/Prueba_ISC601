@@ -272,21 +272,9 @@ insert into Asignadestino_servicios values (251, 221, 51);
 insert into Asignadestino_servicios values (252, 222, 52);
 
 
-
-insert into Empleados  values(301, 'Jesus','Lopez','Santana', 1,321);
-
-insert into Empleados  values(302, 'Gabriela','Morales','Guadarrama', 2,322);
-
-insert into Empleados  values(303, 'Jorge','Benitez', 'Cruz', 3,320);
-
-
-
 insert into Puestos values(1, 'Camarero');
 
 insert into Puestos values(2, 'Recepcionista');
-
-insert into Puestos values(3, 'Cliente');
-
 insert into Puestos values(4, 'Administrador');
 
 
