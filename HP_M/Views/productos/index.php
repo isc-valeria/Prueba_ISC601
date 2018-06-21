@@ -20,14 +20,14 @@
 
                         <div class="input-field col s5">
                             <select id="id_categoriapro" type="text"  name="id_categoriapro">
-                                <option  disabled selected>Selecciona Categoria del producto</option>
+                                <option  disabled selected>Selecciona Categoría del producto</option>
                                 <?php
                                 $result22=$datos[1];
                                 while ($row=mysqli_fetch_array($result22))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_categoriapro" >Categoria producto</label>
+                            <label for="id_categoriapro" >Categoría producto</label>
                         </div>
                         <div class="input-field">
                             <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="input-field col s5">
                             <input id="stock_min" type="number"  name="stock_min">
-                            <label for="stock_min" >Stock minimo</label>
+                            <label for="stock_min" >Stock mínimo</label>
                         </div>
                         <div class="input-field col s5">
                             <select id="id_tipopro" type="text"  name="id_tipopro">
@@ -59,14 +59,13 @@
                     </div>
 
 
-
                     <div class="row">
                         <div class="input-field col s1">
                         </div>
 
                         <div class="input-field col s5">
                             <input id="stock_max" type="number"  name="stock_max">
-                            <label for="stock_max"  >Stock maximo</label>
+                            <label for="stock_max"  >Stock máximo</label>
                         </div>
 
                         <div class="input-field col s5">
@@ -100,14 +99,14 @@
 
 <div id="modal_categoria_producto" class="modal">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+        <div class="card-panel teal #00b8d4"><h4 align="center">Categoría del Producto</h4></div>
         <div class="row">
             <form class="col s12 ">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="mdi-action-verified-user prefix icon-pencil"></i>
                         <input id="categoria_producto" type="text" class="validate">
-                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
+                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripción de Categoría</label>
                     </div>
                 </div>
 
@@ -133,7 +132,7 @@
                     <div class="input-field col s12">
                         <i class="mdi-action-verified-user prefix icon-pencil"></i>
                         <input id="tipo_producto" type="text" class="validate">
-                        <label for="tipo_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de tipo producto</label>
+                        <label for="tipo_producto"  data-error="incorrecto" data-success="Correcto">Descripción de tipo producto</label>
                     </div>
                 </div>
 
@@ -179,7 +178,7 @@
 
             <th>Id </th>
             <th>Nombre</th>
-            <th>Categoria</th>
+            <th>Categoría</th>
             <th>Tipo </th>
             <th>Existencias</th>
             <th>Stock Max</th>
@@ -278,9 +277,74 @@
         });
 
 
+<<<<<<< HEAD
 
 
         
+=======
+        ///validar formulario
+        $("#save_productos_ok").validate({
+
+            rules:{
+                nombre_pro:{
+                    required:true,
+                    maxlength: 30,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                id_categoriapro:{
+                    required:true,
+                    lettersonly:true,
+                },
+                id_tipopro:{
+                    required:true,
+                },
+                existencias:{
+                    required:true,
+                    number:true,
+                },
+                stock_min:{
+                    required:true,
+                    number:true,
+                },
+                stock_max:{
+                    required:true,
+                    number:true,
+                }
+            },
+
+            messages:{
+                nombre_pro:{
+                    required:"Nombre del producto",
+                    maxlength:"Maximo 30 caracteres",
+                    minlength:"Minimo 5 caracteres"
+                },
+                existencias:{
+                    number:"Solo Numeros"
+                },
+                stock_min:{
+                    number:"Solo Numeros",
+                },
+                stock_max:{
+                    number:"Solo Numeros",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_productos_almacen').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
+            }
+        });
+>>>>>>> f39b0477d031e9d605d321babc0439bc13795266
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });

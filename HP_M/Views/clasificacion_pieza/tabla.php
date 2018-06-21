@@ -1,6 +1,6 @@
 <?php
 
-$dato=$datos[3];
+$dato=$datos["clasi_pieza"];
 while($row=mysqli_fetch_array($dato))
     echo "
         <tr>
