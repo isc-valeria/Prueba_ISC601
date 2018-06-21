@@ -128,7 +128,7 @@ class Template
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
                             <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></li>
-                            <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
+                            <li><a href="<?php echo URL?>Tipos_producto" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
                             <li><a href="<?php echo URL?>categorias_producto" class="black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></li>
                         </ul>
                     </div>
