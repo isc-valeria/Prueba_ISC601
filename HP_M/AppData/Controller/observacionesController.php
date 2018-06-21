@@ -21,7 +21,7 @@ class observacionesController
     public function index(){
         $datos2=$this->observaciones->getAll();
 
-        $datos[1]=$datos2;
+        $datos["observaciones"]=$datos2;
 
         return $datos;
     }
@@ -35,7 +35,7 @@ class observacionesController
             $this->observaciones->set('cargo', $_POST["cargo"]);
             $this->observaciones->add();
             $datos2=$this->observaciones->getAll();
-            $datos[1]=$datos2;
+            $datos["observaciones"]=$datos2;
             return $datos;
         }
     }
@@ -44,7 +44,7 @@ class observacionesController
     {
         $this->observaciones->delete($id[0]);
         $datos2=$this->observaciones->getAll();
-        $datos[1]=$datos2;
+        $datos["observaciones"]=$datos2;
         return $datos;
     }
 
@@ -62,7 +62,7 @@ class observacionesController
             $this->observaciones->set('cargo', $_POST["cargo"]);
             $this->observaciones->update();
             $datos2 = $this->observaciones->getAll();
-            $datos[1] = $datos2;
+            $datos["observaciones"] = $datos2;
             return $datos;
         }
     }

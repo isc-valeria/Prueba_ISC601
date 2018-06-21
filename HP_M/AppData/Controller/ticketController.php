@@ -40,14 +40,13 @@ class ticketController
         $datos6=$this->venta_pieza->getAll();
         $datos7=$this->ticket->getAll();
 
-        $datos[0]=$datos1;
-        $datos[1]=$datos2;
-        $datos[2]=$datos3;
-        $datos[3]=$datos4;
-        $datos[4]=$datos5;
-        $datos[5]=$datos6;
-        $datos[6]=$datos7;
-        $datos[7]=$datos1;
+        $datos["servicio"]=$datos1;
+        $datos["observaciones"]=$datos2;
+        $datos["clasi_kilo"]=$datos3;
+        $datos["clasi_pieza"]=$datos4;
+        $datos["venta_kilo"]=$datos5;
+        $datos["venta_pieza"]=$datos6;
+        $datos["ticket"]=$datos7;
         return $datos;
     }
 
