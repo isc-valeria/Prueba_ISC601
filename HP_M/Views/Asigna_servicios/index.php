@@ -2,6 +2,7 @@
 ?>
 <!-- Modal registro -->
 <div id="modal_registro" class="modal">
+    <title>Asignar servicio</title>
     <div class="modal-content">
         <div class="card-pannel">
             <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
@@ -73,7 +74,7 @@
     <div class="col l12 s12 m10 offset-m1">
         <div class="card-panel">
 
-            <h4 align="center">Salidas Registradas
+            <h4 align="center">Asignación de servicios
                 <span class="right" >
                     <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_asigna_servicios">
                         <i class="material-icons">add</i>
@@ -82,8 +83,7 @@
             </h4>
             <div class="input-field col s4 offset-s8">
                 <i class="mdi-action-verified-user prefix icon-search"></i>
-                <input id="Folio" type="text">
-                <label for="Folio"  data-error="incorrecto" data-success="Correcto">Folio</label>
+                <input id="buscar" type="text" placeholder="Buscar">
             </div>
 
             <table class="centered" id="body_table">
@@ -111,6 +111,17 @@
     </div>
 </div>
 
+<div id="modal_eliminar" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function() {
             $(".modal").modal();
@@ -127,6 +138,24 @@
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
             });
+        });
+
+            $("#body_table").on("click", "a.btn_eliminar", function () {
+            var id = $(this).data("id");
+            var url = '<?php echo URL?>asigna_servicios/eliminar/' + id;
+            $("#eliminar_ok").attr("url", url);
+            $("#modal_eliminar").modal("open");
+        });
+                $("#eliminar_ok").click(function () {
+            $.get($(this).attr("url"), function (res) {
+                $("#body_table").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+          });
+  
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#body_table"), this.value);
         });
     });
 

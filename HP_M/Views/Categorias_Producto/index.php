@@ -119,19 +119,27 @@
         });
 
 
+        //VALIDACIONES
         $("#save_categoriapro").validate({
 
             rules:{
                 descripcion_cat:{
                     required:true,
+                    lettersonly:true,
                 },
             },
             messages:{
+
                 descripcion_cat:{
                     required:"Campo obligatorio",
-
                 },
+                descripcion_cat:{
+                    required: "Solo letras",
+                },
+                
             },
+
+             
             errorPlacement: function(error, element) {
                 $(element)
                     .closest("form")
@@ -148,6 +156,9 @@
                 })
             }
         });
+
+
+        //BUSQUEDAS
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });

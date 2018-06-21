@@ -1,7 +1,10 @@
 <div id="modal_registro" class="modal">
+    <title>
+        <?php echo "Clientes" ?>
+    </title>
     <div class="modal-content">
         <div class="card-panel">
-            <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
+                <form action="" id="save_clientes" enctype="multipart/form-data" autocomplete="off">
                 <h4 align="center">Clientes</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>

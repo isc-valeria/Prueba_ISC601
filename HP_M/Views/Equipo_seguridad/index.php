@@ -22,6 +22,21 @@
                             </select>
                             <label for="descripcion_tipo" data-error="incorrecto" data-success="Correcto" >Descripción</label>
                         </div>
+                        <div class="input-field input-field col s5">
+                            <input id="cantidad" type="text" class="validate" name="cantidad">
+                            <label for="cantidad"  data-error="Incorrecto" data-success="Correcto" >Cantidad De Equipo</label>
+                        </div>
+                        <div class="input-field col s5">
+                            <select id="descripcion_estadomantenimiento" type="text" class="validate" name="descripcion_estadomantenimiento">
+                                <option value="" disabled selected>Selecciona El Estado</option>
+                                <?php
+                                $result2=$datos[2];
+                                while ($row=mysqli_fetch_array($result2))
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                ?>
+                            </select>
+                            <label for="descripcion_estadomantenimiento" data-error="incorrecto" data-success="Correcto" >Estado</label>
+                        </div>
 
                         <!--<div class="input-field col s1">
 
@@ -62,12 +77,14 @@
     <!-- Modal eliminar -->
 
     <!--*********************final modal eliminar***********-->
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_equipo">
         <thead>
         <tr>
             <th>id</th>
             <th>Nombre de Equipo</th>
             <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
             <th></th>
             <th></th>
 
@@ -93,74 +110,7 @@
         <a href="#!"  class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-<!--<div id="modal_estado_habitacion" class="modal center-align ">
-    <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Estado de la Habitación</h4></div>
 
-
-        <div class="row">
-            <form class="col s12 pad" autocomplete="off">
-                <div class="row">
-                    <div class="input-field input-field col s10">
-                        <i class="mdi-action-verified-user prefix icon-circleci"></i>
-                        <input id="descripcion_estado" type="number" class="validate center" >
-                        <label for="descripcion_estado"  data-error="Incorrecto" data-success="Correcto">Descripción</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
-
-                        </button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
-
-
-<!--<div id="modal_registro" class="modal center-align ">
-    <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Habitación</h4></div>
-
-        <div class="row">
-            <form class="col s12 " autocomplete="off">
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                        <input id="nonmbretipohabitacion" type="text" class="validate center">
-                        <label for="nonmbretipohabitacion"  data-error="incorrecto" data-success="Correcto">Tipo de Habitación</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field input-field col s10 text">
-                        <i class="mdi-action-verified-user prefix icon-coin-dollar"></i>
-                        <input id="precio" type="number" class="validate center" >
-                        <label for="precio"  data-error="Incorrecto" data-success="Correcto" >Precio</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar
-
-                        </button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
-
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
 
 
 
@@ -204,6 +154,8 @@
                 $("#update_equipo_ok").data("id",datos["id_equiposegu"]);
                 $("#nombre_equisegu").val(datos["nombre_equisegu"]);
                 $("#descripcion_tipo").val(datos["id_tipoequisegu"]);
+                $("#cantidad").val(datos["cantidad"]);
+                $("#descripcion_estadomantenimiento").val(datos["id_estadomantenimiento"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
@@ -219,6 +171,10 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
+        });
+
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_equipo"), this.value);
         });
 
     });

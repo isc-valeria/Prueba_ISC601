@@ -1,7 +1,6 @@
 <?php
 ?>
 
-
 <div id="modal_registro" class="modal">
     <div class="modal-content">
         <div class="card-panel">
@@ -16,19 +15,19 @@
                         </div>
                         <div class="input-field col s5">
                             <input id="nombre_pro" type="text"  name="nombre_pro">
-                            <label for="nombre_pro"  >Nombre</label>
+                            <label for="nombre_pro">Nombre</label>
                         </div>
 
                         <div class="input-field col s5">
                             <select id="id_categoriapro" type="text"  name="id_categoriapro">
-                                <option  disabled selected>Selecciona Categoria del producto</option>
+                                <option  disabled selected>Selecciona Categoría del producto</option>
                                 <?php
                                 $result22=$datos[1];
                                 while ($row=mysqli_fetch_array($result22))
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="id_categoriapro" >Categoria producto</label>
+                            <label for="id_categoriapro" >Categoría producto</label>
                         </div>
                         <div class="input-field">
                             <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
@@ -38,7 +37,10 @@
                     <div class="row">
                         <div class="input-field col s1">
                         </div>
-
+                        <div class="input-field col s5">
+                            <input id="stock_min" type="number"  name="stock_min">
+                            <label for="stock_min" >Stock mínimo</label>
+                        </div>
                         <div class="input-field col s5">
                             <select id="id_tipopro" type="text"  name="id_tipopro">
                                 <option  disabled selected>Selecciona Tipo de producto</option>
@@ -50,15 +52,10 @@
                             </select>
                             <label for="id_tipopro" >Tipo producto</label>
                         </div>
-
-
-                        <div class="input-field col s5">
-                            <input id="stock_min" type="number"  name="stock_min">
-                            <label for="stock_min" >Stock minimo</label>
+                        <div class="input-field">
+                            <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_tipo_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
 
-                        <div class="input-field col s1">
-                        </div>
                     </div>
 
 
@@ -68,7 +65,7 @@
 
                         <div class="input-field col s5">
                             <input id="stock_max" type="number"  name="stock_max">
-                            <label for="stock_max"  >Stock maximo</label>
+                            <label for="stock_max"  >Stock máximo</label>
                         </div>
 
                         <div class="input-field col s5">
@@ -77,12 +74,16 @@
                         </div>
 
 
-
                     </div>
 
                     <div class="modal-fixed-footer">
-                        <div class="input-field col s12">
+
+                        <div class="input-field col s12 ">
+
                             <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
+
                         </div>
 
                         <div class="input-field col s12">
@@ -98,27 +99,50 @@
 
 <div id="modal_categoria_producto" class="modal">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+        <div class="card-panel teal #00b8d4"><h4 align="center">Categoría del Producto</h4></div>
         <div class="row">
             <form class="col s12 ">
                 <div class="row">
-                    <div class="input-field col s9">
+                    <div class="input-field col s12">
                         <i class="mdi-action-verified-user prefix icon-pencil"></i>
                         <input id="categoria_producto" type="text" class="validate">
-                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
+                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripción de Categoría</label>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar
+                <div class="modal-fixed-footer">
 
-                        </button>
+                    <div class="input-field col s12 ">
+
+                        <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
                     </div>
-                    <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modal_tipo_producto" class="modal">
+    <div class="modal-content">
+        <div class="card-panel teal #00b8d4"><h4 align="center">Tipo del Producto</h4></div>
+        <div class="row">
+            <form class="col s12 ">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                        <input id="tipo_producto" type="text" class="validate">
+                        <label for="tipo_producto"  data-error="incorrecto" data-success="Correcto">Descripción de tipo producto</label>
+                    </div>
+                </div>
 
-                        </button>
+                <div class="modal-fixed-footer">
+
+                    <div class="input-field col s12 ">
+
+                        <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
                     </div>
                 </div>
             </form>
@@ -127,96 +151,7 @@
 </div>
 
 <!--*********************************modal entradas**********************-->
-<?php
-?>
-<div id="modal_entradas" class="modal">
-    <div class="modal-content">
-        <div class="card-panel">
-            <form action="" id="save_cantidad_productos" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Entradas</h4>
-                <div class="divider"></div>
-                <code class=" language-markup"><!--********************************--></code>
-                <div class="row">
 
-                    <div class="row">
-                        <div class="input-field col s1">
-                        </div>
-                        <div class="input-field col s5">
-                            <input id="nombre_pro" type="text"  name="nombre_pro">
-                            <label for="nombre_pro"  >Nombre</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <select id="id_categoriapro" type="text"  name="id_categoriapro">
-                                <option  disabled selected>Selecciona Categoria del producto</option>
-                                <?php
-                                $result22=$datos[1];
-                                while ($row=mysqli_fetch_array($result22))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                ?>
-                            </select>
-                            <label for="id_categoriapro" >Categoria producto</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s1">
-                        </div>
-
-                        <div class="input-field col s5">
-                            <select id="id_tipopro" type="text"  name="id_tipopro">
-                                <option  disabled selected>Selecciona Tipo de producto</option>
-                                <?php
-                                $result23=$datos[2];
-                                while ($row=mysqli_fetch_array($result23))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                                ?>
-                            </select>
-                            <label for="id_tipopro" >Tipo producto</label>
-                        </div>
-
-
-                        <div class="input-field col s5">
-                            <input id="stock_min" type="number"  name="stock_min">
-                            <label for="stock_min" >Stock mínimo</label>
-                        </div>
-
-                        <div class="input-field col s1">
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s1">
-                        </div>
-
-                        <div class="input-field col s5">
-                            <input id="stock_max" type="number"  name="stock_max">
-                            <label for="stock_max"  >Stock máximo</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <input id="existencias" type="number"  name="existencias">
-                            <label for="existencias"  >Existencias</label>
-                        </div>
-
-                    </div>
-
-                    <div class="modal-fixed-footer">
-                        <div class="input-field col s12">
-                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
-                        </div>
-
-                        <div class="input-field col s12">
-                            <a href="#!" id="update_productos_ok" class="btn modal-close " data-id="">Actualizar</a>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!--*********************************************************************-->
 
@@ -243,7 +178,7 @@
 
             <th>Id </th>
             <th>Nombre</th>
-            <th>Categoria</th>
+            <th>Categoría</th>
             <th>Tipo </th>
             <th>Existencias</th>
             <th>Stock Max</th>
@@ -288,15 +223,15 @@
         });
         $("#save_productos_ok").click(function(){
             $("#save_productos_ok").submit();
-            //console.log("ok")
-            //  console.log($("#save_productos_almacen").serialize());
-            /*$.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+            console.log("ok")
+            console.log($("#save_productos_almacen").serialize());
+            $.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
                 $("#body_table").empty().append(res);
                 $('#save_productos_almacen').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
-            })*/
+            })
         });
 
         $("#body_table").on("click","a.btn_eliminar",function(){
@@ -342,7 +277,6 @@
         });
 
 
-
         ///validar formulario
         $("#save_productos_ok").validate({
 
@@ -350,7 +284,7 @@
                 nombre_pro:{
                     required:true,
                     maxlength: 30,
-                    minlength: 10,
+                    minlength: 5,
                     lettersonly:true,
                 },
                 id_categoriapro:{
@@ -378,7 +312,7 @@
                 nombre_pro:{
                     required:"Nombre del producto",
                     maxlength:"Maximo 30 caracteres",
-                    minlength:"Minimo 10 caracteres"
+                    minlength:"Minimo 5 caracteres"
                 },
                 existencias:{
                     number:"Solo Numeros"
@@ -408,6 +342,8 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
+
+
 
 
     });

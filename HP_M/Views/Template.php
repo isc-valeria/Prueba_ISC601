@@ -19,7 +19,7 @@ class Template
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Habitaciones</title>
+
             <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link type="text/css" rel="stylesheet" href="<?php echo URL?>Public/css/materialize.min.css"  media="screen,projection"/>
@@ -64,13 +64,12 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper cyan lighten-2"><img src="Public/imagenes/logo.gif" width="300px" height="75px"/>
-
-                <a href="<?php echo URL?>inicio" class="brand-logo"></a>
+            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
         <?php if(!isset($_SESSION["username"]))
     {?>
+            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#!" class="black-text">Reservaciones</a></li>
+                    <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text">Reservaciones</a></li>
                     <li><a href="#!" class="black-text">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login" class="black-text">Login</a></li>
                 </ul>
@@ -92,6 +91,7 @@ class Template
                         <img src="<?php echo URL?>Public/imagenes/fondo.jpg">
                     </div>
 
+                    <div align="right"><a href="<?php echo URL?>Settings"><i class="material-icons">settings</i></a></div>
                     <a href="#!name"><span class="black-text name">John Doe</span></a>
                     <a href="#!email"><span class="black-text email">jdandturk@gmail.com</span></a>
                 </div></li>
@@ -101,8 +101,10 @@ class Template
                 <div class="collapsible-body cyan lighten-3">
                     <ul>
                         <li><a href="<?php echo URL?>clientes" class=" black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
-                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a></li>
-                        <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a></li>
+                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a>
+                        </li>
+                        <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a>
+                        </li>
                         <li><a href="<?php echo URL?>checkin" class="black-text"><i class="material-icons">chevron_right</i>Check-In</a></li>
                         <li><a href="<?php echo URL?>checkout" class="black-text"><i class="material-icons">chevron_right</i>Check-Out</a></li>
                     </ul>
@@ -116,8 +118,6 @@ class Template
                             <li><a href="<?php echo URL?>servicios" class="black-text"><i class="material-icons">chevron_right</i>Servicios</a></li>
                             <li><a href="<?php echo URL?>asigna_servicios" class="black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></li>
                             <li><a href="<?php echo URL?>ticket" class="black-text"><i class="material-icons">chevron_right</i>Lavanderia</a></li>
-                            <li><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Tareas</a></li>
-                            <li><a href="<?php echo URL?>equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
                         </ul>
                     </div>
 
@@ -128,7 +128,7 @@ class Template
                     <div class="collapsible-body cyan lighten-3">
                         <ul>
                             <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></li>
-                            <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
+                            <li><a href="<?php echo URL?>Tipos_producto" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
                             <li><a href="<?php echo URL?>categorias_producto" class="black-text"><i class="material-icons">chevron_right</i>Categorias producto</a></li>
                         </ul>
                     </div>
@@ -138,14 +138,11 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
-<<<<<<< HEAD
                                 <li><a href="<?php echo URL?>empleados" class="white black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
                                 <li><a href="<?php echo URL?>Puestos" class="white black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
                                 <li><a href="<?php echo URL?>Turnos" class="white black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
-=======
-                                <li><a href="<?php echo URL?>empleados" class="black-text"><i class="material-icons">chevron_right</i>Configuración</a></li>
-                                <li><a href="<?php echo URL?>Puestos" class="black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
->>>>>>> 5dbf7f3e212938a998b1865d2f9027e062d44ce6
+                                <li><a href="<?php echo URL?>Entrada" class="white black-text"><i class="material-icons">chevron_right</i>Entrada</a></li>
+                                <li><a href="<?php echo URL?>Salida" class="white black-text"><i class="material-icons">chevron_right</i>Salida</a></li>
                             </ul>
                     </div>
             </li>
@@ -156,8 +153,8 @@ class Template
                         <ul>
                             <li><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></li>
                             <li><a href="<?php echo URL?>Equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
-                            <li><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></li>
-                            <li><a href="<?php echo URL?>" class="black-text"><i class="material-icons">chevron_right</i>Estados</a></li>
+                            <li><a href="<?php echo URL?>Tipo_equiposegu" class="black-text"><i class="material-icons">chevron_right</i>Tipos de Equipo</a></li>
+                            <li><a href="<?php echo URL?>Estado_mantenimiento" class="black-text"><i class="material-icons">chevron_right</i>Estados</a></li>
                             <li><a href="<?php echo URL?>tipo_tarea" class="black-text"><i class="material-icons">chevron_right</i>Tipo de Tarea</a></li>
                         </ul>
                     </div>
@@ -200,11 +197,10 @@ class Template
                     </div>
                     <div class="col l3 s12">
                         <h5 class="black-text">Redes Sociales</h5>
-                        <ul>
-                            <a href="#!"><span class="icon-facebook"></span></a>
-                            <a href="#!"><span class="icon-whatsapp"></span></a>
-                            <a href="#!"><span class="icon-instagram"></span></a>
-                            <a href="#!"><span class="icon-gmail"></span></a>
+                        <ul><i class="small material-icons"><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a></i>
+                            <i class="small material-icons"><a href="https://web.whatsapp.com/"><span class="icon-whatsapp "></span></a></i>
+                            <i class="small material-icons"><a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a></i>
+                            <i class="small material-icons"><a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a></i>
                         </ul>
                     </div>
                 </div>

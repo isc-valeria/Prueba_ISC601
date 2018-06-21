@@ -1,4 +1,5 @@
 <div id="modal_servicio" class="modal">
+    <title>Servicios</title>
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
@@ -94,39 +95,40 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-            $(".modal").modal();
-            $(".timepicker").pickatime();
-            $("#add_servicios").click(function () {
-                $("#update_servicios_ok").hide();
-                $("#save_servicios_ok").show();
-            });
-            $("#save_servicios_ok").click(function () {
-            $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function (res) {
+        $(".modal").modal();
+        $(".timepicker").pickatime();
+        $("#add_servicios").click(function () {
+            $("#update_servicios_ok").hide();
+            $("#save_servicios_ok").show();
+        });
+
+        $("#save_servicios_ok").click(function () {
+            $.post("<?php echo URL?>servicios/crear", $("#save_servicios").serialize(), function (res) {
                 $("#body_table").empty().append(res);
-               $('#save_servicios').find('input, select, textarea').val('');
+                $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
             });
         });
-        $("#body_table").on("click","a.btn_eliminar",function(){
-            var id=$(this).data("id");
-            var url='<?php echo URL?>servicios/eliminar/'+id;
-            $("#eliminar_ok").attr("url",url);
+        $("#body_table").on("click", "a.btn_eliminar", function () {
+            var id = $(this).data("id");
+            var url = '<?php echo URL?>servicios/eliminar/' + id;
+            $("#eliminar_ok").attr("url", url);
             $("#modal_eliminar").modal("open");
         });
-        $("#eliminar_ok").click(function(){
-            $.get($(this).attr("url"),function(res){
+        $("#eliminar_ok").click(function () {
+            $.get($(this).attr("url"), function (res) {
                 $("#body_table").empty().append(res);
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
-        $("#body_table").on("click","a.btn_modificar",function(){
+        $("#body_table").on("click", "a.btn_modificar", function () {
             $("#save_servicios_ok").hide();
             $("#update_servicios_ok").show();
-            var id=$(this).data("id");
-            $.get("<?php echo URL?>servicios/modificar/"+id,function(res){
-                var datos=JSON.parse(res);
-                $("#update_servicios_ok").data("id",datos["id_servicio"]);
+            var id = $(this).data("id");
+            $.get("<?php echo URL?>servicios/modificar/" + id, function (res) {
+                var datos = JSON.parse(res);
+                $("#update_servicios_ok").data("id", datos["id_servicio"]);
                 $("#id_servicio").val(datos["id_servicio"]);
                 $("#descripcion_ser").val(datos["descripcion_ser"]);
                 $("#hora_inicio").val(datos["hora_inicio"]);
@@ -136,9 +138,9 @@
                 $("#modal_servicio").modal("open");
             });
         });
-        $("#update_servicios_ok").click(function(){
-            var id=$(this).data("id");
-            $.post("<?php echo URL?>servicios/actualizar/"+id,$("#save_servicios").serialize(),function(res){
+        $("#update_servicios_ok").click(function () {
+            var id = $(this).data("id");
+            $.post("<?php echo URL?>servicios/actualizar/" + id, $("#save_servicios").serialize(), function (res) {
                 $('#save_servicios').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
 
@@ -147,37 +149,9 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-//validar
-        $("#save_servicios").validate({
-            rules:{
-                descripcion_ser:{
-                    required:true,
-                    minlenght:3,
-                    lettersonly:true,
-                }
-            },
-            messages:{
-                required:"Información requerida",
-                minlenght:"Minimo de caracteres 3"
-            },
-            errorPlacement: function(error, element) {
-                $(element)
-                    .closest("form")
-                    .find("label[for='" + element.attr("id") + "']")
-                    .attr('data-error', error.text());
-            },
-            submitHandler:function(form){
-                console.log($("#save_servicios").serialize());
-                $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function(res){
-                    $("#body_table").empty().append(res);
-                    $('#save_servicios').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
-                    $("#modal_servicio").modal("close");
-                })
-            }
-        });
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
     });
+
 </script>

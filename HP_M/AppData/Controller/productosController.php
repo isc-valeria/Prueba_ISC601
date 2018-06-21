@@ -84,5 +84,11 @@ class productosController
         $datos=$this->productos->getAll();
         return $datos;
     }
+    public function graficar()
+    {
+        $datos=$this->productos->graficar();
+        return $datos;
+
+    }
 
 }
