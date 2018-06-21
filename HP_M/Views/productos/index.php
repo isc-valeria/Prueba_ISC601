@@ -37,7 +37,11 @@
                     <div class="row">
                         <div class="input-field col s1">
                         </div>
-                        <div class="input-field col s4">
+                        <div class="input-field col s5">
+                            <input id="stock_min" type="number"  name="stock_min">
+                            <label for="stock_min" >Stock minimo</label>
+                        </div>
+                        <div class="input-field col s5">
                             <select id="id_tipopro" type="text"  name="id_tipopro">
                                 <option  disabled selected>Selecciona Tipo de producto</option>
                                 <?php
@@ -52,11 +56,9 @@
                             <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_tipo_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
 
-                        <div class="input-field col s4">
-                            <input id="stock_min" type="number"  name="stock_min">
-                            <label for="stock_min" >Stock minimo</label>
-                        </div>
                     </div>
+
+
 
                     <div class="row">
                         <div class="input-field col s1">
