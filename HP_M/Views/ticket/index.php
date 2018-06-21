@@ -82,7 +82,7 @@
             </a>
 
             <a href="#modal_rekilo" class="btn #7bb1b3 white-text modal-trigger" id="add_rekilo">
-               Registrar por kilo
+                Registrar por kilo
             </a>
 
             <a href="#modal_repieza" class="btn #7bb1b3 white-text modal-trigger" id="add_repieza">
@@ -166,7 +166,7 @@
                             </thead>
                             <tbody id="body_table_ser" >
                             <?php
-                                include(ROOT."Views/servicioslavanderia/tabla.php");
+                            include(ROOT."Views/servicioslavanderia/tabla.php");
                             ?>
                             </tbody>
 
@@ -353,7 +353,7 @@
 </div>
 
 
- <!-- //////////////////CLASIFICACION POR KILO////////////////////////////// -->
+<!-- //////////////////CLASIFICACION POR KILO////////////////////////////// -->
 
 
 
@@ -441,7 +441,7 @@
 
                     <div class="input-field input-field col s5 center">
                         <input id="cantidadkg" type="text" class="validate" name="cantidadkg">
-                        <label for="cantidadkg"  data-error="Incorrecto" data-success="Correcto" >Cantidad (KG)</label>
+                        <label for="cantidadkg" >Cantidad (KG)</label>
                     </div>
 
                     <div class="input-field col s5">
@@ -502,7 +502,7 @@
                         <table   class="responsive-table"  >
                             <thead>
                             <tr>
-                               
+
                                 <th>Id</th>
                                 <th>Descripcion pieza</th>
                                 <th>Cantidad</th>
@@ -520,7 +520,7 @@
 
                         </table>
 
-                        
+
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
@@ -542,7 +542,7 @@
                 <form action="" id="save_clasificacionpieza" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro por pieza</h4>
 
-                  
+
 
                     <div class="input-field input-field col s5 center">
                         <input id="Descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
@@ -553,7 +553,7 @@
                         <input id="cantidad" type="text" class="validate" name="cantidad">
                         <label for="cantidad"  data-error="Incorrecto" data-success="Correcto" >Cantidad </label>
                     </div>
-                      <div class="divider"></div>
+                    <div class="divider"></div>
                     <div class="input-field col s5">
                         <select id="descripcion_serviciopieza" type="text" name="descripcion_serviciopieza">
                             <option disabled selected>Selecciona servicio</option>
@@ -603,21 +603,15 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-
         $("#add_servicios").click(function(){
+
             $("#update_servicioslav_ok").hide();
             $("#save_servicioslav_ok").show();
         });
 
         $("#save_servicioslav_ok").click(function(){
-            $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
-                $("#body_table_ser").empty().append(res);
-                $('#save_servicio_lavanderia').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_servicios_agregar").modal("close");
-            })
+            $("#save_servicio_lavanderia").submit();
+
         });
 
         $("#body_table_ser").on("click","a.btn_eliminar",function(){
@@ -666,14 +660,9 @@
         });
 
         $("#save_observacion_ok").click(function(){
-            $.post("<?php echo URL?>observaciones/crear",$("#save_observaciones_lavanderia").serialize(),function(res){
-                $("#body_table_obser").empty().append(res);
-                $('#save_observaciones_lavanderia').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                $("#modal_observaciones_agregar").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            $("#save_observaciones_lavanderia").submit();
+
+
         });
 
         $("#body_table_obser").on("click","a.btn_eliminar",function(){
@@ -726,17 +715,11 @@
         });
 
         $("#save_clasikilo_ok").click(function(){
-            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
-                $("#body_table_clasikilo").empty().append(res);
-                $('#save_clasificacionkilo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_clasikilo_agregar").modal("close");
-            })
+            $("#save_servicio_lavanderia").submit();
+
         });
 
-         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
+        //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
 
         $("#add_clasipieza").click(function(){
             $("#update_servicioslav_ok").hide();
@@ -768,32 +751,32 @@
                     required:true,
                     maxlength: 3,
                     number:true,
-                    },
-
                 },
 
-                messages:{
-                    nombre_servi:{
-                        required:"Agrega una descripción",
-                        maxlength:"Maximo 12 caracteres",
-                        minlength:"Minimo 4 caracteres",
-                    },
+            },
 
-                    precio:{
-                        required:"Ingresa un número",
-                        maxlength:"Maximo 5 caracteres",
-                        minlength:"Minimo 1 caracteres",
-                        number:"Solo números",
-
-                    }
-
+            messages:{
+                nombre_servi:{
+                    required:"Agrega descripción",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
                 },
+
+                precio:{
+                    required:"Ingresa número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                }
+
+            },
             errorPlacement: function(error, element) {
                 $(element)
                     .closest("form")
                     .find("label[for='" + element.attr("id") + "']")
                     .attr('data-error', error.text());
-                },
+            },
 
             submitHandler:function(form){
                 $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
@@ -808,60 +791,6 @@
         });
 
 
-
-        ///validar formulario
-        $("#save_servicio_lavanderia").validate({
-
-            rules:{
-                nombre_servi:{
-                    required:true,
-                    maxlength: 13,
-                    minlength: 4,
-                    lettersonly:true,
-                },
-                precio:{
-                    required:true,
-                    maxlength: 12,
-                    minlength: 4,
-                    number:true,
-                }
-            },
-            messages:{
-                nombre_servi:{
-                    required:"Ingresa un nombre",
-                    maxlength:"Maximo 13 caracteres",
-                    minlength:"Minimo 4 caracteres",
-
-                },
-                precio:{
-                    required:"Ingresa un precio",
-                    maxlength:"Maximo 4 caracteres",
-                    minlength:"Minimo 1 caracteres",
-
-                },
-            },
-            errorPlacement: function(error, element) {
-                $(element)
-                    .closest("form")
-                    .find("label[for='" + element.attr("id") + "']")
-                    .attr('data-error', error.text());
-            },
-            submitHandler:function(form){
-                $.post("<?php echo URL?>servicioslavaderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
-                    $("#body_table").empty().append(res);
-                    $('#save_servicio_lavanderia').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
-                    $("#modal_servicios_agregar").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
-
-                })
-            }
-        });
-
-
-
-
-
         //--------------------------Validacion observacion-------------------------------------------
         $("#save_observaciones_lavanderia").validate({
             rules:{
@@ -874,6 +803,7 @@
                 cargo:{
                     required:true,
                     maxlength: 3,
+                    minlength: 1,
                     number:true,
                 },
 
@@ -881,7 +811,7 @@
 
             messages:{
                 descripcion_observacion:{
-                    required:"Ingresa un nombre",
+                    required:"Ingresa una descripcion",
                     maxlength:"Maximo 13 caracteres",
                     minlength:"Minimo 4 caracteres",
 
@@ -890,6 +820,7 @@
                     required:"Ingresa un Cargo",
                     maxlength:"Maximo 4 caracteres",
                     minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
 
                 },
             },
@@ -904,13 +835,64 @@
                     $("#body_table_obser").empty().append(res);
                     $('#save_observaciones_lavanderia').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
+                    //$("#modal_registro").modal("close");
                     $("#modal_observaciones_agregar").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
-
                 })
             }
         });
 
+
+        //--------------------------Validacion clasikilo-------------------------------------------
+        $("#save_clasificacionkilo").validate({
+            rules:{
+                descripcion_serviciokilo:{
+                    required:true,
+                },
+                cantidadkg:{
+                    required:true,
+                    maxlength: 3,
+                    minlength: 1,
+                    number:true,
+                },
+                descripcion_observacionkilo:{
+                    required:true,
+                },
+
+            },
+
+            messages:{
+                descripcion_serviciokilo:{
+                    required:"Selecciona Un servicio",
+                },
+                cantidadkg:{
+                    required:"Ingresa un Cargo",
+                    maxlength:"Maximo 4 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+                descripcion_observacionkilo:{
+                    required:"Selecciona una observacion",
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                    $("#body_table_clasikilo").empty().append(res);
+                    $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    //$("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    $("#modal_clasikilo_agregar").modal("close");
+                })
+            }
+        });
 
 
 
@@ -929,8 +911,19 @@
         $("#buscar2").keyup(function() {
             $.uiTableFilter($("#tabla_clasikilo"), this.value);
         });
-});
+    });
 </script>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
