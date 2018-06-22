@@ -13,12 +13,12 @@
     <div class="col s4 offset-s2">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title">Habitaciones</span>
+                <div align="center"><span class="card-title">Habitaciones</span></div>
             </div>
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#test4">Test 1</a></li>
-                    <li class="tab"><a href="#test5">Test 2</a></li>
+                    <li class="tab"><a href="#test4">Estados</a></li>
+                    <li class="tab"><a href="#test5">Tipos</a></li>
                 </ul>
             </div>
             <div class="card-content grey lighten-4">
