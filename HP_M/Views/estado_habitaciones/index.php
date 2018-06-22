@@ -118,12 +118,16 @@
             rules:{
                 descripcion_estado:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 4,
+                    lettersonly:true,
                 },
             },
             messages:{
                 descripcion_estado:{
                     required:"Campo obligatorio",
-
+                    maxlength:"Maximo 20 caracteres",
+                    minlength:"Minimo 4 caracteres"
                 },
             },
             errorPlacement: function(error, element) {
