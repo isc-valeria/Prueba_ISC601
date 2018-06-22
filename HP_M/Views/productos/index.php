@@ -295,8 +295,8 @@
             rules:{
                 nombre_pro:{
                     required:true,
-                    maxlength: 30,
-                    minlength: 10,
+                    maxlength: 13,
+                    minlength: 8,
                     lettersonly:true,
                 },
                 id_categoriapro:{
@@ -320,8 +320,8 @@
             messages:{
                 nombre_pro:{
                     required:"Nombre del producto",
-                    maxlength:"Maximo 30 caracteres",
-                    minlength:"Minimo 10 caracteres"
+                    maxlength:"Maximo 13 caracteres",
+                    minlength:"Minimo 7 caracteres"
                 },
                 
                 stock_min:{
