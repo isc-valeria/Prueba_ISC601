@@ -67,7 +67,4 @@ class Ticket
         $this->conexion->QuerySimple($sql);
 
     }
-
-
-
 }

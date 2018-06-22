@@ -34,7 +34,7 @@ class Clasificacion_kilo
 
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}')";
+        $sql="insert into Clasificacion_kilo values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}')";
         $this->conexion->QuerySimple($sql);
     }
 

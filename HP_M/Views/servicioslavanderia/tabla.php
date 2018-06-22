@@ -6,7 +6,9 @@
  * Time: 08:55 AM
  */
 
-$dato=$datos[0];
+
+$dato=$datos["servicio"];
+//$datos["servicio"]->free();
 while($row=mysqli_fetch_array($dato))
     echo "
         <tr>
@@ -16,4 +18,5 @@ while($row=mysqli_fetch_array($dato))
                                   
         <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row['id_serviciolav']}'></a></td>
         <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row['id_serviciolav']}' href='#!'></a></td></tr>";
+$dato->data_seek(0);
 ?>
