@@ -10,22 +10,39 @@
 
 
 <div class="row">
-    <div class="col s4 offset-s2">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">Habitaciones</span>
-            </div>
-            <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#test4">Test 1</a></li>
-                    <li class="tab"><a href="#test5">Test 2</a></li>
-                </ul>
-            </div>
-            <div class="card-content grey lighten-4">
-                <div id="test4" align="center"><a href="<?php echo URL?>estado_habitaciones">Estado de las Habitaciones</a></div>
-                <div id="test5" align="center"><a href="<?php echo URL?>estado_reservacion">Estado de las Reservaciones</a></div>
-            </div>
-        </div>
+    <div class="col s10 offset-l1">
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Habitaciones</div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>estado_habitaciones">Estado de las Habitaciones</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>estado_reservacion">Estado de las Reservaciones</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>tipos_habitacion">Tipos de habitación</a></span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>categorias_producto">Categorias</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>tipos_producto">Tipos</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>servicioslavanderia">Servicios de Lavanderia</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>observaciones">Observaciones de Lavanderia</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>ticket">Ticket de Lavanderia</a></span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>categorias_producto">Categorias</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>tipos_producto">Tipos</a></span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>turnos">Turnos</a></span></div>
+                <div class="collapsible-body" align="center"><span><a href="<?php echo URL?>puestos">Puestos</a></span></div>
+
+            </li>
+        </ul>
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+    });
+</script>

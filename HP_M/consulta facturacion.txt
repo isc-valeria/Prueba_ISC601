@@ -6,5 +6,4 @@ select reservaciones.clave_reserva, facturacion.total from reservaciones,factura
     <td>{$row['precio_servicio']}</td>
     <td>{$row['total']}</td>
 
-
     SELECT habitaciones.num_habitacion, reservaciones.clave_reserva,facturacion.id_asignares FROM habitaciones, reservaciones, facturacion, asigna_reservaciones WHERE facturacion.id_asignares=asigna_reservaciones.id_asignares AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion

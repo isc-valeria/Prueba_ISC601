@@ -19,6 +19,8 @@
                     </div>
                     <div class="input-field col s12">
                         <a href="#!" id="update_categoria_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
                     </div>
                 </div>
             </div>
@@ -125,21 +127,22 @@
             rules:{
                 descripcion_cat:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 5,
                     lettersonly:true,
-                },
+                }
+                  
             },
+
             messages:{
-
                 descripcion_cat:{
-                    required:"Campo obligatorio",
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 5 caracteres"
                 },
-                descripcion_cat:{
-                    required: "Solo letras",
-                },
-                
-            },
+             },
 
-             
+
             errorPlacement: function(error, element) {
                 $(element)
                     .closest("form")
@@ -152,6 +155,7 @@
                     $("#body_table").empty().append(res);
                     $('#save_categoriapro').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
+                    Materialize.toast('Se a insertado correctamente', 2500);
                     $("#modal_registro").modal("close");
                 })
             }

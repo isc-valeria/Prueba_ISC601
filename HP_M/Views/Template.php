@@ -64,12 +64,12 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
+            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo" style="height: 60px;"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
         <?php if(!isset($_SESSION["username"]))
     {?>
             <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#!" class="black-text">Reservaciones</a></li>
+                    <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text">Reservaciones</a></li>
                     <li><a href="#!" class="black-text">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login" class="black-text">Login</a></li>
                 </ul>
@@ -91,10 +91,15 @@ class Template
                         <img src="<?php echo URL?>Public/imagenes/fondo.jpg">
                     </div>
 
-                    <div align="right"><a href="<?php echo URL?>Settings"><i class="material-icons">settings</i></a></div>
+                    <div class="row">
+                        <div class="col s5"><img class="circle" src="<?php echo URL?>Public/imagenes/Cesars.jpeg"></div>
+                        <div class="col s1"></div>
+                        <div class="col s5" align="right"><a href="<?php echo URL?>Settings"><i class="material-icons black-text ">settings</i></a></div>
+                    </div>
                     <a href="#!name"><span class="black-text name">John Doe</span></a>
                     <a href="#!email"><span class="black-text email">jdandturk@gmail.com</span></a>
-                </div></li>
+                </div>
+            </li>
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>

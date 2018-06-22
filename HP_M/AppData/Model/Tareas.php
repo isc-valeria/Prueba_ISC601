@@ -14,6 +14,7 @@ class Tareas
     private  $id_habitacion;
     private  $fecha_inicio;
     private  $fecha_fin;
+    private  $id_equiposegu;
 
     private $tabla="tareas";
     function __construct()
@@ -42,25 +43,41 @@ class Tareas
         ,STR_TO_DATE('{$this->fecha_inicio}','%d/%m/%Y')
         ,STR_TO_DATE('{$this->fecha_fin}','%d/%m/%Y'))";
 
-        print_r($sql);
-
         $this->conexion->QuerySimple($sql);
     }
 
     function getAll()
     {
-        $sql="select id_tarea,tipo_tarea.descripcion_tarea, empleados.nombre_emp,empleados.ap_emp,empleados.am_emp,habitaciones.num_habitacion,fecha_inicio,fecha_fin 
-              from tareas, tipo_tarea,empleados,habitaciones 
-              WHERE tareas.id_tipotarea=tipo_tarea.id_tipotarea 
-              and tareas.id_empleado=empleados.id_empleado 
-              and tareas.id_habitacion=habitaciones.id_habitacion";
+        $sql="SELECT tareas.id_tarea, 
+        tipo_tarea.descripcion_tarea,
+		empleados.nombre_emp,
+		empleados.ap_emp,
+		empleados.am_emp,
+		habitaciones.num_habitacion ,
+		fecha_inicio,
+		fecha_fin,
+		GROUP_CONCAT(nombre_equisegu) as equipo
+FROM Tareas,tipo_tarea,equipo_seguridad,asigna_equiposegu,habitaciones,empleados
+where tareas.id_tipotarea = tipo_tarea.id_tipotarea 
+and tareas.id_tarea=asigna_equiposegu.id_tarea
+and asigna_equiposegu.id_equiposegu=equipo_seguridad.id_equiposegu
+and tareas.id_habitacion=habitaciones.id_habitacion
+and tareas.id_empleado=empleados.id_empleado
+GROUP BY tareas.id_tarea;";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-
+    function getid()
+    {
+        $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'hotel' AND TABLE_NAME  = 'Tareas'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
     function delete($id)
     {
         $sql="delete from tareas where id_tarea='{$id}'";
+
+
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
