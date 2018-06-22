@@ -19,6 +19,8 @@
                     </div>
                     <div class="input-field col s12">
                         <a href="#!" id="update_categoria_ok" class="btn modal-close " data-id="">Actualizar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+
                     </div>
                 </div>
             </div>
@@ -153,6 +155,7 @@
                     $("#body_table").empty().append(res);
                     $('#save_categoriapro').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
+                    Materialize.toast('Se a insertado correctamente', 2500);
                     $("#modal_registro").modal("close");
                 })
             }
