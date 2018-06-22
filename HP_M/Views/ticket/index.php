@@ -986,7 +986,7 @@
         });
 
         $("#save_clasikilo_ok").click(function(){
-            $("#save_observaciones_lavanderia").submit();
+            $("#save_clasificacionkilo").submit();
 
         });
 
@@ -1040,14 +1040,8 @@
         });
 
         $("#save_clasipieza_ok").click(function(){
-            $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
-                $("#body_table_clasipieza").empty().append(res);
-                $('#save_clasificacionpieza').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_clasipieza_agregar").modal("close");
-            })
+            $("#save_clasificacionpieza").submit();
+
         });
 
         $("#body_table_clasipieza").on("click","a.btn_eliminar",function(){
@@ -1236,7 +1230,141 @@
 
 
 
-        
+
+//--------------------------Validacion clasificasion kilo-------------------------------------------
+        $("#save_clasificacionkilo").validate({
+                rules:{
+                    descripcion_servicio:{
+                        required:true,
+
+                    },
+                    cantidadkg:{
+                        required:true,
+                        maxlength:"Maximo 5 caracteres",
+                        minlength:"Minimo 1 caracteres",
+                        number:"Solo números",
+
+                    },
+                    descripcion_observacion:{
+                        required:true,
+
+                    },
+
+
+                },
+
+                messages:{
+                    descripcion_servicio:{
+                    required:"Agrega una descripción",
+
+                },
+
+                cantidadkg:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+
+                descripcion_observacion:{
+                    required:"Agrega una descripción",
+
+                }
+
+            },
+            errorPlacement: function(error, element) {
+            $(element)
+                .closest("form")
+                .find("label[for='" + element.attr("id") + "']")
+                .attr('data-error', error.text());
+        },
+
+        submitHandler:function(form){
+            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                $("#body_table_clasikilo").empty().append(res);
+                $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_clasikilo_agregar").modal("close");
+            })
+        }
+    });
+
+
+        //--------------------------Validacion clasificasion pieza-------------------------------------------
+        $("#save_clasificacionpieza").validate({
+            rules:{
+                descripcion_pieza:{
+                    required:true,
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                cantidad:{
+                    required:true,
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+                descripcion_serviciopieza:{
+                    required:true,
+
+                },
+
+                descripcion_observacionpieza:{
+                    required:true,
+
+                },
+
+            },
+
+            messages:{
+                descripcion_pieza:{
+                    required:"Agrega una descripción",
+
+                },
+
+                cantidad:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+
+                descripcion_serviciopieza:{
+                    required:"Agrega una descripción",
+
+                },
+
+                descripcion_observacionpieza: {
+                    required:"Agrega una descripción",
+                }
+
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+
+            submitHandler:function(form){
+                $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
+                    $("#body_table_clasipieza").empty().append(res);
+                    $('#save_clasificacionpieza').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    //$("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    $("#modal_clasipieza_agregar").modal("close");
+                })
+            }
+        });
+
+
 
 
 
