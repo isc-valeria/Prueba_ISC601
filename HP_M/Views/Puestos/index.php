@@ -8,36 +8,18 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="descripcion_puesto" type="text" class="validate" name="descripcion_puesto">
-                            <label for="descripcion_puesto"  data-error="Incorrecto" data-success="Correcto" >Puesto</label>
+                            <input id="descripcion_puesto" type="text"  name="descripcion_puesto">
+                            <label for="descripcion_puesto">Puesto</label>
                         </div>
-                        <!--<div class="input-field col s5">
-                            <select id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
-                                <option value="" disabled selected>Selecciona La Descripcion</option>
-                                <?php
-                                /*$result3=$datos[1];
-                                while ($row=mysqli_fetch_array($result3))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";*/
-                                ?>
-                            </select>
-                            <label for="descripcion_tipo" data-error="incorrecto" data-success="Correcto" >Descripción</label>
-                        </div>-->
 
-                        <!--<div class="input-field col s1">
-
-                        </div>
-                        <div class="input-field col s5">
-                            <input id="descripcion" type="text" class="validate" name="descripcion">
-                            <label for="descripcion"  data-error="incorrecto" data-success="Correcto">Descripción</label>
-                        </div>-->
                     </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipo_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_tipo_ok" class="btn">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_tipo_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_tipo_ok" class="btn modal-close" data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -105,15 +87,9 @@
             $("#save_tipo_ok").show();
         });
         $("#save_tipo_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>Puestos/crear",$("#save_tipo").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_tipo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            $("#save_tipo").submit();
+
+
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -151,6 +127,43 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+        ///validar formulario
+        $("#save_tipo").validate({
+
+            rules: {
+                descripcion_puesto: {
+                    required: true,
+                    maxlength: 30,
+                    minlength: 3,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                descripcion_puesto:{
+                    required:"Ingresa una descripcion",
+                    maxlength:"Maximo 30 caracteres",
+                    minlength:"Minimo 3 caracteres",
+
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>Puestos/crear",$("#save_tipo").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_tipo').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
+        });
+
 
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
