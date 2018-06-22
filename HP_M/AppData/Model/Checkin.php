@@ -49,4 +49,10 @@ class Checkin
         return $result3;
     }
 
+    function tabs(){
+        $sql="SELECT id_tipoh, tipo_ha FROM tipos_habitacion";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
 }

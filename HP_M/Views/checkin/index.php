@@ -1,26 +1,22 @@
-<nav>
-    <div class="nav-wrapper  light-green lighten-1 " >
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">Piso 1 </a></li>
-            <li><a href="badges.html">Piso 2</a></li>
-            <li><a href="collapsible.html">Piso 3 </a></li>
-        </ul>
+<div class="card-panel">
+    <h4 align="center">Check-In's Pendientes<span class="right"><a href="#modal_registro"class="btn green white-text modal-trigger" id="add_checkin">
+                <i class="material-icons">add</i>
+            </a></span></h4>
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="input-field col s5 offset-s6">
+            <i class="mdi-action-verified-user prefix icon-search "></i>
+            <input id="buscar1" placeholder= "Buscar folio de reservación" type="text">
+        </div>
     </div>
-</nav>
-
-<div class="row">
-    <div class="col s2 m2">
-        <div class="card">
-            <div class="card-image">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div align="center" class="card-content">
-                <p>Habitación</p>
-            </div>
-            <div class="card-action">
-                <a href="#!" id="save_asigna_servicios_ok" class="btn modal-close">Ver</a>
-
-            </div>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+            <?php
+            require_once ("tabla.php");
+            ?>
+            </ul>
         </div>
     </div>
 </div>

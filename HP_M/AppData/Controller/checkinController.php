@@ -29,9 +29,11 @@ class checkinController
     {
         $datos1=$this->check_in->getAll();
         $datos2=$this->check_in->getDatos();
+        $datos3=$this->check_in->tabs();
 
         $datos[0]=$datos1;
         $datos[1]=$datos2;
+        $datos[2]=$datos3;
         return $datos;
     }
 }
