@@ -10,7 +10,7 @@ class tareasController
         $this->empleados=new \AppData\Model\Empleados();
         $this->habitaciones=new \AppData\Model\Habitaciones();
         $this->herramientas=new \AppData\Model\Equipo_seguridad();
-
+        $this->asigna_eq=new \AppData\Model\Asigna_equiposegu();
     }
     public function index()
     {
@@ -29,17 +29,23 @@ class tareasController
         return $datos;
     }
     public function crear(){
-       // print_r($_POST);
+        // print_r($_POST);
         if(isset($_POST))
         {
+            /*
             $herramientas=$_POST["eq"];
-           for($i=0;$i<count($herramientas);$i++)
-           {
-               $id_herramineta=$herramientas[$i];
-               echo $id_herramineta;
-               $this->herramientas->update();
+            for($i=0;$i<count($herramientas);$i++)
+            {
+                $id_herramineta=$herramientas[$i];
+                echo $id_herramineta;
+                $this->herramientas->update();
 
-           }
+            }*/
+
+            $idt=$this->Tareas->getid();
+            $dato=$idt;
+            $row=mysqli_fetch_array($dato);
+            $id=$row[0];
 
             $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
             $this->Tareas->set('id_empleado',$_POST["empleados"]);
@@ -48,9 +54,16 @@ class tareasController
             $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
             $this->Tareas->add();
 
+            $herramientas=$_POST["eq"];
+            for($i=0;$i<count($herramientas);$i++)
+            {
+                $id_herramineta=$herramientas[$i];
+                $this->asigna_eq->set('id_equiposegu',$id_herramineta);
+                $this->asigna_eq->set('id_tarea',     $id);
+                $this->asigna_eq->add();
+            }
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
-            //console.log("mensaje");
             return $datos;
 
         }
@@ -58,6 +71,7 @@ class tareasController
     public function eliminar($id)
     {
         $this->Tareas->delete($id[0]);
+        $this->asigna_eq->delete($id[0]);
         $datos1=$this->Tareas->getAll();
         $datos[0]=$datos1;
         return $datos;
