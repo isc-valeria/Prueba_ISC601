@@ -316,12 +316,12 @@
                     <h4>Nueva observacion</h4>
                     <div class="divider"></div>
                     <div class="input-field input-field col s5 center">
-                        <input id="descripcion_observacion" type="text" class="validate" name="descripcion_observacion">
+                        <input id="descripcion_observacion" type="text"  name="descripcion_observacion">
                         <label for="descripcion_observacion"  >Nombre de observación</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="cargo" type="text" class="validate" name="cargo">
+                        <input id="cargo" type="text"  name="cargo">
                         <label for="cargo"   >Cargo</label>
                     </div>
 
@@ -439,7 +439,7 @@
                     </div>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="cantidadkg" type="text" class="validate" name="cantidadkg">
+                        <input id="cantidadkg" type="text"  name="cantidadkg">
                         <label for="cantidadkg"  data-error="Incorrecto" data-success="Correcto" >Cantidad (KG)</label>
                     </div>
 
@@ -962,14 +962,8 @@
         });
 
         $("#save_clasikilo_ok").click(function(){
-            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
-                $("#body_table_clasikilo").empty().append(res);
-                $('#save_clasificacionkilo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_clasikilo_agregar").modal("close");
-            })
+            $("#save_observaciones_lavanderia").submit();
+
         });
 
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
@@ -1134,60 +1128,13 @@
 
 
 
+
+        
+
+
+
+
 //---------------------------------------------------------------------------
-//--------------------------Validacion clasificasion kilo-------------------------------------------
-        $("#save_clasificacionkilo").validate({
-            rules:{
-                nombre_servi:{
-                    required:true,
-                    maxlength: 20,
-                    minlength: 5,
-                    lettersonly:true,
-                },
-                precio:{
-                    required:true,
-                    maxlength: 3,
-                    number:true,
-                },
-
-            },
-
-            messages:{
-                nombre_servi:{
-                    required:"Agrega una descripción",
-                    maxlength:"Maximo 12 caracteres",
-                    minlength:"Minimo 4 caracteres",
-                },
-
-                precio:{
-                    required:"Ingresa  número",
-                    maxlength:"Maximo 5 caracteres",
-                    minlength:"Minimo 1 caracteres",
-                    number:"Solo números",
-
-                }
-
-            },
-            errorPlacement: function(error, element) {
-                $(element)
-                    .closest("form")
-                    .find("label[for='" + element.attr("id") + "']")
-                    .attr('data-error', error.text());
-            },
-
-            submitHandler:function(form){
-                $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_clasificacionkilo").serialize(),function(res){
-                    $("#body_table_ser").empty().append(res);
-                    $('#save_clasificacionkilo').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
-                    $("#modal_servicios_agregar").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
-
-                })
-            }
-        });
-
-
 
 
 
