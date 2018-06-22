@@ -126,7 +126,7 @@
                 descripcion_cat:{
                     required:true,
                     maxlength: 20,
-                    minlength: 8,
+                    minlength: 5,
                     lettersonly:true,
                 }
                   
@@ -136,7 +136,7 @@
                 descripcion_cat:{
                 required:"Campo Obligatorio",
                 maxlength:"Maximo 20 caracteres",
-                minlength:"Minimo 8 caracteres"
+                minlength:"Minimo 5 caracteres"
                 },
              },
 
