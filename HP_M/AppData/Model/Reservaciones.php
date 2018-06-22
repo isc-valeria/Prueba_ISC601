@@ -18,7 +18,7 @@ class Reservaciones
     private $fecha_reserva;
     private $fecha_llegada;
     private $fecha_salida;
-    private $id_estador;
+    private $id_estador=63;
     private $no_personas;
 
 
@@ -51,13 +51,20 @@ class Reservaciones
         where id_reservacion='{$this->id_reservacion}'";
         $this->conexion->QuerySimple($sql);
     }
-    function delete($id){
-        $sql="delete from {$this->tabla} where id_reservacion='{$id}'";
+    function delete(){
+        $sql="update {$this->tabla} set {$this->id_estador} where id_reservacion='{$this->id_reservacion}'";
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
     {
         $sql="select * from  {$this->tabla} where id_reservacion='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+    function getData($id)
+    {
+        $sql="SELECT reservaciones.id_reservacion, reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, estado_reserva.estador, reservaciones.no_personas from {$this->tabla}, clientes, estado_reserva WHERE reservaciones.id_cliente=clientes.id_cliente AND estado_reserva.id_estador= reservaciones.id_estador and id_reservacion='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }

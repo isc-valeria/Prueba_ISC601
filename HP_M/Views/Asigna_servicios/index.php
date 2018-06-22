@@ -86,7 +86,7 @@
                 <input id="buscar" type="text" placeholder="Buscar">
             </div>
 
-            <table class="centered" id="body_table">
+            <table class="centered" id="tabla_content">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -155,8 +155,8 @@
   
 
         $("#buscar").keyup(function() {
-            $.uiTableFilter($("#body_table"), this.value);
-        });
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });                
     });
 
 </script>

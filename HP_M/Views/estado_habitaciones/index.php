@@ -26,31 +26,33 @@
         </div>
     </div>
 </div>
-
-<div class="card-panel">
-    <h4 align="center">Estados de Habitaciones<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_estadohabitacion"><i class="material-icons">add</i></a></span></h4>
-    <div class="divider"></div>
-    <div class="row">
-        <div class="input-field col s4 offset-s8">
-            <i class="mdi-action-verified-user prefix icon-search"></i>
-            <input id="buscar" placeholder="Buscar" type="text">
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card-panel">
+            <h4 align="center">Estados de Habitaciones<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_estadohabitacion"><i class="material-icons">add</i></a></span></h4>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="input-field col s4 offset-s8">
+                    <i class="mdi-action-verified-user prefix icon-search"></i>
+                    <input id="buscar" placeholder="Buscar" type="text">
+                </div>
+            </div>
+            <table class="responsive-table" id="tabla_content">
+                <thead>
+                    <tr>
+                        <th>Estado</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="body_table">
+                    <?php
+                        require_once ("tabla.php");
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
-    <table class="responsive-table" id="tabla_content">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Estado</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="body_table">
-            <?php
-                require_once ("tabla.php");
-            ?>
-        </tbody>
-    </table>
 </div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">

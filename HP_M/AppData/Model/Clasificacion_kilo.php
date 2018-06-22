@@ -66,10 +66,5 @@ class Clasificacion_kilo
                id_observacion='{$this->id_observacion}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
         $this->conexion->QuerySimple($sql);
     }
-    function combo_servicio(){
 
-        $sql="select * from servicios_lavanderia";
-        $this->conexion->QuerySimple($sql);
-        return $datos;
-    }
 }

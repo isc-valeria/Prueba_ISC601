@@ -1,105 +1,104 @@
-<div class="row center-align">
-    <div class="col s2">
-        <input type="text" class="datepicker" id="inicio" placeholder="Fecha Inicio"  >
-    </div>
-    <div class="col s2">
-        <input type="text" class="datepicker" id="final" placeholder="Fecha Final" >
-    </div>
-    <div class="col s2">
-        <input type="number" min="1" max="20" class="adultos" id="adultos" placeholder="Adultos"  >
+<div class="row">
+    <div class="col l8 offset-l2 m12 s12">
+        <div class=" col s3 ">
+            <input type="text" class="datepicker " id="inicio" placeholder="Fecha Inicio"  >
+        </div>
+        <div class="col s3">
+            <input type="text" class="datepicker" id="final" placeholder="Fecha Final" >
+        </div>
+        <div class="col s2">
+            <input type="number" min="1" max="20" class="adultos" id="adultos" placeholder="Adultos"  >
 
-    </div>
-    <div class="col s2">
-        <input type="number" min="0" max="20" class="niños" id="niños" placeholder="Niños"  >
-    </div>
-    <div class="input-field col s2">
-        <a href="#!" id="" class="btn modal-close " data-id="">Buscar</a>
+        </div>
+        <div class="col s2">
+            <input type="number" min="0" max="20" class="niños" id="niños" placeholder="Niños"  >
+        </div>
+        <div class="input-field col s2">
+            <a href="#!" id="" class="btn modal-close blue lighten-5 black-text" data-id="">Buscar</a>
+        </div>
     </div>
 </div>
+<div class="row">
+    <div class="col l8 offset-l2 m12 s12">
+        <form>
+            <div>
+                <div class="col ">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="<?php echo URL?>Public/imagenes/simple.jpg" height=270" width="150">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h3>Habitacion Simple</h3>
+                                <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                                    <br>
+                                    Tamaño: 20 m²
+                                    <br>
+                                    Camas:  1 cama
+                                    <br>
+                                    Aloja:  1 persona
+                                </p>
+                                ..............................................<br>
+                                <a class="tooltipped" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
+                                <a class="tooltipped" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
+                                <a class="tooltipped" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
+                            </div>
 
-<form>
-    <div>
-        <div class="col s12 m7">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src="<?php echo URL?>Public/imagenes/simple.jpg" height=270" width="150">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h3>Habitacion Simple</h3>
-                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
-                            <br>
-                            Tamaño: 20 m²
-                            <br>
-                            Camas:  1 cama
-                            <br>
-                            Aloja:  1 persona
-                        </p>
-                        ..............................................<br>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
-                    </div>
-                    <div class="card-action">
-                        <a href="">Reservar</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div>
-        <div class="col s12 m7">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src="<?php echo URL?>Public/imagenes/doble.jpg" height=270" width="150">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h3>Habitacion Doble</h3>
-                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
-                            <br>
-                            Tamaño: 20 m²
-                            <br>
-                            Camas:  1 cama
-                            <br>
-                            Aloja:  1 persona
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="">Reservar</a>
+            <div>
+                <div class="col">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="<?php echo URL?>Public/imagenes/doble.jpg" height=270" width="150">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h3>Habitacion Doble</h3>
+                                <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                                    <br>
+                                    Tamaño: 20 m²
+                                    <br>
+                                    Camas:  1 cama
+                                    <br>
+                                    Aloja:  1 persona
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div>
-        <div class="col s12 m7">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src="<?php echo URL?>Public/imagenes/simple.jpg">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h3>Habitacion Simple</h3>
-                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
-                            <br>
-                            Tamaño: 20 m²
-                            <br>
-                            Camas:  1 cama
-                            <br>
-                            Aloja:  1 persona
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="">Reservar</a>
+            <div>
+                <div class="col">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="<?php echo URL?>Public/imagenes/simple.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h3>Habitacion Simple</h3>
+                                <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                                    <br>
+                                    Tamaño: 20 m²
+                                    <br>
+                                    Camas:  1 cama
+                                    <br>
+                                    Aloja:  1 persona
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-</form>
+</div>
 
 
 

@@ -230,8 +230,9 @@
         $(".modal").modal();
         $("#add_producto").click(function(){
             $("#update_productos_ok").hide();
-            $("#save_productos_ok").show();
+            $("#save_productos_almacen").show();
         });
+    
         $("#save_productos_ok").click(function(){
             $("#save_productos_ok").submit();
             console.log("ok")
@@ -296,7 +297,7 @@
                 nombre_pro:{
                     required:true,
                     maxlength: 20,
-                    minlength: 8,
+                    minlength: 5,
                     lettersonly:true,
                 },
                 id_categoriapro:{
@@ -321,7 +322,7 @@
                 nombre_pro:{
                     required:"Campo Obligatorio",
                     maxlength:"Maximo 20 caracteres",
-                    minlength:"Minimo 8 caracteres"
+                    minlength:"Minimo 5 caracteres"
                 },
                 
                 stock_min:{
