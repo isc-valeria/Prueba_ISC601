@@ -61,15 +61,10 @@ class Clasificacion_pieza
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-    function update(){
-
-        $sql="update {$this->tabla} set descripcion_pieza'{$this->descripcion_pieza}', id_serviciolav='{$this->id_serviciolav}', cantidad='{$this->cantidad}',id_observacion='{$this->id_observacion}' where id_clasificacionpieza='{$this->id_clasificacionpieza}'";
+    function update()
+    {
+        $sql="update Clasificacion_pieza set descripcion_pieza='{$this->descripcion_pieza}', cantidad='{$this->cantidad}',
+              id_serviciolav='{$this->id_serviciolav}', id_observacion='{$this->id_observacion}' WHERE id_clasificacionpieza='{$this->id_clasificacionpieza}' ";
         $this->conexion->QuerySimple($sql);
-    }
-    function combo_servicio(){
-
-        $sql="select * from servicios_lavanderia";
-        $this->conexion->QuerySimple($sql);
-        return $datos;
     }
 }

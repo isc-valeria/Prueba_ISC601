@@ -1,6 +1,6 @@
 <?php
 
-$dato=$datos[4];
+$dato=$datos["venta_kilo"];
 while($row=mysqli_fetch_array($dato))
     echo "
         <tr>
