@@ -26,7 +26,7 @@ class asigna_equiposegu
     }
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->id_asignaequiposegu}','{$this->id_equiposegu}','{$this->id_tarea})";
+        $sql="insert into {$this->tabla}  values('0','{$this->id_equiposegu}','{$this->id_tarea}')";
         $this->conexion->QuerySimple($sql);
     }
     function getAll()
@@ -38,7 +38,7 @@ class asigna_equiposegu
 
     function delete($id)
     {
-        $sql="delete from Asigna_equiposegu where id_asignaequiposegu='{$id}'";
+        $sql="delete from asigna_equiposegu where id_tarea='{$id}'";
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)
