@@ -13,10 +13,11 @@
     <div class="col s4 offset-s2">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title">Habitaciones</span>
+                <div align="center"><span class="card-title">Habitaciones</span></div>
             </div>
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
+
                     <li class="tab"><a href="#test4">Habitaciones</a></li>
                     <li class="tab"><a href="#test5">Reservaciones</a></li>
                     <li class="tab"><a href="#test6">Tipos</a></li>
