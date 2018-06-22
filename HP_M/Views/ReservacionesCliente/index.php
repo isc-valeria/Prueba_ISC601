@@ -1,12 +1,6 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-<script src="http://momentjs.com/downloads/moment.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" rel="stylesheet"/>
-
-<div class="row">
+<div class="row center-align">
     <div class="col s2">
         <input type="text" class="datepicker" id="inicio" placeholder="Fecha Inicio"  >
-
     </div>
     <div class="col s2">
         <input type="text" class="datepicker" id="final" placeholder="Fecha Final" >
@@ -21,8 +15,92 @@
     <div class="input-field col s2">
         <a href="#!" id="" class="btn modal-close " data-id="">Buscar</a>
     </div>
-
 </div>
+
+<form>
+    <div>
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="<?php echo URL?>Public/imagenes/simple.jpg" height=270" width="150">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3>Habitacion Simple</h3>
+                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                            <br>
+                            Tamaño: 20 m²
+                            <br>
+                            Camas:  1 cama
+                            <br>
+                            Aloja:  1 persona
+                        </p>
+                        ..............................................<br>
+                        <a class="tooltipped" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
+                        <a class="tooltipped" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
+                        <a class="tooltipped" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
+                    </div>
+                    <div class="card-action">
+                        <a href="">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="<?php echo URL?>Public/imagenes/doble.jpg" height=270" width="150">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3>Habitacion Doble</h3>
+                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                            <br>
+                            Tamaño: 20 m²
+                            <br>
+                            Camas:  1 cama
+                            <br>
+                            Aloja:  1 persona
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="<?php echo URL?>Public/imagenes/simple.jpg">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3>Habitacion Simple</h3>
+                        <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                            <br>
+                            Tamaño: 20 m²
+                            <br>
+                            Camas:  1 cama
+                            <br>
+                            Aloja:  1 persona
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 
 
@@ -59,4 +137,8 @@
             inicio_picker.set('max', false)
         }
     })
+
+    $(document).ready(function(){
+        $('.tooltipped').tooltip();
+    });
 </script>
