@@ -5,14 +5,12 @@
 
 
 
-    define('URL',"http://localhost/601_prograWeb/Prueba_ISC601/HP_M/");
+    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
 
     require_once ("AppData/Config/Autoload.php");
     \AppData\Config\Autoload::run();
-
-
-
+    
   //  echo $_GET["url"];
 
      if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))

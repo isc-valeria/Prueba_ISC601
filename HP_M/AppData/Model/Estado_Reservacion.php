@@ -11,10 +11,9 @@ namespace AppData\Model;
 
 class Estado_Reservacion
 {
-
+    private $tabla="estado_reserva";
     private $id_estador;
     private $estador;
-    private $tabla="estado_reserva";
 
     private $conexion;
 

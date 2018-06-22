@@ -113,16 +113,22 @@
         });
 
 
+
         $("#save_estadoreserva").validate({
 
             rules:{
                 descripcion_estadoreserva:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 4,
+                    lettersonly:true,
                 },
             },
             messages:{
                 descripcion_estadoreserva:{
-                    required:"Campo obligatorio",
+                    required:"Ingresaa descripción",
+                    maxlength:"Maximo 20 caracteres",
+                    minlength:"Minimo 4 caracteres"
 
                 },
             },
@@ -141,6 +147,7 @@
                 })
             }
         });
+
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });

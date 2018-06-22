@@ -5,19 +5,19 @@ namespace AppData\Controller;
 
 class habitacionesController
 {
-    private $habitaciones,$tipo_habitaciones,$estado_habitaciones;
+    private $habitaciones,$tipos_habitacion,$estado_habitaciones;
 
     public function __construct()
     {
         $this->habitaciones= new \AppData\Model\Habitaciones();
-        $this->tipo_habitaciones=new \AppData\Model\Tipos_habitacion();
+        $this->tipos_habitacion=new \AppData\Model\tipos_habitacion();
         $this->estado_habitaciones= new \AppData\Model\EstadoHabitaciones();
     }
 
     public function index()
     {
         $datos1=$this->habitaciones->getAll();
-        $datos2=$this->tipo_habitaciones->getAll();
+        $datos2=$this->tipos_habitacion->getAll();
         $datos3=$this->estado_habitaciones->getAll();
         $datos[0]=$datos1;
         $datos[1]=$datos2;
@@ -30,8 +30,6 @@ class habitacionesController
             $this->habitaciones->set('num_habitacion',$_POST["numero_habitacion"]);
             $this->habitaciones->set('descripcion_hab',$_POST["descripcion"]);
             $this->habitaciones->set('id_tipoh',$_POST["id_tipoh"]);
-            $this->habitaciones->set('id_estadoh',$_POST["nomestadohabitacion"]);
-
 
             $this->habitaciones->add();
             $datos1=$this->habitaciones->getAll();
@@ -81,6 +79,19 @@ class habitacionesController
     {
         $datos=$this->habitaciones->graficar();
         return $datos;
+
+    }
+    public function creartipo(){
+        if($_POST)
+        {
+            $this->tipos_habitacion->set('tipo_ha',$_POST["tipo_ha"]);
+            $this->tipos_habitacion->set('precio',$_POST["precio"]);
+            $this->tipos_habitacion->set('maximo_personas',$_POST["maximo_personas"]);
+
+            $this->tipos_habitacion->add();
+            $datos=$this->tipos_habitacion->getAll();
+            return $datos;
+        }
 
     }
 }

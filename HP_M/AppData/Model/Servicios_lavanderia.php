@@ -42,6 +42,13 @@ class Servicios_lavanderia
         return $datos;
     }
 
+    function combo()
+    {
+        $sql="select {$this->descripcion_servicio} from {$this->tabla} order by  id_serviciolav ASC";
+        $datos= $this->conexion ->QueryResultado($sql);
+        return $datos;
+    }
+
     function delete($id)
     {
         $sql="DELETE FROM Servicios_lavanderia WHERE id_serviciolav='{$id}'";
@@ -59,11 +66,12 @@ class Servicios_lavanderia
     {
         $sql="UPDATE Servicios_lavanderia SET descripcion_servicio='{$this->descripcion_servicio}', precio='{$this->precio}' where  id_serviciolav='{$this->id_serviciolav}'";
         $this->conexion->QuerySimple($sql);
-
     }
 
     function graficas()
     {
         //aqui va la consulta de sql
     }
+
+
 }

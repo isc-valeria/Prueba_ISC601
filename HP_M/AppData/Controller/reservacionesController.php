@@ -15,6 +15,7 @@ class reservacionesController
     private $clientes;
     private $tipos_habitacion;
     private $habitaciones;
+    private $estadorc=63;
 
 
 
@@ -70,10 +71,25 @@ class reservacionesController
 
     public function eliminar($id)
     {
-        $this->reservaciones->delete($id[0]);
-        $datos1=$this->reservaciones->getAll();
-        $datos[0]=$datos1;
-        return $datos;
+        if($_POST)
+        {
+            $this->reservaciones->set("id_reservacion",$id[0]);
+            $this->reservaciones->set("id_estador",$_POST[$this->estadorc]);
+            $this->reservaciones->delete();
+            $datos1=$this->reservaciones->getAll();
+            $datos[0]=$datos1;
+            return $datos;
+        }
+    }
+
+    public function delite($id)
+    {
+        $datos=$this->reservaciones->getData($id[0]);
+        //print_r($datos);
+       //   $datos->data_seek(0);
+        $datos=mysqli_fetch_array($datos);
+       // print_r($datos);
+        print_r(json_encode($datos));
     }
     public function modificar($id)
     {

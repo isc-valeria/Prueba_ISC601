@@ -98,8 +98,6 @@
 
         });
         $("#save_turno_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
             $.post("<?php echo URL?>Turnos/crear",$("#save_turno").serialize(),function(res){
                 $("#body_table").empty().append(res);
                 $('#save_turno').find('input, select, textarea').val('');
