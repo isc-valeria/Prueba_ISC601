@@ -12,7 +12,7 @@ namespace AppData\Model;
 class Tipos_producto
 {
     private $tabla="Tipos_producto";
-    private $descripcion_pro;
+    private $id_tipopro,$descripcion_pro;
 
     private $conexion;
 

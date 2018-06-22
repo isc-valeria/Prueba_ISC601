@@ -125,21 +125,22 @@
             rules:{
                 descripcion_cat:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 8,
                     lettersonly:true,
-                },
+                }
+                  
             },
+
             messages:{
-
                 descripcion_cat:{
-                    required:"Campo obligatorio",
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 8 caracteres"
                 },
-                descripcion_cat:{
-                    required: "Solo letras",
-                },
-                
-            },
+             },
 
-             
+
             errorPlacement: function(error, element) {
                 $(element)
                     .closest("form")

@@ -13,8 +13,11 @@
                                 <?php
                                 $result1=$datos[1];
                                 while ($row=mysqli_fetch_array($result1))
+                                {
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                }
                                 ?>
+
                             </select>
                             <label for="tareas"  >Seleciona Tarea</label>
                         </div>
@@ -25,7 +28,7 @@
                                 <?php
                                 $result2=$datos[2];
                                 while ($row=mysqli_fetch_array($result2))
-                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[1]} {$row[2]} {$row[3]}</option>";
                                 ?>
                             </select>
                             <label for="empleados">Seleciona Empleado</label>
@@ -38,18 +41,12 @@
                                 <?php
                                 $result3=$datos[3];
                                 while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[2]}</option>";
                                 ?>
                             </select>
                             <label for="habitacion"  >Tipo de Habitación</label>
                         </div>
-                        <div class=" col s6">
-                            <?php
-                            $result4=$datos[4];
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<input type='checkbox' id='$row[0]' name='eq[]' value='$row[0]'><label for='$row[0]'>{$row[1]}</label>";
-                            ?>
-                        </div>
+
                         <div class="input-field col l3">
                             <label>Fecha de Inicio</label>
                             <input id="fecha_i" type="text" class="datepicker" name="fecha_i">
@@ -60,7 +57,17 @@
                             <input id="fecha_f" type="text" class="datepicker" name="fecha_f">
                         </div>
                     </div>
-                    
+                    <div class=" col s12">
+                        <label><b>Seleciona las herramientas</b></label>
+                    </div>
+                    <div class=" col s12">
+                        <?php
+                        $result4=$datos[4];
+                        while ($row=mysqli_fetch_array($result4)) {
+                            echo "<input type='checkbox' id='$row[0]' name='eq[]' value='$row[0]'><label for='$row[0]'>{$row[1]}</label>";
+                        }
+                        ?>
+                    </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_tarea_ok" class="btn ">Registrar</a>
@@ -86,21 +93,21 @@
     </div>
     <table class="responsive-table" id="tabla_content">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Tarea</th>
-                <th>Empleado</th>
-                <th>Habitacion</th>
-                <th>Inicio</th>
-                <th>Fin</th>
-                <th></th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Tarea</th>
+            <th>Empleado</th>
+            <th>Habitacion</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Equipo Utilizado</th>
+            <th>Eliminar</th>
+            <th>Actualizar</th>
+        </tr>
         </thead>
         <tbody id="body_table">
-            <?php
-                require_once ("tabla.php");
-            ?>
+        <?php
+        require_once ("tabla.php");
+        ?>
         </tbody>
     </table>
     <div class="center">
@@ -223,11 +230,14 @@
             },
             submitHandler:function(form){
                 $.post("<?php echo URL?>tareas/crear",$("#save_tarea").serialize(),function(res){
-                    console.log(res);
+                    console.log($("#save_tarea").serialize());
                     $("#body_table").empty().append(res);
                     $('#save_tarea').find('input, select, textarea').val('');
-                     Materialize.updateTextFields();
+                    Materialize.updateTextFields();
+                    //$('input:checkbox'.attr('checked',false);
+                    // $('input:checkbox[name=eq]').removeAttr('checked');
                     $("#modal_registro").modal("close");
+
                 })
             }
         });

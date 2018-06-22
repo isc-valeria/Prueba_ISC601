@@ -161,15 +161,18 @@
                 precio:{
                     required:true,
                     number:true,
+                    maxlength: 4,
+                    minlength: 3,
                 },
                 maximo_personas:{
                     required:true,
                     number:true,
+                    maxlength: 2,
                 },
             },
             messages:{
                 tipo_ha:{
-                    required:"Ingresaa descripción",
+                    required:"Ingresa descripción",
                     maxlength:"Maximo 20 caracteres",
                     minlength:"Minimo 4 caracteres"
 
@@ -177,11 +180,15 @@
                 precio:{
                     required:"Ingresa un precio",
                     number:"Sólo números",
+                    maxlength:"Maximo 4 digitos",
+                    minlength:"Minimo 3 digitos",
+
 
                 },
                 maximo_personas:{
                     required:"Ingresa el máximo de personas",
                     number:"Sólo números",
+                    maxlength:"Maximo 2 digitos",
                 },
             },
             errorPlacement: function(error, element) {

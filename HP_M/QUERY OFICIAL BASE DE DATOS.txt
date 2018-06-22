@@ -1,7 +1,4 @@
 ﻿
-create table Turnos (id_turno int primary key AUTO_INCREMENT,descripcion_turno varchar(15), hr_entrada time, hr_salida time);
-create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int , id_turno int);
-create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puesto varchar(30));
 
 
 create table Equipo_seguridad (id_equiposegu int primary key AUTO_INCREMENT, nombre_equisegu varchar(30),id_tipoequisegu int,cantidad int,id_estadomantenimiento int);
@@ -49,6 +46,13 @@ create table Checkout(id_checkout int primary key AUTO_INCREMENT, id_asignares i
 
 create table usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
 create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20));
+
+create table Salida(id_salida int primary key AUTO_INCREMENT,id_empleado int,fecha_salida datetime default null);
+create table Entrada(id_entrada int primary key  AUTO_INCREMENT,id_empleado int, fecha_entrada datetime default null);
+create table Turnos (id_turno int primary key AUTO_INCREMENT,descripcion_turno varchar(15), hr_entrada  time, hr_salida  time);
+create table Empleados (id_empleado int primary key AUTO_INCREMENT, nombre_emp varchar(20), ap_emp varchar(30), am_emp varchar(30), id_puesto int , id_turno int,codigo int);
+create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puesto varchar(30));
+
 
 insert into tipo_usuario values(1,'Empleado');
 insert into tipo_usuario values(2,'Cliente');
@@ -268,21 +272,9 @@ insert into Asignadestino_servicios values (251, 221, 51);
 insert into Asignadestino_servicios values (252, 222, 52);
 
 
-
-insert into Empleados  values(301, 'Jesus','Lopez','Santana', 1,321);
-
-insert into Empleados  values(302, 'Gabriela','Morales','Guadarrama', 2,322);
-
-insert into Empleados  values(303, 'Jorge','Benitez', 'Cruz', 3,320);
-
-
-
 insert into Puestos values(1, 'Camarero');
 
 insert into Puestos values(2, 'Recepcionista');
-
-insert into Puestos values(3, 'Cliente');
-
 insert into Puestos values(4, 'Administrador');
 
 
