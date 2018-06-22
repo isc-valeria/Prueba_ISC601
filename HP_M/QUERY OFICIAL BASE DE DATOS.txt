@@ -20,8 +20,8 @@ create table Asignadestino_servicios(id_destinoser int primary key AUTO_INCREMEN
 
 create table Servicios_lavanderia (id_serviciolav int primary key AUTO_INCREMENT, descripcion_servicio varchar(30), precio int);
 create table Observaciones (id_observacion int primary key AUTO_INCREMENT, descripcion_observacion varchar(50),cargo float);
-create table Clasificacion_kilo(id_clasificacionkilo int primary key AUTO_INCREMENT, id_serviciolav int, cantidadkg int, id_observacion int);
-create table Clasificacion_pieza(id_clasificacionpieza int primary key AUTO_INCREMENT,descripcion_pieza varchar(30),cantidad int, id_serviciolav int, id_observacion int);
+create table Clasificacion_kilo(id_clasificacionkilo int primary key AUTO_INCREMENT, id_serviciolav int, cantidadkg int, id_observacion int, fecha_registro datetime default null);
+create table Clasificacion_pieza(id_clasificacionpieza int primary key AUTO_INCREMENT,descripcion_pieza varchar(30),cantidad int, id_serviciolav int, id_observacion int, fecha_registro datetime default null);
 create table Ticket (id_ticket int primary key AUTO_INCREMENT, fecha_entrada timestamp, fecha_salida timestamp, total float);
 create table Ventahab_kilo(id_ventahabkilo int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionkilo int, id_ticket int, subtotal float);
 create table Ventahab_pieza(id_ventahabpieza int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionpieza int, id_ticket int, subtotal float);
@@ -71,14 +71,14 @@ insert into Servicios_lavanderia values (23, 'Planchado por kilo',42);
 insert into Servicios_lavanderia values (24, 'Lavado por kilo',52);
 insert into Servicios_lavanderia values (25, 'Lavado y planchado por kilo',84);
 
-insert into Clasificacion_kilo values(10, 23, 2, 500);
-insert into Clasificacion_kilo values(11, 24,4, 501 );
-insert into Clasificacion_kilo values(12, 25, 2, 502);
+insert into Clasificacion_kilo values(10, 23, 2, 500,sysdate());
+insert into Clasificacion_kilo values(11, 24,4, 501 ,sysdate());
+insert into Clasificacion_kilo values(12, 25, 2, 502,sysdate());
 
-insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500);
-insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501);
-insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502);
-insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502);
+insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500, sysdate());
+insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501, sysdate());
+insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502, sysdate());
+insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502, sysdate());
 
 
 insert into Ticket values(130, sysdate(),sysdate(), 111 );
