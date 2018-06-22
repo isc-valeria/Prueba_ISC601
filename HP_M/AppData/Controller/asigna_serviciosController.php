@@ -47,15 +47,17 @@ class asigna_serviciosController
             $this->asigna_servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
             $this->asigna_servicios->set('descripcion_est',$_POST["descripcion_est"]);
             $this->asigna_servicios->set('fecha_reg',$_POST["fecha_reg"]);
+            
             $this->asigna_servicios->add();
-            $datos[0]=$this->servicios->getAll();
+            $datos[0]=$this->asigna_servicios->getAll();
             return $datos;
         }
     }
     public function eliminar($id)
     {
         $this->asigna_servicios->delete($id[0]);
-        $datos=$this->asigna_servicios->getAll();
+        $datos1=$this->asigna_servicios->getAll();
+        $datos[0]=$datos1;
         return $datos;
     }
 
