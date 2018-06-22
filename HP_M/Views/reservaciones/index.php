@@ -123,25 +123,29 @@
     $("#body_table").on("click","a.btn_eliminar",function (){
         var id=$(this).data("id");
         $.get("<?php echo URL?>reservaciones/delite/"+id,function(res){
+          //  console.log(res+"ok");
             var datos=JSON.parse(res);
-            // $("#update_habitaciones_ok").data("id",datos["id_habitacion"]);
-            // $("#numero_habitacion").val(datos["num_habitacion"]);
-            // $("#descripcion").val(datos["descripcion_hab"]);
-            // $("#id_tipoh").val(datos["id_tipoh"]);
-            // $("#nomestadohabitacion").val(datos["id_estadoh"]);
-            // Materialize.updateTextFields();
-            // $('select').material_select();
-            $("#modal_registro").modal("open");
+            // console.log(datos);
+            $("#eliminar_ok").data("id",datos["id_reservacion"]);
+            $("#clave_reserva").val(datos["clave_reserva"]);
+            $("#nombre_cli").val(datos["nombre_cli"]);
+            $("#ap_cli").val(datos["ap_cli"]);
+            $("#am_cli").val(datos["am_cli"]);
+            $("#fecha_reserva").val(datos["fecha_reserva"]);
+            $("#fecha_llegada").val(datos["fecha_llegada"]);
+            $("#fecha_salida").val(datos["fecha_salida"]);
+            $("#no_personas").val(datos["no_personas"]);
+            $("#modal_eliminar").modal("open");
         });
     });
-    $("#update_habitaciones_ok").click(function(){
+    $("#eliminar_ok").click(function(){
         var id=$(this).data("id");
-        $.post("<?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-            $('#save_habitacion').find('input, select, textarea').val('');
+        $.post("<?php echo URL?>reservaciones/eliminar/"+id,$("#modal_eliminar").serialize(),function(res){
+            $('#modal_eliminar').find('input, select, textarea').val('');
             $("#body_table").empty().append(res);
             Materialize.updateTextFields();
             //$("#modal_registro").modal("close");
-            Materialize.toast('Se ha modificado correctamente', 2500);
+            Materialize.toast('Se ha cancelado correctamente', 2500);
         })
     });
 </script>
