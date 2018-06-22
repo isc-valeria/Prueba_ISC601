@@ -43,14 +43,14 @@ class asigna_equiposegu
     }
     function getOne($id)
     {
-        $sql="select * from  Asigna_equiposegu where id_asignaequiposegu='{$id}'";
+        $sql="select * from  Asigna_equiposegu where id_tarea='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
+        $sql="update {$this->tabla} set id_equiposegu='{$this->id_equiposegu}'
+              where id_tarea='{$this->id_tarea}'";
 
-        $sql="update {$this->tabla} set  id_tarea='{$this->id_tarea}',
-               id_equiposegu='{$this->id_equiposegu}'where id_asignaequiposegu='{$this->id_asignaequiposegu}'";
         $this->conexion->QuerySimple($sql);
     }
 }
