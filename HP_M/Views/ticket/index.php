@@ -426,7 +426,7 @@
                     <div class="input-field col s5">
 
 
-                        <select id="descripcion_servicio"  type="text" name="descripcion_servicio">
+                        <select id="id_serviciolav"  type="text" name="descripcion_servicio">
                             <option value="" disabled selected>Selecciona servicio</option>
                             <?php
                             $dato=$datos["servicio"];
@@ -444,7 +444,7 @@
                     </div>
 
                     <div class="input-field col s5">
-                        <select id="descripcion_observacion" type="text" name="descripcion_observacion">
+                        <select id="id_observacion" type="text" name="descripcion_observacion">
                             <option disabled selected>Selecciona observacion</option>
                             <?php
                             $dato=$datos["observaciones"];
@@ -472,9 +472,18 @@
     </div>
 </div>
 
+<div id="modal_eliminar_kilo" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_kilo_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar_kilo" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
 
-
-
+<!-- //////////////////CLASIFICACION POR pieza////////////////////////////// -->
 <div id="modal_repieza" class="modal modal_c">
     <div class="modal-content">
         <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
@@ -534,6 +543,8 @@
     </div>
 </div>
 
+
+
 <div id="modal_clasipieza_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -541,10 +552,8 @@
                 <form action="" id="save_clasificacionpieza" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro por pieza</h4>
 
-
-
                     <div class="input-field input-field col s5 center">
-                        <input id="Descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
+                        <input id="descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
                         <label for="descripcion_pieza"  data-error="Incorrecto" data-success="Correcto" >Descripcion de la pieza</label>
                     </div>
 
@@ -556,12 +565,14 @@
                     <div class="input-field col s5">
                         <select id="descripcion_serviciopieza" type="text" name="descripcion_serviciopieza">
                             <option disabled selected>Selecciona servicio</option>
+
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from servicios_lavanderia");
-                            while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["servicio"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
                         <label for="descripcion_serviciopieza">Tipo de servicio</label>
                     </div>
@@ -570,11 +581,12 @@
                         <select id="descripcion_observacionpieza" type="text" name="descripcion_observacionpieza">
                             <option disabled selected>Selecciona observacion</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result4=mysqli_query($link,"select * from observaciones");
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["observaciones"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
                         <label for="descripcion_observacionpieza">Tipo de observacion</label>
                     </div>
@@ -592,6 +604,17 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="modal_eliminar_pieza" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_pieza_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 
@@ -956,6 +979,7 @@
                 $("#modal_observaciones_agregar").modal("open");
             });
         });
+
         $("#update_observacion_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>observaciones/actualizar/"+id,$("#save_observaciones_lavanderia").serialize(),function(res){
@@ -984,11 +1008,53 @@
             })
         });
 
+        $("#body_table_clasikilo").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>clasificacion_kilo/eliminar/'+id;
+            $("#eliminar_kilo_ok").attr("url",url);
+            $("#modal_eliminar_kilo").modal("open");
+        });
+
+        $("#eliminar_kilo_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table_clasikilo").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+
+        $("#body_table_clasikilo").on("click","a.btn_modificar",function(){
+            $("#save_clasikilo_ok").hide();
+            $("#update_clasikilo_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>clasificacion_kilo/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_clasikilo_ok").data("id",datos["id_clasificacionkilo"]);
+                $("#id_serviciolav").val(datos["id_serviciolav"]);
+                $("#cantidadkg").val(datos["cantidadkg"]);
+                $("#id_observacion").val(datos["id_observacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_clasikilo_agregar").modal("open");
+            });
+        });
+
+        $("#update_clasikilo_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>clasificacion_kilo/actualizar/"+id,$("#save_clasificacionkilo").serialize(),function(res){
+                $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                $("#body_table_clasikilo").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+
+
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
 
         $("#add_clasipieza").click(function(){
-            $("#update_servicioslav_ok").hide();
-            $("#save_servicioslav_ok").show();
+            $("#update_clasipieza_ok").hide();
+            $("#save_clasipieza_ok").show();
         });
 
         $("#save_clasipieza_ok").click(function(){
@@ -999,6 +1065,47 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
                 $("#modal_clasipieza_agregar").modal("close");
+            })
+        });
+
+        $("#body_table_clasipieza").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>clasificacion_pieza/eliminar/'+id;
+            $("#eliminar_pieza_ok").attr("url",url);
+            $("#modal_eliminar_pieza").modal("open");
+        });
+
+        $("#eliminar_pieza_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table_clasipieza").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+
+        $("#body_table_clasipieza").on("click","a.btn_modificar",function(){
+            $("#save_clasipieza_ok").hide();
+            $("#update_clasipieza_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>clasificacion_pieza/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_clasipieza_ok").data("id",datos["id_clasificacionpieza"]);
+                $("#descripcion_pieza").val(datos["descripcion_pieza"]);
+                $("#cantidad").val(datos["cantidad"]);
+                $("#descripcion_serviciopieza").val(datos["id_serviciolav"]);
+                $("#descripcion_observacionpieza").val(datos["id_observacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_clasipieza_agregar").modal("open");
+            });
+        });
+
+        $("#update_clasipieza_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>clasificacion_pieza/actualizar/"+id,$("#save_clasificacionpieza").serialize(),function(res){
+                $('#save_clasificacionpieza').find('input, select, textarea').val('');
+                $("#body_table_clasipieza").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
 
