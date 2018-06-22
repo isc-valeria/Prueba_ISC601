@@ -103,12 +103,14 @@
         });
 
         $("#save_servicios_ok").click(function () {
-            $.post("<?php echo URL?>servicios/crear", $("#save_servicios").serialize(), function (res) {
-                $("#body_table").empty().append(res);
-                $('#save_servicios').find('input, select, textarea').val('');
+            $("#save_servicios").submit();
+            /*$.post("<?php echo URL?>servicios/crear",
+             $("#save_servicios").serialize(), function (res) {
+             $("#body_table").empty().append(res);
+             $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
-            });
+            });*/
         });
         $("#body_table").on("click", "a.btn_eliminar", function () {
             var id = $(this).data("id");
