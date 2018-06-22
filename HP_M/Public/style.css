@@ -3095,3 +3095,12 @@
 .icon-IcoMoon:before {
   content: "\ec85";
 }
+.picker__date-display {
+  background-color:#80deea;
+}
+.picker__weekday-display {
+  background-color:#b2ebf2;
+}
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color:#80deea;
+}
