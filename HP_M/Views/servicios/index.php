@@ -103,12 +103,14 @@
         });
 
         $("#save_servicios_ok").click(function () {
-            $.post("<?php echo URL?>servicios/crear", $("#save_servicios").serialize(), function (res) {
-                $("#body_table").empty().append(res);
-                $('#save_servicios').find('input, select, textarea').val('');
+            $("#save_servicios").submit();
+            /*$.post("<?php echo URL?>servicios/crear",
+             $("#save_servicios").serialize(), function (res) {
+             $("#body_table").empty().append(res);
+             $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
-            });
+            });*/
         });
         $("#body_table").on("click", "a.btn_eliminar", function () {
             var id = $(this).data("id");
@@ -149,6 +151,47 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
+
+        $("#save_servicios").validate({
+
+            rules:{
+                descripcion_ser:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+                }
+                  
+            },
+
+            messages:{
+                descripcion_ser:{
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 5 caracteres"
+                },
+             },
+
+
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>servicios/crear",$("#save_servicios").serialize(),function(res){
+
+                    $("#body_table").empty().append(res);
+                    $('#save_servicios').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
+            }
+        });
+
+
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });

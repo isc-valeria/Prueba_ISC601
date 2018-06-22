@@ -34,7 +34,7 @@ class Clasificacion_kilo
 
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}')";
+        $sql="insert into Clasificacion_kilo values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}')";
         $this->conexion->QuerySimple($sql);
     }
 
@@ -66,10 +66,5 @@ class Clasificacion_kilo
                id_observacion='{$this->id_observacion}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
         $this->conexion->QuerySimple($sql);
     }
-    function combo_servicio(){
 
-        $sql="select * from servicios_lavanderia";
-        $this->conexion->QuerySimple($sql);
-        return $datos;
-    }
 }

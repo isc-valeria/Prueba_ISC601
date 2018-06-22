@@ -10,6 +10,7 @@
                             <i class="material-icons">local_laundry_service</i>
                         </a>
                         <p class="center">Servicios Hoy</p>
+
                     </div>
                     <div class="col s5 m4 right-align">
                         <h4><p>1</p></h4>
@@ -66,10 +67,6 @@
 </div>
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-
-
-
-
 <div class="card-panel">
     <div class="row">
         <div>
@@ -89,9 +86,11 @@
                 Registrar por pieza
             </a>
 
+            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
+                Ventas pieza
             </a>
-            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_repieza">
-                Ventas piezas
+            <a href="#modal_venkilo" class="btn #7bb1b3 white-text modal-trigger" id="add_ventakilo">
+                Ventas kilo
             </a>
         </div>
         <div class="row"></div>
@@ -356,8 +355,6 @@
 
 <!-- //////////////////CLASIFICACION POR KILO////////////////////////////// -->
 
-
-
 <div id="modal_rekilo" class="modal modal_c">
     <div class="modal-content">
         <form action="" id="sava_clasikilo" enctype="multipart/form-data" autocomplete="off">
@@ -415,7 +412,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 
@@ -423,39 +419,41 @@
     <div class="modal-content">
         <div class="row center-align">
             <div class="row">
-                <form action="" id="save_clasificacionkilo" enctype="multipart/form-data" autocomplete="off">
+                <form action="" id="save_clasificacionkilo" method="post" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro por kilo</h4>
 
                     <div class="divider"></div>
                     <div class="input-field col s5">
-                        <select id="descripcion_serviciokilo" type="text" name="descripcion_serviciokilo">
-                            <option disabled selected>Selecciona serviciio</option>
+
+
+                        <select id="id_serviciolav"  type="text" name="descripcion_servicio">
+                            <option value="" disabled selected>Selecciona servicio</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from servicios_lavanderia");
-                            while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["servicio"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
                         </select>
-                        <label for="descripcion_serviciokilo">Tipo de servicio</label>
+                        <label for="descripcion_servicio" >Tipo de servicio</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
                         <input id="cantidadkg" type="text" class="validate" name="cantidadkg">
-                        <label for="cantidadkg" >Cantidad (KG)</label>
+                        <label for="cantidadkg"  data-error="Incorrecto" data-success="Correcto" >Cantidad (KG)</label>
                     </div>
 
                     <div class="input-field col s5">
-                        <select id="descripcion_observacionkilo" type="text" name="descripcion_observacionkilo">
+                        <select id="id_observacion" type="text" name="descripcion_observacion">
                             <option disabled selected>Selecciona observacion</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result4=mysqli_query($link,"select * from observaciones");
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["observaciones"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
                         </select>
-                        <label for="descripcion_observacionkilo">Tipo de observacion</label>
+                        <label for="descripcion_observacion">Tipo de observacion</label>
                     </div>
 
                     <div class="modal-fixed-footer">
@@ -474,9 +472,18 @@
     </div>
 </div>
 
+<div id="modal_eliminar_kilo" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_kilo_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar_kilo" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
 
-
-
+<!-- //////////////////CLASIFICACION POR pieza////////////////////////////// -->
 <div id="modal_repieza" class="modal modal_c">
     <div class="modal-content">
         <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
@@ -490,7 +497,7 @@
 
                     <div class="input-field col s4 offset-s0">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
+                        <input id="buscar3" placeholder="Buscar" type="text">
                     </div>
 
                     <div class="row">
@@ -500,7 +507,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table"  id="tabla_clasipieza" >
                             <thead>
                             <tr>
 
@@ -536,6 +543,8 @@
     </div>
 </div>
 
+
+
 <div id="modal_clasipieza_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -543,10 +552,8 @@
                 <form action="" id="save_clasificacionpieza" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro por pieza</h4>
 
-
-
                     <div class="input-field input-field col s5 center">
-                        <input id="Descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
+                        <input id="descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
                         <label for="descripcion_pieza"  data-error="Incorrecto" data-success="Correcto" >Descripcion de la pieza</label>
                     </div>
 
@@ -558,12 +565,14 @@
                     <div class="input-field col s5">
                         <select id="descripcion_serviciopieza" type="text" name="descripcion_serviciopieza">
                             <option disabled selected>Selecciona servicio</option>
+
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from servicios_lavanderia");
-                            while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["servicio"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
                         <label for="descripcion_serviciopieza">Tipo de servicio</label>
                     </div>
@@ -572,11 +581,12 @@
                         <select id="descripcion_observacionpieza" type="text" name="descripcion_observacionpieza">
                             <option disabled selected>Selecciona observacion</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result4=mysqli_query($link,"select * from observaciones");
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["observaciones"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
                         <label for="descripcion_observacionpieza">Tipo de observacion</label>
                     </div>
@@ -594,6 +604,17 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="modal_eliminar_pieza" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_pieza_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 
@@ -622,7 +643,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -724,15 +745,141 @@
         </div>
     </div>
 </div>
+<!-- //////////////////////////////VENTA POR KILO////////////////////////////////////////////// -->
 
+<div id="modal_venkilo" class="modal modal_c">
+    <div class="modal-content">
+        <form action="" id="sava_venkilo" enctype="multipart/form-data" autocomplete="off">
+            <ul id="tabs-swipe-demo" class="tabs black-text" >
+                <h4 align="center">Ventas de prendas por kilo </h4>
+            </ul>
+            <div class="divider"></div>
+            <code class="language-markup" ></code>
+            <div id="test-swipe-1" class="col s12 white">
+                <div class="card-panel">
 
-<!-- //////////////////////////////////////////////////////////////////////////// -->
+                    <div class="input-field col s4 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
+                                Agregar
+                            </a>
+                        </div>
+
+                        <table   class="responsive-table"  >
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Numero de habitacion</th>
+                                <th>Cantidad de kilos</th>
+                                <th>Total</th>
+                                <th>Subtotal</th>
+                                <th>Eliminar</th>
+                                <th>Editar</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body_table_venkilo" >
+                            <?php
+                            include(ROOT."Views/venta_kilo/tabla.php");
+                            ?>
+                            </tbody>
+
+                        </table>
+
+                        <div id="container"></div>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="myPager"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div id="modal_venkilo_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_ventakilo" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro de venta por kilos</h4>
+
+                    
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="num_habitacion" type="text" name="num_habitacion">
+                            <option disabled selected>Numero de habitacion</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Habitaciones");
+                            while ($row=mysqli_fetch_array($result4))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Numero de habitacion</label>
+                    </div>
+                   <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="cantidadkg" type="text" name="cantidadkg">
+                            <option disabled selected>selecciona la cantidad </option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from clasificacion_kilo");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Cantidad de kilos</label>
+                    </div>
+
+                   
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="total" type="text" name="total">
+                            <option disabled selected>Total</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Ticket");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="total">Total</label>
+                    </div>
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" class="validate" name="subtotal">
+                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            Registrar venta por kilo
+                            </a>
+                        </div>
+                        <div class="input-field col s12">
+                            <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dIV>
+</div>
+
+<!-- //////////////////////////////////Servicio////////////////////////////////////////// -->
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').material_select();
         $(".modal").modal();
-        $("#add_servicios").click(function(){
 
+        $("#add_servicios").click(function(){
             $("#update_servicioslav_ok").hide();
             $("#save_servicioslav_ok").show();
         });
@@ -790,7 +937,6 @@
         $("#save_observacion_ok").click(function(){
             $("#save_observaciones_lavanderia").submit();
 
-
         });
 
         $("#body_table_obser").on("click","a.btn_eliminar",function(){
@@ -821,6 +967,7 @@
                 $("#modal_observaciones_agregar").modal("open");
             });
         });
+
         $("#update_observacion_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>observaciones/actualizar/"+id,$("#save_observaciones_lavanderia").serialize(),function(res){
@@ -831,27 +978,71 @@
             })
         });
 
-
-
-
-
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
 
         $("#add_clasikilo").click(function(){
-            $("#update_servicioslav_ok").hide();
-            $("#save_servicioslav_ok").show();
+            $("#update_clasikilo_ok").hide();
+            $("#save_clasikilo_ok").show();
         });
 
         $("#save_clasikilo_ok").click(function(){
-            $("#save_servicio_lavanderia").submit();
-
+            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                $("#body_table_clasikilo").empty().append(res);
+                $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_clasikilo_agregar").modal("close");
+            })
         });
+
+        $("#body_table_clasikilo").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>clasificacion_kilo/eliminar/'+id;
+            $("#eliminar_kilo_ok").attr("url",url);
+            $("#modal_eliminar_kilo").modal("open");
+        });
+
+        $("#eliminar_kilo_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table_clasikilo").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+
+        $("#body_table_clasikilo").on("click","a.btn_modificar",function(){
+            $("#save_clasikilo_ok").hide();
+            $("#update_clasikilo_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>clasificacion_kilo/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_clasikilo_ok").data("id",datos["id_clasificacionkilo"]);
+                $("#id_serviciolav").val(datos["id_serviciolav"]);
+                $("#cantidadkg").val(datos["cantidadkg"]);
+                $("#id_observacion").val(datos["id_observacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_clasikilo_agregar").modal("open");
+            });
+        });
+
+        $("#update_clasikilo_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>clasificacion_kilo/actualizar/"+id,$("#save_clasificacionkilo").serialize(),function(res){
+                $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                $("#body_table_clasikilo").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+
 
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
 
         $("#add_clasipieza").click(function(){
-            $("#update_servicioslav_ok").hide();
-            $("#save_servicioslav_ok").show();
+            $("#update_clasipieza_ok").hide();
+            $("#save_clasipieza_ok").show();
         });
 
         $("#save_clasipieza_ok").click(function(){
@@ -864,8 +1055,49 @@
                 $("#modal_clasipieza_agregar").modal("close");
             })
         });
-        
-        //--------------------------VENTA POR PIEZA-------------------------------------------
+
+        $("#body_table_clasipieza").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>clasificacion_pieza/eliminar/'+id;
+            $("#eliminar_pieza_ok").attr("url",url);
+            $("#modal_eliminar_pieza").modal("open");
+        });
+
+        $("#eliminar_pieza_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table_clasipieza").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+
+        $("#body_table_clasipieza").on("click","a.btn_modificar",function(){
+            $("#save_clasipieza_ok").hide();
+            $("#update_clasipieza_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>clasificacion_pieza/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_clasipieza_ok").data("id",datos["id_clasificacionpieza"]);
+                $("#descripcion_pieza").val(datos["descripcion_pieza"]);
+                $("#cantidad").val(datos["cantidad"]);
+                $("#descripcion_serviciopieza").val(datos["id_serviciolav"]);
+                $("#descripcion_observacionpieza").val(datos["id_observacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_clasipieza_agregar").modal("open");
+            });
+        });
+
+        $("#update_clasipieza_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>clasificacion_pieza/actualizar/"+id,$("#save_clasificacionpieza").serialize(),function(res){
+                $('#save_clasificacionpieza').find('input, select, textarea').val('');
+                $("#body_table_clasipieza").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+         //--------------------------VENTA POR PIEZA-------------------------------------------
 
         $("#add_ventapieza").click(function(){
             $("#update_venpieza_ok").hide();
@@ -881,6 +1113,23 @@
                 $("#modal_venpieza_agregar").modal("close");
             })
         });
+        //--------------------------VENTA POR KILO-------------------------------------------
+
+        $("#add_ventakilo").click(function(){
+            $("#update_venkilo_ok").hide();
+            $("#save_venkilo_ok").show();
+        });
+
+        $("#save_venkilo_ok").click(function(){
+            $.post("<?php echo URL?>ventahab_kilo/crear",$("#save_ventakilo").serialize(),function(res){
+                $("#body_table_ventakilo").empty().append(res);
+                $('#save_ventakilo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_venkilo_agregar").modal("close");
+            })
+        });
+
 
         //--------------------------Validacion servicio-------------------------------------------
         $("#save_servicio_lavanderia").validate({
@@ -901,13 +1150,13 @@
 
             messages:{
                 nombre_servi:{
-                    required:"Agrega descripción",
+                    required:"Agrega una descripción",
                     maxlength:"Maximo 12 caracteres",
                     minlength:"Minimo 4 caracteres",
                 },
 
                 precio:{
-                    required:"Ingresa número",
+                    required:"Ingresa  número",
                     maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
@@ -935,7 +1184,11 @@
         });
 
 
-        //--------------------------Validacion observacion-------------------------------------------
+
+
+
+
+        //--------------------------Validacion Obsrvaciones-------------------------------------------
         $("#save_observaciones_lavanderia").validate({
             rules:{
                 descripcion_observacion:{
@@ -947,7 +1200,6 @@
                 cargo:{
                     required:true,
                     maxlength: 3,
-                    minlength: 1,
                     number:true,
                 },
 
@@ -955,18 +1207,19 @@
 
             messages:{
                 descripcion_observacion:{
-                    required:"Ingresa una descripcion",
-                    maxlength:"Maximo 13 caracteres",
+                    required:"Agrega una descripción",
+                    maxlength:"Maximo 12 caracteres",
                     minlength:"Minimo 4 caracteres",
-
                 },
+
                 cargo:{
-                    required:"Ingresa un Cargo",
-                    maxlength:"Maximo 4 caracteres",
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
 
-                },
+                }
+
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -987,38 +1240,40 @@
         });
 
 
-        //--------------------------Validacion clasikilo-------------------------------------------
+
+//---------------------------------------------------------------------------
+//--------------------------Validacion clasificasion kilo-------------------------------------------
         $("#save_clasificacionkilo").validate({
             rules:{
-                descripcion_serviciokilo:{
+                nombre_servi:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
                 },
-                cantidadkg:{
+                precio:{
                     required:true,
                     maxlength: 3,
-                    minlength: 1,
                     number:true,
-                },
-                descripcion_observacionkilo:{
-                    required:true,
                 },
 
             },
 
             messages:{
-                descripcion_serviciokilo:{
-                    required:"Selecciona Un servicio",
+                nombre_servi:{
+                    required:"Agrega una descripción",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
                 },
-                cantidadkg:{
-                    required:"Ingresa un Cargo",
-                    maxlength:"Maximo 4 caracteres",
+
+                precio:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
 
-                },
-                descripcion_observacionkilo:{
-                    required:"Selecciona una observacion",
-                },
+                }
+
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -1026,21 +1281,28 @@
                     .find("label[for='" + element.attr("id") + "']")
                     .attr('data-error', error.text());
             },
+
             submitHandler:function(form){
-                $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
-                    $("#body_table_clasikilo").empty().append(res);
+                $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                    $("#body_table_ser").empty().append(res);
                     $('#save_clasificacionkilo').find('input, select, textarea').val('');
                     Materialize.updateTextFields();
-                    //$("#modal_registro").modal("close");
+                    $("#modal_servicios_agregar").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
-                    $("#modal_clasikilo_agregar").modal("close");
+
                 })
             }
         });
 
 
 
-//---------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 //--------------------------Buscar-------------------------------------------
 
@@ -1055,19 +1317,12 @@
         $("#buscar2").keyup(function() {
             $.uiTableFilter($("#tabla_clasikilo"), this.value);
         });
+
+        $("#buscar3").keyup(function() {
+            $.uiTableFilter($("#tabla_clasipieza"), this.value);
+        });
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

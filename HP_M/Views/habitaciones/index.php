@@ -22,19 +22,22 @@
                     </div>
                     <div class="row">
 
-                        <div class="input-field col s10">
+                        <div class="input-field col s5">
                             <select id="id_tipoh" type="text" name="id_tipoh">
                                 <option disabled selected>Selecciona Tipo de la Habitacion</option>
                                 <?php
                                 $result3=$datos[1];
                                 while ($row=mysqli_fetch_array($result3))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
                             <label for="id_tipoh">Tipo de Habitación</label>
                         </div>
-
-
+                        <div class="input-field col s1">
+                            <div class="input-field col s1">
+                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
@@ -86,7 +89,7 @@
 
         <tbody id="body_table">
         <?php
-            require_once ("tabla.php");
+        require_once ("tabla.php");
         ?>
         </tbody>
     </table>
@@ -150,30 +153,42 @@
 
 <div id="modal_tipo_habitacion" class="modal center-align ">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 class="left"><a class=" text-black"></a></h4><h4 align="center">Tipo Habitación</h4></div>
+        <div class="card-panel">
+            <form action="" id="save_tipo" enctype="multipart/form-data" autocomplete="off">
+                <h4 align="center">Tipo de habitaciones</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field input-field col s5">
+                            <input id="tipo_ha" type="text" name="tipo_ha" >
+                            <label for="tipo_ha" >Tipo de habitación</label>
+                        </div>
 
-        <div class="row">
-            <form class="col s12 " autocomplete="off">
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                        <input id="nonmbretipohabitacion" type="text" class="validate center">
-                        <label for="nonmbretipohabitacion"  data-error="incorrecto" data-success="Correcto">Tipo de Habitación</label>
+                        <div class="input-field col s1">
+
+                        </div>
+                        <div class="input-field col s5">
+                            <input id="precio" type="text" name="precio">
+                            <label for="precio">Precio</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field input-field col s10 text">
-                        <i class="mdi-action-verified-user prefix icon-coin-dollar"></i>
-                        <input id="precio" type="number" class="validate center" >
-                        <label for="precio"  data-error="Incorrecto" data-success="Correcto" >Precio</label>
+                    <div class="row">
+
+                        <div class="input-field col s5">
+                            <input id="maximo_personas" type="text" name="maximo_personas">
+                            <label for="maximo_personas"  >Máximo de personas</label>
+                        </div>
+
+                        <div class="input-field col s1">
+
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s9">
-                        <button class="btn waves-effect waves-light right #00838f cyan darken-3" type="submit">Registar</button>
-                    </div>
-                    <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_tipo_ok" class="btn ">Registrar</a>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -229,11 +244,9 @@
                 $('#save_habitacion').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
 
         $("#save_habitacion").validate({
             rules:{
@@ -303,5 +316,79 @@
             });
         });
 
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#add_tipo").click(function(){
+            $("#save_tipo_ok").show();
+        });
+        $("#save_tipo_ok").click(function(){
+            $.post("<?php echo URL?>habitaciones/creartipo",$("#save_tipo").serialize(),function(res){
+                $("#body_table").empty().append(res);
+                $('#save_tipo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha insertado correctamente', 2500);
+            })
+        });
+    });
+    $("#save_tipo").validate({
+
+        rules:{
+            tipo_ha:{
+                required:true,
+                maxlength: 20,
+                minlength: 4,
+                lettersonly:true,
+            },
+            precio:{
+                required:true,
+                maxlength: 4,
+                minlength: 3,
+                number:true,
+            },
+            maximo_personas:{
+                required:true,
+                maxlength: 2,
+                minlength: 1,
+                number:true,
+            },
+        },
+        messages:{
+            tipo_ha:{
+                required:"Ingresa descripción",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 4 caracteres",
+
+            },
+            precio:{
+                required:"Ingresa un precio",
+                number:"Sólo números",
+                maxlength:"Maximo 4 digitos",
+                minlength:"Minimo 3 digitos",
+
+            },
+            maximo_personas:{
+                required:"Ingresa el máximo de personas",
+                number:"Sólo números",
+                maxlength:"Maximo 2 digitos",
+                minlength:"Minimo 1 digitos",
+            },
+        },
+        errorPlacement: function(error, element) {
+            $(element)
+                .closest("form")
+                .find("label[for='" + element.attr("id") + "']")
+                .attr('data-error', error.text());
+        },
+        submitHandler:function(form){
+            $.post("<?php echo URL?>tipos_habitacion/crear",$("#save_tipo").serialize(),function(res){
+                $("#body_table").empty().append(res);
+                $('#save_tipo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                $("#modal_registro").modal("close");
+            })
+        }
     });
 </script>

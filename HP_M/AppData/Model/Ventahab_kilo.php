@@ -41,7 +41,11 @@ class Ventahab_kilo
 
     function getAll()
     {
-        $sql="SELECT Ventahab_kilo.id_ventahabkilo, Habitaciones.id_habitacion, clasificacion_kilo.id_clasificacionkilo, Ticket.id_ticket, ventahab_kilo.subtotal FROM Ventahab_kilo, Habitaciones, clasificacion_kilo, Ticket WHERE Ventahab_kilo.id_habitacion = Habitaciones.id_habitacion AND ventahab_kilo.id_clasificacionkilo = clasificacion_kilo.id_clasificacionkilo AND Ventahab_kilo.id_ticket = Ticket.id_ticket ORDER BY id_ventahabkilo";
+        $sql="SELECT Ventahab_kilo.id_ventahabkilo, Habitaciones.num_habitacion, clasificacion_kilo.cantidadkg, Ticket.total, ventahab_kilo.subtotal
+            FROM Ventahab_kilo, Habitaciones, clasificacion_kilo, Ticket
+            WHERE Ventahab_kilo.id_habitacion = Habitaciones.id_habitacion
+            AND ventahab_kilo.id_clasificacionkilo = clasificacion_kilo.id_clasificacionkilo
+            AND Ventahab_kilo.id_ticket = Ticket.id_ticket ORDER BY id_ventahabkilo";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }

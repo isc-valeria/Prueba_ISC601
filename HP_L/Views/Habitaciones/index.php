@@ -19,10 +19,12 @@
         <input type="number" min="0" max="20" class="niños" id="niños" placeholder="Niños"  >
     </div>
     <div class="input-field col s2">
-        <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Buscar</a>
+        <a href="#!" id="" class="btn modal-close " data-id="">Buscar</a>
     </div>
 
 </div>
+
+
 
 <script>
     $('.datepicker').pickadate({
@@ -35,7 +37,6 @@
     var final = $('#final').pickadate(),
         final_picker = final.pickadate('picker')
 
-    // Check if there’s a “from” or “to” date to start with.
     if (inicio_picker.get('value')) {
         final_picker.set('min', inicio_picker.get('select'))
     }
@@ -43,7 +44,6 @@
         inicio_picker.set('max', final_picker.get('select'))
     }
 
-    // When something is selected, update the “from” and “to” limits.
     inicio_picker.on('set', function(event) {
         if (event.select) {
             final_picker.set('min', inicio_picker.get('select'))
@@ -54,23 +54,9 @@
     final_picker.on('set', function(event) {
         if (event.select) {
             inicio_picker.set('max', final_picker.get('select'))
-            ///console.log(inicio.diff(final, 'days'), ' dias de diferencia');
 
         } else if ('clear' in event) {
             inicio_picker.set('max', false)
         }
     })
-
-    $("#update_habitaciones_ok").click(function(){
-        var fecha1 = moment('2016-07-12');
-        var fecha2 = moment('2016-08-1');
-        var mensa;
-        alert(fecha1);
-        alert(fecha2);
-        mensa=(fecha2.diff(fecha1, 'days'));
-        alert(mensa);
-    });
-
-
-
 </script>
