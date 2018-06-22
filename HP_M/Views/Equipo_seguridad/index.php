@@ -8,11 +8,11 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="nombre_equisegu" type="text" class="validate" name="nombre_equisegu">
-                            <label for="nombre_equisegu"  data-error="Incorrecto" data-success="Correcto" >Nombre De Equipo</label>
+                            <input id="nombre_equisegu" type="text" name="nombre_equisegu">
+                            <label for="nombre_equisegu" >Nombre De Equipo</label>
                         </div>
                         <div class="input-field col s5">
-                            <select id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
+                            <select id="descripcion_tipo" type="text"  name="descripcion_tipo">
                                 <option value="" disabled selected>Selecciona La Descripcion</option>
                                 <?php
                                 $result3=$datos[1];
@@ -20,14 +20,14 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="descripcion_tipo" data-error="incorrecto" data-success="Correcto" >Descripción</label>
+                            <label for="descripcion_tipo" >Descripción</label>
                         </div>
                         <div class="input-field input-field col s5">
-                            <input id="cantidad" type="text" class="validate" name="cantidad">
-                            <label for="cantidad"  data-error="Incorrecto" data-success="Correcto" >Cantidad De Equipo</label>
+                            <input id="cantidad" type="text" name="cantidad">
+                            <label for="cantidad">Cantidad De Equipo</label>
                         </div>
                         <div class="input-field col s5">
-                            <select id="descripcion_estadomantenimiento" type="text" class="validate" name="descripcion_estadomantenimiento">
+                            <select id="descripcion_estadomantenimiento" type="text" name="descripcion_estadomantenimiento">
                                 <option value="" disabled selected>Selecciona El Estado</option>
                                 <?php
                                 $result2=$datos[2];
@@ -35,7 +35,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="descripcion_estadomantenimiento" data-error="incorrecto" data-success="Correcto" >Estado</label>
+                            <label for="descripcion_estadomantenimiento" >Estado</label>
                         </div>
 
                         <!--<div class="input-field col s1">
@@ -49,7 +49,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_equipo_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_equipo_ok" class="btn">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_equipo_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -123,15 +123,7 @@
             $("#save_equipo_ok").show();
         });
         $("#save_equipo_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>Equipo_seguridad/crear",$("#save_equipo").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_equipo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            $("#save_equipo").submit();
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -173,20 +165,76 @@
             })
         });
 
+        ///validar formulario
+        $("#save_equipo").validate({
+
+            rules: {
+                nombre_equisegu: {
+                    required: true,
+                    maxlength: 13,
+                    minlength: 4,
+                    lettersonly: true,
+                },
+                descripcion_tipo: {
+                    required: true,
+
+                },
+                cantidad: {
+                    required:true,
+                    number:true,
+                    maxlength: 3,
+                    minlength: 1,
+
+                },
+                descripcion_estadomantenimiento: {
+                    required: true,
+
+                }
+            },
+            messages:{
+                nombre_equisegu:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 13 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+                descripcion_tipo:{
+                    required:"selecciona un tipo",
+
+
+                },
+                cantidad:{
+                    number:"Sólo números",
+                    required:"Ingresa un número",
+                    maxlength:"Maximo 3 numeros",
+                    minlength:"Minimo 1 numeros"
+
+                },
+                descripcion_estadomantenimiento:{
+                    required:"Selecciona un Puesto",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>Equipo_seguridad/crear",$("#save_equipo").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_equipo').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+
+                })
+            }
+        });
+
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_equipo"), this.value);
         });
 
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-

@@ -281,10 +281,12 @@
                     maxlength:"Máximo 3 digitos",
                     number:"Solo números",
 
+
                 },
                 descripcion:{
                     required:"Agrega una descripción",
                     minlength: "Descripcion insuficiente",
+
                 },
                 id_tipoh:{
                     required:"Selecciona un tipo ",
