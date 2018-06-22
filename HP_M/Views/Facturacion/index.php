@@ -8,12 +8,10 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="id_factura" type="text" name="factura" >
+                            <input id="id_factura" type="text" name="id_factura" >
                             <label for="id_factura" >Facturaciones Existentes</label>
                         </div>
-
                         <div class="input-field col s1">
-
                         </div>
                         <div class="input-field col s5">
                             <input id="id_asignares" type="text" name="id_asignares">
@@ -59,9 +57,9 @@
     <table class="responsive-table">
         <thead>
         <tr>
-            <th>id_Factura</th>
+            <th>id_factura</th>
             <th>id_asignares</th>
-            <th>total</th>
+            <th>Total</th>
 
         </tr>
         </thead>
@@ -72,11 +70,28 @@
         ?>
         </tbody>
     </table>
-</div>
 
+</div>
+<div id="modal_eliminar" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
 <script type="text/javascript">
-$("document").ready(function () {
-    $(".modal").modal();
+    $(document).ready(function(){
+        $('select').material_select();
+        $(".modal").modal();
+        $("#add_factura").click(function(){
+            $("#update_factura_ok").hide();
+            $("#save_factura_ok").show();
+
+            Materialize.updateTextFields();
+        });
 })
     $("#body_table").on("click","a.btn_eliminar",function(){
         var id=$(this).data("id");
@@ -95,10 +110,9 @@ $("document").ready(function () {
         $("#save_factura_ok").hide();
         $("#update_factura_ok").show();
         var id=$(this).data("id");
-        $.get("<?php echo URL?>facturacion/modificar/"+id,function(res){
+        $.get("<?php echo URL?>Facturacion/modificar/"+id,function(res){
             var datos=JSON.parse(res);
-            $("#update_factura_ok").data("id",datos["id_cliente"]);
-            $("#id_factura").val(datos["id_factura"]);
+            $("#update_factura_ok").data("id",datos["id_factura"]);
             $("#id_asignares").val(datos["id_asignares"]);
             $("#total").val(datos["total"]);
 
@@ -107,6 +121,7 @@ $("document").ready(function () {
             $("#modal_registro").modal("open");
         });
     });
+
     $("#update_factura_ok").click(function(){
         var id=$(this).data("id");
         $.post("<?php echo URL?>facturacion/actualizar/"+id,$("#save_factura").serialize(),function(res){

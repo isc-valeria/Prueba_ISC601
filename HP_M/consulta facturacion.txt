@@ -1,1 +1,10 @@
-select reservaciones.clave_reserva, facturacion.total from reservaciones,facturacion,asigna_reservaciones where reservaciones.id_reservacion=asigna_reservaciones.id_reservacion and asigna_reservaciones.id_asignares=facturacion.id_asignares 
+select reservaciones.clave_reserva, facturacion.total from reservaciones,facturacion,asigna_reservaciones where reservaciones.id_reservacion=asigna_reservaciones.id_reservacion and asigna_reservaciones.id_asignares=facturacion.id_asignares
+        $sql = "select reservaciones.clave_reserva,habitaciones.descripcion_hab, tipos_habitacion.precio as precio_habitacion, ticket.total as precio_servicio,ticket.total+tipos_habitacion.precio as total  from ticket,tipos_habitacion,habitaciones, asigna_reservaciones,ventahab_kilo, reservaciones where ticket.id_ticket=ventahab_kilo.id_ticket and asigna_reservaciones.id_habitacion=habitaciones.id_habitacion and tipos_habitacion.id_tipoh=habitaciones.id_tipoh and ventahab_kilo.id_habitacion=habitaciones.id_habitacion and reservaciones.id_reservacion=asigna_reservaciones.id_reservacion";
+<td>{$row['clave_reserva']}</td>
+    <td>{$row['descripcion_hab']}</td>
+    <td>{$row['precio_habitacion']}</td>
+    <td>{$row['precio_servicio']}</td>
+    <td>{$row['total']}</td>
+
+
+    SELECT habitaciones.num_habitacion, reservaciones.clave_reserva,facturacion.id_asignares FROM habitaciones, reservaciones, facturacion, asigna_reservaciones WHERE facturacion.id_asignares=asigna_reservaciones.id_asignares AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion

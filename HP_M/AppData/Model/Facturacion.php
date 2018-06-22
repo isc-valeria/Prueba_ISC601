@@ -23,28 +23,46 @@ class Facturacion
 
     function add()
     {
-        $sql="insert into Facturacion(id_factura,id_asignares,total) values(0,'{$this->id_asignares}','{$this->total}
-    ')";
+        $sql="insert into Facturacion(id_factura,id_asignares,total) values(0,'{$this->id_asignares}','{$this->total}')";
 
     }
 
     function getAll()
     {
-        $sql = "select*from Facturacion";
-        $datos=$this->conexion->queryResultado($sql);
+        $sql="Select * from {$this->tabla}";
+        $datos=$this->conexion->QueryResultado($sql);
         return $datos;
+        //$sql="select*from Facturacion";
+        //$datos=$this->conexion->queryResultado($sql);
+        //return $datos;
     }
-    function get(){
-        $sql="select*from {$this->tabla}";
-        $datos=$this->conexion->queryResultado($sql);
-        return $datos;
+    function get($atributo)
+    {
+        return $this->$atributo;
+
+        //$sql="select*from {$this->tabla}";
+        //$datos=$this->conexion->queryResultado($sql);
+        //return $datos;
     }
     function update(){
+       $sql = "update {$this->tabla} set id_factura='{$this->id_factura}',
+              id_asignares='{$this->id_asignares}', total='{$this->total}'";
+        $this->conexion->QuerySimple($sql);
 
     }
-    function delete(){
+    function getOne($id){
+        $sql="select * from  {$this->tabla} where id_factura='{$id}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
 
     }
+    function delete($id)
+    {
+        $sql="delete from {$this->tabla} where id_factura='{$id}'";
+        $this->conexion->QuerySimple($sql);
+    }
+
+
 
 
 }
