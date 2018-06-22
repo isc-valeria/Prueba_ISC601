@@ -64,7 +64,7 @@ class Reservaciones
 
     function getData($id)
     {
-        $sql="SELECT * from {$this->tabla} where id_reservacion='{$id}'";
+        $sql="SELECT reservaciones.id_reservacion, reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, estado_reserva.estador, reservaciones.no_personas from {$this->tabla}, clientes, estado_reserva WHERE reservaciones.id_cliente=clientes.id_cliente AND estado_reserva.id_estador= reservaciones.id_estador and id_reservacion='{$id}'";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
