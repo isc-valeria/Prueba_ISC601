@@ -8,9 +8,8 @@ class Asigna_servicios
 	private $id_asignaser;
 	private $num_habitacion;
 	private $descripcion_ser;
-	private $descripcion_est;
+	private $descripcion_est=80;
 	private $fecha_reg;
-
 	function __construct()
 	{
 		$this->conexion= new conexion();
@@ -26,7 +25,7 @@ class Asigna_servicios
     }
 	function add()
 	{
-        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_ser}','{$this->descripcion_est}',sysdate())";
+        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_ser}',80, sysdate())";
         $this->conexion->QuerySimple($sql);
 	}
 	function getAll()
