@@ -295,7 +295,7 @@
             rules:{
                 nombre_pro:{
                     required:true,
-                    maxlength: 13,
+                    maxlength: 20,
                     minlength: 8,
                     lettersonly:true,
                 },
@@ -319,15 +319,17 @@
 
             messages:{
                 nombre_pro:{
-                    required:"Nombre del producto",
-                    maxlength:"Maximo 13 caracteres",
-                    minlength:"Minimo 7 caracteres"
+                    required:"Campo Obligatorio",
+                    maxlength:"Maximo 20 caracteres",
+                    minlength:"Minimo 8 caracteres"
                 },
                 
                 stock_min:{
+                    required:"Campo Obligatorio",
                     number:"Solo Numeros",
                 },
                 stock_max:{
+                    required:"Campo Obligatorio",
                     number:"Solo Numeros",
                 }
             },

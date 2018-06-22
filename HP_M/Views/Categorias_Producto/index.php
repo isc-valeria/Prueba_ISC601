@@ -125,7 +125,7 @@
             rules:{
                 descripcion_cat:{
                     required:true,
-                    maxlength: 13,
+                    maxlength: 20,
                     minlength: 8,
                     lettersonly:true,
                 }
@@ -134,7 +134,8 @@
 
             messages:{
                 descripcion_cat:{
-                maxlength:"Maximo 13 caracteres",
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
                 minlength:"Minimo 8 caracteres"
                 },
              },
