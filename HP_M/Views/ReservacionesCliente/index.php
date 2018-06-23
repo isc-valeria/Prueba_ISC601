@@ -38,10 +38,9 @@
                                     <br>
                                     Aloja:  1 persona
                                 </p>
-                                ..............................................<br>
-                                <a class="tooltipped" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
-                                <a class="tooltipped" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
-                                <a class="tooltipped" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
                             </div>
 
                         </div>
@@ -58,7 +57,7 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <h3>Habitacion Doble</h3>
-                                <p>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.
+                                <p>Nuestras Suites Junior ofrecen hermos\as vistas de la ciudad.
                                     <br>
                                     Tamaño: 20 m²
                                     <br>
@@ -66,8 +65,10 @@
                                     <br>
                                     Aloja:  1 persona
                                 </p>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -90,8 +91,10 @@
                                     <br>
                                     Aloja:  1 persona
                                 </p>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Aire Acondicionado"><i class="material-icons">ac_unit</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="Wi-Fi"><i class="material-icons"> network_wifi</i></a>
+                                <a class="tooltipped black-text" data-position="bottom" data-tooltip="TV"><i class="material-icons"> tv</i></a>
                             </div>
-
                         </div>
                     </div>
                 </div>
