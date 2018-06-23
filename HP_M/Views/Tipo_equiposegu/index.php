@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
-                            <label for="descripcion_tipo"  data-error="Incorrecto" data-success="Correcto" >Tipo  De Equipo</label>
+                            <input id="descripcion_tipo" type="text"  name="descripcion_tipo">
+                            <label for="descripcion_tipo"   >Tipo  De Equipo</label>
                         </div>
                         <!--<div class="input-field col s5">
                             <select id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
@@ -34,7 +34,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipo_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_tipo_ok" class="btn ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_tipo_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -107,13 +107,8 @@
         $("#save_tipo_ok").click(function(){
             //console.log("ok")
             //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>Tipo_equiposegu/crear",$("#save_tipo").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_tipo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            $("#save_tipo").submit();
+
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -151,6 +146,39 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
+        $("#save_tipo").validate({
+            rules:{
+                descripcion_tipo:{
+                    required:true,
+                    maxlength:20,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                descripcion_tipo:{
+                    required:"Agrega un tipo",
+                    maxlength:"nombre muy largo",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function (form) {
+                $.post("<?php echo URL?>Tipo_equiposegu/crear",$("#save_tipo").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_tipo').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                })
+
+            }
+
+        })
 
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_tipo"), this.value);

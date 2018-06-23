@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="descripcion_estadomantenimiento" type="text" class="validate" name="descripcion_estadomantenimiento">
-                            <label for="descripcion_estadomantenimiento"  data-error="Incorrecto" data-success="Correcto" >Tipo  De Estado</label>
+                            <input id="descripcion_estadomantenimiento" type="text"  name="descripcion_estadomantenimiento">
+                            <label for="descripcion_estadomantenimiento"   >Tipo  De Estado</label>
                         </div>
                         <!--<div class="input-field col s5">
                             <select id="descripcion_tipo" type="text" class="validate" name="descripcion_tipo">
@@ -34,7 +34,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_estado_ok" class="btn modal-close">Registrar</a>
+                            <a href="#!" id="save_estado_ok" class="btn ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_estado_ok" class="btn modal-close " data-id="">Actualizar</a>
@@ -107,13 +107,7 @@
         $("#save_estado_ok").click(function(){
             //console.log("ok")
             //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>Estado_mantenimiento/crear",$("#save_estado").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_estado').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+            $("#save_estado").submit();
         });
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -150,6 +144,39 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
+        });
+
+        $("#save_estado").validate({
+            rules:{
+                descripcion_estadomantenimiento:{
+                    required:true,
+                    maxlength:20,
+                    lettersonly:true,
+                }
+            },
+            messages:{
+                descripcion_estadomantenimiento:{
+                    required:"Agrega un estado",
+                    maxlength:"nombre muy largo",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function (form) {
+                $.post("<?php echo URL?>Estado_mantenimiento/crear",$("#save_estado").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_estado').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                })
+
+
+            }
         });
 
         $("#buscar").keyup(function() {

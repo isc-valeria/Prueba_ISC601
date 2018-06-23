@@ -1,13 +1,63 @@
-<?php
 
-$datos=$datos[2];
-while($row=mysqli_fetch_array($datos))
-    echo "
-            <li class='tab col s3'><a href={$row['id_tipoh']}>{$row['tipo_ha']}</a></li>
-        ";
+<div class="row">
+    <div class="col s2 m2">
+        <div class="card">
+            <div class="card-image">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div align="center" class="card-content">
+                <p>Habitación</p>
+            </div>
+            <div class="card-action">
+                <a href="#modal_ver" id="ver" class="btn modal-trigger">Ver</a>
 
-//while ()
-$datos=$datos[2];
-while ($row=mysqli_fetch_array($datos))
-    echo "<div>hola desde {$row['tipo_ha']}</div>";
+            </div>
+        </div>
+    </div>
+</div>
+    <div id= "modal_ver" class="modal">
+        <div class="modal-content">
+            <h5>Tipos de habitaciones</h5>
+
+            <p>
+                <input id="aaa" type="text" name= "aaa" >
+                <label id="aaa" name= "aaa" ></label>
+
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('select').material_select();
+        $(".modal").modal();
+        $("#ver").on("click",function(){
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>checkin/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#aaa").data("id",datos["id_habitacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_ver").modal("open");
+                console.log(datos["id_habitacion"])
+
+            });
+        });
+
+        /*$("#update_habitaciones_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<///?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
+                $('#save_habitacion').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });*/
+    });
+</script>
+
+
 

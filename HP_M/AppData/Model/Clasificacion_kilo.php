@@ -16,6 +16,7 @@ class Clasificacion_kilo
     private  $id_serviciolav;
     private  $cantidadkg;
     private  $id_observacion;
+    private  $fecha_registro;
 
     function __construct()
     {
@@ -34,13 +35,13 @@ class Clasificacion_kilo
 
     function add()
     {
-        $sql="insert into Clasificacion_kilo values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}')";
+        $sql="insert into Clasificacion_kilo values('0','{$this->id_serviciolav}','{$this->cantidadkg}','{$this->id_observacion}', '{$this->fecha_registro }')";
         $this->conexion->QuerySimple($sql);
     }
 
     function getAll()
     {
-        $sql="SELECT Clasificacion_kilo.id_clasificacionkilo, Servicios_lavanderia.descripcion_servicio, Clasificacion_kilo.cantidadkg, Observaciones.descripcion_observacion
+        $sql="SELECT Clasificacion_kilo.id_clasificacionkilo, Servicios_lavanderia.descripcion_servicio, Clasificacion_kilo.cantidadkg, Observaciones.descripcion_observacion, clasificacion_kilo.fecha_registro
               FROM Clasificacion_kilo, Servicios_lavanderia, Observaciones 
               WHERE Clasificacion_kilo.id_serviciolav = Servicios_lavanderia.id_serviciolav 
               and Clasificacion_kilo.id_observacion = Observaciones.id_observacion
@@ -63,7 +64,7 @@ class Clasificacion_kilo
     function update(){
 
         $sql="update {$this->tabla} set id_serviciolav='{$this->id_serviciolav}', cantidadkg='{$this->cantidadkg}',
-               id_observacion='{$this->id_observacion}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
+               id_observacion='{$this->id_observacion}', fecha_registro='{$this->fecha_registro}' where id_clasificacionkilo='{$this->id_clasificacionkilo}'";
         $this->conexion->QuerySimple($sql);
     }
 
