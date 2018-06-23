@@ -57,4 +57,9 @@ class EstadoHabitaciones
         $sql="update {$this->tabla} set estado_ha='{$this->estado_ha}'where id_estadoh='{$this->id_estadoh}'";
         $this->conexion->QuerySimple($sql);
     }
+    function verify(){
+        $sql = "select * from {$this->tabla} where  estado_ha='{$this->estado_ha}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
 }
