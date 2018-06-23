@@ -4,15 +4,8 @@
     define('ROOT',realpath(dirname(__FILE__)).DS);
 
 
-<<<<<<< HEAD
-    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
-    require_once ("AppData/Config/Autoload.php");
-    \AppData\Config\Autoload::run();
-=======
->>>>>>> bb58c24ef8c17d88269acaa08aa483f931039454
-
-    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
+    define('URL',"http://localhost:8080/Prueba_ISC601/HP_M/");
 
 
     require_once ("AppData/Config/Autoload.php");
