@@ -26,6 +26,7 @@ class clasificacion_piezaController
            $this->clasi_pieza->set('cantidad', $_POST["cantidad"]);
            $this->clasi_pieza->set('id_serviciolav', $_POST["descripcion_serviciopieza"]);
            $this->clasi_pieza->set('id_observacion', $_POST["descripcion_observacionpieza"]);
+           $this->clasi_pieza->set('fecha_registro', $_POST["fecha_registro_pieza"]);
            $this->clasi_pieza->add();
            $datos4=$this->clasi_pieza->getAll();
            $datos["clasi_pieza"]=$datos4;
@@ -56,6 +57,7 @@ class clasificacion_piezaController
             $this->clasi_pieza->set('cantidad', $_POST["cantidad"]);
             $this->clasi_pieza->set('id_serviciolav', $_POST["descripcion_serviciopieza"]);
             $this->clasi_pieza->set('id_observacion', $_POST["descripcion_observacionpieza"]);
+            $this->clasi_pieza->set('fecha_registro', $_POST["fecha_registro_pieza"]);
 
             $this->clasi_pieza->update();
             $datos4 = $this->clasi_pieza->getAll();

@@ -385,6 +385,7 @@
                                 <th>Servicio</th>
                                 <th>Cantidad</th>
                                 <th>Observaciones</th>
+                                <th>Fecha registro</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -440,7 +441,7 @@
 
                     <div class="input-field input-field col s5 center">
                         <input id="cantidadkg" type="text"  name="cantidadkg">
-                        <label for="cantidadkg"  data-error="Incorrecto" data-success="Correcto" >Cantidad (KG)</label>
+                        <label for="cantidadkg" >Cantidad (KG)</label>
                     </div>
 
                     <div class="input-field col s5">
@@ -454,6 +455,11 @@
                             ?>
                         </select>
                         <label for="descripcion_observacion">Tipo de observacion</label>
+                    </div>
+
+                    <div class="input-field input-field col s3.5">
+                        <input id="fecha_registro" type="datetime-local" class="validate" name="fecha_registro" value="<?php date_default_timezone_set('america/mexico_city'); echo date('Y-m-d H:i:s', time()); ?>">
+                        <label for="fecha_registro"  data-error="Incorrecto" data-success="Correcto" ></label>
                     </div>
 
                     <div class="modal-fixed-footer">
@@ -516,6 +522,7 @@
                                 <th>Cantidad</th>
                                 <th>Servicio</th>
                                 <th>Observaciones</th>
+                                <th>Fecha registro</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -553,13 +560,13 @@
                     <h4>Nuevo registro por pieza</h4>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="descripcion_pieza" type="text" class="validate" name="descripcion_pieza">
-                        <label for="descripcion_pieza"  data-error="Incorrecto" data-success="Correcto" >Descripcion de la pieza</label>
+                        <input id="descripcion_pieza" type="text"  name="descripcion_pieza">
+                        <label for="descripcion_pieza" >Descripcion de la pieza</label>
                     </div>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="cantidad" type="text" class="validate" name="cantidad">
-                        <label for="cantidad"  data-error="Incorrecto" data-success="Correcto" >Cantidad </label>
+                        <input id="cantidad" type="text"  name="cantidad">
+                        <label for="cantidad">Cantidad </label>
                     </div>
                     <div class="divider"></div>
                     <div class="input-field col s5">
@@ -590,6 +597,12 @@
                         </select>
                         <label for="descripcion_observacionpieza">Tipo de observacion</label>
                     </div>
+
+                    <div class="input-field input-field col s3.5">
+                        <input id="fecha_registro_pieza" type="datetime-local" class="validate" name="fecha_registro_pieza" value="<?php date_default_timezone_set('america/mexico_city'); echo date('Y-m-d H:i:s', time()); ?>">
+                        <label for="fecha_registro_pieza"  data-error="Incorrecto" data-success="Correcto" ></label>
+                    </div>
+
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
@@ -693,6 +706,7 @@
                             $result3=mysqli_query($link,"select * from Habitaciones");
                             while ($row=mysqli_fetch_array($result5))
                                 echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato->data_seek(0);
                             ?>
                         </select>
                         <label for="num_habitacion">Numero de habitacion</label>
@@ -810,48 +824,56 @@
                 <form action="" id="save_ventakilo" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo registro de venta por kilos</h4>
 
-                    
                     <div class="divider"></div>
                     <div class="input-field col s5">
                         <select id="num_habitacion" type="text" name="num_habitacion">
-                            <option disabled selected>Numero de habitacion</option>
+                            <option disabled selected>Selecciona habitacion</option>
+
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Habitaciones");
-                            while ($row=mysqli_fetch_array($result4))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["venta_kilo"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
-                        <label for="num_habitacion">Numero de habitacion</label>
+                        <label for="num_habitacion">Numero de habitaciono</label>
                     </div>
-                   <div class="divider"></div>
+                    <div class="divider"></div>
+
+
                     <div class="input-field col s5">
                         <select id="cantidadkg" type="text" name="cantidadkg">
-                            <option disabled selected>selecciona la cantidad </option>
+                            <option disabled selected>Selecciona servicio</option>
+
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from clasificacion_kilo");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["venta_kilo"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
-                        <label for="num_habitacion">Cantidad de kilos</label>
+                        <label for="cantidadkg">Cantidad de kilos</label>
                     </div>
 
-                   
+                    <div class="divider"></div>
                     <div class="divider"></div>
                     <div class="input-field col s5">
                         <select id="total" type="text" name="total">
-                            <option disabled selected>Total</option>
+                            <option disabled selected>Selecciona Total</option>
+
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Ticket");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["venta_kilo"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
                             ?>
+
                         </select>
                         <label for="total">Total</label>
                     </div>
+
                     <div class="input-field input-field col s5 center">
                         <input id="subtotal" type="text" class="validate" name="subtotal">
                         <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
@@ -912,6 +934,7 @@
                 $("#update_servicioslav_ok").data("id",datos["id_serviciolav"]);
                 $("#nombre_servi").val(datos["descripcion_servicio"]);
                 $("#precio").val(datos["precio"]);
+                $("#fecha_registro").val(datos["fecha_registro"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_servicios_agregar").modal("open");
@@ -986,7 +1009,7 @@
         });
 
         $("#save_clasikilo_ok").click(function(){
-            $("#save_observaciones_lavanderia").submit();
+            $("#save_clasificacionkilo").submit();
 
         });
 
@@ -1014,6 +1037,7 @@
                 $("#id_serviciolav").val(datos["id_serviciolav"]);
                 $("#cantidadkg").val(datos["cantidadkg"]);
                 $("#id_observacion").val(datos["id_observacion"]);
+                $("#fecha_registro").val(datos["fecha_registro"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_clasikilo_agregar").modal("open");
@@ -1040,14 +1064,8 @@
         });
 
         $("#save_clasipieza_ok").click(function(){
-            $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
-                $("#body_table_clasipieza").empty().append(res);
-                $('#save_clasificacionpieza').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_clasipieza_agregar").modal("close");
-            })
+            $("#save_clasificacionpieza").submit();
+
         });
 
         $("#body_table_clasipieza").on("click","a.btn_eliminar",function(){
@@ -1075,6 +1093,7 @@
                 $("#cantidad").val(datos["cantidad"]);
                 $("#descripcion_serviciopieza").val(datos["id_serviciolav"]);
                 $("#descripcion_observacionpieza").val(datos["id_observacion"]);
+                $("#fecha_registro_pieza").val(datos["fecha_registro"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_clasipieza_agregar").modal("open");
@@ -1137,6 +1156,7 @@
                 precio:{
                     required:true,
                     maxlength: 3,
+                    minlength: 1,
                     number:true,
                 },
 
@@ -1194,6 +1214,7 @@
                 cargo:{
                     required:true,
                     maxlength: 3,
+                    minlength: 1,
                     number:true,
                 },
 
@@ -1236,7 +1257,159 @@
 
 
 
-        
+
+//--------------------------Validacion clasificasion kilo-------------------------------------------
+        $("#save_clasificacionkilo").validate({
+                rules:{
+                    descripcion_servicio:{
+                        required:true,
+
+                    },
+                    cantidadkg:{
+                        required:true,
+                        maxlength: 3,
+                        minlength: 1,
+                        number:true,
+                    },
+                    descripcion_observacion:{
+                        required:true,
+
+                    },
+                    fecha_registro: {
+                        required: true,
+
+
+                    }
+                },
+
+                messages:{
+                    descripcion_servicio:{
+                    required:"Agrega una descripción",
+
+                },
+
+                cantidadkg:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+
+                descripcion_observacion:{
+                    required:"Agrega una descripción",
+
+                },
+
+                fecha_registro:{
+                    required:"Agrega una descripción",
+
+                }
+
+            },
+            errorPlacement: function(error, element) {
+            $(element)
+                .closest("form")
+                .find("label[for='" + element.attr("id") + "']")
+                .attr('data-error', error.text());
+        },
+
+        submitHandler:function(form){
+            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                $("#body_table_clasikilo").empty().append(res);
+                $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+                $("#modal_clasikilo_agregar").modal("close");
+            })
+        }
+    });
+
+
+        //--------------------------Validacion clasificasion pieza-------------------------------------------
+        $("#save_clasificacionpieza").validate({
+            rules:{
+                descripcion_pieza:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+
+                },
+                cantidad:{
+                    required:true,
+                    maxlength: 3,
+                    minlength: 1,
+                    number:true,
+
+                },
+                descripcion_serviciopieza:{
+                    required:true,
+
+                },
+
+                descripcion_observacionpieza:{
+                    required:true,
+
+                },
+
+                fecha_registro_pieza:{
+                    required:true,
+
+                },
+
+            },
+
+            messages:{
+                descripcion_pieza:{
+                    required:"Agrega una descripción",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
+
+                },
+
+                cantidad:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+
+                },
+
+                descripcion_serviciopieza:{
+                    required:"Agrega una descripción",
+
+                },
+
+                descripcion_observacionpieza: {
+                    required:"Agrega una descripción",
+                },
+                fecha_registro_pieza:{
+                    required:"Agrega una fecha",
+                }
+
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+
+            submitHandler:function(form){
+                $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
+                    $("#body_table_clasipieza").empty().append(res);
+                    $('#save_clasificacionpieza').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    //$("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    $("#modal_clasipieza_agregar").modal("close");
+                })
+            }
+        });
+
+
 
 
 
