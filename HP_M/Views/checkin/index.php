@@ -1,76 +1,108 @@
+<div class="modal" id="muestreo">
+    <div class="modal-content">
+        <h3 align="center">Datos de la Reservación</h3>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <table id="table">
+                    <thead>
+                    <tr>
+                        <th>Clave de Reservación</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Teléfono</th>
+                        <th>E-mail</th>
+                        <th># Habitación</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Tipo</th>
+                        <th>Precio</th>
+                        <th>Fecha de Reservación</th>
+                        <th>Fecha de Llegada</th>
+                        <th>Fecha de Salida</th>
+                        <th>Numero de Personas</th>
+                        <th>Estado de Reservación</th>
+                        <th>Cancelar Reservación</th>
+                        <th>Modificar Reservación</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $datoss1=$datos[2];
+                    while ($row=mysqli_fetch_array($datoss1))
+                    {
+                    echo "
+                            <tr>
+                                <td>{$row[0]}</td>
+                                <td>{$row[1]}</td>
+                                <td>{$row[2]}</td>
+                                <td>{$row[3]}</td>
+                                <td>{$row[4]}</td>
+                                <td>{$row[5]}</td>
+                                <td>{$row[6]}</td>
+                                <td>{$row[7]}</td>
+                                <td>{$row[8]}</td>
+                                <td>{$row[9]}</td>
+                                <td>{$row[10]}</td>
+                                <td>{$row[11]}</td>
+                                <td>{$row[12]}</td>
+                                <td>{$row[13]}</td>
+                                <td>{$row[14]}</td>
+                                <td>{$row[15]}</td>
+                                <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row['clave_reserva']}'></td>
+                                <td><a class='btn-flat icon-pencil blue-text btn_modificar ' data-id='{$row['clave_reserva']}' href='#!'></td>
+                            </tr>  
+                            
+                        ";
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="card-panel">
 
     <h4 align="center"></h4>
     <div class="divider"></div>
-    <h3 class="center">Check in</h3>
-    <nav>
-        <div class="nav-wrapper  light-green lighten-1 " >
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="sass.html">Simple </a></li>
-                <li><a href="badges.html">Piso 2</a></li>
-                <li><a href="collapsible.html">Piso 3 </a></li>
-            </ul>
-        </div>
-    </nav><div class="row">
-        <div class="col s2 m2">
-            <div class="card">
-                <div class="card-image">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div align="center" class="card-content">
-                    <p>Habitación</p>
-                </div>
-                <div class="card-action">
-                    <a href="#modal_ver" id="ver" class="btn modal-trigger">Ver</a>
-
-                </div>
-            </div>
-        </div>
+    <h3 class="center">Check in<span class="right">
+            <a href="tabla.php" class="btn green white-text modal-trigger" id="add_habitacion">
+                <i class="material-icons">add</i>
+            </a>
+        </span></h3>
+    <div style="overflow-x: auto">
+        <table id="bodytable">
+            <thead>
+            <tr>
+                <th>Clave de Reservación</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+                <th>Ver datos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php require_once ("tabla.php");
+            ?>
+            </tbody>
+        </table>
     </div>
-    <div id= "modal_ver" class="modal">
-        <div class="modal-content">
-            <h5>Tipos de habitaciones</h5>
-
-            <p>
-                <input id="aaa" type="text" name= "aaa" >
-                <label id="aaa" name= "aaa" ></label>
-
-            </p>
-        </div>
-    </div>
-
 </div>
 
 <script type="text/javascript">
     $(document).ready(function(){
-
-        $('select').material_select();
-        $(".modal").modal();
-        $("#ver").on("click",function(){
-            var id= 150;
-            $.get("<?php echo URL?>checkin/modificar/"+id,function(res){
-                var datos=JSON.parse(res);
-                $("#aaa").data("id",datos["id_habitacion"]);
-                Materialize.updateTextFields();
-                $('select').material_select();
-                $("#modal_ver").modal("open");
-            });
-        });
-        /*$("#update_habitaciones_ok").click(function(){
-            var id=$(this).data("id");
-            $.post("<///?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
-                $("#body_table").empty().append(res);
-                Materialize.updateTextFields();
-                Materialize.toast('Se ha modificado correctamente', 2500);
-            })
-        });*/
-    });
+      $(".modal").modal();
+    };
+    $("#body_table").on("click","a.btn_mostrar",function () {
+        var id=$(this).data("id");
+        $.get("<?php echo URL?>checkin/getOut"+id,function (res) {
+            var datos=JSON.parse(res);
+            console.log(res);
+            $("#table").empty().append(res);
+        })
+    })
 </script>
-
-
-
-
-
-</div>
-

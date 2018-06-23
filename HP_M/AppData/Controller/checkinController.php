@@ -41,4 +41,11 @@ class checkinController
         $datos=$this->check_in->getOne($id[0]);
         return $datos;
     }
+
+    public function getOut($id)
+    {
+        $datos=$this->check_in->tabs($id[0]);
+        $datos=mysqli_fetch_array($datos);
+        print_r(json_encode($datos));
+    }
 }
