@@ -63,8 +63,8 @@
     </div>
 </div>
 
-<div class="card-panel">
 
+<div class="card-panel">
     <h4 align="center"></h4>
     <div class="divider"></div>
     <h3 class="center">Check in<span class="right">
@@ -95,14 +95,28 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-      $(".modal").modal();
-    };
-    $("#body_table").on("click","a.btn_mostrar",function () {
-        var id=$(this).data("id");
-        $.get("<?php echo URL?>checkin/getOut"+id,function (res) {
-            var datos=JSON.parse(res);
-            console.log(res);
-            $("#table").empty().append(res);
-        })
-    })
+
+
+        $('select').material_select();
+        $(".modal").modal();
+        $("#ver").on("click",function(){
+            var id= 150;
+            $.get("<?php echo URL?>checkin/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#aaa").text(datos["descripcion_hab"])
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_ver").modal("open");
+            });
+        });
+        /*$("#update_habitaciones_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<///?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
+                $('#save_habitacion').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });*/
+    });
 </script>

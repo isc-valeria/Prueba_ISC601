@@ -1,3 +1,4 @@
+
 <?php
 $datos1=$datos[0];
 while ($row=mysqli_fetch_array($datos1))
