@@ -31,7 +31,6 @@
             <h5>Tipos de habitaciones</h5>
 
             <p>
-                <input id="aaa" type="text" name= "aaa" >
                 <label id="aaa" name= "aaa" ></label>
 
             </p>
@@ -49,7 +48,7 @@
             var id= 150;
             $.get("<?php echo URL?>checkin/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
-                $("#aaa").data("id",datos["id_habitacion"]);
+                $("#aaa").text(datos["descripcion_hab"])
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_ver").modal("open");

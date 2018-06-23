@@ -46,15 +46,7 @@
             });
         });
 
-        /*$("#update_habitaciones_ok").click(function(){
-            var id=$(this).data("id");
-            $.post("<///?php echo URL?>habitaciones/actualizar/"+id,$("#save_habitacion").serialize(),function(res){
-                $('#save_habitacion').find('input, select, textarea').val('');
-                $("#body_table").empty().append(res);
-                Materialize.updateTextFields();
-                Materialize.toast('Se ha modificado correctamente', 2500);
-            })
-        });*/
+
     });
 </script>
 
