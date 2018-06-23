@@ -44,7 +44,7 @@
                                     echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="habitacion"  >Tipo de Habitación</label>
+                            <label for="habitacion"  >No. Habitación</label>
                         </div>
 
                         <div class="input-field col l3">
@@ -138,7 +138,12 @@
     </div>
 </div>
 <script type="text/javascript">
+
     $(document).ready(function(){
+
+
+
+
         $('select').material_select();
         $(".modal").modal();
         $("#add_tarea").click(function(){
@@ -160,6 +165,7 @@
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
+
         $("#body_table").on("click","a.btn_modificar",function(){
             $("#update_tarea_ok").show();
             $("#save_tarea_ok").hide();
@@ -265,4 +271,5 @@
             });
         });
     });
+
 </script>

@@ -52,6 +52,7 @@ class tareasController
             }
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
+
             return $datos;
 
         }
@@ -75,10 +76,7 @@ class tareasController
         if($_POST)
         {
             {
-                //$idt=$this->Tareas->getid();
-                //$dato=$idt;
-                //$row=mysqli_fetch_array($dato);
-                //$id=$row[0];
+                $this->asigna_eq->delete($id[0]);
                 $this->Tareas->set("id_tarea",$id[0]);
                 $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
                 $this->Tareas->set('id_empleado',$_POST["empleados"]);
@@ -87,6 +85,7 @@ class tareasController
                 $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
                 $this->Tareas->update();
                 $herramientas=$_POST["eq"];
+
                 for($i=0;$i<count($herramientas);$i++)
                 {
                     $id_herramineta=$herramientas[$i];

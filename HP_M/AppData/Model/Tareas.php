@@ -34,16 +34,13 @@ class Tareas
 
     function add()
     {
+        $fi = str_replace(',','' ,$this->fecha_inicio);
+        $ff = str_replace(',','',$this->fecha_fin);
 
-        $sql=" INSERT into {$this->tabla} (`id_tarea`,`id_tipotarea`,`id_empleado`,`id_habitacion`,`fecha_inicio`,`fecha_fin`) 
-        values('0'
-        ,'{$this->id_tipotarea}'
-        ,'{$this->id_empleado}'
-        ,'{$this->id_habitacion}'
-        ,STR_TO_DATE('{$this->fecha_inicio}','%d/%m/%Y')
-        ,STR_TO_DATE('{$this->fecha_fin}','%d/%m/%Y'))";
-
+        //$sql=" INSERT into {$this->tabla} (`id_tarea`,`id_tipotarea`,`id_empleado`,`id_habitacion`,`fecha_inicio`,`fecha_fin`)         values('0','{$this->id_tipotarea}','{$this->id_empleado}','{$this->id_habitacion}',STR_TO_DATE('$fi','%d %M %Y'),STR_TO_DATE('$ff','%d %M %Y'))";
+        $sql="call inserta_tareas('{$this-> id_tipotarea}','{$this->id_empleado}','{$this->id_habitacion}','$fi','$ff')";
         $this->conexion->QuerySimple($sql);
+
     }
 
     function getAll()
