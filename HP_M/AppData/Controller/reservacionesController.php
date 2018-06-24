@@ -85,10 +85,7 @@ class reservacionesController
     public function delite($id)
     {
         $datos=$this->reservaciones->getData($id[0]);
-        //print_r($datos);
-       //   $datos->data_seek(0);
         $datos=mysqli_fetch_array($datos);
-       // print_r($datos);
         print_r(json_encode($datos));
     }
     public function modificar($id)

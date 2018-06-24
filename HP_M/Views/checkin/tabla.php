@@ -1,21 +1,54 @@
-<?php
+<div class="row">
+    <div class="col s2 m2">
+        <div class="card">
+            <div class="card-image">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div align="center" class="card-content">
+                <p>Habitación</p>
+            </div>
+            <div class="card-action">
+                <a href="#modal_ver" id="ver" class="btn modal-trigger">Ver</a>
 
-$datos=$datos[0];
-while($row=mysqli_fetch_array($datos))
-    echo "<tr>
-                        <td>{$row[0]}</td>
-                        <td>{$row[1]}</td>
-                        <td>{$row[2]}</td>
-                        <td>{$row[3]}</td>
-                        <td>{$row[4]}</td>
-                        <td>{$row[5]}</td>
-                        <td>{$row[6]}</td>
-                        <td>{$row[7]}</td>
-                        <td>{$row[8]}</td>
-                        <td>{$row[9]}</td>
-                        <td>{$row[10]}</td>
-                        <td>{$row[11]}</td>
-                        <td>{$row[12]}</td>
-                        <td><a class='btn-flat modal-trigger icon-cross red-text' href='#modal_eliminar'></a></td>
-                        <td><a class='btn-flat modal-trigger  icon-pencil blue-text' href='#modal_editar'></a></td>
-                    </tr>";
+            </div>
+        </div>
+    </div>
+</div>
+    <div id= "modal_ver" class="modal">
+        <div class="modal-content">
+            <h5>Tipos de habitaciones</h5>
+
+            <p>
+                <input id="aaa" type="text" name= "aaa" >
+                <label id="aaa" name= "aaa" ></label>
+
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('select').material_select();
+        $(".modal").modal();
+        $("#ver").on("click",function(){
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>checkin/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#aaa").data("id",datos["id_habitacion"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_ver").modal("open");
+                console.log(datos["id_habitacion"])
+
+            });
+        });
+
+
+    });
+</script>
+
+
+

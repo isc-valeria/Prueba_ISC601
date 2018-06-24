@@ -48,5 +48,12 @@ class Checkin
         $result3=$this->conexion->QueryResultado($sql);
         return $result3;
     }
+    function getOne($id)
+    {
+        $sql = "select * from  habitaciones where id_habitacion='{$id}'";
+        $datos = $this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
 
 }

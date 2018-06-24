@@ -59,4 +59,9 @@ class Estado_Reservacion
         $sql="update {$this->tabla} set estador='{$this->estador}'where id_estador='{$this->id_estador}'";
         $this->conexion->QuerySimple($sql);
     }
+    function verify(){
+        $sql = "select * from {$this->tabla} where estador='{$this->estador}'";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
 }

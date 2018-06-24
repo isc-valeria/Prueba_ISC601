@@ -20,8 +20,8 @@ create table Asignadestino_servicios(id_destinoser int primary key AUTO_INCREMEN
 
 create table Servicios_lavanderia (id_serviciolav int primary key AUTO_INCREMENT, descripcion_servicio varchar(30), precio int);
 create table Observaciones (id_observacion int primary key AUTO_INCREMENT, descripcion_observacion varchar(50),cargo float);
-create table Clasificacion_kilo(id_clasificacionkilo int primary key AUTO_INCREMENT, id_serviciolav int, cantidadkg int, id_observacion int);
-create table Clasificacion_pieza(id_clasificacionpieza int primary key AUTO_INCREMENT,descripcion_pieza varchar(30),cantidad int, id_serviciolav int, id_observacion int);
+create table Clasificacion_kilo(id_clasificacionkilo int primary key AUTO_INCREMENT, id_serviciolav int, cantidadkg int, id_observacion int, fecha_registro datetime default null);
+create table Clasificacion_pieza(id_clasificacionpieza int primary key AUTO_INCREMENT,descripcion_pieza varchar(30),cantidad int, id_serviciolav int, id_observacion int, fecha_registro datetime default null);
 create table Ticket (id_ticket int primary key AUTO_INCREMENT, fecha_entrada timestamp, fecha_salida timestamp, total float);
 create table Ventahab_kilo(id_ventahabkilo int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionkilo int, id_ticket int, subtotal float);
 create table Ventahab_pieza(id_ventahabpieza int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionpieza int, id_ticket int, subtotal float);
@@ -71,14 +71,14 @@ insert into Servicios_lavanderia values (23, 'Planchado por kilo',42);
 insert into Servicios_lavanderia values (24, 'Lavado por kilo',52);
 insert into Servicios_lavanderia values (25, 'Lavado y planchado por kilo',84);
 
-insert into Clasificacion_kilo values(10, 23, 2, 500);
-insert into Clasificacion_kilo values(11, 24,4, 501 );
-insert into Clasificacion_kilo values(12, 25, 2, 502);
+insert into Clasificacion_kilo values(10, 23, 2, 500,sysdate());
+insert into Clasificacion_kilo values(11, 24,4, 501 ,sysdate());
+insert into Clasificacion_kilo values(12, 25, 2, 502,sysdate());
 
-insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500);
-insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501);
-insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502);
-insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502);
+insert into Clasificacion_pieza values (30, 'Chamarra', 5, 21,500, sysdate());
+insert into Clasificacion_pieza values (31, 'Camisa', 3, 21,501, sysdate());
+insert into Clasificacion_pieza values (32, 'Sudadera', 4, 22,502, sysdate());
+insert into Clasificacion_pieza values (33, 'Edredon', 2, 21,502, sysdate());
 
 
 insert into Ticket values(130, sysdate(),sysdate(), 111 );
@@ -292,39 +292,85 @@ insert into Estado_mantenimiento values (1,'Disponible');
 
 
 insert into  Equipo_seguridad values(370, 'Camaras', 380,2,1);
-
 insert into  Equipo_seguridad values(371, 'Alarmas de sismo', 381,3,1);
-
 insert into  Equipo_seguridad values(372, 'Llaves de repuesto', 382,4,1);
 
-
-
 insert into  Tipo_equiposegu values(380, 'Video');
-
 insert into  Tipo_equiposegu values(381, 'Sonido');
-
 insert into  Tipo_equiposegu values(382, 'Grabadoras');
 
-
-
 insert into  Tipo_tarea values(390, 'Reparar drenaje');
-
 insert into  Tipo_tarea values(391, 'Instalar aire acondicionado');
-
 insert into  Tipo_tarea values(392, 'Cambiar chapas');
 
-
-
 insert into  Tareas values(400, 390,301,150,'2017/06/17','2017/06/15');
-
 insert into  Tareas values(401, 391,301,151,'2017/06/12','2017/06/12');
-
 insert into  Tareas values(402, 392,302,152,'2017/01/23','2017/08/31');
 
-
-
 insert into  Asigna_equiposegu values(410, 370,400);
-
 insert into  Asigna_equiposegu values(411, 371,401);
-
 insert into  Asigna_equiposegu values(412, 372,402);
+
+DROP PROCEDURE IF EXISTs inserta_tareas;
+DELIMITER $$
+CREATE PROCEDURE inserta_tareas(  in tarea varchar(30), in empleado varchar(30),
+								   in habitacion varchar(30), in inicio varchar(20), in fin varchar(20))
+BEGIN
+DECLARE te int; DECLARE fi date; DECLARE ff date; DECLARE fc int default 0;
+set fi= (select STR_TO_DATE(inicio ,'%d %M %Y'));
+set ff= (select STR_TO_DATE(fin ,'%d %M %Y'));
+set te= (select tareas.id_tarea from tareas where tareas.id_tipotarea = tarea and tareas.id_habitacion=habitacion);
+set fc= (Select TIMESTAMPDIFF (day,fi,ff) as tiempo);
+
+if (te is null)then
+	if(fc>=0)then
+		INSERT INTO tareas (id_tipotarea,id_empleado,id_habitacion,fecha_inicio,fecha_fin)
+		VALUES(tarea,empleado,habitacion,fi,ff);
+		else
+		select "la fecha de inicio no puede ser superior a la fecha de fin";
+	end if;
+else
+select "Esta tarea ya ha sido asigna a la habitacion selecionada";
+end if;
+END $$
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTs inserta_equipotarea; DELIMITER $$
+CREATE PROCEDURE inserta_equipotarea(in tarea varchar(30), in equipo varchar(20))
+BEGIN
+DECLARE ct int;
+set ct= (select tareas.id_tarea from tareas where  tareas.id_tarea = tarea);
+if (ct is null)then
+	select "";
+else
+	INSERT INTO asigna_equiposegu (id_tarea,id_equiposegu) VALUES (tarea,equipo);
+end if;
+END $$
+DELIMITER;
+
+
+DROP PROCEDURE IF EXISTs actualiza_tareas;
+DELIMITER $$
+CREATE PROCEDURE actualiza_tareas( in id_tareae varchar(30), in tarea varchar(30), in empleado varchar(30),
+								   in habitacion varchar(30), in inicio varchar(20), in fin varchar(20))
+BEGIN
+DECLARE te int; DECLARE fi date; DECLARE ff date; DECLARE fc int default 0;
+
+set fi= (select STR_TO_DATE(inicio ,'%d %M %Y'));
+set ff= (select STR_TO_DATE(fin ,'%d %M %Y'));
+set te= (select tareas.id_tarea from tareas where tareas.id_tipotarea = tarea and tareas.id_habitacion=habitacion);
+set fc= (Select TIMESTAMPDIFF(day,fi,ff) as tiempo);
+	if(fc>=0)then
+	update tareas set id_tipotarea=tarea ,
+					  id_empleado=empleado,
+					  id_habitacion=habitacion,
+					  fecha_inicio=fi,
+					  fecha_fin=ff where tareas.id_tarea=id_tareae;
+	else
+	select "la fecha de inicio no puede ser superior a la fecha de fin";
+end if;
+END $$
+DELIMITER ;
+

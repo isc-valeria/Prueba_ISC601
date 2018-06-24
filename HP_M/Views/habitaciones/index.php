@@ -198,6 +198,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+
         $('select').material_select();
         $(".modal").modal();
         $("#add_habitacion").click(function(){

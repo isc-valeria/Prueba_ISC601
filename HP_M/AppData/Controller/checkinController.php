@@ -34,4 +34,9 @@ class checkinController
         $datos[1]=$datos2;
         return $datos;
     }
+    public function modificar($id)
+    {
+        $datos=$this->check_in->getOne($id[0]);
+        return $datos;
+    }
 }
