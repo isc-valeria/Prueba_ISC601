@@ -21,7 +21,7 @@ class habitacionesController
         $datos3=$this->estado_habitaciones->getAll();
         $datos[0]=$datos1;
         $datos[1]=$datos2;
-        $datos[3]=$datos3;
+        $datos[2]=$datos3;
         return $datos;
     }
     public function crear(){

@@ -101,6 +101,13 @@
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
             <input id="busca" placeholder="Buscar" type="text">
+                </div>
+            </div>
+
+
+            <div class="card-action">
+                <a href="#!" id="save_asigna_servicios_ok" class="btn modal-close">Ver</a>
+
         </div>
     </div>
 
@@ -177,6 +184,9 @@
     </div>
 </div>
 
+
+</div>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $(".modal").modal();
@@ -212,3 +222,10 @@
         });
     });
 </script>
+
+
+
+
+
+
+</div>
