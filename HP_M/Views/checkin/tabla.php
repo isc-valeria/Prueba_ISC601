@@ -12,8 +12,8 @@ echo "
         <td>{$row[4]}</td>
         <td>{$row[5]}</td>
         
-        <td><a class='btn-flat blue-text btn_mostrar' data-id='{$row['clave_reserva']}' href='#!'><i class='material-icons'>remove_red_eye</i></td>
+        <td><a class='btn-flat blue-text btn_mostrar tooltipped' data-id='{$row['clave_reserva']}' href='#!' data-position='bottom' data-delay='50' data-tooltip='Ver Datos de la Reservación'><i class='material-icons'>remove_red_eye</i></td>
     </tr>  
     
 ";
-}
+}?>

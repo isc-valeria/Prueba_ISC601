@@ -36,30 +36,24 @@ class Checkin
     {
         $sql="insert into {$this->tabla} (id_chekin,id_asignares,fecha_checkin) values('0','{$this->id_chekin}','{$this->id_asignares}','{$this->fecha_checkin}')";
     }
-    function getAll(){
-//        $sql="SELECT habitaciones.num_habitacion, habitaciones.descripcion_hab,tipos_habitacion.tipo_ha, clientes.email, reservaciones.fecha_reserva FROM habitaciones, tipos_habitacion, asigna_reservaciones, reservaciones, clientes WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND reservaciones.id_reservacion=asigna_reservaciones.id_reservacion AND clientes.id_cliente=reservaciones.id_cliente ";
-        $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email, habitaciones.num_habitacion, habitaciones.descripcion_hab, estado_habitacion.estado_ha, tipos_habitacion.tipo_ha, tipos_habitacion.precio, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, reservaciones.no_personas, estado_reserva.estador FROM habitaciones, tipos_habitacion, estado_habitacion, asigna_reservaciones, reservaciones, clientes, estado_reserva WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh AND habitaciones.id_estadoh=estado_habitacion.id_estadoh AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion AND reservaciones.id_cliente=clientes.id_cliente AND reservaciones.id_estador=estado_reserva.id_estador";
+    function getAll()
+    {
+        $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email FROM reservaciones, clientes, estado_reserva WHERE reservaciones.id_cliente=clientes.id_cliente AND reservaciones.id_estador=estado_reserva.id_estador AND estado_reserva.estador='confirmado' ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-    function getDatos()
-    {
-        $sql="SELECT * FROM tipos_habitacion";
-        $result3=$this->conexion->QueryResultado($sql);
-        return $result3;
-    }
+
     function getOne($id)
     {
-        $sql = "select * from  habitaciones where id_habitacion='{$id}'";
+        $sql = "SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, reservaciones.no_personas, tipos_habitacion.tipo_ha, tipos_habitacion.precio, estado_habitacion.estado_ha, estado_reserva.estador FROM habitaciones, tipos_habitacion, estado_habitacion, asigna_reservaciones, reservaciones, clientes, estado_reserva WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh AND habitaciones.id_estadoh=estado_habitacion.id_estadoh AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion AND reservaciones.id_cliente=clientes.id_cliente AND reservaciones.id_estador=estado_reserva.id_estador AND estado_reserva.estador='Confirmado' AND reservaciones.clave_reserva={$id}";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }
 
-
-    function tabs($id){
-        $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email, habitaciones.num_habitacion, habitaciones.descripcion_hab, estado_habitacion.estado_ha, tipos_habitacion.tipo_ha, tipos_habitacion.precio, reservaciones.fecha_reserva, reservaciones.fecha_llegada, reservaciones.fecha_salida, reservaciones.no_personas, estado_reserva.estador FROM habitaciones, tipos_habitacion, estado_habitacion, asigna_reservaciones, reservaciones, clientes, estado_reserva WHERE habitaciones.id_tipoh=tipos_habitacion.id_tipoh AND habitaciones.id_estadoh=estado_habitacion.id_estadoh AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion AND reservaciones.id_cliente=clientes.id_cliente AND reservaciones.id_estador=estado_reserva.id_estador AND reservaciones.clave_reserva={$id}";
+    function check()
+    {
+        $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email, checkin.fecha_checkin FROM checkin, asigna_reservaciones, clientes, reservaciones WHERE checkin.id_asignares=asigna_reservaciones.id_asignares AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion AND reservaciones.id_cliente=clientes.id_cliente ";
         $datos=$this->conexion->QueryResultado($sql);
-
         return $datos;
     }
 

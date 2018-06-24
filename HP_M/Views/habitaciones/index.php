@@ -71,9 +71,7 @@
     </div>
 
 
-    <!-- Modal eliminar -->
 
-    <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>

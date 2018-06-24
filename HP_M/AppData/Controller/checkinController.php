@@ -28,24 +28,15 @@ class checkinController
     public function index()
     {
         $datos1=$this->check_in->getAll();
-        $datos2=$this->check_in->getDatos();
-        $datos3=$this->check_in->tabs();
+        $result=$this->check_in->check();
 
         $datos[0]=$datos1;
-        $datos[1]=$datos2;
-        $datos[2]=$datos3;
+        $datos[2]=$result;
         return $datos;
     }
     public function modificar($id)
     {
         $datos=$this->check_in->getOne($id[0]);
         return $datos;
-    }
-
-    public function getOut($id)
-    {
-        $datos=$this->check_in->tabs($id[0]);
-        $datos=mysqli_fetch_array($datos);
-        print_r(json_encode($datos));
     }
 }
