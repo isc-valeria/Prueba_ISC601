@@ -42,9 +42,7 @@ class ReservacionesCliente
 
     function getAll()
     {
-        $sql = "select h.num_habitacion,h.descripcion_hab,th.maximo_personas,th.precio
-        from habitaciones h
-        inner join tipos_habitacion th on h.id_tipoh=th.id_tipoh";
+        $sql = "select * from tipos_habitacion";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }
