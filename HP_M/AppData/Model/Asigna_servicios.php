@@ -58,8 +58,8 @@ class Asigna_servicios
         $sql="UPDATE {$this->tabla} SET 
         num_habitacion='{$this->num_habitacion}', 
         descripcion_ser='{$this->descripcion_ser}',
-        descripcion_est='{$this->descripcion_est}' 
-         fecha_reg=STR_TO_DATE({$this->fecha_reg}, '%d/%m/%a')
+        descripcion_est='{$this->descripcion_est}', 
+        fecha_reg=STR_TO_DATE('{$this->fecha_reg}', '%d/%m/%a')
         WHERE
         id_asignaser={$this->id_asignaser}";
         $this->conexion->QuerySimple($sql);

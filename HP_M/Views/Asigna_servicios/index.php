@@ -165,7 +165,6 @@
                 $("#descripcion_est").val(datos["descripcion_est"]);
                 $("#descripcion_ser").val(datos["descripcion_ser"]);
                 $("#fecha_reg").val(datos["fecha_reg"]);
-
                 Materialize.updateTextFields();
                 $("#modal_registro1").modal("open");
             });
