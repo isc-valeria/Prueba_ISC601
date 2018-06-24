@@ -38,9 +38,17 @@ class ReservacionesCliente
         $sql = "insert into {$this->tabla} values('0','{$this->num_habitacion}',
          '{$this->descripcion_hab}','{$this->id_tipoh}','{$this->id_estadoh}')";
         $this->conexion->QuerySimple($sql);
+
     }
 
     function getAll()
+    {
+        $sql = "select * from tipos_habitacion";
+        $datos = $this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+    function getAllHabitaciones()
     {
         $sql = "select * from tipos_habitacion";
         $datos = $this->conexion->QueryResultado($sql);
