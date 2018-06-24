@@ -14,8 +14,18 @@
                         <div class="input-field col s1">
                         </div>
                         <div class="input-field col s5">
-                            <input id="id_asignares" type="text" name="id_asignares">
+                            <!--<input id="id_asignares" type="text" name="id_asignares">-->
+                            <select name="id_asignares" id="id_asignares">
+                                <option diseable selected>Selecciona Habitacion</option>
+                                <?php
+                                $dato=$datos[2] ;
+                                while ($row=mysqli_fetch_assoc($dato))
+                                echo "<option value='{$row["id_asignares"]}'>{$row["num_habiacion"]} {$row["clave_reserva"]}</option>";
+                                ?>
+                            </select>
                             <label for="id_asignares">Id_Asignares</label>
+
+
                         </div>
                     </div>
                     <div class="row">
@@ -54,7 +64,7 @@
         </div>
     </div>
 
-    <table class="responsive-table">
+    <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
             <th>id_factura</th>
@@ -133,4 +143,8 @@
             Materialize.toast('Se ha modificado correctamente', 2500);
         })
     });
-    </script>
+    $("#buscar").keyup(function() {
+        $.uiTableFilter($("#tabla_content"), this.value);
+    });
+
+</script>

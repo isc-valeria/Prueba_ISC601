@@ -44,6 +44,10 @@ class Facturacion
         //$datos=$this->conexion->queryResultado($sql);
         //return $datos;
     }
+    public function set($atributo, $valor)
+    {
+        $this->$atributo = $valor;
+    }
     function update(){
        $sql = "update {$this->tabla} set id_factura='{$this->id_factura}',
               id_asignares='{$this->id_asignares}', total='{$this->total}'";
@@ -62,7 +66,18 @@ class Facturacion
         $this->conexion->QuerySimple($sql);
     }
 
+    function consultahabitacion()
+    {
+        $sql="    SELECT habitaciones.num_habitacion, reservaciones.clave_reserva,facturacion.id_asignares FROM habitaciones, reservaciones, facturacion, asigna_reservaciones WHERE facturacion.id_asignares=asigna_reservaciones.id_asignares AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
 
+    }
+    function verify(){
+        $sql = "select * from {$this->tabla} where  id_factura='{$this->id_factura}' or id_asignares='{$this->id_asignares}' or total={$this->total}";
+        $dato=$this->conexion->QueryResultado($sql);
+        return $dato;
+    }
 
 
 }
