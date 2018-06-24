@@ -150,6 +150,27 @@
                     </div>
                 </div>
             </div>
+
+
+            <table class="responsive-table" id="tabla_content">
+                <thead>
+                <tr>
+                    <th>Número de Habitación</th>
+                    <th>Descripción</th>
+                    <th>Maximo Personas</th>
+                    <th>Precio</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                </thead>
+
+                <tbody id="body_table">
+                <?php
+                require_once ("tabla.php");
+                ?>
+                </tbody>
+            </table>
         </form>
     </div>
 </div>
