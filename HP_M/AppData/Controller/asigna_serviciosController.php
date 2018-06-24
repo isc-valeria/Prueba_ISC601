@@ -12,7 +12,7 @@ namespace AppData\Controller;
 
 class asigna_serviciosController
 {
-    private $asigna_servicios,$habitaciones,$servicios,$estado_habitacion,$tipos_habitacion,$id_asignaser;
+    private $asigna_servicios,$habitaciones,$servicios,$estado_habitacion,$tipos_habitacion;
 
     public function __construct()
     {
@@ -60,7 +60,6 @@ class asigna_serviciosController
         $datos[0]=$datos1;
         return $datos;
     }
-
     public function modificar($id)
     {
         $datos=$this->asigna_servicios->getOne($id[0]);
@@ -70,13 +69,21 @@ class asigna_serviciosController
     {
         if($_POST)
         {
-            $this->servicios->set("id_asignaser",$id[0]);
-            $this->servicios->set("descripcion_ser",$_POST["descripcion_ser"]);
+            $this->asigna_servicios->set("id_asignaser",$id[0]);
+            $this->asigna_servicios->set('num_habitacion',$_POST["num_habitacion"]);
+            $this->asigna_servicios->set('descripcion_ser',$_POST["descripcion_ser"]);
             $this->asigna_servicios->set('descripcion_est',$_POST["descripcion_est"]);
             $this->asigna_servicios->set('fecha_reg',$_POST["fecha_reg"]);
-            $this->servicios->update();
-            $datos[0]=$this->servicios->getAll();
+            $this->asigna_servicios->update();
+
+            $datos1=$this->asigna_servicios->getAll();
+            $datos[0]=$datos1;
             return $datos;
         }
+    }
+    public function print_pdf()
+    {
+        $datos=$this->asigna_servicios->getAll();
+        return $datos;
     }
 }

@@ -1,14 +1,13 @@
 <?php
 ?>
 <!-- Modal registro -->
-<div id="modal_registro" class="modal">
+<div id="modal_registro1" class="modal">
     <title>Asignar servicio</title>
     <div class="modal-content">
         <div class="card-pannel">
             <h4 class="left"><a class="icon-loop2 black-text"></a></h4>
             <h5 align="center">Asignación de Servicios</h5>
             <div class="divider"></div>
-            <code class="languaje-markup"></code>
             <div class="row">
                 <form action="" id="save_asigna_servicios" enctype="multipart/form-data" autocomplete="off">
                     <div class="row">
@@ -76,7 +75,7 @@
 
             <h4 align="center">Asignación de servicios
                 <span class="right" >
-                    <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_asigna_servicios">
+                    <a href="#modal_registro1" class="btn green white-text modal-trigger" id="add_asigna_servicios">
                         <i class="material-icons">add</i>
                     </a>
                 </span>
@@ -137,6 +136,7 @@
                 $('#save_asinga_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
+                console.log( $("#save_asigna_servicios").serialize());
             });
         });
 
@@ -152,7 +152,35 @@
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
           });
-  
+
+
+        $("#body_table").on("click","a.btn_modificar", function () {
+            $("#save_asigna_servicios_ok").hide();
+            $("#update_asigna_servicios_ok").show();
+            var id = $(this).data("id");
+            $.get("<?php echo URL?>asigna_servicios/modificar/" + id, function (res) {
+                var datos=JSON.parse(res);
+                $("#update_asigna_servicios_ok").data("id", datos["id_asignaser"]);
+                $("#num_habitacion").val(datos["num_habitacion"]);
+                $("#descripcion_est").val(datos["descripcion_est"]);
+                $("#descripcion_ser").val(datos["descripcion_ser"]);
+                $("#fecha_reg").val(datos["fecha_reg"]);
+
+                Materialize.updateTextFields();
+                $("#modal_registro1").modal("open");
+            });
+        });
+        $("#update_asigna_servicios_ok").click(function () {
+            var id = $(this).data("id");
+            console.log( $("#save_asigna_servicios").serialize());
+            $.post("<?php echo URL?>asigna_servicios/actualizar/" + id, $("#save_asigna_servicios").serialize(), function (res) {
+                $('#save_asigna_servicios').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+                Materialize.updateTextFields();
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
 
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);

@@ -35,7 +35,7 @@ class Asigna_servicios
                 FROM habitaciones, asigna_servicios, servicios, estado_servicios 
                 WHERE habitaciones.id_habitacion=asigna_servicios.id_habitacion 
                 AND servicios.id_servicio=asigna_servicios.id_servicio 
-                AND estado_servicios.id_estados=asigna_servicios.id_estados";
+                AND estado_servicios.id_estados=asigna_servicios.id_estados ORDER BY id_asignaser ASC";
 
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
@@ -55,9 +55,13 @@ class Asigna_servicios
 
     function update()
 	{
-        $sql = "update {$this->tabla} set num_habitacion='{$this->num_habitacion}',
-               descripcion_ser='{$this->descripcion_ser}', descripcion_est='{$this->descripcion_est}',
-               fecha_reg='{$this->fecha_reg}' where id_asignaser='{$this->id_asignaser}'";
+        $sql="UPDATE {$this->tabla} SET 
+        num_habitacion='{$this->num_habitacion}', 
+        descripcion_ser='{$this->descripcion_ser}',
+        descripcion_est='{$this->descripcion_est}' 
+         fecha_reg=STR_TO_DATE({$this->fecha_reg}, '%d/%m/%a')
+        WHERE
+        id_asignaser={$this->id_asignaser}";
         $this->conexion->QuerySimple($sql);
 	}
 
