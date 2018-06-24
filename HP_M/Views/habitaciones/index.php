@@ -71,9 +71,7 @@
     </div>
 
 
-    <!-- Modal eliminar -->
 
-    <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
@@ -198,6 +196,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+
         $('select').material_select();
         $(".modal").modal();
         $("#add_habitacion").click(function(){
@@ -275,10 +274,12 @@
                     maxlength:"Máximo 3 digitos",
                     number:"Solo números",
 
+
                 },
                 descripcion:{
                     required:"Agrega una descripción",
                     minlength: "Descripcion insuficiente",
+
                 },
                 id_tipoh:{
                     required:"Selecciona un tipo ",

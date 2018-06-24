@@ -98,7 +98,8 @@ class Template
                     </div>
                     <a href="#!name"><span class="black-text name">John Doe</span></a>
                     <a href="#!email"><span class="black-text email">jdandturk@gmail.com</span></a>
-                </div></li>
+                </div>
+            </li>
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>

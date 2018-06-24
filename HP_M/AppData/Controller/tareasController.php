@@ -29,19 +29,8 @@ class tareasController
         return $datos;
     }
     public function crear(){
-        // print_r($_POST);
         if(isset($_POST))
         {
-            /*
-            $herramientas=$_POST["eq"];
-            for($i=0;$i<count($herramientas);$i++)
-            {
-                $id_herramineta=$herramientas[$i];
-                echo $id_herramineta;
-                $this->herramientas->update();
-
-            }*/
-
             $idt=$this->Tareas->getid();
             $dato=$idt;
             $row=mysqli_fetch_array($dato);
@@ -53,7 +42,6 @@ class tareasController
             $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
             $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
             $this->Tareas->add();
-
             $herramientas=$_POST["eq"];
             for($i=0;$i<count($herramientas);$i++)
             {
@@ -64,6 +52,7 @@ class tareasController
             }
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
+
             return $datos;
 
         }
@@ -86,16 +75,29 @@ class tareasController
     {
         if($_POST)
         {
-            $this->Tareas->set("id_tarea",$id[0]);
-            $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
-            $this->Tareas->set('id_empleado',$_POST["empleados"]);
-            $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
-            $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
-            $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
-            $this->Tareas->update();
-            $datos1=$this->Tareas->getAll();
-            $datos[0]=$datos1;
-            return $datos;
+            {
+                $this->asigna_eq->delete($id[0]);
+                $this->Tareas->set("id_tarea",$id[0]);
+                $this->Tareas->set('id_tipotarea',$_POST["tareas"]);
+                $this->Tareas->set('id_empleado',$_POST["empleados"]);
+                $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
+                $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
+                $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
+                $this->Tareas->update();
+                $herramientas=$_POST["eq"];
+
+                for($i=0;$i<count($herramientas);$i++)
+                {
+                    $id_herramineta=$herramientas[$i];
+                    $this->asigna_eq->set("id_tarea",$id[0]);
+                    $this->asigna_eq->set('id_equiposegu',$id_herramineta);
+                    $this->asigna_eq->update();
+                }
+                $datos1=$this->Tareas->getAll();
+                $datos[0]=$datos1;
+                return $datos;
+
+            }
         }
     }
     public function print_pdf()

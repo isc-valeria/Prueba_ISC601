@@ -32,6 +32,7 @@ class clasificacion_kiloController
            $this->clasi_kilo->set('id_serviciolav', $_POST["descripcion_servicio"]);
            $this->clasi_kilo->set('cantidadkg', $_POST["cantidadkg"]);
            $this->clasi_kilo->set('id_observacion', $_POST["descripcion_observacion"]);
+            $this->clasi_kilo->set('fecha_registro', $_POST["fecha_registro"]);
            $this->clasi_kilo->add();
            $datos3=$this->clasi_kilo->getAll();
            $datos["clasi_kilo"]=$datos3;
@@ -61,6 +62,7 @@ class clasificacion_kiloController
             $this->clasi_kilo->set('id_serviciolav', $_POST["descripcion_servicio"]);
             $this->clasi_kilo->set('cantidadkg', $_POST["cantidadkg"]);
             $this->clasi_kilo->set('id_observacion', $_POST["descripcion_observacion"]);
+            $this->clasi_kilo->set('fecha_registro', $_POST["fecha_registro"]);
 
             $this->clasi_kilo->update();
             $datos3 = $this->clasi_kilo->getAll();

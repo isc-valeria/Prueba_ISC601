@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field input-field col s5">
-                            <input id="descripcion_estado" type="text"  name="descripcion_estado">
-                            <label for="descripcion_estado"  >Descripcion del estado</label>
+                            <input id="estado_ha" type="text"  name="estado_ha">
+                            <label for="estado_ha">Descripcion del estado</label>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
             $.get("<?php echo URL?>estado_habitaciones/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_estadohabitacion_ok").data("id",datos["id_estadoh"]);
-                $("#descripcion_estado").val(datos["estado_ha"]);
+                $("#estado_ha").val(datos["estado_ha"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
@@ -118,7 +118,7 @@
         $("#save_estadohabitacion").validate({
 
             rules:{
-                descripcion_estado:{
+                estado_ha:{
                     required:true,
                     maxlength: 20,
                     minlength: 4,
@@ -126,7 +126,7 @@
                 },
             },
             messages:{
-                descripcion_estado:{
+                estado_ha:{
                     required:"Campo obligatorio",
                     maxlength:"Maximo 20 caracteres",
                     minlength:"Minimo 4 caracteres"
