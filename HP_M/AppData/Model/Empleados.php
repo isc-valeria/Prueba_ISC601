@@ -64,7 +64,7 @@ class Empleados
     {
         $sql = "update empleados set nombre_emp='{$this->nombre_emp}',
                ap_emp='{$this->ap_emp}', am_emp='{$this->am_emp}',id_puesto='{$this->id_puesto}',id_turno='{$this->id_turno}',codigo='{$this->codigo}'
-                where id_empleado='
+                
                 where id_empleado='{$this->id_empleado}'";
         $this->conexion->QuerySimple($sql);
     }

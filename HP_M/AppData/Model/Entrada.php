@@ -33,8 +33,8 @@ class Entrada
     }
     function getAll(){
 
-        $sql="SELECT Entrada.id_entrada ,Entrada.fecha_entrada, empleados.codigo FROM Entrada,empleados
-         WHERE Entrada.id_entrada=Entrada.id_entrada   ";
+        $sql="SELECT Entrada.id_entrada ,Entrada.fecha_entrada, empleados.codigo 
+FROM Entrada,empleados WHERE Entrada.id_entrada=empleados.id_empleado  ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
