@@ -41,10 +41,10 @@
                                 <?php
                                 $result3=$datos[3];
                                 while ($row=mysqli_fetch_array($result3))
-                                    echo "<option value='{$row[0]}'>{$row[2]}</option>";
+                                    echo "<option value='{$row[0]}'>{$row[1]}</option>";
                                 ?>
                             </select>
-                            <label for="habitacion"  >Tipo de Habitación</label>
+                            <label for="habitacion"  >No. Habitación</label>
                         </div>
 
                         <div class="input-field col l3">
@@ -138,7 +138,12 @@
     </div>
 </div>
 <script type="text/javascript">
+
     $(document).ready(function(){
+
+
+
+
         $('select').material_select();
         $(".modal").modal();
         $("#add_tarea").click(function(){
@@ -160,6 +165,7 @@
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
+
         $("#body_table").on("click","a.btn_modificar",function(){
             $("#update_tarea_ok").show();
             $("#save_tarea_ok").hide();
@@ -172,6 +178,18 @@
                 $("#habitacion").val(datos["id_habitacion"]);
                 $("#fecha_i").val(datos["fecha_inicio"]);
                 $("#fecha_f").val(datos["fecha_fin"]);
+                var cadena = datos["equipo"],
+                    separador = ",", // un espacio en blanco
+                    arregloDeSubCadenas = cadena.split(separador);
+                $().val(datos["fecha_fin"]);
+                $("#save_tarea input[type=checkbox]").each(function(){
+                    $(this).prop("checked", false);
+
+                    for (var i=0;i<arregloDeSubCadenas.length;i++) {
+                        if (arregloDeSubCadenas[i] == $(this).val())
+                            $(this).prop("checked", true);
+                    }
+                })
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
@@ -180,7 +198,7 @@
         $("#update_tarea_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>tareas/actualizar/"+id,$("#save_tarea").serialize(),function(res){
-                $('#save_tarea').find('input, select, textarea').val('');
+                $('#save_tarea').find('input[type="text"], select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
@@ -230,11 +248,9 @@
             },
             submitHandler:function(form){
                 $.post("<?php echo URL?>tareas/crear",$("#save_tarea").serialize(),function(res){
-                    console.log($("#save_tarea").serialize());
                     $("#body_table").empty().append(res);
-                    $('#save_tarea').find('input, select, textarea').val('');
+                    $('#save_tarea').find('input[type="text"], select, textarea').val('');
                     Materialize.updateTextFields();
-                    //$('input:checkbox'.attr('checked',false);
                     // $('input:checkbox[name=eq]').removeAttr('checked');
                     $("#modal_registro").modal("close");
 
@@ -255,4 +271,5 @@
             });
         });
     });
+
 </script>

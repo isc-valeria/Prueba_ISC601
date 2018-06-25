@@ -11,15 +11,27 @@ namespace AppData\Controller;
 
 class reservacionesclienteController
 {
-    private $reservacionescliente;
+    private $habitaciones,$tipos_habitacion,$estado_habitaciones;
 
     public function __construct()
     {
-        $this->reservacionescliente= new \AppData\Model\ReservacionesCliente();
+        $this->habitaciones= new \AppData\Model\ReservacionesCliente();
     }
 
     public function index()
     {
-        //session_destroy();
+        $datos1=$this->habitaciones->getAll();
+        $datos[0]=$datos1;
+        return $datos;
+    }
+
+    public function consulta()
+    {
+        $this->habitaciones->set('fecha1',$_POST["id_inicio"]);
+        $this->habitaciones->set('fecha2',$_POST["id_final"]);
+
+        $datos2=$this->habitaciones->getAllHabitaciones();
+        $datos1[0]=$datos2;
+        return $datos1;
     }
 }

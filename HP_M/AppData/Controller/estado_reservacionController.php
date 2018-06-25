@@ -9,17 +9,22 @@ class estado_reservacionController
     }
     public function index()
     {
-        $datos1=$this->estado_reserva->getAll();
-        $datos[0]=$datos1;
+        $datos[0]=$this->estado_reserva->getAll();
         return $datos;
     }
     public function crear(){
         if($_POST)
         {
             $this->estado_reserva->set('estador',$_POST["descripcion_estadoreserva"]);
-            $this->estado_reserva->getAll();
-            $datos1=$this->estado_reserva->getAll();
-            $datos[0]=$datos1;
+            $datos[1]=false;
+
+            if(mysqli_num_rows($this->estado_reserva->verify())==0) {
+
+                $this->estado_reserva->add();
+                $datos[1]=true;
+
+            }
+            $datos[0]=$this->estado_reserva->getAll();
             return $datos;
         }
     }
