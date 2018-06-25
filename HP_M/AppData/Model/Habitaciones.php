@@ -50,6 +50,8 @@ class Habitaciones
         return $datos;
     }
 
+
+
     function delete($id)
     {
         $sql = "delete from {$this->tabla} where id_habitacion='{$id}'";

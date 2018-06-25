@@ -51,7 +51,11 @@ class Servicios
 
     function update()
     {
-        $sql="update {$this->tabla} SET descripcion_ser='{$this->descripcion_ser}', hora_inicio='{$this->hora_inicio}', hora_fin='{$this->hora_fin}' WHERE id_servicio='{$this->id_servicio}'";
+        $sql="update {$this->tabla} SET 
+        descripcion_ser='{$this->descripcion_ser}', 
+        hora_inicio='{$this->hora_inicio}', 
+        hora_fin='{$this->hora_fin}' 
+        WHERE id_servicio='{$this->id_servicio}'";
         $this->conexion->QuerySimple($sql);
 
     }

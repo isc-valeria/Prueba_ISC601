@@ -85,7 +85,6 @@
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
-
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
@@ -104,13 +103,13 @@
 
         $("#save_servicios_ok").click(function () {
             $("#save_servicios").submit();
-            /*$.post("<?php echo URL?>servicios/crear",
+            $.post("<?php echo URL?>servicios/crear",
              $("#save_servicios").serialize(), function (res) {
              $("#body_table").empty().append(res);
              $('#save_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
-            });*/
+            });
         });
         $("#body_table").on("click", "a.btn_eliminar", function () {
             var id = $(this).data("id");
