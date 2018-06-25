@@ -1,29 +1,28 @@
 <div>
-    <div class="row"></div>
+    <div class="row" align="center"></div>
     <div class="col s12"><div class="row"></div></div>
     <div class="row">
-        <div class="col s12 m6 l3">
-            <div class="card #26c6da cyan lighten-1 white-text">
+        <div class="col s12 m9 l2">
+            <div class="card #00bcd4 cyan black-text">
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">local_laundry_service</i>
+                            <i class="mdi-action-verified-user prefix icon-paste #00bcd4 cyan"></i>
                         </a>
-                        <p class="center">Servicios Hoy</p>
-
+                        <p class="center">Sevicios hoy</p>
                     </div>
                     <div class="col s5 m4 right-align">
-                        <h4><p>1</p></h4>
+                        <h4><p>8</p></h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col s12 m6 l3">
-            <div class="card #00bcd4 cyan white-text">
+        <div class="col s12 m9 l2">
+            <div class="card #00bcd4 cyan black-text">
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">priority_high</i>
+                            <i class="mdi-action-verified-user prefix icon-bell #00bcd4 cyan"></i>
                         </a>
                         <p class="center">Pendientes</p>
                     </div>
@@ -33,12 +32,12 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m6 l3">
-            <div class="card #00acc1 cyan darken-1 white-text">
+        <div class="col s12 m9 l2">
+            <div class="card #00acc1 cyan darken-1 black-text">
                 <div class="padding-4">
                     <div class="col s7 m7">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">playlist_add_check</i>
+                            <i class="mdi-action-verified-user prefix icon-aid-kit #00acc1 cyan darken-1"></i>
                         </a>
                         <p class="center">Entregados</p>
                     </div>
@@ -48,12 +47,12 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m6 l3">
-            <div class="card #0097a7 cyan darken-2 white-text">
+        <div class="col s12 m9 l2">
+            <div class="card #0097a7 cyan darken-2 black-text">
                 <div class="padding-4">
-                    <div class="col s7 m7">
+                    <div class="col s7 m6">
                         <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="material-icons">people_outline</i>
+                            <i class="mdi-action-verified-user prefix icon-accessibility #0097a7 cyan darken-2"></i>
                         </a>
                         <p class="center">Clientes</p>
                     </div>
@@ -131,7 +130,7 @@
 
 
 <!-- /////////////////////MODAL SERVICIOS--------//////////////////////////////////////// -->
-<div id="modal_servicios" class="modal modal_c">
+<div id="modal_servicios" class="modal modal_s">
     <div class="modal-content">
         <form action="" id="sava_servicioslav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -142,19 +141,14 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar" placeholder="Buscar" type="text">
-                    </div>
-
                     <div class="row">
                         <div>
                             <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  id="tabla_servicio">
+                        <table id="example" class="mdl-data-table">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -172,11 +166,6 @@
 
                         </table>
 
-                        <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                Imprimir
-                            </a>
-                        </div>
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
@@ -199,7 +188,6 @@
             <div class="row">
                 <form action="" id="save_servicio_lavanderia" enctype="multipart/form-data" autocomplete="off">
                     <h4>Nuevo servicio</h4>
-                    <div class="divider"></div>
                     <div class="input-field input-field col s5 center">
                         <input id="nombre_servi" type="text"  name="nombre_servi">
                         <label for="nombre_servi" >Nombre del Servicio</label>
@@ -216,11 +204,13 @@
 
                             </div>
                             <a href="#!" id="save_servicioslav_ok" class="btn green white-text btn center"">
-                            Registrar nuevo servicio
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_servicioslav_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                        </div>
+
+
                         </div>
 
                     </div>
@@ -251,7 +241,7 @@
     <div class="modal-content">
         <form action="" id="sava_observacionlav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">Observaciones</h4>
+                <h4 align="center">observaciónes</h4>
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
@@ -266,7 +256,7 @@
                     <div class="row">
                         <div>
                             <a href="#modal_observaciones_agregar" class="btn green white-text modal-trigger right" id="add_observaciones">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
@@ -313,8 +303,7 @@
         <div class="row center-align">
             <div class="row">
                 <form action="" id="save_observaciones_lavanderia" enctype="multipart/form-data" autocomplete="off">
-                    <h4>Nueva observacion</h4>
-                    <div class="divider"></div>
+                    <h4>Nueva observación</h4>
                     <div class="input-field input-field col s5 center">
                         <input id="descripcion_observacion" type="text"  name="descripcion_observacion">
                         <label for="descripcion_observacion"  >Nombre de observación</label>
@@ -328,12 +317,13 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_observacion_ok" class="btn green white-text btn center"">
-                            Registrar nueva observación
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_observacion_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
+
+
                     </div>
                 </form>
             </div>
@@ -374,7 +364,7 @@
                     <div class="row">
                         <div>
                             <a href="#modal_clasikilo_agregar" class="btn green white-text modal-trigger right" id="add_clasikilo">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
@@ -465,12 +455,13 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_clasikilo_ok" class="btn green white-text btn center"">
-                            Registrar por kilo
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_clasikilo_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
+
+
                     </div>
                 </form>
             </div>
@@ -494,7 +485,7 @@
     <div class="modal-content">
         <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">Registrar prendas por pieza </h4>
+                <h4 align="center">Registrar por pieza </h4>
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
@@ -509,7 +500,7 @@
                     <div class="row">
                         <div>
                             <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
@@ -518,7 +509,7 @@
                             <tr>
 
                                 <th>Id</th>
-                                <th>Descripcion pieza</th>
+                                <th>Descripción pieza</th>
                                 <th>Cantidad</th>
                                 <th>Servicio</th>
                                 <th>Observaciones</th>
@@ -607,12 +598,12 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_clasipieza_ok" class="btn green white-text btn center"">
-                            Registrar por pieza
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_clasipieza_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -652,7 +643,7 @@
                     <div class="row">
                         <div>
                             <a href="#modal_venpieza_agregar" class="btn green white-text modal-trigger right" id="add_ventapieza">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
@@ -660,7 +651,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Numero de habitacion</th>
+                                <th>Numero de habitación</th>
                                 <th>Cantidad de piezas</th>
                                 <th>Total</th>
                                 <th>Subtotal</th>
@@ -709,7 +700,7 @@
                             $dato->data_seek(0);
                             ?>
                         </select>
-                        <label for="num_habitacion">Numero de habitacion</label>
+                        <label for="num_habitacion">Numero de habitación </label>
                     </div>
                    <div class="divider"></div>
                     <div class="input-field col s5">
@@ -747,12 +738,12 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
-                            Registrar venta por pieza
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -780,7 +771,7 @@
                     <div class="row">
                         <div>
                             <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
-                                Agregar
+                                <i class="material-icons">add</i>
                             </a>
                         </div>
 
@@ -788,7 +779,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Numero de habitacion</th>
+                                <th>Numero de habitación </th>
                                 <th>Cantidad de kilos</th>
                                 <th>Total</th>
                                 <th>Subtotal</th>
@@ -827,7 +818,7 @@
                     <div class="divider"></div>
                     <div class="input-field col s5">
                         <select id="num_habitacion" type="text" name="num_habitacion">
-                            <option disabled selected>Selecciona habitacion</option>
+                            <option disabled selected>Selecciona habitación </option>
 
                             <?php
                             $dato=$datos["venta_kilo"];
@@ -837,7 +828,7 @@
                             ?>
 
                         </select>
-                        <label for="num_habitacion">Numero de habitaciono</label>
+                        <label for="num_habitacion">Numero de habitación </label>
                     </div>
                     <div class="divider"></div>
 
@@ -882,12 +873,13 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
                             <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
-                            Registrar venta por kilo
+                            Registrar
                             </a>
-                        </div>
-                        <div class="input-field col s12">
                             <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
+
+
                     </div>
                 </form>
             </div>
@@ -910,6 +902,18 @@
             $("#save_servicio_lavanderia").submit();
 
         });
+
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        download: 'open'
+                    }
+                ]
+            } );
+        } );
 
         $("#body_table_ser").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
@@ -955,6 +959,8 @@
         $("#add_observaciones").click(function(){
             $("#update_observacion_ok").hide();
             $("#save_observacion_ok").show();
+
+
         });
 
         $("#save_observacion_ok").click(function(){
@@ -1192,6 +1198,7 @@
                     Materialize.updateTextFields();
                     $("#modal_servicios_agregar").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
+                    location.reload();
 
                 })
             }
@@ -1249,7 +1256,8 @@
                     Materialize.updateTextFields();
                     //$("#modal_registro").modal("close");
                     $("#modal_observaciones_agregar").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
+                     Materialize.toast('Se ha insertado correctamente', 2500);
+                     location.reload();
                 })
             }
         });
@@ -1322,6 +1330,8 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
                 $("#modal_clasikilo_agregar").modal("close");
+
+                
             })
         }
     });

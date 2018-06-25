@@ -34,7 +34,7 @@ class Salida
     function getAll(){
 
         $sql="SELECT Salida.id_salida ,Salida.fecha_salida, empleados.codigo FROM Salida,empleados
-         WHERE Salida.id_salida=Salida.id_salida";
+         WHERE Salida.id_salida=empleados.id_empleado ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
 
