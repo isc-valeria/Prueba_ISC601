@@ -29,7 +29,7 @@
                          enabled: true,
                              style: {
                                  fontWeight: 'bold',
-                                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                              }
                      }
              },
@@ -39,7 +39,7 @@
                      verticalAlign: 'top',
                      y: 25,
                      floating: true,
-                     backgroundColor: (Highcharts.theme && Highcharts.theme.background3) || 'blue',
+                     backgroundColor: (Highcharts.theme && Highcharts.theme.background3) || 'white',
                      borderColor: '#CCC',
                      borderWidth: 1,
                      shadow: false
@@ -53,7 +53,7 @@
                          stacking: 'normal',
                              dataLabels: {
                                  enabled: true,
-                                     color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'cyan'
+                                     color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
                              }
                      }
              },

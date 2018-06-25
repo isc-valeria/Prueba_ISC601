@@ -135,7 +135,9 @@
             $("#fecha_llegada").val(datos["fecha_llegada"]);
             $("#fecha_salida").val(datos["fecha_salida"]);
             $("#no_personas").val(datos["no_personas"]);
+            Materialize.updateTextFields();
             $("#modal_eliminar").modal("open");
+
         });
     });
     $("#eliminar_ok").click(function(){

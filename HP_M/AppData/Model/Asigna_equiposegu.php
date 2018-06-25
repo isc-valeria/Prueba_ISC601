@@ -26,7 +26,9 @@ class asigna_equiposegu
     }
     function add()
     {
-        $sql="insert into {$this->tabla}  values('0','{$this->id_equiposegu}','{$this->id_tarea}')";
+        // $sql="insert into {$this->tabla}  values('0','{$this->id_equiposegu}','{$this->id_tarea}')";
+        $sql="call inserta_equipotarea('{$this->id_tarea}','{$this->id_equiposegu}')";
+
         $this->conexion->QuerySimple($sql);
     }
     function getAll()
@@ -48,9 +50,7 @@ class asigna_equiposegu
         return $datos;
     }
     function update(){
-        $sql="update {$this->tabla} set id_equiposegu='{$this->id_equiposegu}'
-              where id_tarea='{$this->id_tarea}'";
-
+        $sql="call inserta_equipotarea('{$this->id_tarea}','{$this->id_equiposegu}')";
         $this->conexion->QuerySimple($sql);
     }
 }
