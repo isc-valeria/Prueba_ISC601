@@ -131,7 +131,7 @@
 
 
 <!-- /////////////////////MODAL SERVICIOS--------//////////////////////////////////////// -->
-<div id="modal_servicios" class="modal modal_c">
+<div id="modal_servicios" class="modal modal_s">
     <div class="modal-content">
         <form action="" id="sava_servicioslav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -142,11 +142,6 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s6 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search "></i>
-                        <input id="buscar" placeholder="Buscar" type="text" >
-                    </div>
-
                     <div class="row">
                         <div>
                             <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
@@ -154,7 +149,7 @@
                             </a>
                         </div>
 
-                        <table   class="responsive-table"  id="tabla_servicio">
+                        <table id="example" class="mdl-data-table">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -172,11 +167,6 @@
 
                         </table>
 
-                        <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" target="_blank" id="imprimir" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-                                Imprimir
-                            </a>
-                        </div>
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
@@ -913,6 +903,18 @@
             $("#save_servicio_lavanderia").submit();
 
         });
+
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        download: 'open'
+                    }
+                ]
+            } );
+        } );
 
         $("#body_table_ser").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");

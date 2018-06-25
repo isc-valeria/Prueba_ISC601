@@ -96,14 +96,7 @@
             </a>
         </span></h3>
     <div class="divider"></div>
-
-    <div class="row">
-        <div class="input-field col s4 offset-s8">
-            <i class="mdi-action-verified-user prefix icon-search"></i>
-            <input id="busca" placeholder="Buscar" type="text">
-                </div>
-            </div>
-
+z
 
             <div class="card-action">
                 <a href="#!" id="save_asigna_servicios_ok" class="btn modal-close">Ver</a>
