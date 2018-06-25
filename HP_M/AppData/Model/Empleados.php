@@ -48,8 +48,9 @@ class Empleados
     function getAll()
     {
         $sql="SELECT empleados.id_empleado, empleados.nombre_emp,
-        empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto , turnos.descripcion_turno ,turnos.hr_entrada, turnos.hr_salida ,empleados.codigo FROM empleados,puestos, turnos
-         WHERE empleados.id_puesto=puestos.id_puesto  and empleados.id_turno=turnos.id_turno ";
+        empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto , turnos.descripcion_turno ,turnos.hr_entrada, turnos.hr_salida ,empleados.codigo 
+        FROM empleados,puestos, turnos
+        WHERE empleados.id_puesto=puestos.id_puesto  and empleados.id_turno=turnos.id_turno ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }

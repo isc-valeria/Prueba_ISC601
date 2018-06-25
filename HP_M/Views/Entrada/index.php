@@ -16,14 +16,16 @@
                     </div>
 
                     <div class="input-field input-field col s3.5">
-                        <input id="fecha_entrada" type="datetime-local" class="validate" name="fecha_entrada" value="<?php date_default_timezone_set('america/mexico_city'); echo date('Y-m-d H:i:s', time()); ?>">
-                        <label for="fecha_entrada"  data-error="Incorrecto" data-success="Correcto" ></label>
+                        <input id="fecha_entrada" type="datetime-local"  name="fecha_entrada"
+                               value="<?php date_default_timezone_set('america/mexico_city');
+                               echo date('Y-m-d H:i:s', time()); ?>">
+                        <label for="fecha_entrada"   ></label>
                     </div>
 
                 </div>
                 <div class="modal-fixed-footer">
                     <div class="input-field col s12"  >
-                        <a href="#!" id="save_Salida_ok" class="btn modal-close" >Registrar</a>
+                        <a id="save_Salida_ok" class="btn modal-close"   >Registrar</a>
                     </div>
 
                 </div>
@@ -71,15 +73,43 @@
         $('select').material_select();
         $(".modal").modal();;
         $("#save_Salida_ok").click(function(){
-            //console.log("ok")
-            //console.log($("#save_habitacion").serialize());
-            $.post("<?php echo URL?>Entrada/crear",$("#save_salida").serialize(),function(res){
-                $("#body_table").empty().append(res);
-                $('#save_salida').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-            })
+
+
+            $("#save_Salida_ok").show();
+        });
+        $("#save_Salida_ok").click(function(){
+            $("#save_salida").submit();
+        });
+        ///validar formulario
+        $("#save_salida").validate({
+            rules:{
+                id_empleado:{
+                    required:true,
+                    maxlength: 12,
+                    number:true,
+                }
+            },
+            messages:{
+                id_empleado:{
+                    required:"Ingresa un codigo numerico",
+                    maxlength:"Maximo 10 numero",
+                    number:"solo numeros",
+                },
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>Entrada/crear",$("#save_salida").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_salida').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                })
+            }
         });
     });
 </script>
