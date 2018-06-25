@@ -18,6 +18,9 @@ class ReservacionesCliente
     private $id_tipoh;
     private $id_estadoh=60;
 
+    private $fecha1;
+    private $fecha2;
+
     function __construct()
     {
         $this->conexion = new conexion();
@@ -50,7 +53,14 @@ class ReservacionesCliente
 
     function getAllHabitaciones()
     {
-        $sql = "select * from tipos_habitacion";
+        $sql = "SELECT habitaciones.id_habitacion, habitaciones.num_habitacion, habitaciones.descripcion_hab, 				
+                                tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas, 										tipos_habitacion.precio
+                                FROM habitaciones, tipos_habitacion, reservaciones, 												asigna_reservaciones
+                                WHERE reservaciones.id_reservacion=asigna_reservaciones.id_reservacion
+		AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion
+        AND habitaciones.id_tipoh=tipos_habitacion.id_tipoh
+		AND reservaciones.fecha_llegada not BETWEEN '2018-10-08 ' and '2018-10-12'
+		AND reservaciones.fecha_salida not BETWEEN '2018-10-08 ' and '2018-10-12'";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }

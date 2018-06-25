@@ -48,8 +48,9 @@ class Empleados
     function getAll()
     {
         $sql="SELECT empleados.id_empleado, empleados.nombre_emp,
-        empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto , turnos.descripcion_turno ,turnos.hr_entrada, turnos.hr_salida ,empleados.codigo FROM empleados,puestos, turnos
-         WHERE empleados.id_puesto=puestos.id_puesto  and empleados.id_turno=turnos.id_turno ";
+        empleados.ap_emp, empleados.am_emp, puestos.descripcion_puesto , turnos.descripcion_turno ,turnos.hr_entrada, turnos.hr_salida ,empleados.codigo 
+        FROM empleados,puestos, turnos
+        WHERE empleados.id_puesto=puestos.id_puesto  and empleados.id_turno=turnos.id_turno ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
@@ -64,7 +65,7 @@ class Empleados
     {
         $sql = "update empleados set nombre_emp='{$this->nombre_emp}',
                ap_emp='{$this->ap_emp}', am_emp='{$this->am_emp}',id_puesto='{$this->id_puesto}',id_turno='{$this->id_turno}',codigo='{$this->codigo}'
-                where id_empleado='
+                
                 where id_empleado='{$this->id_empleado}'";
         $this->conexion->QuerySimple($sql);
     }
