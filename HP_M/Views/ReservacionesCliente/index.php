@@ -27,16 +27,15 @@
 </div>
 
 
-<div class="row">
+<div class="row" id="id_tipo">
     <div class="col l8 offset-l2 m12 s12">
-        <form>
+        <form id="muestra">
                 <?php
                 require_once ("tabla.php");
                 ?>
         </form>
     </div>
 </div>
-
 
 
 
@@ -95,7 +94,10 @@
         dato=fecha2.diff(fecha1, 'days');
         $("#id_numerodias").text(dato+" dias de diferencia");
         $("#divnumerodias").show();
-        //alert(dato+" dias de diferencia");
-        ///alert(dato+" dias de diferencia");
+
+
+        $.post("<?php echo URL?>reservacionescliente/consulta",function(res){
+            $("#muestra").empty().append(res);
+        })
     });
 </script>
