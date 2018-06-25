@@ -3,17 +3,16 @@
     <div class="col s12"><div class="row"></div></div>
     <div class="row">
         <div class="col s12 m9 l2">
-            <div class="card #26c6da cyan lighten-1 black-text">
+            <div class="card #00bcd4 cyan black-text">
                 <div class="padding-4">
                     <div class="col s7 m7">
-                        <a class="btn-floating btn-large disabled #00bfa5" >
-                            <i class="mdi-action-verified-user prefix icon-paste #26c6da cyan lighten-1"></i>
+                        <a class="btn-floating btn-large disabled #00bfa5">
+                            <i class="mdi-action-verified-user prefix icon-paste #00bcd4 cyan"></i>
                         </a>
-                        <p class="center">Servicios Hoy</p>
-
+                        <p class="center">Sevicios hoy</p>
                     </div>
                     <div class="col s5 m4 right-align">
-                        <h4><p>1</p></h4>
+                        <h4><p>8</p></h4>
                     </div>
                 </div>
             </div>
@@ -75,7 +74,7 @@
             </a>
 
             <a href="#modal_observaciones" class="btn #7bb1b3 white-text modal-trigger" id="add_observaciones">
-                Observaciónes
+                Observaciones
             </a>
 
             <a href="#modal_rekilo" class="btn #7bb1b3 white-text modal-trigger" id="add_rekilo">
@@ -958,6 +957,8 @@
         $("#add_observaciones").click(function(){
             $("#update_observacion_ok").hide();
             $("#save_observacion_ok").show();
+
+
         });
 
         $("#save_observacion_ok").click(function(){
@@ -1195,6 +1196,7 @@
                     Materialize.updateTextFields();
                     $("#modal_servicios_agregar").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
+                    location.reload();
 
                 })
             }
@@ -1252,7 +1254,8 @@
                     Materialize.updateTextFields();
                     //$("#modal_registro").modal("close");
                     $("#modal_observaciones_agregar").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
+                     Materialize.toast('Se ha insertado correctamente', 2500);
+                     location.reload();
                 })
             }
         });
@@ -1325,6 +1328,8 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
                 $("#modal_clasikilo_agregar").modal("close");
+
+                
             })
         }
     });
