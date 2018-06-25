@@ -15,7 +15,7 @@
             <input type="number" min="0" max="20" class="niños" placeholder="Niños"  id="comboniños">
         </div>
         <div class="input-field col s2">
-            <a id="buscar" class="btn modal-close blue lighten-5 black-text" data-id="">Buscar</a>
+            <a id="buscar" class="btn modal-close blue lighten-5 black-text" data-id="" href="#!">Buscar</a>
         </div>
     </div>
 
@@ -27,16 +27,15 @@
 </div>
 
 
-<div class="row">
+<div class="row" id="id_tipo">
     <div class="col l8 offset-l2 m12 s12">
-        <form>
+        <form id="muestra">
                 <?php
                 require_once ("tabla.php");
                 ?>
         </form>
     </div>
 </div>
-
 
 
 
@@ -89,13 +88,23 @@
         var suma=0;
         num1=parseInt($("#comboadultos").val());
         num2=parseInt($("#comboniños").val());
+        //alert(num1+": num1");
+        //alert(num2+": num2");
         suma=num1+num2;
 
+        alert(suma+": suma");
         var dato="";
         dato=fecha2.diff(fecha1, 'days');
         $("#id_numerodias").text(dato+" dias de diferencia");
         $("#divnumerodias").show();
-        //alert(dato+" dias de diferencia");
-        ///alert(dato+" dias de diferencia");
+        //alert(dato+"dias de diferencia");
+
+
+        $.get("<?php echo URL?>reservacionescliente/consulta",function(res){
+            $("#muestra").empty().append(res);
+            console.log(res);
+        }) 
+
+
     });
 </script>

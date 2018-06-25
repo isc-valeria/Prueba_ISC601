@@ -56,7 +56,8 @@ class Request
         else if (isset($_GET['url'])?stristr($_GET['url'],'ReservacionesCliente'):false)
         {
             $this->controlador="ReservacionesCliente";
-            $this->metodo="index";
+
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
         }
         else
         {

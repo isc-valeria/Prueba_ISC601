@@ -18,6 +18,7 @@ class Enrutador
 
         $metodo = $request->getMetodo();
         $argumento = $request->getArgumento();
+
         if (is_readable($ruta)) {
             require_once($ruta);
             $mostrar = "AppData\\Controller\\" . $controlador;
@@ -31,6 +32,7 @@ class Enrutador
 
         if ($request->getMetodo() != "modificar") {
             $ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $request->getMetodo() . ".php";
+
             if (is_readable($ruta))
                 require_once($ruta);
             else

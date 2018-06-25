@@ -28,6 +28,7 @@ class EntradaController
 
         return $datos;
     }
+
     public function crear()
     {
         if($_POST)

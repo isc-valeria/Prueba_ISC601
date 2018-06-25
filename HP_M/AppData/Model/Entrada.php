@@ -33,17 +33,11 @@ class Entrada
     }
     function getAll(){
 
-        $sql="SELECT Entrada.id_entrada ,Entrada.fecha_entrada, empleados.codigo FROM Entrada,empleados
-         WHERE Entrada.id_entrada=Entrada.id_entrada   ";
+        $sql="SELECT *from entrada ";
         $datos=$this->conexion->queryResultado($sql);
         return $datos;
     }
-    function getOne($id)
-    {
-        $sql="select * from  {$this->tabla} where id_entrada='{$id}'";
-        $datos=$this->conexion->QueryResultado($sql);
-        return $datos;
-    }
+
 
 
 
