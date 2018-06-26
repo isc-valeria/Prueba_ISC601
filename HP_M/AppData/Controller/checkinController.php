@@ -12,12 +12,12 @@ namespace AppData\Controller;
 class checkinController
 {
     private $checkin;
-    private $reservaciones;
+    private $tipos_habitacion;
 
     public function __construct()
     {
         $this->checkin= new \AppData\Model\Checkin();
-
+        $this->tipos_habitacion= new \AppData\Model\tipos_habitacion();
     }
 
     public function mod($id)
@@ -31,8 +31,10 @@ class checkinController
     {
         $datos1=$this->checkin->getAll();
         $result=$this->checkin->check();
+        $datos2=$this->tipos_habitacion->getAll();
 
         $datos[0]=$datos1;
+        $datos[1]=$datos2;
         $datos[2]=$result;
         return $datos;
     }

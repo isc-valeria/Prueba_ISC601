@@ -47,7 +47,7 @@
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
-            <th>id</th>
+
             <th>Descripcion del puesto</th>
             <th></th>
             <th></th>

@@ -15,10 +15,10 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_estadoreserva_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="save_estadoreserva_ok" class="btn cyan lighten-2 black-text">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_estadoreserva_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_estadoreserva_ok" class="btn modal-close cyan lighten-2 black-text " data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
 <div class="row">
     <div class="col s8 offset-s2">
         <div class="card-panel">
-            <h4 align="center">Estados de Reservación<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_estadoreserva"><i class="material-icons">add</i></a></span></h4>
+            <h4 align="center">Estados de Reservación<span class="right"><a href="#modal_registro" class="btn cyan lighten-2 black-text modal-trigger" id="add_estadoreserva"><i class="material-icons">add</i></a></span></h4>
             <div class="divider"></div>
             <div class="row">
                 <div class="input-field col s4 offset-s8">
