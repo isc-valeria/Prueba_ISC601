@@ -106,6 +106,10 @@
             <div class="divider"></div>
             <!--********************************-->
 
+            <div class="center">
+                <a href="<?php echo URL?>asigna_servicios/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+               <!-- <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a> -->
+            </div>
         </div>
     </div>
 </div>
