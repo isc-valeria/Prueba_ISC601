@@ -12,8 +12,19 @@
                         <p class="center">Sevicios hoy</p>
                     </div>
                     <div class="col s5 m4 right-align">
-                        <h4><p>8</p></h4>
-                    </div>
+
+                        <h4><p>
+                                <?php
+                                $link = mysqli_connect("localhost", "root", "", "hotel");
+                                $consul=mysqli_query($link,"select COUNT(id_ventahabkilo) from ventahab_kilo");
+
+                                $fila = mysqli_fetch_row($consul);
+                                echo $fila[0];
+                                ?>
+
+
+                        </p></h4>
+             </div>
                 </div>
             </div>
         </div>
@@ -57,7 +68,15 @@
                         <p class="center">Clientes</p>
                     </div>
                     <div class="col s5 m4 right-align">
-                        <h4><p>13</p></h4>
+                        <h4><p>
+                                <?php
+                                $link = mysqli_connect("localhost", "root", "", "hotel");
+                                $consul=mysqli_query($link,"select COUNT(id_habitacion) from habitaciones");
+
+                                $fila = mysqli_fetch_row($consul);
+                                echo $fila[0];
+                                ?>
+                            </p></h4>
                     </div>
                 </div>
             </div>
@@ -85,12 +104,14 @@
                 Registrar por pieza
             </a>
 
-            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
-                Ventas pieza
-            </a>
             <a href="#modal_venkilo" class="btn #7bb1b3 white-text modal-trigger" id="add_ventakilo">
                 Ventas kilo
             </a>
+
+            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
+                Ventas pieza
+            </a>
+
         </div>
         <div class="row"></div>
         <div class="divider"></div>
@@ -652,9 +673,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Numero de habitación</th>
-                                <th>Cantidad de piezas</th>
-                                <th>Total</th>
+                                <th>Número de servicio</th>
                                 <th>Subtotal</th>
+                                <th>Total</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -780,9 +801,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Numero de habitación </th>
-                                <th>Cantidad de kilos</th>
-                                <th>Total</th>
+                                <th>Número de servicio</th>
                                 <th>Subtotal</th>
+                                <th>Total</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -821,7 +842,7 @@
                             <option disabled selected>Selecciona habitación </option>
 
                             <?php
-                            $dato=$datos["venta_kilo"];
+                            $dato=$datos["habitacion"];
                             while($row=mysqli_fetch_array($dato))
                                 echo "<option value='{$row[0]}'> {$row[1]} </option>";
                             $dato->data_seek(0);
@@ -838,36 +859,28 @@
                             <option disabled selected>Selecciona servicio</option>
 
                             <?php
-                            $dato=$datos["venta_kilo"];
+                            $dato=$datos["clasi_kilo"];
                             while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                                echo "<option value='{$row[0]}'> {$row[0]} </option>";
                             $dato->data_seek(0);
                             ?>
 
                         </select>
-                        <label for="cantidadkg">Cantidad de kilos</label>
+                        <label for="cantidadkg">Número de servicio</label>
                     </div>
 
                     <div class="divider"></div>
                     <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="total" type="text" name="total">
-                            <option disabled selected>Selecciona Total</option>
 
-                            <?php
-                            $dato=$datos["venta_kilo"];
-                            while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
-                            $dato->data_seek(0);
-                            ?>
-
-                        </select>
-                        <label for="total">Total</label>
-                    </div>
 
                     <div class="input-field input-field col s5 center">
-                        <input id="subtotal" type="text" class="validate" name="subtotal">
-                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                        <input id="subtotal" type="text" disabled="disabled"  name="subtotal">
+                        <label for="subtotal"   >Subtotal</label>
+                    </div>
+
+                    <div class="input-field col s5">
+                        <input id="total" type="text" disabled="disabled" name="total">
+                        <label for="total"  >Total</label>
                     </div>
 
                     <div class="modal-fixed-footer">

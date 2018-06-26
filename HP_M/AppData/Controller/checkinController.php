@@ -11,24 +11,26 @@ namespace AppData\Controller;
 
 class checkinController
 {
-    private $check_in;
+    private $checkin;
     private $reservaciones;
 
     public function __construct()
     {
-        $this->check_in= new \AppData\Model\Checkin();
+        $this->checkin= new \AppData\Model\Checkin();
 
     }
 
-    public function crear()
+    public function mod($id)
     {
-
+        $datos=$this->checkin->getTwo($id[0]);
+        $datos=mysqli_fetch_array($datos);
+        print_r(json_encode($datos));
     }
 
     public function index()
     {
-        $datos1=$this->check_in->getAll();
-        $result=$this->check_in->check();
+        $datos1=$this->checkin->getAll();
+        $result=$this->checkin->check();
 
         $datos[0]=$datos1;
         $datos[2]=$result;
@@ -36,7 +38,7 @@ class checkinController
     }
     public function modificar($id)
     {
-        $datos=$this->check_in->getOne($id[0]);
+        $datos=$this->checkin->getOne($id[0]);
         return $datos;
     }
 }

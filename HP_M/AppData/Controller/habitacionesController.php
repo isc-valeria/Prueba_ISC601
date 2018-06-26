@@ -50,6 +50,8 @@ class habitacionesController
         $datos=$this->habitaciones->getOne($id[0]);
         return $datos;
     }
+
+
     public function actualizar($id)
     {
         if($_POST)
