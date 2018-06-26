@@ -7,7 +7,7 @@ while($row=mysqli_fetch_array($datos))
         <div class=\"col \">
             <div class=\"card horizontal\">
                 <div class=\"card-image\">
-                    <img src=\"{$url}Public/imagenes/simple.jpg\" height=270\" width=\"150\">
+                    <img src=\"{$url}Public/imagenes/{$row['tipo_ha']}.jpg\" height=270\" width=\"150\">
                 </div>
                 <div class=\"card-stacked\">
                     <div class=\"card-content\">

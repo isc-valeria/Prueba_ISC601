@@ -5,7 +5,7 @@
 
 
 
-    define('URL',"http://localhost:82/Prueba_ISC601/HP_M/");
+    define('URL',"http://localhost/Prueba_ISC601/HP_M/");
 
 
 

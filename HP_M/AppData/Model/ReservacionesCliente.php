@@ -62,6 +62,9 @@ class ReservacionesCliente
 
     function getAllHabitaciones()
     {
+        $fi = str_replace(',','' ,$this->fecha_inicio);
+        $ff = str_replace(',','',$this->fecha_fin);
+        
         $sql = "SELECT habitaciones.id_habitacion, habitaciones.num_habitacion, habitaciones.descripcion_hab, 				
                                 tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas,tipos_habitacion.precio
                                 FROM habitaciones, tipos_habitacion, reservaciones, asigna_reservaciones
