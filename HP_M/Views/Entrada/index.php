@@ -47,7 +47,7 @@
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
-            <th>Numero</th>
+
             <th>Codigo</th>
             <th>Fecha</th>
 

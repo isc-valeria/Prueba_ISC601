@@ -27,7 +27,7 @@ class servicioslavanderiaController
     }
 
     public function crear(){
-        //echo "fsdfsdfasdasdasas";
+
         if(isset($_POST))
         {
             //echo "asdasdadasdasd";

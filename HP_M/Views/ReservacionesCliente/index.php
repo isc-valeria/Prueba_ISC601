@@ -15,7 +15,7 @@
             <input type="number" min="0" max="20" class="niños" placeholder="Niños"  id="comboniños">
         </div>
         <div class="input-field col s2">
-            <a id="buscar" class="btn modal-close blue lighten-5 black-text" data-id="" href="#!">Buscar</a>
+            <a id="buscar" class="btn modal-close cyan lighten-2 black-text" data-id="" href="#!">Buscar</a>
         </div>
     </div>
     <div class="col l8 offset-l2 m12 s12">

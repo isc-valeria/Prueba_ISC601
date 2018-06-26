@@ -12,7 +12,6 @@
                         <p class="center">Sevicios hoy</p>
                     </div>
                     <div class="col s5 m4 right-align">
-
                         <h4><p>
                                 <?php
                                 $link = mysqli_connect("localhost", "root", "", "hotel");
@@ -21,10 +20,8 @@
                                 $fila = mysqli_fetch_row($consul);
                                 echo $fila[0];
                                 ?>
-
-
-                        </p></h4>
-             </div>
+                            </p></h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,38 +80,26 @@
         </div>
     </div>
 </div>
-<!-- //////////////////////////////////////////////////////////////////////////// -->
-
+<!-- /////////////////////////////////////////////////////////////-->
 <div class="card-panel">
     <div class="row">
         <div>
-            <a href="#modal_servicios" class="btn #7bb1b3 white-text modal-trigger" id="add_servicios">
-                Servicios
-            </a>
 
-            <a href="#modal_observaciones" class="btn #7bb1b3 white-text modal-trigger" id="add_observaciones">
-                Observaciones
-            </a>
+            <nav>
+                <div class="nav-wrapper #4db6ac teal lighten-2 teal lighten-4">
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
+                        <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
+                        <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
+                        <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_venpieza">Ventas</a></li>
 
-            <a href="#modal_rekilo" class="btn #7bb1b3 white-text modal-trigger" id="add_rekilo">
-                Registrar por kilo
-            </a>
+                    </ul>
+                </div>
+            </nav>
 
-            <a href="#modal_repieza" class="btn #7bb1b3 white-text modal-trigger" id="add_repieza">
-                Registrar por pieza
-            </a>
-
-            <a href="#modal_venkilo" class="btn #7bb1b3 white-text modal-trigger" id="add_ventakilo">
-                Ventas kilo
-            </a>
-
-            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
-                Ventas pieza
-            </a>
 
         </div>
         <div class="row"></div>
-        <div class="divider"></div>
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
             <input id="search" placeholder="Buscar" type="text">
@@ -148,9 +133,80 @@
         </div>
     </div>
 </div>
+<!-- /////////////////////////////////////////////////////////////-->
+<div id="modal_clasificaciones" class="modal modal_c">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3 disabled"><a>Clasificaciones</a></li>
+                    <li class="tab col s3"><a class="active" href="#test1">Kilo</a></li>
+                    <li class="tab col s3"><a href="#test2">Pieza</a></li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12"><div class="modal-content">
+                    <form action="" id="sava_clasikilo" enctype="multipart/form-data" autocomplete="off">
+                        <ul id="tabs-swipe-demo" class="tabs black-text" >
+                            <h4 align="center">Registrar prendas por kilo</h4>
+                        </ul>
+                        <div class="divider"></div>
+                        <code class="language-markup" ></code>
+                        <div id="test-swipe-1" class="col s12 white">
+                            <div class="card-panel">
 
+                                <div class="input-field col s4 offset-s0">
+                                    <i class="mdi-action-verified-user prefix icon-search"></i>
+                                    <input id="buscar2" placeholder="Buscar" type="text">
+                                </div>
 
-<!-- /////////////////////MODAL SERVICIOS--------//////////////////////////////////////// -->
+                                <div class="row">
+                                    <div>
+                                        <a href="#modal_clasikilo_agregar" class="btn green white-text modal-trigger right" id="add_clasikilo">
+                                            <i class="material-icons">add</i>
+                                        </a>
+                                    </div>
+
+                                    <table   class="responsive-table" id="tabla_clasikilo" >
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Servicio</th>
+                                            <th>Cantidad</th>
+                                            <th>Observaciones</th>
+                                            <th>Fecha registro</th>
+                                            <th>Eliminar</th>
+                                            <th>Editar</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="body_table_clasikilo" >
+                                        <?php
+                                        include(ROOT."Views/clasificacion_kilo/tabla.php");
+                                        ?>
+                                        </tbody>
+
+                                    </table>
+
+                                    <div >
+                                        <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
+                                            Imprimir
+                                        </a>
+                                    </div>
+
+                                    <div id="container"></div>
+                                    <div class="col-md-12 center text-center">
+                                        <span class="left" id="total_reg"></span>
+                                        <ul class="pagination pager" id="myPager"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div></div>
+            <div id="test2" class="col s12"></div>
+        </div>
+    </div>
+</div>
+<!-- /////////////////////////////////////////////////////////////-->
 <div id="modal_servicios" class="modal modal_s">
     <div class="modal-content">
         <form action="" id="sava_servicioslav" enctype="multipart/form-data" autocomplete="off">
@@ -172,9 +228,10 @@
                         <table id="example" class="mdl-data-table">
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Nombre del Servicio</th>
                                 <th>Precio</th>
+                                <th>Estado</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -197,12 +254,8 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
-
-
-<!-- //////////////////////////////////////////////////////////////////////////// -->
 <div id="modal_servicios_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -221,28 +274,19 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <div>
 
-                            </div>
                             <a href="#!" id="save_servicioslav_ok" class="btn green white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_servicioslav_ok" class="btn modal-close" data-id="">Actualizar </a>
                             <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
-
-
-                        </div>
-
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -253,12 +297,8 @@
         <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-
-
-
-<!-- ////////////////////////////////////OBSERVACIONES//////////////////////////////////////// -->
-
-<div id="modal_observaciones" class="modal modal_c">
+<!-- ////////////////////////////////////OBSERVACIONES/////////// -->
+<div id="modal_observaciones" class="modal modal_s">
     <div class="modal-content">
         <form action="" id="sava_observacionlav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -284,7 +324,7 @@
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Nombre de la observación</th>
                                 <th>Cargo</th>
                                 <th>Eliminar</th>
@@ -317,8 +357,6 @@
 
     </div>
 </div>
-
-
 <div id="modal_observaciones_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -351,7 +389,6 @@
         </div>
     </div>
 </div>
-
 <div id="modal_eliminar_obs" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -362,71 +399,7 @@
         <a href="#!" id="cancelar_obs" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-
-
-<!-- //////////////////CLASIFICACION POR KILO////////////////////////////// -->
-
-<div id="modal_rekilo" class="modal modal_c">
-    <div class="modal-content">
-        <form action="" id="sava_clasikilo" enctype="multipart/form-data" autocomplete="off">
-            <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">Registrar prendas por kilo</h4>
-            </ul>
-            <div class="divider"></div>
-            <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
-                <div class="card-panel">
-
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar2" placeholder="Buscar" type="text">
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <a href="#modal_clasikilo_agregar" class="btn green white-text modal-trigger right" id="add_clasikilo">
-                                <i class="material-icons">add</i>
-                            </a>
-                        </div>
-
-                        <table   class="responsive-table" id="tabla_clasikilo" >
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Servicio</th>
-                                <th>Cantidad</th>
-                                <th>Observaciones</th>
-                                <th>Fecha registro</th>
-                                <th>Eliminar</th>
-                                <th>Editar</th>
-                            </tr>
-                            </thead>
-                            <tbody id="body_table_clasikilo" >
-                            <?php
-                            include(ROOT."Views/clasificacion_kilo/tabla.php");
-                            ?>
-                            </tbody>
-
-                        </table>
-
-                        <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                Imprimir
-                            </a>
-                        </div>
-
-                        <div id="container"></div>
-                        <div class="col-md-12 center text-center">
-                            <span class="left" id="total_reg"></span>
-                            <ul class="pagination pager" id="myPager"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
+<!-- //////////////////CLASIFICACION POR KILO//////////////////// -->
 <div id="modal_clasikilo_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -489,7 +462,6 @@
         </div>
     </div>
 </div>
-
 <div id="modal_eliminar_kilo" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -500,70 +472,7 @@
         <a href="#!" id="cancelar_kilo" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-
-<!-- //////////////////CLASIFICACION POR pieza////////////////////////////// -->
-<div id="modal_repieza" class="modal modal_c">
-    <div class="modal-content">
-        <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
-            <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">Registrar por pieza </h4>
-            </ul>
-            <div class="divider"></div>
-            <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
-                <div class="card-panel">
-
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar3" placeholder="Buscar" type="text">
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
-                                <i class="material-icons">add</i>
-                            </a>
-                        </div>
-
-                        <table   class="responsive-table"  id="tabla_clasipieza" >
-                            <thead>
-                            <tr>
-
-                                <th>Id</th>
-                                <th>Descripción pieza</th>
-                                <th>Cantidad</th>
-                                <th>Servicio</th>
-                                <th>Observaciones</th>
-                                <th>Fecha registro</th>
-                                <th>Eliminar</th>
-                                <th>Editar</th>
-                            </tr>
-                            </thead>
-                            <tbody id="body_table_clasipieza" >
-                            <?php
-                            include(ROOT."Views/clasificacion_pieza/tabla.php");
-                            ?>
-                            </tbody>
-
-                        </table>
-
-
-
-                        <div id="container"></div>
-                        <div class="col-md-12 center text-center">
-                            <span class="left" id="total_reg"></span>
-                            <ul class="pagination pager" id="myPager"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-    </div>
-</div>
-
-
-
+<!-- //////////////////CLASIFICACION POR pieza/////////////////// -->
 <div id="modal_clasipieza_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -631,7 +540,6 @@
         </div>
     </div>
 </div>
-
 <div id="modal_eliminar_pieza" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -642,10 +550,8 @@
         <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-
-<!-- //////////////////VENTA POR PIEZA////////////////////////////// -->
-
-<div id="modal_venpieza" class="modal modal_c">
+<!-- ///////////////VENTA POR PIEZA////////////////////////////// -->
+<div id="modal_venpieza" class="modal modal_v">
     <div class="modal-content">
         <form action="" id="sava_venpieza" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -671,7 +577,7 @@
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Numero de habitación</th>
                                 <th>Número de servicio</th>
                                 <th>Subtotal</th>
@@ -697,209 +603,8 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
-
-<div id="modal_venpieza_agregar" class="modal">
-    <div class="modal-content">
-        <div class="row center-align">
-            <div class="row">
-                <form action="" id="save_ventapieza" enctype="multipart/form-data" autocomplete="off">
-                    <h4>Nuevo registro de venta por pieza</h4>
-
-                    
-                    <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="num_habitacion" type="text" name="num_habitacion">
-                            <option disabled selected>Numero de habitacion</option>
-                            <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Habitaciones");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                            $dato->data_seek(0);
-                            ?>
-                        </select>
-                        <label for="num_habitacion">Numero de habitación </label>
-                    </div>
-                   <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="cantidad" type="text" name="cantidad">
-                            <option disabled selected>selecciona la cantidad </option>
-                            <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from clasificacion_pieza");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                            ?>
-                        </select>
-                        <label for="num_habitacion">Cantidad de piezas</label>
-                    </div>
-
-                   
-                    <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="total" type="text" name="total">
-                            <option disabled selected>Total</option>
-                            <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Ticket");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                            ?>
-                        </select>
-                        <label for="total">Total</label>
-                    </div>
-                    <div class="input-field input-field col s5 center">
-                        <input id="subtotal" type="text" class="validate" name="subtotal">
-                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
-                    </div>
-
-                    <div class="modal-fixed-footer">
-                        <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
-                            Registrar
-                            </a>
-                            <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
-                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //////////////////////////////VENTA POR KILO////////////////////////////////////////////// -->
-
-<div id="modal_venkilo" class="modal modal_c">
-    <div class="modal-content">
-        <form action="" id="sava_venkilo" enctype="multipart/form-data" autocomplete="off">
-            <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">Ventas de prendas por kilo </h4>
-            </ul>
-            <div class="divider"></div>
-            <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
-                <div class="card-panel">
-
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
-                                <i class="material-icons">add</i>
-                            </a>
-                        </div>
-
-                        <table   class="responsive-table"  >
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Numero de habitación </th>
-                                <th>Número de servicio</th>
-                                <th>Subtotal</th>
-                                <th>Total</th>
-                                <th>Eliminar</th>
-                                <th>Editar</th>
-                            </tr>
-                            </thead>
-                            <tbody id="body_table_venkilo" >
-                            <?php
-                            include(ROOT."Views/venta_kilo/tabla.php");
-                            ?>
-                            </tbody>
-
-                        </table>
-
-                        <div id="container"></div>
-                        <div class="col-md-12 center text-center">
-                            <span class="left" id="total_reg"></span>
-                            <ul class="pagination pager" id="myPager"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-    </div>
-</div>
-
-<div id="modal_venkilo_agregar" class="modal">
-    <div class="modal-content">
-        <div class="row center-align">
-            <div class="row">
-                <form action="" id="save_ventakilo" enctype="multipart/form-data" autocomplete="off">
-                    <h4>Nuevo registro de venta por kilos</h4>
-
-                    <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="num_habitacion" type="text" name="num_habitacion">
-                            <option disabled selected>Selecciona habitación </option>
-
-                            <?php
-                            $dato=$datos["habitacion"];
-                            while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
-                            $dato->data_seek(0);
-                            ?>
-
-                        </select>
-                        <label for="num_habitacion">Numero de habitación </label>
-                    </div>
-                    <div class="divider"></div>
-
-
-                    <div class="input-field col s5">
-                        <select id="cantidadkg" type="text" name="cantidadkg">
-                            <option disabled selected>Selecciona servicio</option>
-
-                            <?php
-                            $dato=$datos["clasi_kilo"];
-                            while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[0]} </option>";
-                            $dato->data_seek(0);
-                            ?>
-
-                        </select>
-                        <label for="cantidadkg">Número de servicio</label>
-                    </div>
-
-                    <div class="divider"></div>
-                    <div class="divider"></div>
-
-
-                    <div class="input-field input-field col s5 center">
-                        <input id="subtotal" type="text" disabled="disabled"  name="subtotal">
-                        <label for="subtotal"   >Subtotal</label>
-                    </div>
-
-                    <div class="input-field col s5">
-                        <input id="total" type="text" disabled="disabled" name="total">
-                        <label for="total"  >Total</label>
-                    </div>
-
-                    <div class="modal-fixed-footer">
-                        <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
-                            Registrar
-                            </a>
-                            <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
-                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-                        </div>
-
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </dIV>
-</div>
-
 <!-- //////////////////////////////////Servicio////////////////////////////////////////// -->
 <script type="text/javascript">
     $(document).ready(function(){
@@ -957,7 +662,6 @@
                 $("#modal_servicios_agregar").modal("open");
             });
         });
-
         $("#update_servicioslav_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>servicioslavanderia/actualizar/"+id,$("#save_servicio_lavanderia").serialize(),function(res){
@@ -967,34 +671,26 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
         //--------------------------OBSERVACIONES-------------------------------------------
         $("#add_observaciones").click(function(){
             $("#update_observacion_ok").hide();
             $("#save_observacion_ok").show();
-
-
         });
-
         $("#save_observacion_ok").click(function(){
             $("#save_observaciones_lavanderia").submit();
-
         });
-
         $("#body_table_obser").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>observaciones/eliminar/'+id;
             $("#eliminar_obs_ok").attr("url",url);
             $("#modal_eliminar_obs").modal("open");
         });
-
         $("#eliminar_obs_ok").click(function(){
             $.get($(this).attr("url"),function(res){
                 $("#body_table_obser").empty().append(res);
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
-
         $("#body_table_obser").on("click","a.btn_modificar",function(){
             $("#save_observacion_ok").hide();
             $("#update_observacion_ok").show();
@@ -1009,7 +705,6 @@
                 $("#modal_observaciones_agregar").modal("open");
             });
         });
-
         $("#update_observacion_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>observaciones/actualizar/"+id,$("#save_observaciones_lavanderia").serialize(),function(res){
@@ -1019,33 +714,26 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
-
         $("#add_clasikilo").click(function(){
             $("#update_clasikilo_ok").hide();
             $("#save_clasikilo_ok").show();
         });
-
         $("#save_clasikilo_ok").click(function(){
             $("#save_clasificacionkilo").submit();
-
         });
-
         $("#body_table_clasikilo").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>clasificacion_kilo/eliminar/'+id;
             $("#eliminar_kilo_ok").attr("url",url);
             $("#modal_eliminar_kilo").modal("open");
         });
-
         $("#eliminar_kilo_ok").click(function(){
             $.get($(this).attr("url"),function(res){
                 $("#body_table_clasikilo").empty().append(res);
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
-
         $("#body_table_clasikilo").on("click","a.btn_modificar",function(){
             $("#save_clasikilo_ok").hide();
             $("#update_clasikilo_ok").show();
@@ -1062,7 +750,6 @@
                 $("#modal_clasikilo_agregar").modal("open");
             });
         });
-
         $("#update_clasikilo_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>clasificacion_kilo/actualizar/"+id,$("#save_clasificacionkilo").serialize(),function(res){
@@ -1072,35 +759,26 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
-
-
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
-
         $("#add_clasipieza").click(function(){
             $("#update_clasipieza_ok").hide();
             $("#save_clasipieza_ok").show();
         });
-
         $("#save_clasipieza_ok").click(function(){
             $("#save_clasificacionpieza").submit();
-
         });
-
         $("#body_table_clasipieza").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
             var url='<?php echo URL?>clasificacion_pieza/eliminar/'+id;
             $("#eliminar_pieza_ok").attr("url",url);
             $("#modal_eliminar_pieza").modal("open");
         });
-
         $("#eliminar_pieza_ok").click(function(){
             $.get($(this).attr("url"),function(res){
                 $("#body_table_clasipieza").empty().append(res);
                 Materialize.toast('Se ha eliminado correctamente', 2500);
             });
         });
-
         $("#body_table_clasipieza").on("click","a.btn_modificar",function(){
             $("#save_clasipieza_ok").hide();
             $("#update_clasipieza_ok").show();
@@ -1118,7 +796,6 @@
                 $("#modal_clasipieza_agregar").modal("open");
             });
         });
-
         $("#update_clasipieza_ok").click(function(){
             var id=$(this).data("id");
             $.post("<?php echo URL?>clasificacion_pieza/actualizar/"+id,$("#save_clasificacionpieza").serialize(),function(res){
@@ -1128,14 +805,11 @@
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
-
-         //--------------------------VENTA POR PIEZA-------------------------------------------
-
+        //--------------------------VENTA POR PIEZA-------------------------------------------
         $("#add_ventapieza").click(function(){
             $("#update_venpieza_ok").hide();
             $("#save_venpieza_ok").show();
         });
-
         $("#save_venpieza_ok").click(function(){
             $.post("<?php echo URL?>ventahab_pieza/crear",$("#save_ventapieza").serialize(),function(res){
                 $("#body_table_ventapieza").empty().append(res);
@@ -1146,12 +820,10 @@
             })
         });
         //--------------------------VENTA POR KILO-------------------------------------------
-
         $("#add_ventakilo").click(function(){
             $("#update_venkilo_ok").hide();
             $("#save_venkilo_ok").show();
         });
-
         $("#save_venkilo_ok").click(function(){
             $.post("<?php echo URL?>ventahab_kilo/crear",$("#save_ventakilo").serialize(),function(res){
                 $("#body_table_ventakilo").empty().append(res);
@@ -1161,8 +833,6 @@
                 $("#modal_venkilo_agregar").modal("close");
             })
         });
-
-
         //--------------------------Validacion servicio-------------------------------------------
         $("#save_servicio_lavanderia").validate({
             rules:{
@@ -1178,24 +848,19 @@
                     minlength: 1,
                     number:true,
                 },
-
             },
-
             messages:{
                 nombre_servi:{
                     required:"Agrega una descripción",
                     maxlength:"Maximo 12 caracteres",
                     minlength:"Minimo 4 caracteres",
                 },
-
                 precio:{
                     required:"Ingresa  número",
                     maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
-
                 }
-
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -1203,7 +868,6 @@
                     .find("label[for='" + element.attr("id") + "']")
                     .attr('data-error', error.text());
             },
-
             submitHandler:function(form){
                 $.post("<?php echo URL?>servicioslavanderia/crear",$("#save_servicio_lavanderia").serialize(),function(res){
                     $("#body_table_ser").empty().append(res);
@@ -1212,16 +876,9 @@
                     $("#modal_servicios_agregar").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
                     location.reload();
-
                 })
             }
         });
-
-
-
-
-
-
         //--------------------------Validacion Obsrvaciones-------------------------------------------
         $("#save_observaciones_lavanderia").validate({
             rules:{
@@ -1237,24 +894,19 @@
                     minlength: 1,
                     number:true,
                 },
-
             },
-
             messages:{
                 descripcion_observacion:{
                     required:"Agrega una descripción",
                     maxlength:"Maximo 12 caracteres",
                     minlength:"Minimo 4 caracteres",
                 },
-
                 cargo:{
                     required:"Ingresa  número",
                     maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
-
                 }
-
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -1269,149 +921,46 @@
                     Materialize.updateTextFields();
                     //$("#modal_registro").modal("close");
                     $("#modal_observaciones_agregar").modal("close");
-                     Materialize.toast('Se ha insertado correctamente', 2500);
-                     location.reload();
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    location.reload();
                 })
             }
         });
-
-
-
-
-
 //--------------------------Validacion clasificasion kilo-------------------------------------------
         $("#save_clasificacionkilo").validate({
-                rules:{
-                    descripcion_servicio:{
-                        required:true,
-
-                    },
-                    cantidadkg:{
-                        required:true,
-                        maxlength: 3,
-                        minlength: 1,
-                        number:true,
-                    },
-                    descripcion_observacion:{
-                        required:true,
-
-                    },
-                    fecha_registro: {
-                        required: true,
-
-
-                    }
+            rules:{
+                descripcion_servicio:{
+                    required:true,
                 },
-
-                messages:{
-                    descripcion_servicio:{
+                cantidadkg:{
+                    required:true,
+                    maxlength: 3,
+                    minlength: 1,
+                    number:true,
+                },
+                descripcion_observacion:{
+                    required:true,
+                },
+                fecha_registro: {
+                    required: true,
+                }
+            },
+            messages:{
+                descripcion_servicio:{
                     required:"Agrega una descripción",
-
                 },
-
                 cantidadkg:{
                     required:"Ingresa  número",
                     maxlength:"Maximo 5 caracteres",
                     minlength:"Minimo 1 caracteres",
                     number:"Solo números",
-
                 },
-
                 descripcion_observacion:{
                     required:"Agrega una descripción",
-
                 },
-
                 fecha_registro:{
                     required:"Agrega una descripción",
-
                 }
-
-            },
-            errorPlacement: function(error, element) {
-            $(element)
-                .closest("form")
-                .find("label[for='" + element.attr("id") + "']")
-                .attr('data-error', error.text());
-        },
-
-        submitHandler:function(form){
-            $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
-                $("#body_table_clasikilo").empty().append(res);
-                $('#save_clasificacionkilo').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                //$("#modal_registro").modal("close");
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                $("#modal_clasikilo_agregar").modal("close");
-
-                
-            })
-        }
-    });
-
-
-        //--------------------------Validacion clasificasion pieza-------------------------------------------
-        $("#save_clasificacionpieza").validate({
-            rules:{
-                descripcion_pieza:{
-                    required:true,
-                    maxlength: 20,
-                    minlength: 5,
-                    lettersonly:true,
-
-                },
-                cantidad:{
-                    required:true,
-                    maxlength: 3,
-                    minlength: 1,
-                    number:true,
-
-                },
-                descripcion_serviciopieza:{
-                    required:true,
-
-                },
-
-                descripcion_observacionpieza:{
-                    required:true,
-
-                },
-
-                fecha_registro_pieza:{
-                    required:true,
-
-                },
-
-            },
-
-            messages:{
-                descripcion_pieza:{
-                    required:"Agrega una descripción",
-                    maxlength:"Maximo 12 caracteres",
-                    minlength:"Minimo 4 caracteres",
-
-                },
-
-                cantidad:{
-                    required:"Ingresa  número",
-                    maxlength:"Maximo 5 caracteres",
-                    minlength:"Minimo 1 caracteres",
-                    number:"Solo números",
-
-                },
-
-                descripcion_serviciopieza:{
-                    required:"Agrega una descripción",
-
-                },
-
-                descripcion_observacionpieza: {
-                    required:"Agrega una descripción",
-                },
-                fecha_registro_pieza:{
-                    required:"Agrega una fecha",
-                }
-
             },
             errorPlacement: function(error, element) {
                 $(element)
@@ -1420,6 +969,71 @@
                     .attr('data-error', error.text());
             },
 
+            submitHandler:function(form){
+                $.post("<?php echo URL?>clasificacion_kilo/crear",$("#save_clasificacionkilo").serialize(),function(res){
+                    $("#body_table_clasikilo").empty().append(res);
+                    $('#save_clasificacionkilo').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    //$("#modal_registro").modal("close");
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    $("#modal_clasikilo_agregar").modal("close");
+                    location.reload();
+                })
+            }
+        });
+        //--------------------------Validacion clasificasion pieza-------------------------------------------
+        $("#save_clasificacionpieza").validate({
+            rules:{
+                descripcion_pieza:{
+                    required:true,
+                    maxlength: 20,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                cantidad:{
+                    required:true,
+                    maxlength: 3,
+                    minlength: 1,
+                    number:true,
+                },
+                descripcion_serviciopieza:{
+                    required:true,
+                },
+                descripcion_observacionpieza:{
+                    required:true,
+                },
+                fecha_registro_pieza:{
+                    required:true,
+                },
+            },
+            messages:{
+                descripcion_pieza:{
+                    required:"Agrega una descripción",
+                    maxlength:"Maximo 12 caracteres",
+                    minlength:"Minimo 4 caracteres",
+                },
+                cantidad:{
+                    required:"Ingresa  número",
+                    maxlength:"Maximo 5 caracteres",
+                    minlength:"Minimo 1 caracteres",
+                    number:"Solo números",
+                },
+                descripcion_serviciopieza:{
+                    required:"Agrega una descripción",
+                },
+                descripcion_observacionpieza: {
+                    required:"Agrega una descripción",
+                },
+                fecha_registro_pieza:{
+                    required:"Agrega una fecha",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
             submitHandler:function(form){
                 $.post("<?php echo URL?>clasificacion_pieza/crear",$("#save_clasificacionpieza").serialize(),function(res){
                     $("#body_table_clasipieza").empty().append(res);
@@ -1431,41 +1045,29 @@
                 })
             }
         });
-
-
-
-
-
-
 //---------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
+        // Or with jQuery
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
 //--------------------------Buscar-------------------------------------------
-
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_servicio"), this.value);
         });
-
         $("#buscar1").keyup(function() {
             $.uiTableFilter($("#tabla_observacion"), this.value);
         });
-
         $("#buscar2").keyup(function() {
             $.uiTableFilter($("#tabla_clasikilo"), this.value);
         });
-
         $("#buscar3").keyup(function() {
             $.uiTableFilter($("#tabla_clasipieza"), this.value);
         });
     });
 </script>
+
+
+
 
 
 
