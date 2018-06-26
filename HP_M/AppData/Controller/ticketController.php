@@ -11,13 +11,13 @@ namespace AppData\Controller;
 
 class ticketController
 {
-
     private $clasi_kilo;
     private $observaciones;
     private $clasi_pieza;
     private $venta_kilo;
     private $venta_pieza;
     private $ticket;
+    private $habitacion;
 
     public function __construct()
     {
@@ -28,6 +28,7 @@ class ticketController
         $this->venta_kilo= new \AppData\Model\Ventahab_kilo();
         $this->venta_pieza= new \AppData\Model\Ventahab_pieza();
         $this->ticket= new \AppData\Model\Ticket();
+        $this->habitacion= new \AppData\Model\Habitaciones();
     }
 
     public function index()
@@ -39,6 +40,7 @@ class ticketController
         $datos5=$this->venta_kilo->getAll();
         $datos6=$this->venta_pieza->getAll();
         $datos7=$this->ticket->getAll();
+        $datos8=$this->habitacion->getAll();
 
         $datos["servicio"]=$datos1;
         $datos["observaciones"]=$datos2;
@@ -47,6 +49,7 @@ class ticketController
         $datos["venta_kilo"]=$datos5;
         $datos["venta_pieza"]=$datos6;
         $datos["ticket"]=$datos7;
+        $datos["habitacion"]=$datos8;
         return $datos;
     }
 

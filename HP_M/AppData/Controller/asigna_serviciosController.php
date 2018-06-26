@@ -19,7 +19,7 @@ class asigna_serviciosController
         $this->asigna_servicios= new \AppData\Model\Asigna_servicios();
         $this->habitaciones=new \AppData\Model\Habitaciones();
         $this->servicios=new \AppData\Model\Servicios();
-        $this->estado_habitacion=new \AppData\Model\EstadoHabitaciones();
+        $this->estado_servicios=new \AppData\Model\Estado_servicios();
         $this->tipos_habitacion=new \AppData\Model\Tipos_habitacion();
     }
 
@@ -29,7 +29,7 @@ class asigna_serviciosController
         $datos1=$this->asigna_servicios->getAll();
         $datos2=$this->habitaciones->getAll();
         $datos3=$this->servicios->getAll();
-        $datos4=$this->estado_habitacion->getAll();
+        $datos4=$this->estado_servicios->getAll();
         $datos5=$this->tipos_habitacion->getAll();
 
         $datos[0]=$datos1;
