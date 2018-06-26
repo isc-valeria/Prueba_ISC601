@@ -187,10 +187,10 @@
                                     </table>
 
                                     <div >
-                                        <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                            Imprimir
-                                        </a>
+                                        <a href="<?php echo URL?>clasificacion_kilo/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
                                     </div>
+
+
 
                                     <div id="container"></div>
                                     <div class="col-md-12 center text-center">
@@ -246,6 +246,10 @@
                                     </tbody>
 
                                 </table>
+
+                                <div >
+                                    <a href="<?php echo URL?>clasificacion_pieza/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+                                </div>
 
 
 
@@ -313,6 +317,8 @@
                                         </tbody>
 
                                     </table>
+
+
 
                                     <div id="container"></div>
                                     <div class="col-md-12 center text-center">
@@ -468,11 +474,7 @@
 
                         </table>
 
-                        <div >
-                            <a href="<?php echo URL?>observaciones_lav/print_pdf "  class="btn blue white-text modal-trigger right" id="impri">
-                                Imprimir
-                            </a>
-                        </div>
+
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
