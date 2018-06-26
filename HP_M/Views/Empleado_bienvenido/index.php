@@ -1,10 +1,8 @@
-
-
-
 <div class="card-panel">
     <h4 align="center"></h4>
     <div class="divider"></div>
     <h1 class="center">Bienvenido Empleado</h1>
+
 
     <div class="row">
         <div class="col s6 m5 l1">
@@ -35,4 +33,6 @@
 
     </div>
 
+
 </div>
+

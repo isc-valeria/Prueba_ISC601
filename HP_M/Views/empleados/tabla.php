@@ -1,7 +1,7 @@
 <?php
 $datos=$datos[0];
 while($row=mysqli_fetch_array($datos))
-echo "<tr><td>{$row[0]}</td>
+echo "<tr>
     <td>{$row['nombre_emp']}</td>
     <td>{$row['ap_emp']}</td>
     <td>{$row['am_emp']}</td>

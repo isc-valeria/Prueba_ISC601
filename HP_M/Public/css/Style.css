@@ -3,9 +3,31 @@
     position: center;
     background-color: #fafafa;
     max-height: 100%;
-    width: 85%;
+    width: 55%;
     max-width: 100%;
     height: 84%;
-    border-radius: 8px;
+    border-radius: 20px;
+    will-change: opacity;
+}
+.modal_c {
+    display: none;
+    position: center;
+    background-color: #fafafa;
+    max-height: 100%;
+    width: 88%;
+    max-width: 100%;
+    height: 84%;
+    border-radius: 20px;
+    will-change: opacity;
+}
+.modal_v{
+    display: none;
+    position: center;
+    background-color: #fafafa;
+    max-height: 100%;
+    width: 98%;
+    max-width: 100%;
+    height: 88%;
+    border-radius: 20px;
     will-change: opacity;
 }

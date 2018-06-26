@@ -1,3 +1,8 @@
+<?php
+//print_r($datos[1]);
+
+?>
+
 <div class="modal" id="muestreo">
     <div class="modal-content">
         <div class="card-panel">
@@ -54,7 +59,15 @@
                             <label for="no_personas">Número de Personas</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
-                            <input type="text" id="tipo_ha" name="tipo_ha">
+                            <select name="tipo_ha" id="tipo_ha" class="select">
+                                <option disabled selected>Tipo de Habitacion</option>
+                                <?php
+                                print_r($datos);
+                                  //  $datos=$datos[1];
+                                while ($row=mysqli_fetch_array($datos[1]))
+                                echo "<option value='{$row['tipo_h']}'>{$row['tipo_ha']}</option>";
+                                ?>
+                            </select>
                             <label for="tipo_ha">Tipo de Habitación</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
@@ -189,6 +202,7 @@
         $(".modal").modal();
         $(".datepicker").pickadate();
         $('.tooltipped').tooltip();
+        $(".select").material_select();
         $("#body_table").on("click","a.btn_mostrar",function () {
             $("#fecha_checkin").hide();
             $("#fc").hide();
@@ -222,6 +236,11 @@
             $.get("<?php echo URL?>checkin/modificar/"+ id, $("#muestreo").serialize(), function (res) {
                 console.log("datos: "+res);
                 $("#clave_reserva").prop("readOnly",true);
+                $("#fecha_checkin").prop("readOnly",true);
+                $("#fecha_llegada").prop("readOnly",true);
+                $("#fecha_salida").prop("readOnly",true);
+                $("#fecha_reserva").prop("readOnly",true);
+
                 var datos = JSON.parse(res);
                 $("#checkate").data("id", datos["clave_reserva"]);
                 $("#clave_reserva").val(datos["clave_reserva"]);

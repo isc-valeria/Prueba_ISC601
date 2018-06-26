@@ -15,17 +15,18 @@
             <input type="number" min="0" max="20" class="niños" placeholder="Niños"  id="comboniños">
         </div>
         <div class="input-field col s2">
-            <a id="buscar" class="btn modal-close blue lighten-5 black-text" data-id="" href="#!">Buscar</a>
+            <a id="buscar" class="btn modal-close cyan lighten-2 black-text" data-id="" href="#!">Buscar</a>
         </div>
     </div>
-
+    <div class="col l8 offset-l2 m12 s12">
+        <div class="col s2.7"  id="divnumerodias" style="display: none">
+            <h5 class="text-primary black-text" >Dias de Reservacion:</h5>
+        </div>
+        <div class="col s6">
+            <h5 id="id_numerodias"></h5>
+        </div>
+    </div>
 </div>
-
-<div class="col s2"  id="divnumerodias" style="display: none">
-    <h5 class="text-primary black-text" >Dias de Reservacion</h5>
-    <h6 id="id_numerodias"></h6>
-</div>
-
 
 <div class="row" id="id_tipo">
     <div class="col l8 offset-l2 m12 s12">
