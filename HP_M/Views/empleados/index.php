@@ -33,9 +33,13 @@
                                 ?>
                             </select>
                             <label for="id_puesto" >Tipo de Puestos</label>
+
                         </div>
-
-
+                        <div class="input-field ">
+                            <div class="input-field col s1">
+                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="<?php echo URL?>Puestos" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            </div>
+                        </div>
 
                         <div class="input-field col s5">
                             <select id="id_turno" type="text"  name="id_turno">
@@ -47,7 +51,11 @@
                                 ?>
                             </select>
                             <label for="id_turno" >Tipo de Turnos </label>
-
+                        </div>
+                        <div class="input-field ">
+                            <div class="input-field col s1">
+                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="<?php echo URL?>Turnos " ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            </div>
                         </div>
                         <div class="input-field col s3.5">
                             <input id="codigo" type="text"  name="codigo">
@@ -57,20 +65,10 @@
 
 
                     </div>
-                    <div class="row">
-                        <div class="input-field input-field col s5">
-                            <input id="Correo_Empleado" type="text" class="validate" name="Correo_Empleado">
-                            <label for="Correo_Empleado"  data-error="Incorrecto" data-success="Correcto" >Correo</label>
-                        </div>
-                        <div class="input-field col s3.5">
-                            <input id="Contraseña_Empleado" type='text' class="validate" name="Contraseña_Empleado">
-                            <label for="Contraseña_Empleado"  data-error="incorrecto" data-success="Correcto">Contraseña</label>
-                        </div>
 
-                    </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                                <a href="#!" id="save_empleados_ok" class="btn">Registrar</a>
+                                <a href="#!" id="save_empleados_ok" class="btn" >Registrar</a>
                         </div>
                         <div class="input-field col s12" >
 
@@ -85,11 +83,26 @@
     </div>
 </div>
 
-<div class="card-panel">
-    <h4 align="center">Empleados Registrados <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_empleado"><i class="icon-user"></i>
-                <i class="material-icons">add</i>
-            </a></span></h4>
-    <div class="divider"></div>
+<nav>
+    <div class="nav-wrapper cyan lighten-2">
+
+        <ul class="left hide-on-med-and-down">
+            <li><a href="<?php echo URL?>Turnos" class="white-text modal-trigger" id="add_servicios">Turnos</a></li>
+            <li><a   href="<?php echo URL?>Puestos" class="white-text modal-trigger" id="add_observaciones">Puestos</a></li>
+            <li><a  href="<?php echo URL?>Entrada" class="white-text modal-trigger" id="add_venkilo">Entradas</a></li>
+            <li><a  href="<?php echo URL?>Salida" class="white-text modal-trigger" id="add_venpieza">Salidas</a></li>
+            <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+            <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+
+            <a href="#modal_registro" class="btn blue accent-3 white-text tooltipped modal-trigger  " data-position="bottom" data-delay="50" data-tooltip="Agregar" id="add_empleado" ><i class="material-icons">person_add</i></a>
+            <a href="<?php echo URL?>Entrada/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Entradas"><i class="material-icons">picture_as_pdf</i></a>
+            <a href="<?php echo URL?>Salida/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salidas"><i class="material-icons">picture_as_pdf</i></a>
+
+
+        </ul>
+    </div>
+
+</nav>
 
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -101,11 +114,12 @@
 
     <!-- Modal eliminar -->
 
+</div>
     <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
         <thead>
         <tr>
-            <th>Numero</th>
+
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Apellido</th>
@@ -127,11 +141,7 @@
         ?>
         </tbody>
     </table>
-    <div class="center">
-        <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
-    </div>
-</div>
+
 <div id="modal_grafica" class="modal">
     <div class="modal-content">
         <h5>Gráfica de Empleados</h5>

@@ -35,16 +35,16 @@
                         </div>
                         <div class="input-field col s1">
                             <div class="input-field col s1">
-                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="#modal_tipo_habitacion" ><i class="icon-plus #00838f cyan lighten-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_habitaciones_ok" class="btn">Registrar</a>
+                            <a href="#!" id="save_habitaciones_ok" class="btn cyan lighten-2">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_habitaciones_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_habitaciones_ok" class="btn modal-close cyan lighten-2" data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -56,8 +56,8 @@
 <div class="card-panel">
     <h4 align="center">Habitaciones Registradas
         <span class="right">
-            <a href="#modal_registro" class="btn green white-text modal-trigger" id="add_habitacion">
-                <i class="material-icons">add</i>
+            <a href="#modal_registro" class="btn cyan lighten-2 white-text modal-trigger" id="add_habitacion">
+                <i class="material-icons black-text">add</i>
             </a>
         </span>
     </h4>
@@ -94,8 +94,8 @@
 
 
     <div class="center">
-        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+        <a href="<?php echo URL?>habitaciones/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!"  id="graficar_habitaciones" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
     </div>
 </div>
 
@@ -107,7 +107,7 @@
         </p>
     </div>
     <div class="modal-footer">
-        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cerrar</a>
+        <a href="#!" id="cancelar" class="modal-close red black-text waves-effect cyan lighten-2 btn-flat">Cerrar</a>
     </div>
 </div>
 
@@ -137,7 +137,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s9">
-                        <button class="btn green waves-effect waves-light right #00838f cyan darken-3" type="submit" name="action">Registar</button>
+                        <button class="btn  cyan lighten-2" type="submit" name="action">Registar</button>
                     </div>
                     <div class="input-field col s3">
                         <button class="btn red waves-effect waves-light righ #00838f cyan darken-3" type="submit" name="action">Limpiar</button>
@@ -185,7 +185,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipo_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="save_tipo_ok" class="btn cyan lighten-2">Registrar</a>
                         </div>
                     </div>
                 </div>

@@ -50,6 +50,11 @@ class facturacionController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->facturacion->getAll();
+        return $datos;
+    }
 
 }
     ?>
