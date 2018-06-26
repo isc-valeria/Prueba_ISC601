@@ -11,8 +11,15 @@ namespace AppData\Model;
 
 class ReservacionesCliente
 {
-    private $tabla = "tipos_habitaciones";
-    private $id_habitacion;
+    private $tabla = "reservaciones";
+    private $id_reservacion;
+    private $clave_reserva;
+    private $id_cliente;
+    private $fecha_reserva;
+    private $fecha_llegada;
+    private $fecha_salida;
+    private $id_estador=63;
+    private $no_personas;
     private $num_habitacion;
     private $descripcion_hab;
     private $id_tipoh;
@@ -37,9 +44,11 @@ class ReservacionesCliente
     }
 
     function add()
+
     {
-        $sql = "insert into {$this->tabla} values('0','{$this->num_habitacion}',
-         '{$this->descripcion_hab}','{$this->id_tipoh}','{$this->id_estadoh}')";
+        $sql="call NuevaReserva (
+         '{$this->clave_reserva}','{$this->id_cliente}','{$this->fecha_reserva}','{$this->fecha_llegada}',
+         '{$this->fecha_salida}','{$this->id_estador}')";
         $this->conexion->QuerySimple($sql);
 
     }
@@ -54,8 +63,8 @@ class ReservacionesCliente
     function getAllHabitaciones()
     {
         $sql = "SELECT habitaciones.id_habitacion, habitaciones.num_habitacion, habitaciones.descripcion_hab, 				
-                                tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas, 										tipos_habitacion.precio
-                                FROM habitaciones, tipos_habitacion, reservaciones, 												asigna_reservaciones
+                                tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas,tipos_habitacion.precio
+                                FROM habitaciones, tipos_habitacion, reservaciones, asigna_reservaciones
                                 WHERE reservaciones.id_reservacion=asigna_reservaciones.id_reservacion
 		AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion
         AND habitaciones.id_tipoh=tipos_habitacion.id_tipoh
