@@ -41,6 +41,13 @@ class SalidaController
         }
 
     }
+    public function print_pdf1()
+    {
+
+        $datos=$this->Salida->getAll();
+
+        return $datos;
+    }
 
 
 }
