@@ -48,7 +48,7 @@
                             </select>
                             <label for="descripcion_est " data-error="incorrecto" data-success="Correcto">Estados</label>
                         </div>
-                        <div class="col s2"></div>
+                        <div class="col s1"></div>
                         <div class="input-field col s4 ">
                             <label for="fecha_reg">Fecha de registro</label>
                             <input type="text" class="datepicker" name="fecha_reg">
@@ -106,6 +106,10 @@
             <div class="divider"></div>
             <!--********************************-->
 
+            <div class="center">
+                <a href="<?php echo URL?>asigna_servicios/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+               <!-- <a href="#!"  id="graficar_habitaciones" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a> -->
+            </div>
         </div>
     </div>
 </div>
@@ -123,8 +127,8 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        $('select').material_select();
             $(".modal").modal();
-            $('select').material_select();
             $('.datepicker').pickadate();
             $('#add_asigna_servicios').click(function () {
                 $("#update_asigna_servicios_ok").hide();
@@ -133,7 +137,7 @@
             $('#save_asigna_servicios_ok').click(function () {
             $.post("<?php echo URL?>asigna_servicios/crear",$("#save_asigna_servicios").serialize(),function (res) {
                 $("#body_table").empty().append(res);
-                $('#save_asinga_servicios').find('input, select, textarea').val('');
+                $('#save_asigna_servicios').find('input, select, textarea').val('');
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha insertado correctamente', 2500);
                 console.log( $("#save_asigna_servicios").serialize());
@@ -161,19 +165,21 @@
             $.get("<?php echo URL?>asigna_servicios/modificar/" + id, function (res) {
                 var datos=JSON.parse(res);
                 $("#update_asigna_servicios_ok").data("id", datos["id_asignaser"]);
-                $("#num_habitacion").val(datos["num_habitacion"]);
-                $("#descripcion_est").val(datos["descripcion_est"]);
-                $("#descripcion_ser").val(datos["descripcion_ser"]);
+                $("#num_habitacion").val(datos["id_habitacion"]);
+                $("#descripcion_est").val(datos["id_estados"]);
+                $("#descripcion_ser").val(datos["id_servicio"]);
                 $("#fecha_reg").val(datos["fecha_reg"]);
                 Materialize.updateTextFields();
+                $('select').material_select();
                 $("#modal_registro1").modal("open");
+                console.log(res);
             });
         });
         $("#update_asigna_servicios_ok").click(function () {
             var id = $(this).data("id");
             console.log( $("#save_asigna_servicios").serialize());
             $.post("<?php echo URL?>asigna_servicios/actualizar/" + id, $("#save_asigna_servicios").serialize(), function (res) {
-                $('#save_asigna_servicios').find('input, select, textarea').val('');
+                $('#save_asigna_servicios_ok').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);

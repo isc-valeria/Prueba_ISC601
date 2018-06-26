@@ -71,8 +71,8 @@ class Template
     {?>
             <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
+                    <li><a href="<?php echo URL?>inicio" class="black-text">Inicio</a></li>
                     <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text">Reservaciones</a></li>
-                    <li><a href="#!" class="black-text">Mi Reserva</a></li>
                     <li><a href="<?php echo URL?>Login" class="black-text">Login</a></li>
                 </ul>
         <?php }?>
@@ -202,8 +202,8 @@ class Template
                             Ejido San Antonio Laguna, 51200 Valle de Bravo, Méx.</p>
 
                     </div>
-                    <div class="col l3 s12">
-                        <h5 class="black-text">Redes Sociales</h5>
+                    <div class="col l3 s12 cyan lighten-4">
+                        <h5 class="black-text ">Redes Sociales</h5>
                         <ul><i class="small material-icons"><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a></i>
                             <i class="small material-icons"><a href="https://web.whatsapp.com/"><span class="icon-whatsapp "></span></a></i>
                             <i class="small material-icons"><a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a></i>
