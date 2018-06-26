@@ -54,8 +54,8 @@ class ReservacionesCliente
     function getAllHabitaciones()
     {
         $sql = "SELECT habitaciones.id_habitacion, habitaciones.num_habitacion, habitaciones.descripcion_hab, 				
-                                tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas, 										tipos_habitacion.precio
-                                FROM habitaciones, tipos_habitacion, reservaciones, 												asigna_reservaciones
+                                tipos_habitacion.tipo_ha, tipos_habitacion.maximo_personas,tipos_habitacion.precio
+                                FROM habitaciones, tipos_habitacion, reservaciones, asigna_reservaciones
                                 WHERE reservaciones.id_reservacion=asigna_reservaciones.id_reservacion
 		AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion
         AND habitaciones.id_tipoh=tipos_habitacion.id_tipoh

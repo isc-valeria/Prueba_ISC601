@@ -8,7 +8,7 @@ while($row=mysqli_fetch_array($datos))
             <div class=\"card horizontal\">
                 <div class=\"card-image\">
                     <input type=\"checkbox\" id=\"{$row['id_habitacion']}\" class=\"filled-in\" /><label  for=\"myCheckbox\"></label>
-                    <img src=\"{$url}Public/imagenes/simple.jpg\" height=270\" width=\"150\">
+                    <img src=\"{$url}Public/imagenes/{$row['tipo_ha']}.jpg\" height=270\" width=\"150\">
                 </div>
                 <div class=\"card-stacked\">
                     <div class=\"card-content\">
