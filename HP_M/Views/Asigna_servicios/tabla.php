@@ -2,7 +2,6 @@
 $datos=$datos[0];
 while($row=mysqli_fetch_array($datos))
 echo "<tr>
-	<td>{$row['id_asignaser']}</td>
 	<td>{$row['num_habitacion']}</td>
 	<td>{$row['descripcion_ser']}</td>
     <td>{$row['descripcion_est']}</td>

@@ -27,7 +27,7 @@ create table Ventahab_kilo(id_ventahabkilo int primary key AUTO_INCREMENT, id_ha
 create table Ventahab_pieza(id_ventahabpieza int primary key AUTO_INCREMENT, id_habitacion int, id_clasificacionpieza int, id_ticket int, subtotal float);
 
 create table Servicios(id_servicio int primary key AUTO_INCREMENT, descripcion_ser varchar(30), hora_inicio time, hora_fin time);
-create table Asigna_servicios(id_asignaser int primary key AUTO_INCREMENT, id_habitacion int, id_servicio int, id_estados int, fecha_reg timestamp);
+create table Asigna_servicios(id_asignaser int primary key AUTO_INCREMENT, id_habitacion int, id_servicio int, id_estados int, fecha_reg date);
 create table Estado_servicios(id_estados int primary key AUTO_INCREMENT, descripcion_est varchar(50));
 
 
@@ -115,11 +115,11 @@ insert into Estado_habitacion values (61, 'Ocupado');
 
 
 
-insert into Asigna_servicios values (160, 150, 50, 80, sysdate());
+insert into Asigna_servicios values (160, 150, 50, 80, date(sysdate());
 
-insert into Asigna_servicios values (161, 151, 51, 81, sysdate());
+insert into Asigna_servicios values (161, 151, 51, 81, date(sysdate()));
 
-insert into Asigna_servicios values (162, 152, 52, 80, sysdate());
+insert into Asigna_servicios values (162, 152, 52, 80, date(sysdate()));
 
 
 
@@ -142,9 +142,9 @@ insert into Habitaciones values (152,102,'Con terraza', 72, 61);
 
 
 
-insert into Estado_servicios values (80, 'Disponible');
+insert into Estado_servicios values (80, 'En proceso');
 
-insert into Estado_servicios values (81, 'Ocupado');
+insert into Estado_servicios values (81, 'Finalizado');
 
 
 

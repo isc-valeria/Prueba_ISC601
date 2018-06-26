@@ -88,7 +88,7 @@
             <table class="centered" id="tabla_content">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Habitaciónes</th>
                     <th>Servicios</th>
                     <th>Estado</th>
