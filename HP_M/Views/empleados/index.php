@@ -93,15 +93,21 @@
     </div>
 </div>
 
+<nav>
+    <div class="nav-wrapper cyan lighten-2">
 
+        <ul class="left hide-on-med-and-down">
+            <li><a href="<?php echo URL?>Turnos" class="white-text modal-trigger" id="add_servicios">Turnos</a></li>
+            <li><a   href="<?php echo URL?>Puestos" class="white-text modal-trigger" id="add_observaciones">Puestos</a></li>
+            <li><a  href="<?php echo URL?>Entrada" class="white-text modal-trigger" id="add_venkilo">Entradas</a></li>
+            <li><a  href="<?php echo URL?>Salida" class="white-text modal-trigger" id="add_venpieza">Salidas</a></li>
+            <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+            <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+            <a href="#modal_registro" class="btn blue accent-3 white-text modal-trigger" id="add_empleado" ><i class="material-icons">person_add</i></a>
+        </ul>
+    </div>
 
-
-
-    <h4 align="center">Empleados Registrados <span class="right"><a href="#modal_registro" class="btn blue white-text modal-trigger" id="add_empleado"><i class="icon-user"></i>
-                <i class="material-icons">add</i>
-            </a></span></h4>
-
-    <div class="divider"></div>
+</nav>
 
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -112,10 +118,7 @@
 
 
     <!-- Modal eliminar -->
-    <div class="center">
-        <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
-    </div>
+
 </div>
     <!--*********************final modal eliminar***********-->
     <table class="responsive-table" id="tabla_content">
