@@ -235,6 +235,7 @@
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
+                console.log(res);
             });
         });
         $("#update_habitaciones_ok").click(function(){

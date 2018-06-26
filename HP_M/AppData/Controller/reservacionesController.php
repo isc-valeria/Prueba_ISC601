@@ -21,7 +21,7 @@ class reservacionesController
 
     public function __construct()
     {
-        $this->reservaciones= new \AppData\Model\Reservaciones();
+        $this->reservaciones= new \AppData\Model\ReservacionesCliente();
         $this->clientes= new \AppData\Model\Clientes();
         $this->tipos_habitacion= new \AppData\Model\Tipos_habitacion();
         $this->habitaciones= new \AppData\Model\Habitaciones();
@@ -38,6 +38,20 @@ class reservacionesController
         $datos[2]=$datos3;
         $datos[3]=$datos4;
         return $datos;
+    }
+    public function crearreservacion(){
+        if($_POST)
+        {
+            $this->reservaciones->set('clave_reserva',$_POST["clave_reserva"]);
+            $this->reservaciones->set('id_cliente',$_POST["id_cliente"]);
+            $this->reservaciones->set('fecha_reserva',$_POST["id_tipoh"]);
+            $this->reservaciones->set('id_estadoh',$_POST["nomestadohabitacion"]);
+            $this->reservaciones->add();
+            $datos1=$this->reservaciones->getAll();
+            $datos[0]=$datos1;
+            return $datos;
+        }
+
     }
     public function crear(){
         if($_POST)
@@ -82,7 +96,7 @@ class reservacionesController
         }
     }
 
-    public function delite($id)
+    public function delete($id)
     {
         $datos=$this->reservaciones->getData($id[0]);
         $datos=mysqli_fetch_array($datos);

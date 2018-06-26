@@ -6,7 +6,7 @@ while($row=mysqli_fetch_array($dato))
         <tr>
         <td>{$row[0]}</td>
         <td>{$row['num_habitacion']}</td>       
-        <td>{$row['cantidadkg']}</td>
+        <td>{$row['id_clasificacionkilo']}</td>
         <td>{$row['total']}</td>   
         <td>{$row['subtotal']}</td>             
         <td><a class='btn-flat icon-cross red-text btn_eliminar' href='#!' data-id='{$row['id_ventahabkilo']}'></a></td>
