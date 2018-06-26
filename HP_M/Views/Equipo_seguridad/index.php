@@ -171,7 +171,7 @@
             rules: {
                 nombre_equisegu: {
                     required: true,
-                    maxlength: 13,
+                    maxlength: 30,
                     minlength: 4,
                     lettersonly: true,
                 },
@@ -194,7 +194,7 @@
             messages:{
                 nombre_equisegu:{
                     required:"Ingresa un nombre",
-                    maxlength:"Maximo 13 caracteres",
+                    maxlength:"Nombre muy largo",
                     minlength:"Minimo 4 caracteres",
 
                 },
