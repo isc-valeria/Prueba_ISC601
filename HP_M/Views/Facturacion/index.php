@@ -81,6 +81,7 @@
         </tbody>
     </table>
 
+
 </div>
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">

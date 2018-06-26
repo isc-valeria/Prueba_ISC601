@@ -38,7 +38,6 @@ class productosController
             $this->productos->set('nombre_pro',$_POST["nombre_pro"]);
             $this->productos->set('id_categoriapro',$_POST["id_categoriapro"]);
             $this->productos->set('id_tipopro',$_POST["id_tipopro"]);
-            $this->productos->set('existencias',$_POST["existencias"]);
             $this->productos->set('stock_min',$_POST["stock_min"]);
             $this->productos->set('stock_max',$_POST["stock_max"]);
             $this->productos->add();
@@ -68,7 +67,6 @@ class productosController
             $this->productos->set('nombre_pro',$_POST["nombre_pro"]);
             $this->productos->set('id_categoriapro',$_POST["id_categoriapro"]);
             $this->productos->set('id_tipopro',$_POST["id_tipopro"]);
-            $this->productos->set('existencias',$_POST["existencias"]);
             $this->productos->set('stock_min',$_POST["stock_min"]);
             $this->productos->set('stock_max',$_POST["stock_max"]);
             $this->productos->update();

@@ -44,7 +44,7 @@ create table Facturacion(id_factura int primary key AUTO_INCREMENT, id_asignares
 create table Checkin(id_checkin int primary key AUTO_INCREMENT, id_asignares int, fecha_checkin timestamp);
 create table Checkout(id_checkout int primary key AUTO_INCREMENT, id_asignares int, fecha_checkout timestamp);
 
-create table usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_tipouser int, id_persona int);
+create table usuarios(id_usuario int PRIMARY KEY AUTO_INCREMENT, email varchar(30), pass varchar(30), id_empleado int);
 create table tipo_usuario(id_tipouser int PRIMARY KEY AUTO_INCREMENT, tipo_usuario varchar(20));
 
 create table Salida(id_salida int primary key AUTO_INCREMENT,id_empleado int,fecha_salida datetime default null);
@@ -56,6 +56,8 @@ create table Puestos(id_puesto int primary key AUTO_INCREMENT, descripcion_puest
 
 insert into tipo_usuario values(1,'Empleado');
 insert into tipo_usuario values(2,'Cliente');
+
+insert into usuarios values(1,'admin@tesvb.com','admin',12345678);
 
 insert into  Observaciones values (500, 'No Manchado',0);
 
@@ -273,10 +275,10 @@ insert into Asignadestino_servicios values (252, 222, 52);
 
 
 insert into Puestos values(1, 'Camarero');
-
 insert into Puestos values(2, 'Recepcionista');
 insert into Puestos values(4, 'Administrador');
 
+i
 
 
 
