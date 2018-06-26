@@ -104,6 +104,8 @@
             <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
             <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
             <a href="#modal_registro" class="btn blue accent-3 white-text modal-trigger" id="add_empleado" ><i class="material-icons">person_add</i></a>
+            <a href="<?php echo URL?>Usuarios" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Crear cuenta"><i class="material-icons">add</i></a>
+
         </ul>
     </div>
 
