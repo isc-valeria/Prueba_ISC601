@@ -108,7 +108,7 @@
     <h4 align="center"></h4>
     <div class="divider"></div>
     <h3 class="center">Check-In Pendientes<span class="right">
-            <a href="tabla.php" class="btn green white-text modal-trigger btn tooltipped" id="add_habitacion" data-position="bottom" data-delay="50" data-tooltip="Todas las reservaciones registradas">
+            <a href="tabla.php" class="btn cyan lighten-2 black-text modal-trigger btn tooltipped" id="add_habitacion" data-position="bottom" data-delay="50" data-tooltip="Todas las reservaciones registradas">
                 <i class="material-icons">event_note</i>
             </a>
         </span></h3>
@@ -147,7 +147,7 @@
     <h4 align="center"></h4>
     <div class="divider"></div>
     <h3 class="center">Check-In Realizados<span class="right">
-            <a href="tabla.php" class="btn green white-text modal-trigger btn tooltipped" id="add_habitacion" data-position="bottom" data-delay="50" data-tooltip="Todas las reservaciones registradas">
+            <a href="tabla.php" class="btn cyan lighten-2 black-text modal-trigger btn tooltipped" id="add_habitacion" data-position="bottom" data-delay="50" data-tooltip="Todas las reservaciones registradas">
                 <i class="material-icons">event_note</i>
             </a>
         </span></h3>
