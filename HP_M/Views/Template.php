@@ -143,11 +143,14 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
+
                                 <li><a href="<?php echo URL?>empleados" class=" black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
                                 <li><a href="<?php echo URL?>Puestos" class=" black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
                                 <li><a href="<?php echo URL?>Turnos" class=" black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
                                 <li><a href="<?php echo URL?>Entrada" class=" black-text"><i class="material-icons">chevron_right</i>Entrada</a></li>
                                 <li><a href="<?php echo URL?>Salida" class=" black-text"><i class="material-icons">chevron_right</i>Salida</a></li>
+
+
                             </ul>
                     </div>
             </li>
