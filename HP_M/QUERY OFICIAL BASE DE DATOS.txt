@@ -164,13 +164,14 @@ insert into Estado_reserva values (62, 'Confirmado');
 
 insert into Estado_reserva values (63, 'Cancelado');
 
+insert into Estado_reserva values (61, 'checkin');
 
 
 insert into Reservaciones values (180, 2001, 90, sysdate(),'2018/10/08' , '2018/10/12', 63,2);
 
 insert into Reservaciones values (181, 2002, 91, sysdate(),'2018/06/05','2018/06/12' , 62,4);
 
-insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 62,6);
+insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 61,6);
 
 
 
