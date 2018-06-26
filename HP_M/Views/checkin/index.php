@@ -222,6 +222,11 @@
             $.get("<?php echo URL?>checkin/modificar/"+ id, $("#muestreo").serialize(), function (res) {
                 console.log("datos: "+res);
                 $("#clave_reserva").prop("readOnly",true);
+                $("#fecha_checkin").prop("readOnly",true);
+                $("#fecha_llegada").prop("readOnly",true);
+                $("#fecha_salida").prop("readOnly",true);
+                $("#fecha_reserva").prop("readOnly",true);
+
                 var datos = JSON.parse(res);
                 $("#checkate").data("id", datos["clave_reserva"]);
                 $("#clave_reserva").val(datos["clave_reserva"]);
