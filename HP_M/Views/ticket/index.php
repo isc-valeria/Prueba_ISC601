@@ -88,33 +88,26 @@
 <div class="card-panel">
     <div class="row">
         <div>
-            <a href="#modal_servicios" class="btn #7bb1b3 white-text modal-trigger" id="add_servicios">
-                Servicios
-            </a>
 
-            <a href="#modal_observaciones" class="btn #7bb1b3 white-text modal-trigger" id="add_observaciones">
-                Observaciones
-            </a>
+            <nav>
+                <div class="nav-wrapper #4db6ac teal lighten-2 teal lighten-4">
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
+                        <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
+                        <li><a href="#modal_repieza" class="white-text modal-trigger" id="add_repieza">Clasificacion por pieza</a></li>
+                        <li><a href="#modal_rekilo" class="white-text modal-trigger" id="add_rekilo">Clasificasion por kilo</a></li>
+                        <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_venpieza">Venta por pieza</a></li>
+                        <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_venkilo">Venta por kiloa</a></li>
+                        <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
 
-            <a href="#modal_rekilo" class="btn #7bb1b3 white-text modal-trigger" id="add_rekilo">
-                Registrar por kilo
-            </a>
 
-            <a href="#modal_repieza" class="btn #7bb1b3 white-text modal-trigger" id="add_repieza">
-                Registrar por pieza
-            </a>
+                    </ul>
+                </div>
+            </nav>
 
-            <a href="#modal_venkilo" class="btn #7bb1b3 white-text modal-trigger" id="add_ventakilo">
-                Ventas kilo
-            </a>
-
-            <a href="#modal_venpieza" class="btn #7bb1b3 white-text modal-trigger" id="add_ventapieza">
-                Ventas pieza
-            </a>
 
         </div>
         <div class="row"></div>
-        <div class="divider"></div>
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>
             <input id="search" placeholder="Buscar" type="text">
@@ -172,9 +165,10 @@
                         <table id="example" class="mdl-data-table">
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Nombre del Servicio</th>
                                 <th>Precio</th>
+                                <th>Estado</th>
                                 <th>Eliminar</th>
                                 <th>Editar</th>
                             </tr>
@@ -258,7 +252,7 @@
 
 <!-- ////////////////////////////////////OBSERVACIONES//////////////////////////////////////// -->
 
-<div id="modal_observaciones" class="modal modal_c">
+<div id="modal_observaciones" class="modal modal_s">
     <div class="modal-content">
         <form action="" id="sava_observacionlav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -284,7 +278,7 @@
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Nombre de la observación</th>
                                 <th>Cargo</th>
                                 <th>Eliminar</th>
@@ -392,7 +386,7 @@
                         <table   class="responsive-table" id="tabla_clasikilo" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Servicio</th>
                                 <th>Cantidad</th>
                                 <th>Observaciones</th>
@@ -529,7 +523,7 @@
                             <thead>
                             <tr>
 
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Descripción pieza</th>
                                 <th>Cantidad</th>
                                 <th>Servicio</th>
@@ -671,7 +665,7 @@
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Numero de habitación</th>
                                 <th>Número de servicio</th>
                                 <th>Subtotal</th>
@@ -799,7 +793,7 @@
                         <table   class="responsive-table"  >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Numero de habitación </th>
                                 <th>Número de servicio</th>
                                 <th>Subtotal</th>
@@ -1343,6 +1337,7 @@
                 //$("#modal_registro").modal("close");
                 Materialize.toast('Se ha insertado correctamente', 2500);
                 $("#modal_clasikilo_agregar").modal("close");
+                location.reload();
 
                 
             })
@@ -1439,14 +1434,11 @@
 
 //---------------------------------------------------------------------------
 
+        // Or with jQuery
 
-
-
-
-
-
-
-
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
 //--------------------------Buscar-------------------------------------------
 
         $("#buscar").keyup(function() {
