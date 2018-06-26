@@ -300,7 +300,7 @@
                         </table>
 
                         <div >
-                            <a href="<?php echo URL?>observaciones_lav/print_pdf " class="btn blue white-text modal-trigger right" id="impri">
+                            <a href="<?php echo URL?>observaciones_lav/print_pdf "  class="btn blue white-text modal-trigger right" id="impri">
                                 Imprimir
                             </a>
                         </div>
@@ -410,9 +410,7 @@
                         </table>
 
                         <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                Imprimir
-                            </a>
+                            <a href="<?php echo URL?>clasificacion_kilo/print_pdf" target="_blank" id="imprimir0_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
                         </div>
 
                         <div id="container"></div>
@@ -546,6 +544,11 @@
                             </tbody>
 
                         </table>
+
+                        <div >
+                            <a href="<?php echo URL?>clasificacion_pieza/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+
+                        </div>
 
 
 
@@ -891,8 +894,6 @@
                             <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
                             <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
-
-
                     </div>
                 </form>
             </div>
@@ -965,6 +966,7 @@
                 $("#body_table_ser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
 
@@ -1017,6 +1019,7 @@
                 $("#body_table_obser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
 
@@ -1070,6 +1073,7 @@
                 $("#body_table_clasikilo").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
 
@@ -1126,6 +1130,7 @@
                 $("#body_table_clasipieza").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
 
