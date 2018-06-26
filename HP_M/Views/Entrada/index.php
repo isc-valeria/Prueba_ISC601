@@ -27,7 +27,7 @@
                     <div class="input-field col s12"  >
 
                         <a id="save_Salida_ok" class="btn modal-close" href="<?php echo URL?>empleados"   >Registrar</a>
-                        <a id="save_Salida_ok" class="btn modal-close" >Registrar</a>
+                        
 
                     </div>
 
