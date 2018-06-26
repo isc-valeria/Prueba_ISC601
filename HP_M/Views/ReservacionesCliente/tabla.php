@@ -1,16 +1,17 @@
 <?php
 $datos=$datos[0];
+$url=URL;
 while($row=mysqli_fetch_array($datos))
     echo "
     <div>
         <div class=\"col \">
             <div class=\"card horizontal\">
                 <div class=\"card-image\">
-                    <img src=\"<?php echo URL?>Public/imagenes/simple.jpg\" height=270\" width=\"150\">
+                    <img src=\"{$url}Public/imagenes/simple.jpg\" height=270\" width=\"150\">
                 </div>
                 <div class=\"card-stacked\">
                     <div class=\"card-content\">
-                        <h3>Habitacion {$row['tipo_ha']}</h3>
+                        <h3>Habitación {$row['tipo_ha']}</h3>
                         <p>Nuestras Habitaciones ofrecen hermosas vistas de la ciudad.
                         <br>
                         Aloja:{$row['maximo_personas']}

@@ -36,15 +36,15 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s3">
-                            <input type="text" id="fecha_reserva" name="fecha_reserva">
+                            <input type="text" class="datepicker" id="fecha_reserva" name="fecha_reserva">
                             <label for="fecha_reserva">Fecha de Reservación</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
-                            <input type="text" id="fecha_llegada" name="fecha_llegada">
+                            <input type="text" class="datepicker" id="fecha_llegada" name="fecha_llegada">
                             <label for="fecha_llegada">Fecha de Llegada</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
-                            <input type="text" id="fecha_salida" name="fecha_salida">
+                            <input type="text" class="datepicker" id="fecha_salida" name="fecha_salida">
                             <label for="fecha_salida">Fecha de Salida</label>
                         </div>
                     </div>
@@ -71,6 +71,10 @@
                             <input type="text" id="estador" name="estador">
                             <label for="estador">Estado de la Reservación</label>
                         </div>
+                        <div class="input-field col s3 offset-s2">
+                            <input type="text" class="datepicker" id="fecha_checkin" name="fecha_checkin">
+                            <label for="fecha_checkin" id="fc">Fecha de Checkin</label>
+                        </div>
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s5 offset-s1">
@@ -96,13 +100,14 @@
             </a>
         </span></h3>
     <div class="divider"></div>
-z
 
-            <div class="card-action">
-                <a href="#!" id="save_asigna_servicios_ok" class="btn modal-close">Ver</a>
+            <div class="row">
+                <div class="input-field col s4 offset-s8">
+                    <i class="mdi-action-verified-user prefix icon-search"></i>
+                    <input id="busqueda" placeholder="Buscar" type="text">
+                </div>
+            </div>
 
-        </div>
-    </div>
 
     <div style="overflow-x: auto">
         <table id="tabla_conten">
@@ -117,7 +122,7 @@ z
                 <th>Ver datos</th>
             </tr>
             </thead>
-            <tbody id="bodtable">
+            <tbody id="body_table">
             <?php require_once ("tabla.php");
             ?>
             </tbody>
@@ -154,7 +159,7 @@ z
                 <th>Ver datos</th>
             </tr>
             </thead>
-            <tbody id="body_table">
+            <tbody id="body_table2">
             <?php
             $datos1=$datos[2];
             while ($row=mysqli_fetch_array($datos1))
@@ -178,17 +183,20 @@ z
 </div>
 
 
-</div>
 
 <script type="text/javascript">
     $(document).ready(function(){
         $(".modal").modal();
+        $(".datepicker").pickadate();
         $('.tooltipped').tooltip();
-        $("#body_table").on("click","btn_mostrar",function () {
-            var id=$(this).data("id");
-            $.get("<?php echo URL?>checkin/modificar"+id,$("#muestreo").serialize(),function (res) {
-                var datos=JSON.parse(res);
-                $("#checkate").date("id",datos["id_asignares"]);
+        $("#body_table").on("click","a.btn_mostrar",function () {
+            $("#fecha_checkin").hide();
+            $("#fc").hide();
+            var id = $(this).data("id");
+            $.get("<?php echo URL?>checkin/mod/"+ id, $("#muestreo").serialize(), function (res) {
+                console.log(res);
+                var datos = JSON.parse(res);
+                $("#checkate").data("id", datos["clave_reserva"]);
                 $("#clave_reserva").val(datos["clave_reserva"]);
                 $("#nombre_cli").val(datos["nombre_cli"]);
                 $("#ap_cli").val(datos["ap_cli"]);
@@ -204,21 +212,43 @@ z
                 $("#estado_ha").val(datos["estado_ha"]);
                 $("#estador").val(datos["estador"]);
                 Materialize.updateTextFields();
-                $("#muestreo").open();
-            })
-        })
+                $("#muestreo").modal("open");
+            });
+        });
+        $("#body_table2").on("click","a.btn_mostrar2",function () {
+            $("#fecha_checkin").show();
+            $("#fc").show();
+            var id = $(this).data("id");
+            $.get("<?php echo URL?>checkin/modificar/"+ id, $("#muestreo").serialize(), function (res) {
+                console.log("datos: "+res);
+                $("#clave_reserva").prop("readOnly",true);
+                var datos = JSON.parse(res);
+                $("#checkate").data("id", datos["clave_reserva"]);
+                $("#clave_reserva").val(datos["clave_reserva"]);
+                $("#nombre_cli").val(datos["nombre_cli"]);
+                $("#ap_cli").val(datos["ap_cli"]);
+                $("#am_cli").val(datos["am_cli"]);
+                $("#telefono").val(datos["telefono"]);
+                $("#email").val(datos["email"]);
+                $("#fecha_reserva").val(datos["fecha_reserva"]);
+                $("#fecha_llegada").val(datos["fecha_llegada"]);
+                $("#fecha_salida").val(datos["fecha_salida"]);
+                $("#no_personas").val(datos["no_personas"]);
+                $("#tipo_ha").val(datos["tipo_ha"]);
+                $("#precio").val(datos["precio"]);
+                $("#estado_ha").val(datos["estado_ha"]);
+                $("#estador").val(datos["estador"]);
+                $("#fecha_checkin").val(datos['fecha_checkin'])
+                Materialize.updateTextFields();
+                $("#muestreo").modal("open");
+            });
+        });
+
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });
-        $("#busca").keyup(function() {
+        $("#busqueda").keyup(function() {
             $.uiTableFilter($("#tabla_conten"), this.value);
         });
     });
 </script>
-
-
-
-
-
-
-</div>

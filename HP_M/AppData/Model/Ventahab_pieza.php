@@ -30,7 +30,7 @@ class Ventahab_pieza
 
     function add()
     {
-        $sql="insert into {$this->tabla} values('0','{$this->id_habitacion}','{$this->id_clasificacionpieza}','{$this->id_ticket}','{$this->subtotal}')";
+        $sql="insert into ventahab_pieza values('0','{$this->id_habitacion}','{$this->id_clasificacionpieza}','{$this->id_ticket}','{$this->subtotal}')";
         $this->conexion->QuerySimple($sql);
     }
 
@@ -58,7 +58,7 @@ class Ventahab_pieza
     }
     function update(){
 
-        $sql="update {$this->tabla} set id_habitacion='{$this->id_habitacion}', id_clasificacionpieza='{$this->id_clasificacionpieza}', id_ticket='{$this->id_ticket}', subtotal='{$this->subtotal}' where id_ventahabpieza='{$this->id_ventahabpieza}'";
+        $sql="update ventahab_pieza set id_habitacion='{$this->id_habitacion}', id_clasificacionpieza='{$this->id_clasificacionpieza}', id_ticket='{$this->id_ticket}', subtotal='{$this->subtotal}' where id_ventahabpieza='{$this->id_ventahabpieza}'";
         $this->conexion->QuerySimple($sql);
     }
 }

@@ -11,15 +11,23 @@ class Estado_servicios
 	{
 		$this->conexion= new conexion();
 	}
+    public function set($atributo,$valor)
+    {
+        $this->$atributo=$valor;
+    }
+    public function get($atributo)
+    {
+        return $this->$atributo;
+    }
 	function add()
 	{
 		$sql="insert into Estado_servicios values (200, 'Local')";
 		$datos= $this->conexion ->querySimple($sql);
 	}
-	function get() 
+	function getAll()
 	{
 		$sql="select * from Estado_servicios";
-		$datos= $this->conexion ->queryResultados($sql);
+		$datos= $this->conexion ->QueryResultado($sql);
 		return $datos;
 	}
 	function update() 
