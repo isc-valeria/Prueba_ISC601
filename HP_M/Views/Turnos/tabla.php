@@ -2,7 +2,7 @@
 <?php
 $datos=$datos[0];
 while($row=mysqli_fetch_array($datos))
-    echo "<tr><td>{$row[0]}</td>
+    echo "<tr>
     
     <td>{$row['descripcion_turno']}</td>
       <td>{$row['hr_entrada']}</td>
