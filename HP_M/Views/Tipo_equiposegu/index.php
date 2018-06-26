@@ -151,7 +151,7 @@
             rules:{
                 descripcion_tipo:{
                     required:true,
-                    maxlength:20,
+                    maxlength:30,
                     lettersonly:true,
                 }
             },
