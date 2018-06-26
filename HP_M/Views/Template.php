@@ -98,8 +98,7 @@ class Template
                         <div class="col s1"></div>
                         <div class="col s5" align="right"><a href="<?php echo URL?>Settings"><i class="material-icons black-text ">settings</i></a></div>
                     </div>
-                    <a href="#!name"><span class="black-text name">John Doe</span></a>
-                    <a href="#!email"><span class="black-text email">jdandturk@gmail.com</span></a>
+                    <a href="#!name"><span class="black-text name">Administrador</span></a>
                 </div>
             </li>
 
@@ -108,7 +107,6 @@ class Template
                 <div class="collapsible-body cyan lighten-3">
                     <ul>
                         <li><a href="<?php echo URL?>clientes" class=" black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
-                        <li><a href="<?php echo URL?>reservaciones" class="  black-text"><i class="material-icons">chevron_right</i>Reservaciones</a>
                         </li>
                         <li><a href="<?php echo URL?>habitaciones" class="black-text"><i class="material-icons">chevron_right</i>Habitaciones</a>
                         </li>
@@ -145,7 +143,14 @@ class Template
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
                     <div class="collapsible-body cyan lighten-3">
                             <ul>
-                                <li><a href="<?php echo URL?>empleados" class="white black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
+
+                                <li><a href="<?php echo URL?>empleados" class=" black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
+                                <li><a href="<?php echo URL?>Puestos" class=" black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
+                                <li><a href="<?php echo URL?>Turnos" class=" black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
+                                <li><a href="<?php echo URL?>Entrada" class=" black-text"><i class="material-icons">chevron_right</i>Entrada</a></li>
+                                <li><a href="<?php echo URL?>Salida" class=" black-text"><i class="material-icons">chevron_right</i>Salida</a></li>
+
+
                             </ul>
                     </div>
             </li>
