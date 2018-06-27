@@ -281,16 +281,15 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar" placeholder="Buscar" type="text">
-                    </div>
-
                     <div class="row">
                         <div>
                             <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
                                 <i class="material-icons">add</i>
                             </a>
+                        </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar" placeholder="Buscar" type="text">
                         </div>
 
                         <table  class="responsive-table" id="tabla_servicios">
@@ -378,10 +377,7 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar1" placeholder="Buscar" type="text">
-                    </div>
+                    
 
                     <div class="row">
                         <div>
@@ -389,6 +385,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar1" placeholder="Buscar" type="text">
+                    </div>
 
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
@@ -627,13 +627,10 @@
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
+            <div id="test-swipe-1" class="col s5 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                   
 
                     <div class="row">
                         <div>
@@ -641,7 +638,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
-
+                           <div class="input-field col s5 offset-s0">
+                                <i class="mdi-action-verified-user prefix icon-search"></i>
+                                <input id="search" placeholder="Buscar" type="text">
+                            </div>
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
@@ -757,10 +757,7 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                    
 
                     <div class="row">
                         <div>
@@ -768,6 +765,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s5 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
 
                         <table   class="responsive-table"  >
                             <thead>
