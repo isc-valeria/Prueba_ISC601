@@ -281,6 +281,11 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
+                    <div class="input-field col s4 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar" placeholder="Buscar" type="text">
+                    </div>
+
                     <div class="row">
                         <div>
                             <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
@@ -288,7 +293,7 @@
                             </a>
                         </div>
 
-                        <table id="example" class="mdl-data-table">
+                        <table  class="responsive-table" id="tabla_servicios">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -1317,7 +1322,7 @@
         });
 //--------------------------Buscar-------------------------------------------
         $("#buscar").keyup(function() {
-            $.uiTableFilter($("#tabla_servicio"), this.value);
+            $.uiTableFilter($("#tabla_servicios"), this.value);
         });
         $("#buscar1").keyup(function() {
             $.uiTableFilter($("#tabla_observacion"), this.value);
