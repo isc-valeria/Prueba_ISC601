@@ -37,12 +37,23 @@
         </div>
     </div>
 </div>
-<div class="card-panel">
-    <h4 align="center">Turnos<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_turno"><i ></i>
-                <i class="material-icons">add</i>
-            </a></span></h4>
-    <div class="divider"></div>
 
+    <nav>
+        <div class="nav-wrapper cyan lighten-2">
+
+            <ul class="left hide-on-med-and-down">
+                <li><a href="<?php echo URL?>empleados" class="white-text modal-trigger" id="add_servicios">Empleados</a></li>
+                <li><a   href="<?php echo URL?>Puestos" class="white-text modal-trigger" id="add_observaciones">Puestos</a></li>
+
+                <a  href="#modal_registro"  class="btn blue accent-3 white-text tooltipped modal-trigger  " data-position="bottom" data-delay="50"
+                       data-tooltip="Turnos" id="add_turno" ><i class="material-icons">access_time</i></a>
+
+
+            </ul>
+
+        </div>
+
+    </nav>
     <div class="row">
         <div class="input-field col s4 offset-s8">
             <i class="mdi-action-verified-user prefix icon-search"></i>

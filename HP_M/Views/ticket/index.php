@@ -189,10 +189,10 @@
                                     </table>
 
                                     <div >
-                                        <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                            Imprimir
-                                        </a>
+                                        <a href="<?php echo URL?>clasificacion_kilo/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
                                     </div>
+
+
 
                                     <div id="container"></div>
                                     <div class="col-md-12 center text-center">
@@ -249,6 +249,10 @@
 
                                 </table>
 
+                                <div >
+                                    <a href="<?php echo URL?>clasificacion_pieza/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+                                </div>
+
 
 
                                 <div id="container"></div>
@@ -264,17 +268,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- /////////////////////////////////////////////////////////////-->
 <div id="modal_servicios" class="modal modal_s">
@@ -414,11 +407,7 @@
 
                         </table>
 
-                        <div >
-                            <a href="<?php echo URL?>observaciones_lav/print_pdf " class="btn blue white-text modal-trigger right" id="impri">
-                                Imprimir
-                            </a>
-                        </div>
+
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
@@ -473,7 +462,9 @@
         <a href="#!" id="cancelar_obs" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
 <!-- //////////////////CLASIFICACION POR KILO//////////////////// -->
+
 <div id="modal_clasikilo_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -546,7 +537,9 @@
         <a href="#!" id="cancelar_kilo" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
 <!-- //////////////////CLASIFICACION POR pieza/////////////////// -->
+
 <div id="modal_clasipieza_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -869,8 +862,6 @@
                             <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
                             <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
-
-
                     </div>
                 </form>
             </div>
@@ -942,6 +933,7 @@
                 $("#body_table_ser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------OBSERVACIONES-------------------------------------------
@@ -985,6 +977,7 @@
                 $("#body_table_obser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
@@ -1030,6 +1023,7 @@
                 $("#body_table_clasikilo").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
@@ -1076,6 +1070,7 @@
                 $("#body_table_clasipieza").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------VENTA POR PIEZA-------------------------------------------

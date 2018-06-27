@@ -27,11 +27,21 @@
         </div>
     </div>
 </div>
-<div class="card-panel">
-    <h4 align="center">Puestos <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_puesto">
-                <i class="material-icons">add</i>
-            </a></span></h4>
-    <div class="divider"></div>
+
+    <nav>
+        <div class="nav-wrapper cyan lighten-2">
+
+            <ul class="left hide-on-med-and-down">
+                <li><a href="<?php echo URL?>empleados" class="white-text modal-trigger" id="add_servicios">Empleados</a></li>
+                <li><a href="<?php echo URL?>Turnos" class="white-text modal-trigger" id="add_servicios">Turnos</a></li>
+
+                <a href="#modal_registro" class="btn cyan white-text modal-trigger" id="add_puesto">
+                    <i class="material-icons">portrait</i>
+                </a>
+            </ul>
+        </div>
+
+    </nav>
 
     <div class="row">
         <div class="input-field col s4 offset-s8">
