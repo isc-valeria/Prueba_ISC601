@@ -258,6 +258,7 @@
             }
         });
 
+
         $('select').material_select();
         $('.datepicker').pickadate();
 
@@ -268,6 +269,34 @@
             $.get("<?php echo URL?>tareas/graficar",function(res){
                 $("#modal_grafica .modal-content p").empty().append(res);
                 $("#modal_grafica").modal("open");
+            });
+        });
+        $("#imprimir_pdf").click(function(){
+            $("#body_table tr").each(function (index) {
+                var campo1, campo2, campo3;
+                var campo=[];
+
+                $(this).children("td").each(function (index2) {
+                    for (var i=0;i<2;i++)
+                    {
+                        campo[index2]=$(this).text();
+                    }
+
+                    /*switch (index2) {
+                        case 0:
+                            campo1 = $(this).text();
+                            break;
+                        case 1:
+                            campo2 = $(this).text();
+                            break;
+                        case 2:
+                            campo3 = $(this).text();
+                            break;
+                    }*/
+                    //$(this).css("background-color", "#ECF8E0");
+                })
+                alert(campo);
+
             });
         });
     });
