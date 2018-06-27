@@ -68,6 +68,11 @@ class equipo_seguridadController
             return $datos;
         }
     }
+    public function print_pdf()
+    {
+        $datos=$this->equipo_seguridad->getAll();
+        return $datos;
+    }
 
 
 }
