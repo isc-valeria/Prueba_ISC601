@@ -91,7 +91,9 @@
                         <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
                         <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
                         <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
-                        <li><a href="#modal_ventas" class="white-text modal-trigger" id="add_venkilo">Ventas</a></li>
+                        <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_ventapieza">Ventas por pieza</a></li>
+                        <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_ventakilo">Ventas por kilo</a></li>
+
 
                     </ul>
                 </div>
@@ -266,76 +268,7 @@
         </div>
     </div>
 </div>
-<div id="modal_ventas" class="modal modal_c">
-    <div class="modal-content">
-        <div class="row">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s3 disabled"><a>Clasificaciones</a></li>
-                    <li class="tab col s3"><a class="active" href="#test1">Pieza</a></li>
-                    <li class="tab col s3"><a href="#test2">Kilo</a></li>
-                </ul>
-            </div>
-            <div id="test1" class="col s12"><div class="modal-content">
-                    <form action="" id="sava_venpieza" enctype="multipart/form-data" autocomplete="off">
-                        <ul id="tabs-swipe-demo" class="tabs black-text" >
-                            <h4 align="center">Ventas de prendas por pieza </h4>
-                        </ul>
-                        <div class="divider"></div>
-                        <code class="language-markup" ></code>
-                        <div id="test-swipe-1" class="col s12 white">
-                            <div class="card-panel">
 
-                                <div class="input-field col s4 offset-s0">
-                                    <i class="mdi-action-verified-user prefix icon-search"></i>
-                                    <input id="search" placeholder="Buscar" type="text">
-                                </div>
-
-                                <div class="row">
-                                    <div>
-                                        <a href="#modal_venpieza_agregar" class="btn green white-text modal-trigger right" id="add_ventapieza">
-                                            <i class="material-icons">add</i>
-                                        </a>
-                                    </div>
-
-                                    <table   class="responsive-table" id="buscar3" >
-                                        <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Numero de habitación</th>
-                                            <th>Número de servicio</th>
-                                            <th>Subtotal</th>
-                                            <th>Total</th>
-                                            <th>Eliminar</th>
-                                            <th>Editar</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="body_table_venpieza" >
-                                        <?php
-                                        include(ROOT."Views/venta_pieza/tabla.php");
-                                        ?>
-                                        </tbody>
-
-                                    </table>
-
-
-
-                                    <div id="container"></div>
-                                    <div class="col-md-12 center text-center">
-                                        <span class="left" id="total_reg"></span>
-                                        <ul class="pagination pager" id="myPager"></ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div></div>
-            <div id="test2" class="col s12">
-
-            </div>
-        </div>
-    </div>
-</div>
 <!-- /////////////////////////////////////////////////////////////-->
 <div id="modal_servicios" class="modal modal_s">
     <div class="modal-content">
@@ -354,8 +287,12 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar" placeholder="Buscar" type="text">
+                        </div>
 
-                        <table id="example" class="mdl-data-table">
+                        <table  class="responsive-table" id="tabla_servicios">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -373,11 +310,7 @@
                             </tbody>
 
                         </table>
-                        <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " target="_blank" class="btn blue white-text modal-trigger right" id="imprimir">
-                                Imprimir
-                            </a>
-                        </div>
+                        
 
 
                         <div id="container"></div>
@@ -444,10 +377,7 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar1" placeholder="Buscar" type="text">
-                    </div>
+                    
 
                     <div class="row">
                         <div>
@@ -455,6 +385,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar1" placeholder="Buscar" type="text">
+                    </div>
 
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
@@ -693,13 +627,10 @@
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
+            <div id="test-swipe-1" class="col s5 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                   
 
                     <div class="row">
                         <div>
@@ -707,7 +638,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
-
+                           <div class="input-field col s5 offset-s0">
+                                <i class="mdi-action-verified-user prefix icon-search"></i>
+                                <input id="search" placeholder="Buscar" type="text">
+                            </div>
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
@@ -823,10 +757,7 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                    
 
                     <div class="row">
                         <div>
@@ -834,6 +765,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s5 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
 
                         <table   class="responsive-table"  >
                             <thead>
@@ -1388,7 +1323,7 @@
         });
 //--------------------------Buscar-------------------------------------------
         $("#buscar").keyup(function() {
-            $.uiTableFilter($("#tabla_servicio"), this.value);
+            $.uiTableFilter($("#tabla_servicios"), this.value);
         });
         $("#buscar1").keyup(function() {
             $.uiTableFilter($("#tabla_observacion"), this.value);
