@@ -306,11 +306,7 @@
                             </tbody>
 
                         </table>
-                        <div >
-                            <a href="<?php echo URL?>servicioslavanderia/print_pdf " target="_blank" class="btn blue white-text modal-trigger right" id="imprimir">
-                                Imprimir
-                            </a>
-                        </div>
+                        
 
 
                         <div id="container"></div>
