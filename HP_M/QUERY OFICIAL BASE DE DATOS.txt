@@ -4,7 +4,7 @@
 create table Equipo_seguridad (id_equiposegu int primary key AUTO_INCREMENT, nombre_equisegu varchar(30),id_tipoequisegu int,cantidad int,id_estadomantenimiento int);
 create table Tipo_equiposegu (id_tipoequisegu int primary key AUTO_INCREMENT, descripcion_tipo varchar(50));
 create table Tipo_tarea (id_tipotarea int primary key AUTO_INCREMENT, descripcion_tarea varchar(50));
-create table Tareas (id_tarea int primary key AUTO_INCREMENT, id_tipotarea int,id_empleado int,id_habitacion int,fecha_inicio timestamp,fecha_fin timestamp);
+create table Tareas (id_tarea int primary key AUTO_INCREMENT, id_tipotarea int,id_empleado int,id_habitacion int,fecha_inicio date,fecha_fin date);
 create table Asigna_equiposegu (id_asignaequiposegu int primary key AUTO_INCREMENT, id_equiposegu int, id_tarea int);
 create table Estado_mantenimiento (id_estadomantenimiento int primary key AUTO_INCREMENT, descripcion_estadomantenimiento varchar(25));
 
@@ -164,13 +164,14 @@ insert into Estado_reserva values (62, 'Confirmado');
 
 insert into Estado_reserva values (63, 'Cancelado');
 
+insert into Estado_reserva values (61, 'checkin');
 
 
 insert into Reservaciones values (180, 2001, 90, sysdate(),'2018/10/08' , '2018/10/12', 63,2);
 
 insert into Reservaciones values (181, 2002, 91, sysdate(),'2018/06/05','2018/06/12' , 62,4);
 
-insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 62,6);
+insert into Reservaciones values (182, 2003, 92, sysdate(),'2018/07/22' ,'2018/07/25', 61,6);
 
 
 
@@ -278,7 +279,6 @@ insert into Puestos values(1, 'Camarero');
 insert into Puestos values(2, 'Recepcionista');
 insert into Puestos values(4, 'Administrador');
 
-i
 
 
 
@@ -342,15 +342,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTs inserta_equipotarea; DELIMITER $$
 CREATE PROCEDURE inserta_equipotarea(in tarea varchar(30), in equipo varchar(20))
 BEGIN
-DECLARE ct int;
-set ct= (select tareas.id_tarea from tareas where  tareas.id_tarea = tarea);
-if (ct is null)then
-	select "";
-else
 	INSERT INTO asigna_equiposegu (id_tarea,id_equiposegu) VALUES (tarea,equipo);
-end if;
 END $$
-DELIMITER;
+DELIMITER ;
 
 
 DROP PROCEDURE IF EXISTs actualiza_tareas;

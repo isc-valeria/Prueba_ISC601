@@ -35,11 +35,7 @@
                             <label for="id_puesto" >Tipo de Puestos</label>
 
                         </div>
-                        <div class="input-field ">
-                            <div class="input-field col s1">
-                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="<?php echo URL?>Puestos" ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                            </div>
-                        </div>
+
 
                         <div class="input-field col s5">
                             <select id="id_turno" type="text"  name="id_turno">
@@ -52,11 +48,7 @@
                             </select>
                             <label for="id_turno" >Tipo de Turnos </label>
                         </div>
-                        <div class="input-field ">
-                            <div class="input-field col s1">
-                                <a class="btn-floating waves-effect waves-light btn modal-trigger" href="<?php echo URL?>Turnos " ><i class="icon-plus #00838f cyan darken-3"></i></a>
-                            </div>
-                        </div>
+
                         <div class="input-field col s3.5">
                             <input id="codigo" type="text"  name="codigo">
                             <label for="codigo"  >Codigo</label>
@@ -89,13 +81,11 @@
         <ul class="left hide-on-med-and-down">
             <li><a href="<?php echo URL?>Turnos" class="white-text modal-trigger" id="add_servicios">Turnos</a></li>
             <li><a   href="<?php echo URL?>Puestos" class="white-text modal-trigger" id="add_observaciones">Puestos</a></li>
+            <li><a  href="<?php echo URL?>Usuarios" class="white-text modal-trigger" id="add_venpieza">Cuentas</a></li>
             <li><a  href="<?php echo URL?>Entrada" class="white-text modal-trigger" id="add_venkilo">Entradas</a></li>
             <li><a  href="<?php echo URL?>Salida" class="white-text modal-trigger" id="add_venpieza">Salidas</a></li>
             <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
             <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
-            <a href="<?php echo URL?>Usuarios" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Crear cuenta"><i class="material-icons">add</i></a>
-
-
             <a href="#modal_registro" class="btn blue accent-3 white-text tooltipped modal-trigger  " data-position="bottom" data-delay="50" data-tooltip="Agregar" id="add_empleado" ><i class="material-icons">person_add</i></a>
             <a href="<?php echo URL?>Entrada/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Entradas"><i class="material-icons">picture_as_pdf</i></a>
             <a href="<?php echo URL?>Salida/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salidas"><i class="material-icons">picture_as_pdf</i></a>

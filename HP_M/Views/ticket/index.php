@@ -91,7 +91,9 @@
                         <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
                         <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
                         <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
-                        <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_venpieza">Ventas</a></li>
+                        <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_ventapieza">Ventas por pieza</a></li>
+                        <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_ventakilo">Ventas por kilo</a></li>
+
 
                     </ul>
                 </div>
@@ -187,10 +189,10 @@
                                     </table>
 
                                     <div >
-                                        <a href="<?php echo URL?>servicioslavanderia/print_pdf " class="btn blue white-text modal-trigger right" id="imprimir">
-                                            Imprimir
-                                        </a>
+                                        <a href="<?php echo URL?>clasificacion_kilo/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
                                     </div>
+
+
 
                                     <div id="container"></div>
                                     <div class="col-md-12 center text-center">
@@ -202,10 +204,71 @@
                         </div>
                     </form>
                 </div></div>
-            <div id="test2" class="col s12"></div>
+            <div id="test2" class="col s12">
+
+                <form action="" id="sava_clasipieza" enctype="multipart/form-data" autocomplete="off">
+                    <ul id="tabs-swipe-demo" class="tabs black-text" >
+                        <h4 align="center">Registrar por pieza </h4>
+                    </ul>
+                    <div class="divider"></div>
+                    <code class="language-markup" ></code>
+                    <div id="test-swipe-1" class="col s12 white">
+                        <div class="card-panel">
+
+                            <div class="input-field col s4 offset-s0">
+                                <i class="mdi-action-verified-user prefix icon-search"></i>
+                                <input id="buscar3" placeholder="Buscar" type="text">
+                            </div>
+
+                            <div class="row">
+                                <div>
+                                    <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                </div>
+
+                                <table   class="responsive-table"  id="tabla_clasipieza" >
+                                    <thead>
+                                    <tr>
+
+                                        <th>Id</th>
+                                        <th>Descripción pieza</th>
+                                        <th>Cantidad</th>
+                                        <th>Servicio</th>
+                                        <th>Observaciones</th>
+                                        <th>Fecha registro</th>
+                                        <th>Eliminar</th>
+                                        <th>Editar</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="body_table_clasipieza" >
+                                    <?php
+                                    include(ROOT."Views/clasificacion_pieza/tabla.php");
+                                    ?>
+                                    </tbody>
+
+                                </table>
+
+                                <div >
+                                    <a href="<?php echo URL?>clasificacion_pieza/print_pdf" target="_blank" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+                                </div>
+
+
+
+                                <div id="container"></div>
+                                <div class="col-md-12 center text-center">
+                                    <span class="left" id="total_reg"></span>
+                                    <ul class="pagination pager" id="myPager"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- /////////////////////////////////////////////////////////////-->
 <div id="modal_servicios" class="modal modal_s">
     <div class="modal-content">
@@ -224,8 +287,12 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar" placeholder="Buscar" type="text">
+                        </div>
 
-                        <table id="example" class="mdl-data-table">
+                        <table  class="responsive-table" id="tabla_servicios">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -243,6 +310,7 @@
                             </tbody>
 
                         </table>
+                        
 
 
                         <div id="container"></div>
@@ -302,17 +370,14 @@
     <div class="modal-content">
         <form action="" id="sava_observacionlav" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
-                <h4 align="center">observaciónes</h4>
+                <h4 align="center">observaciones</h4>
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar1" placeholder="Buscar" type="text">
-                    </div>
+                    
 
                     <div class="row">
                         <div>
@@ -320,6 +385,10 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
+                        <div class="input-field col s10 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="buscar1" placeholder="Buscar" type="text">
+                    </div>
 
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
@@ -339,11 +408,7 @@
 
                         </table>
 
-                        <div >
-                            <a href="<?php echo URL?>observaciones_lav/print_pdf " class="btn blue white-text modal-trigger right" id="impri">
-                                Imprimir
-                            </a>
-                        </div>
+
 
                         <div id="container"></div>
                         <div class="col-md-12 center text-center">
@@ -354,7 +419,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 <div id="modal_observaciones_agregar" class="modal">
@@ -399,7 +463,9 @@
         <a href="#!" id="cancelar_obs" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
 <!-- //////////////////CLASIFICACION POR KILO//////////////////// -->
+
 <div id="modal_clasikilo_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -472,7 +538,9 @@
         <a href="#!" id="cancelar_kilo" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
+
 <!-- //////////////////CLASIFICACION POR pieza/////////////////// -->
+
 <div id="modal_clasipieza_agregar" class="modal">
     <div class="modal-content">
         <div class="row center-align">
@@ -550,8 +618,8 @@
         <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
-<!-- ///////////////VENTA POR PIEZA////////////////////////////// -->
-<div id="modal_venpieza" class="modal modal_v">
+<!-- //////////////////VENTA POR PIEZA////////////////////////////// -->
+<div id="modal_venpieza" class="modal modal_c">
     <div class="modal-content">
         <form action="" id="sava_venpieza" enctype="multipart/form-data" autocomplete="off">
             <ul id="tabs-swipe-demo" class="tabs black-text" >
@@ -559,13 +627,10 @@
             </ul>
             <div class="divider"></div>
             <code class="language-markup" ></code>
-            <div id="test-swipe-1" class="col s12 white">
+            <div id="test-swipe-1" class="col s5 white">
                 <div class="card-panel">
 
-                    <div class="input-field col s4 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                   
 
                     <div class="row">
                         <div>
@@ -573,11 +638,14 @@
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
-
+                           <div class="input-field col s5 offset-s0">
+                                <i class="mdi-action-verified-user prefix icon-search"></i>
+                                <input id="search" placeholder="Buscar" type="text">
+                            </div>
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Id</th>
                                 <th>Numero de habitación</th>
                                 <th>Número de servicio</th>
                                 <th>Subtotal</th>
@@ -603,8 +671,206 @@
                 </div>
             </div>
         </form>
+
     </div>
 </div>
+<div id="modal_venpieza_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_ventapieza" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro de venta por pieza</h4>
+
+
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="num_habitacion" type="text" name="num_habitacion">
+                            <option disabled selected>Numero de habitacion</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Habitaciones");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato->data_seek(0);
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Numero de habitación </label>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="cantidad" type="text" name="cantidad">
+                            <option disabled selected>selecciona la cantidad </option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from clasificacion_pieza");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="num_habitacion">Cantidad de piezas</label>
+                    </div>
+
+
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="total" type="text" name="total">
+                            <option disabled selected>Total</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Ticket");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="total">Total</label>
+                    </div>
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" class="validate" name="subtotal">
+                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            Registrar
+                            </a>
+                            <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //////////////////////////////VENTA POR KILO////////////////////////////////////////////// -->
+
+<div id="modal_venkilo" class="modal modal_c">
+    <div class="modal-content">
+        <form action="" id="sava_venkilo" enctype="multipart/form-data" autocomplete="off">
+            <ul id="tabs-swipe-demo" class="tabs black-text" >
+                <h4 align="center">Ventas de prendas por kilo </h4>
+            </ul>
+            <div class="divider"></div>
+            <code class="language-markup" ></code>
+            <div id="test-swipe-1" class="col s12 white">
+                <div class="card-panel">
+
+                    
+
+                    <div class="row">
+                        <div>
+                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <div class="input-field col s5 offset-s0">
+                        <i class="mdi-action-verified-user prefix icon-search"></i>
+                        <input id="search" placeholder="Buscar" type="text">
+                    </div>
+
+                        <table   class="responsive-table"  >
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Numero de habitación </th>
+                                <th>Número de servicio</th>
+                                <th>Subtotal</th>
+                                <th>Total</th>
+                                <th>Eliminar</th>
+                                <th>Editar</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body_table_venkilo" >
+                            <?php
+                            include(ROOT."Views/venta_kilo/tabla.php");
+                            ?>
+                            </tbody>
+
+                        </table>
+
+                        <div id="container"></div>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="myPager"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div id="modal_venkilo_agregar" class="modal">
+    <div class="modal-content">
+        <div class="row center-align">
+            <div class="row">
+                <form action="" id="save_ventakilo" enctype="multipart/form-data" autocomplete="off">
+                    <h4>Nuevo registro de venta por kilos</h4>
+
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="num_habitacion" type="text" name="num_habitacion">
+                            <option disabled selected>Selecciona habitación </option>
+
+                            <?php
+                            $dato=$datos["habitacion"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $dato->data_seek(0);
+                            ?>
+
+                        </select>
+                        <label for="num_habitacion">Numero de habitación </label>
+                    </div>
+                    <div class="divider"></div>
+
+
+                    <div class="input-field col s5">
+                        <select id="cantidadkg" type="text" name="cantidadkg">
+                            <option disabled selected>Selecciona servicio</option>
+
+                            <?php
+                            $dato=$datos["clasi_kilo"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[0]} </option>";
+                            $dato->data_seek(0);
+                            ?>
+
+                        </select>
+                        <label for="cantidadkg">Número de servicio</label>
+                    </div>
+
+                    <div class="divider"></div>
+                    <div class="divider"></div>
+
+
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" disabled="disabled"  name="subtotal">
+                        <label for="subtotal"   >Subtotal</label>
+                    </div>
+
+                    <div class="input-field col s5">
+                        <input id="total" type="text" disabled="disabled" name="total">
+                        <label for="total"  >Total</label>
+                    </div>
+
+                    <div class="modal-fixed-footer">
+                        <div class="input-field col s12">
+                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            Registrar
+                            </a>
+                            <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
+                            <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dIV>
+</div>
+
 <!-- //////////////////////////////////Servicio////////////////////////////////////////// -->
 <script type="text/javascript">
     $(document).ready(function(){
@@ -669,6 +935,7 @@
                 $("#body_table_ser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------OBSERVACIONES-------------------------------------------
@@ -712,6 +979,7 @@
                 $("#body_table_obser").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------CLASIFICACION POR KILO-------------------------------------------
@@ -757,6 +1025,7 @@
                 $("#body_table_clasikilo").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------CLASIFICACION POR PIEZA-------------------------------------------
@@ -803,6 +1072,7 @@
                 $("#body_table_clasipieza").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
+                location.reload();
             })
         });
         //--------------------------VENTA POR PIEZA-------------------------------------------
@@ -1042,6 +1312,7 @@
                     //$("#modal_registro").modal("close");
                     Materialize.toast('Se ha insertado correctamente', 2500);
                     $("#modal_clasipieza_agregar").modal("close");
+                    location.reload();
                 })
             }
         });
@@ -1052,7 +1323,7 @@
         });
 //--------------------------Buscar-------------------------------------------
         $("#buscar").keyup(function() {
-            $.uiTableFilter($("#tabla_servicio"), this.value);
+            $.uiTableFilter($("#tabla_servicios"), this.value);
         });
         $("#buscar1").keyup(function() {
             $.uiTableFilter($("#tabla_observacion"), this.value);

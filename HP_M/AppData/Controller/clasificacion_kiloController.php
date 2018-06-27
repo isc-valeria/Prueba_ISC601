@@ -71,4 +71,10 @@ class clasificacion_kiloController
         }
     }
 
+    public function print_pdf()
+    {
+        $datos=$this->clasi_kilo->getAll();
+        return $datos;
+    }
+
 }
