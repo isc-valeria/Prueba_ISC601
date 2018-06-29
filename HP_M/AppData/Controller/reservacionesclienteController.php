@@ -27,9 +27,8 @@ class reservacionesclienteController
 
     public function consulta()
     {
-        $this->habitaciones->set('fecha1',$_GET["id_inicio"]);
-        $this->habitaciones->set('fecha2',$_GET["id_final"]);
-
+        $this->habitaciones->set('id_inicio',$_GET["id_inicio"]);
+        $this->habitaciones->set('id_final',$_GET["id_final"]);
         $datos2=$this->habitaciones->getAllHabitaciones();
         $datos1[0]=$datos2;
         return $datos1;

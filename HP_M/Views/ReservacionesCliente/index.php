@@ -101,10 +101,10 @@
         //alert(dato+"dias de diferencia");
 
 
-        $.get("<?php echo URL?>reservacionescliente/consulta",function(res){
+        $.get("<?php echo URL?>reservacionescliente/consulta",{id_inicio:fecha1,id_final:fecha2},function(res){
             $("#muestra").empty().append(res);
-            console.log(res);
-        }) 
+            //console.log(res);
+        })
 
 
     });
