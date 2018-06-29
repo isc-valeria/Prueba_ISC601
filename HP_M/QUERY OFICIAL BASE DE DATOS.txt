@@ -117,7 +117,7 @@ insert into Estado_habitacion values (61, 'Ocupado');
 
 
 
-insert into Asigna_servicios values (160, 150, 50, 80, date(sysdate());
+insert into Asigna_servicios values (160, 150, 50, 80, date(sysdate()));
 
 insert into Asigna_servicios values (161, 151, 51, 81, date(sysdate()));
 
