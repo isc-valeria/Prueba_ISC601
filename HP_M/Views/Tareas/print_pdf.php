@@ -1,11 +1,20 @@
 <?php
+
+
 $pdf = new \AppData\Config\libs\fpdf\fpdf("L","mm","Legal");
 $pdf->AddPage();
+
+
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(2);
+$pdf->Image('AppData\Config\libs\fpdf\head_logo.gif','290','3','50','20','GIF','http://localhost/Prueba_ISC601/HP_M/');
+$pdf->Ln();
+
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(340,10,'Lista de tareas realizadas.',0,0,'C');
 $pdf->ln();
 $pdf->ln();
-$pdf->SetFillColor(23, 230, 25);
+$pdf->SetFillColor(0, 220, 255);
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','B',10);
 $pdf->SetX(10);
@@ -31,5 +40,12 @@ while($row=mysqli_fetch_row($datos))
     $pdf->Cell(130,8,utf8_decode($row[8]),1,0,'C',true);
 
 }
-$pdf->Output();
 
+
+$pdf->SetY(180);
+$pdf->SetFont('Arial','I',8);
+$pdf->Cell(0,2,'Carretera Federal Valle de Bravo Km 30, Ejido San Antonio Laguna,',0,0,'C');
+$pdf->SetY(190);
+$pdf->SetFont('Arial','I',8);
+$pdf->Cell(0,2,'51200 Valle de Bravo, Méx. Page. '.$pdf->PageNo(),0,0,'C');
+$pdf->Output();

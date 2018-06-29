@@ -66,5 +66,11 @@ class clasificacion_piezaController
         }
     }
 
+    public function print_pdf()
+    {
+        $datos=$this->clasi_pieza->getAll();
+        return $datos;
+    }
+
 
 }

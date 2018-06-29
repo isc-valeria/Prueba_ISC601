@@ -34,6 +34,11 @@ class Tareas
 
     function add()
     {
+        $sql1="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'hotel' AND TABLE_NAME  = 'Tareas'";
+        $datos1=$this->conexion->QueryResultado($sql1);
+        $row0=mysqli_fetch_array($datos1);
+        $id=$row0[0];
+
         $fi = str_replace(',','' ,$this->fecha_inicio);
         $ff = str_replace(',','',$this->fecha_fin);
 
@@ -41,8 +46,21 @@ class Tareas
         $sql="call inserta_tareas('{$this-> id_tipotarea}','{$this->id_empleado}','{$this->id_habitacion}','$fi','$ff')";
         $this->conexion->QuerySimple($sql);
 
-    }
+            $sql2 = "select id_equiposegu from asigna_equiposegu where id_tarea=$id";
+            $respuesta = $this->conexion->QueryResultado($sql2);
+            while ($row = mysqli_fetch_array($respuesta))
+            {
+                $sql4 = "select id_equiposegu,cantidad from equipo_seguridad where id_equiposegu='{$row[0]}'";
+                $respuesta2 = $this->conexion->QueryResultado($sql4);
+                while ($row1 = mysqli_fetch_array($respuesta2))
+                {
+                    $cantidad = "'{$row1[1]}'";
+                    $sqle = "update equipo_seguridad set cantidad=$cantidad-1 where id_equiposegu='{$row1[0]}'";
+                    $this->conexion->QuerySimple($sqle);
+                }
+            }
 
+    }
     function getAll()
     {
         $sql="SELECT tareas.id_tarea, 
@@ -73,8 +91,19 @@ GROUP BY tareas.id_tarea";
     function delete($id)
     {
         $sql="delete from tareas where id_tarea='{$id}'";
-
-
+        $sql2="select id_equiposegu from asigna_equiposegu where id_tarea='{$id}'";
+        $respuesta=$this->conexion->QueryResultado($sql2);
+        while ($row=mysqli_fetch_array($respuesta))
+        {
+            $sql4="select id_equiposegu,cantidad from equipo_seguridad where id_equiposegu='{$row[0]}'";
+            $respuesta2=$this->conexion->QueryResultado($sql4);
+            while ($row1=mysqli_fetch_array($respuesta2))
+            {
+                $cantidad="'{$row1[1]}'";
+                $sqle = "update equipo_seguridad set cantidad=$cantidad+1 where id_equiposegu='{$row1[0]}'";
+                $this->conexion->QuerySimple($sqle);
+            }
+        }
         $this->conexion->QuerySimple($sql);
     }
     function getOne($id)

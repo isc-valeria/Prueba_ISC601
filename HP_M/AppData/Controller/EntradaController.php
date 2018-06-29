@@ -18,6 +18,8 @@ class EntradaController
 
         $this->Entrada=new \AppData\Model\Entrada();
 
+
+        $this->Salida=new \AppData\Model\Salida();
     }
 
     public function index()
@@ -26,6 +28,9 @@ class EntradaController
         $datos1=$this->Entrada->getAll();
         $datos[0]=$datos1;
 
+
+        $datos2=$this->Salida->getAll();
+        $datos[1]=$datos2;
         return $datos;
     }
 
@@ -43,6 +48,11 @@ class EntradaController
 
     }
 
+    public function print_pdf1()
+    {
 
+        $datos=$this->Entrada->getAll();
+        return $datos;
+    }
 
 }

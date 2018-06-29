@@ -75,7 +75,7 @@
 
             <h4 align="center">Asignación de servicios
                 <span class="right" >
-                    <a href="#modal_registro1" class="btn green white-text modal-trigger" id="add_asigna_servicios">
+                    <a href="#modal_registro1" class="btn  white-text modal-trigger" id="add_asigna_servicios">
                         <i class="material-icons">add</i>
                     </a>
                 </span>
@@ -131,18 +131,19 @@
             $(".modal").modal();
             $('.datepicker').pickadate();
             $('#add_asigna_servicios').click(function () {
+
                 $("#update_asigna_servicios_ok").hide();
                 $("#save_asigna_servicios_ok").show();
         });
-            $('#save_asigna_servicios_ok').click(function () {
-            $.post("<?php echo URL?>asigna_servicios/crear",$("#save_asigna_servicios").serialize(),function (res) {
-                $("#body_table").empty().append(res);
-                $('#save_asigna_servicios').find('input, select, textarea').val('');
-                Materialize.updateTextFields();
-                Materialize.toast('Se ha insertado correctamente', 2500);
-                console.log( $("#save_asigna_servicios").serialize());
-            });
+        $("#save_asigna_servicios_ok").click(function(){
+
+            $("#save_asigna_servicios").submit();
+            /*
+
+             */
+
         });
+
 
             $("#body_table").on("click", "a.btn_eliminar", function () {
             var id = $(this).data("id");
@@ -179,7 +180,7 @@
             var id = $(this).data("id");
             console.log( $("#save_asigna_servicios").serialize());
             $.post("<?php echo URL?>asigna_servicios/actualizar/" + id, $("#save_asigna_servicios").serialize(), function (res) {
-                $('#save_asigna_servicios_ok').find('input, select, textarea').val('');
+                $('#save_asigna_servicios').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
@@ -190,6 +191,58 @@
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_content"), this.value);
         });                
+    });
+    $("#save_asigna_servicios").validate({
+
+        rules:{
+            id_habitacion:{
+                required:true,
+
+            },
+            id_servicio:{
+                required:true,
+
+            },
+            id_estados:{
+                required:true,
+
+            },
+            fecha_reg:{
+                required:true,
+            },
+        },messages:{
+            id_habitacion:{
+                required:"Selecciona una habitaación",
+
+            },
+            id_servicio:{
+                required:"Selecciona un servicio",
+
+            },
+            id_estados:{
+                required:"Selecciona un estado",
+
+
+            },
+            fecha_reg:{
+                required:"Selecciona una fecha",
+            },
+        },
+        errorPlacement: function(error, element) {
+            $(element)
+                .closest("form")
+                .find("label[for='" + element.attr("id") + "']")
+                .attr('data-error', error.text());
+        },
+        submitHandler:function(form){
+                $.post("<?php echo URL?>asigna_servicios/crear",$("#save_asigna_servicios").serialize(),function (res) {
+                    $("#body_table").empty().append(res);
+                    $('#save_asigna_servicios').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    Materialize.toast('Se ha insertado correctamente', 2500);
+                    console.log( $("#save_asigna_servicios").serialize());
+                })
+        }
     });
 
 </script>
