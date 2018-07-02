@@ -129,7 +129,11 @@
     $(document).ready(function() {
         $('select').material_select();
             $(".modal").modal();
-            $('.datepicker').pickadate();
+            var today = new Date();
+            $('.datepicker').pickadate({
+                    formatSubmit: 'yyyy-mm-dd',
+                    hiddenName: true,
+                    min: true} );
             $('#add_asigna_servicios').click(function () {
 
                 $("#update_asigna_servicios_ok").hide();
