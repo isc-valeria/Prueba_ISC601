@@ -97,6 +97,10 @@
         ?>
         </tbody>
     </table>
+
+    <div class="center">
+        <a href="<?php echo URL?>Equipo_seguridad/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
 
 
@@ -171,7 +175,7 @@
             rules: {
                 nombre_equisegu: {
                     required: true,
-                    maxlength: 13,
+                    maxlength: 30,
                     minlength: 4,
                     lettersonly: true,
                 },
@@ -194,7 +198,7 @@
             messages:{
                 nombre_equisegu:{
                     required:"Ingresa un nombre",
-                    maxlength:"Maximo 13 caracteres",
+                    maxlength:"Nombre muy largo",
                     minlength:"Minimo 4 caracteres",
 
                 },

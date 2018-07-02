@@ -25,8 +25,8 @@ class ReservacionesCliente
     private $id_tipoh;
     private $id_estadoh=60;
 
-    private $fecha1;
-    private $fecha2;
+    private $id_inicio;
+    private $id_final;
 
     function __construct()
     {
@@ -68,8 +68,8 @@ class ReservacionesCliente
                                 WHERE reservaciones.id_reservacion=asigna_reservaciones.id_reservacion
 		AND asigna_reservaciones.id_habitacion=habitaciones.id_habitacion
         AND habitaciones.id_tipoh=tipos_habitacion.id_tipoh
-		AND reservaciones.fecha_llegada not BETWEEN '2018-10-08 ' and '2018-10-12'
-		AND reservaciones.fecha_salida not BETWEEN '2018-10-08 ' and '2018-10-12'";
+		AND reservaciones.fecha_llegada not BETWEEN {$this->id_inicio} and {$this->id_final}
+		AND reservaciones.fecha_salida not BETWEEN {$this->id_inicio} and {$this->id_final}";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }

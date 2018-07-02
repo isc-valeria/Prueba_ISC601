@@ -41,7 +41,7 @@ class tareasController
             $this->Tareas->set('id_habitacion',$_POST["habitacion"]);
             $this->Tareas->set('fecha_inicio',$_POST["fecha_i"]);
             $this->Tareas->set('fecha_fin',$_POST["fecha_f"]);
-            $this->Tareas->add();
+
             $herramientas=$_POST["eq"];
             for($i=0;$i<count($herramientas);$i++)
             {
@@ -50,6 +50,7 @@ class tareasController
                 $this->asigna_eq->set('id_tarea',     $id);
                 $this->asigna_eq->add();
             }
+            $this->Tareas->add();
             $datos1=$this->Tareas->getAll();
             $datos[0]=$datos1;
 
@@ -93,6 +94,7 @@ class tareasController
                     $this->asigna_eq->set('id_equiposegu',$id_herramineta);
                     $this->asigna_eq->update();
                 }
+
                 $datos1=$this->Tareas->getAll();
                 $datos[0]=$datos1;
                 return $datos;

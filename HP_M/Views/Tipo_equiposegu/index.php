@@ -79,6 +79,9 @@
         ?>
         </tbody>
     </table>
+    <div class="center">
+        <a href="<?php echo URL?>Tipo_equiposegu/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+    </div>
 </div>
 
 
@@ -151,7 +154,7 @@
             rules:{
                 descripcion_tipo:{
                     required:true,
-                    maxlength:20,
+                    maxlength:30,
                     lettersonly:true,
                 }
             },

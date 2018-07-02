@@ -145,11 +145,6 @@ class Template
                             <ul>
 
                                 <li><a href="<?php echo URL?>empleados" class=" black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
-                                <li><a href="<?php echo URL?>Puestos" class=" black-text"><i class="material-icons">chevron_right</i>Puestos</a></li>
-                                <li><a href="<?php echo URL?>Turnos" class=" black-text"><i class="material-icons">chevron_right</i>Turnos</a></li>
-                                <li><a href="<?php echo URL?>Entrada" class=" black-text"><i class="material-icons">chevron_right</i>Entrada</a></li>
-                                <li><a href="<?php echo URL?>Salida" class=" black-text"><i class="material-icons">chevron_right</i>Salida</a></li>
-
 
                             </ul>
                     </div>

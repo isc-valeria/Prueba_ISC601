@@ -7,13 +7,14 @@ while($row=mysqli_fetch_array($datos))
         <div class=\"col \">
             <div class=\"card horizontal\">
                 <div class=\"card-image\">
-                    <input type=\"checkbox\" id=\"{$row['id_habitacion']}\" class=\"filled-in\" /><label  for=\"myCheckbox\"></label>
+                    <input type=\"checkbox\" id=\"{$row['id_habitacion']}\" class=\"filled-in\" /><label  for=\"{$row['id_habitacion']}\"></label>
                     <img src=\"{$url}Public/imagenes/{$row['tipo_ha']}.jpg\" height=270\" width=\"150\">
                 </div>
                 <div class=\"card-stacked\">
                     <div class=\"card-content\">
                         <h3>Habitacion {$row['tipo_ha']}</h3>
-                        Descripcion:{$row['descripcion_hab']}
+                        Descripcion:{$row[
+                            'descripcion_hab']}
                         <br>
                         Aloja:{$row['maximo_personas']}
                         <br>
