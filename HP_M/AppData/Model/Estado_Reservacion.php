@@ -38,7 +38,7 @@ class Estado_Reservacion
 
     function getAll()
     {
-        $sql="select id_estador, estador from estado_reserva";
+        $sql="select * from {$this->tabla}";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }

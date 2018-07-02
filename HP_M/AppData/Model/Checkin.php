@@ -15,7 +15,12 @@ class Checkin
     private $id_checkin;
     private $id_asignares;
     private $fecha_checkin;
-
+    private $clave_reserva;
+    private $fecha_llegada;
+    private $fecha_salida;
+    private $no_personas;
+    private $id_tipoh;
+    private $id_estadoh;
 
     function __construct()
     {
@@ -62,6 +67,11 @@ class Checkin
         $sql="SELECT reservaciones.clave_reserva, clientes.nombre_cli, clientes.ap_cli, clientes.am_cli, clientes.telefono, clientes.email, checkin.fecha_checkin FROM estado_reserva,checkin, asigna_reservaciones, clientes, reservaciones WHERE checkin.id_asignares=asigna_reservaciones.id_asignares AND asigna_reservaciones.id_reservacion=reservaciones.id_reservacion AND reservaciones.id_cliente=clientes.id_cliente AND reservaciones.id_estador=estado_reserva.id_estador AND estado_reserva.estador='Checkin' ORDER BY checkin.fecha_checkin ASC ";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
+    }
+    function update()
+    {
+        $sql="call update_check('{$this->fecha_llegada}','{$this->fecha_salida}','{$this->no_personas}','{$this->id_tipoh}','{$this->id_estadoh}','{$this->clave_reserva}')";
+        $this->conexion->QuerySimple($sql);
     }
 
 }
