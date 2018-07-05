@@ -1,5 +1,4 @@
 <?php header("Content-Type: text/html;charset=utf-8");?>
-
 <div>
     <div class="row" align="center"></div>
     <div class="col s12"><div class="row"></div></div>
@@ -92,7 +91,7 @@
                     <ul class="left hide-on-med-and-down">
                         <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
                         <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
-                        <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
+                        <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Registros</a></li>
                         <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_ventapieza">Ventas por pieza</a></li>
                         <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_ventakilo">Ventas por kilo</a></li>
 
@@ -143,7 +142,7 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3 disabled"><a>Clasificaciones</a></li>
+                    <li class="tab col s3 disabled"><a>Registros</a></li>
                     <li class="tab col s3"><a class="active" href="#test1">Kilo</a></li>
                     <li class="tab col s3"><a href="#test2">Pieza</a></li>
                 </ul>
@@ -649,7 +648,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Numero de habitación</th>
-                                <th>Número de servicio</th>
+                                <th>Nombre del servicio</th>
                                 <th>Subtotal</th>
                                 <th>Total</th>
                                 <th>Eliminar</th>
@@ -689,10 +688,9 @@
                         <select id="num_habitacion" type="text" name="num_habitacion">
                             <option disabled selected>Numero de habitacion</option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Habitaciones");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["habitacion"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
                             $dato->data_seek(0);
                             ?>
                         </select>
@@ -700,36 +698,20 @@
                     </div>
                     <div class="divider"></div>
                     <div class="input-field col s5">
-                        <select id="cantidad" type="text" name="cantidad">
-                            <option disabled selected>selecciona la cantidad </option>
+                        <select id="canti" type="text" name="cantidad">
+                            <option disabled selected>Selecciona el servicio </option>
                             <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from clasificacion_pieza");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            $dato=$datos["clasi_pieza"];
+                            while($row=mysqli_fetch_array($dato))
+                                echo "<option value='{$row[0]}'> {$row[0]} </option>";
+                            $dato->data_seek(0);
                             ?>
                         </select>
-                        <label for="num_habitacion">Cantidad de piezas</label>
+                        <label for="num_hab">Numero de servicio</label>
                     </div>
 
 
-                    <div class="divider"></div>
-                    <div class="input-field col s5">
-                        <select id="total" type="text" name="total">
-                            <option disabled selected>Total</option>
-                            <?php
-                            $link = mysqli_connect("localhost", "root", "", "hotel");
-                            $result3=mysqli_query($link,"select * from Ticket");
-                            while ($row=mysqli_fetch_array($result5))
-                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
-                            ?>
-                        </select>
-                        <label for="total">Total</label>
-                    </div>
-                    <div class="input-field input-field col s5 center">
-                        <input id="subtotal" type="text" class="validate" name="subtotal">
-                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
-                    </div>
+                    
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
@@ -772,7 +754,7 @@
                         <input id="search" placeholder="Buscar" type="text">
                     </div>
 
-                        <table   class="responsive-table"  >
+                        <table   class="responsive-table" id="buscar4" >
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -848,15 +830,7 @@
                     <div class="divider"></div>
 
 
-                    <div class="input-field input-field col s5 center">
-                        <input id="subtotal" type="text" disabled="disabled"  name="subtotal">
-                        <label for="subtotal"   >Subtotal</label>
-                    </div>
-
-                    <div class="input-field col s5">
-                        <input id="total" type="text" disabled="disabled" name="total">
-                        <label for="total"  >Total</label>
-                    </div>
+                  
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
@@ -1335,6 +1309,12 @@
         });
         $("#buscar3").keyup(function() {
             $.uiTableFilter($("#tabla_clasipieza"), this.value);
+        });
+        $("#buscar4").keyup(function() {
+            $.uiTableFilter($("#tabla_ventakilo"), this.value);
+        });
+        $("#buscar5").keyup(function() {
+            $.uiTableFilter($("#tabla_ventapieza"), this.value);
         });
     });
 </script>
