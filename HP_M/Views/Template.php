@@ -69,7 +69,7 @@ class Template
             <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo" style="height: 60px;"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
         <?php if(!isset($_SESSION["username"]))
     {?>
-            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
+            <div id="barra_arriba" class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.gif" width="300px" height="60px"/></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="<?php echo URL?>inicio" class="black-text">Inicio</a></li>
                     <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text">Reservaciones</a></li>
@@ -189,7 +189,7 @@ class Template
     public static function footer()
     {
         ?>
-        <footer class="page-footer cyan lighten-2">
+        <footer class="page-footer cyan lighten-2" id="footer_color">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
