@@ -1,3 +1,5 @@
+<?php header("Content-Type: text/html;charset=utf-8");?>
+
 <div>
     <div class="row" align="center"></div>
     <div class="col s12"><div class="row"></div></div>
