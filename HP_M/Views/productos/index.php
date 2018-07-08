@@ -207,42 +207,45 @@
                 </div>
 
 
-            </div>
-
         </div>
+
     </div>
+</div>
 
 
 
-    <div id="modal_categoria_producto" class="modal">
-        <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
-            <div class="row">
-                <form class="col s12 ">
-                    <div class="row">
-                        <div class="input-field col s9">
-                            <i class="mdi-action-verified-user prefix icon-pencil"></i>
-                            <input id="categoria_producto" type="text" class="validate">
-                            <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
-                        </div>
+<div id="modal_categoria_producto" class="modal">
+    <div class="modal-content">
+        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+        <div class="row">
+            <form class="col s12 ">
+                <div class="row">
+                    <div class="input-field col s9">
+                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                        <input id="categoria_producto" type="text" class="validate">
+                        <label for="categoria_producto"  data-error="incorrecto" data-success="Correcto">Descripcion de Categoria</label>
                     </div>
+                </div>
 
-                    <div class="modal-fixed-footer">
+                <div class="modal-fixed-footer">
 
-                        <div class="input-field col s12 ">
+                    <div class="input-field col s12 ">
 
-                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-
-                        </div>
-
-
+                        <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
+                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                     </div>
-                </form>
-            </div>
+                    <div class="input-field col s12">
+                        <a href="#!" id="update_productos_ok" class="btn modal-close " data-id="">Actualizar</a>
+                    </div>
+
+
+
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 
     <div id="modal_registro_entrada" class="modal">
@@ -291,160 +294,161 @@
         </div>
     </div>
 
-    <!--*********************************modal entradas**********************-->
+<!--*********************************modal entradas**********************-->
 
 
-    <!--*********************************************************************-->
-
-
-
+<!--*********************************************************************-->
 
 
 
-    <div id="modal_eliminar" class="modal">
-        <div class="modal-content">
-            <h5>¿Desea Eliminar el Registro?</h5>
-            <hr />
-        </div>
-        <div class="modal-footer">
-            <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
-        </div>
+
+
+
+<div id="modal_eliminar" class="modal">
+    <div class="modal-content">
+        <h5>¿Desea Eliminar el Registro?</h5>
+        <hr />
     </div>
+    <div class="modal-footer">
+        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('select').material_select();
-            $(".modal").modal();
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').material_select();
+        $(".modal").modal();
 
-            $(".datepicker").pickadate();
-            $("#add_producto").click(function(){
-                $("#update_productos_ok").hide();
-                $("#save_productos_ok").show();
-            });
-            $("#save_productos_ok").click(function(){
-                $("#save_productos_ok").submit();
-                console.log("ok")
-                console.log($("#save_productos_almacen").serialize());
-                $.post("<//?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
-                    $("#body_table").empty().append(res);
-                    $('#save_productos_almacen').find('input, select, textarea').val('');
-                    Materialize.updateTextFields();
-                    //$("#modal_registro").modal("close");
-                    Materialize.toast('Se ha insertado correctamente', 2500);
-                })
-            });
-
-            $("#body_table").on("click","a.btn_eliminar",function(){
-                var id=$(this).data("id");
-                var url='<?php echo URL?>productos/eliminar/'+id;
-                $("#eliminar_ok").attr("url",url);
-                $("#modal_eliminar").modal("open");
-            });
-            $("#eliminar_ok").click(function(){
-                $.get($(this).attr("url"),function(res){
-                    $("#body_table").empty().append(res);
-                    Materialize.toast('Se ha eliminado correctamente', 2500);
-                });
-            });
-            $("#body_table").on("click","a.btn_modificar",function(){
-                $("#save_productos_ok").hide();
-                $("#update_productos_ok").show();
-                var id=$(this).data("id");
-
-                $.get("<?php echo URL?>productos/modificar/"+id,function(res){
-                    var datos=JSON.parse(res);
-                    $("#update_productos_ok").data("id",datos["id_producto"]);
-                    $("#nombre_pro").val(datos["nombre_pro"]);
-                    $("#id_categoriapro").val(datos["id_categoriapro"]);
-                    $("#id_tipopro").val(datos["id_tipopro"]);
-                    $("#stock_min").val(datos["stock_min"]);
-                    $("#stock_max").val(datos["stock_max"]);
-                    Materialize.updateTextFields();
-                    //$('select').material_select();
-                    $("#modal_registro").modal("open");
-                });
-            });
-            $("#update_productos_ok").click(function(){
-                var id=$(this).data("id");
-                $.post("<?php echo URL?>productos/actualizar/"+id,$("#save_productos_almacen").serialize(),function(res){
-                    $('#save_productos_almacen').find('input, select, textarea').val('');
-                    $("#body_table").empty().append(res);
-                    Materialize.updateTextFields();
-                    //$("#modal_registro").modal("close");
-                    Materialize.toast('Se ha modificado correctamente', 2500);
-                })
-            });
-
-
-
-            ///validar formulario
-            $("#save_productos_ok").validate({
-
-                rules:{
-                    nombre_pro:{
-                        required:true,
-                        maxlength: 30,
-                        minlength: 10,
-                        lettersonly:true,
-                    },
-                    id_categoriapro:{
-                        required:true,
-                        lettersonly:true,
-                    },
-                    id_tipopro:{
-                        required:true,
-                    },
-
-
-                    stock_min:{
-                        required:true,
-                        number:true,
-                    },
-                    stock_max:{
-                        required:true,
-                        number:true,
-                    }
-                },
-
-                messages:{
-                    nombre_pro:{
-                        required:"Nombre del producto",
-                        maxlength:"Maximo 30 caracteres",
-                        minlength:"Minimo 10 caracteres"
-                    },
-
-                    stock_min:{
-                        number:"Solo Numeros",
-                    },
-                    stock_max:{
-                        number:"Solo Numeros",
-                    }
-                },
-                errorPlacement: function(error, element) {
-                    $(element)
-                        .closest("form")
-                        .find("label[for='" + element.attr("id") + "']")
-                        .attr('data-error', error.text());
-                },
-                submitHandler:function(form){
-                    $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
-                        $("#body_table").empty().append(res);
-                        $('#save_productos_almacen').find('input, select, textarea').val('');
-                        Materialize.updateTextFields();
-                        $("#modal_registro").modal("close");
-                    })
-                }
-            });
-            $("#buscar").keyup(function() {
-                $.uiTableFilter($("#tabla_content"), this.value);
-            });
-
-
-
-
-
-
-
+        $(".datepicker").pickadate();
+        $("#add_producto").click(function(){
+            $("#update_productos_ok").hide();
+            $("#save_productos_ok").show();
         });
-    </script>
+        $("#save_productos_ok").click(function(){
+            $("#save_productos_almacen").submit();
+
+            $.post("<?php echo URL?>productos/crear",
+                $("#save_productos_almacen").serialize(),function(res){
+                $("#body_table").empty().append(res);
+                $('#save_productos_almacen').find('input, select, textarea').val('');
+                Materialize.updateTextFields();
+                $("#modal_registro").modal("close");
+                Materialize.toast('Se ha insertado correctamente', 2500);
+            })
+        });
+
+        $("#body_table").on("click","a.btn_eliminar",function(){
+            var id=$(this).data("id");
+            var url='<?php echo URL?>productos/eliminar/'+id;
+            $("#eliminar_ok").attr("url",url);
+            $("#modal_eliminar").modal("open");
+        });
+        $("#eliminar_ok").click(function(){
+            $.get($(this).attr("url"),function(res){
+                $("#body_table").empty().append(res);
+                Materialize.toast('Se ha eliminado correctamente', 2500);
+            });
+        });
+        $("#body_table").on("click","a.btn_modificar",function(){
+            $("#save_productos_ok").hide();
+            $("#update_productos_ok").show();
+            var id=$(this).data("id");
+            $.get("<?php echo URL?>productos/modificar/"+id,function(res){
+                var datos=JSON.parse(res);
+                $("#update_productos_ok").data("id",datos["id_producto"]);
+                $("#nombre_pro").val(datos["nombre_pro"]);
+                $("#id_categoriapro").val(datos["id_categoriapro"]);
+                $("#id_tipopro").val(datos["id_tipopro"]);
+                $("#stock_min").val(datos["stock_min"]);
+                $("#stock_max").val(datos["stock_max"]);
+                Materialize.updateTextFields();
+                $('select').material_select();
+                $("#modal_registro").modal("open");
+            });
+        });
+        $("#update_productos_ok").click(function(){
+            var id=$(this).data("id");
+            $.post("<?php echo URL?>productos/actualizar/"+id,$("#save_productos_almacen").serialize(),function(res){
+                $('#save_productos_almacen').find('input, select, textarea').val('');
+                $("#body_table").empty().append(res);
+                Materialize.updateTextFields();
+                //$("#modal_registro").modal("close");
+                Materialize.toast('Se ha modificado correctamente', 2500);
+            })
+        });
+
+
+
+
+        $("#save_productos_almacen").validate({
+
+            rules:{
+                nombre_pro:{
+                    required:true,
+                    maxlength: 30,
+                    minlength: 5,
+                    lettersonly:true,
+                },
+                id_categoriapro:{
+                    required:true,
+                    lettersonly:true,
+                },
+                id_tipopro:{
+                    required:true,
+                },
+
+
+                stock_min:{
+                    required:true,
+                    number:true,
+                },
+                stock_max:{
+                    required:true,
+                    number:true,
+                }
+            },
+
+            messages:{
+                nombre_pro:{
+                    required:"Ingresa un nombre",
+                    maxlength:"Maximo 30 caracteres",
+                    minlength:"Minimo 5 caracteres"
+                },
+
+                stock_min:{
+                    required:"Ingresa un numero",
+                    number:"Solo Numeros",
+                },
+                stock_max:{
+                    required:"Ingresa un numero",
+                    number:"Solo Numeros",
+                }
+            },
+            errorPlacement: function(error, element) {
+                $(element)
+                    .closest("form")
+                    .find("label[for='" + element.attr("id") + "']")
+                    .attr('data-error', error.text());
+            },
+            submitHandler:function(form){
+                $.post("<?php echo URL?>productos/crear",$("#save_productos_almacen").serialize(),function(res){
+                    $("#body_table").empty().append(res);
+                    $('#save_productos_almacen').find('input, select, textarea').val('');
+                    Materialize.updateTextFields();
+                    $("#modal_registro").modal("close");
+                })
+            }
+        });
+        $("#buscar").keyup(function() {
+            $.uiTableFilter($("#tabla_content"), this.value);
+        });
+
+
+
+
+
+
+
+    });
+</script>
