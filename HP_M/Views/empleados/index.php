@@ -130,15 +130,7 @@
             <th>Codigo</th>
             <th></th>
             <th></th>
-            <ul class="pagination">
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="<?php echo URL?>productos" >2</a></li>
-                <li class="waves-effect"><a  href="#modal_clasikilo_agregar" >3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+    
 
 
         </tr>
