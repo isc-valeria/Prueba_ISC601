@@ -19,6 +19,7 @@
                         </div>
                         <div class="input-field col s12">
                             <a href="#!" id="update_tipo_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
                     </div>
                 </div>
@@ -125,20 +126,20 @@
             rules:{
                 descripcion_pro:{
                     required:true,
+                    maxlength: 20,
+                    minlength: 5,
                     lettersonly:true,
                 },
             },
             messages:{
 
-                descripcion_pro:{
-                    required:"Campo obligatorio",
-                },
-                descripcion_pro:{
+                 descripcion_pro:{
+                    maxlength:"Maximo 20 caracteres",
+                    minlength:"Minimo 5 caracteres",
                     required: "Solo letras",
+                    required:"Campo Obligatorio",
                 },
-
             },
-
 
             errorPlacement: function(error, element) {
                 $(element)
