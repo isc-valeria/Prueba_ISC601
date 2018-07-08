@@ -84,7 +84,15 @@
             <li><a  href="<?php echo URL?>Usuarios" class="white-text modal-trigger" id="add_venpieza">Cuentas</a></li>
             <li><a  href="<?php echo URL?>Entrada" class="white-text modal-trigger" id="add_venkilo">Entradas</a></li>
             <li><a  href="<?php echo URL?>Salida" class="white-text modal-trigger" id="add_venpieza">Salidas</a></li>
-            <a href="<?php echo URL?>empleados/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+
+            <a href="#!" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped " data-position="bottom" data-delay="50" data-tooltip="Imprimir un Dato">
+                <i class="material-icons">picture_as_pdf</i></a>
+
+            <a href="<?php echo URL?>empleados/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir PDF"><i class="material-icons">picture_as_pdf</i></a>
+
+
+
+
             <a href="#!"  id="graficar_empleados" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
             <a href="#modal_registro" class="btn blue accent-3 white-text tooltipped modal-trigger  " data-position="bottom" data-delay="50" data-tooltip="Agregar" id="add_empleado" ><i class="material-icons">person_add</i></a>
             <a href="<?php echo URL?>Entrada/print_pdf1" target="_blank" id="imprimir_pdf1" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Entradas"><i class="material-icons">picture_as_pdf</i></a>
@@ -122,6 +130,15 @@
             <th>Codigo</th>
             <th></th>
             <th></th>
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="<?php echo URL?>productos" >2</a></li>
+                <li class="waves-effect"><a  href="#modal_clasikilo_agregar" >3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
 
 
         </tr>
@@ -131,7 +148,9 @@
         <?php
         require_once ("tabla.php");
         ?>
+
         </tbody>
+
     </table>
 
 <div id="modal_grafica" class="modal">
@@ -319,6 +338,22 @@
                 $("#modal_grafica").modal("open");
 
             });
+        });
+
+        $("#imprimir_pdf").click(function(){
+            var campo1;//, campo2, campo3;
+            var campo=[];
+            var tabla=[];
+            $("#body_table tr:visible").each(function (index) {
+                $(this).children("td").each(function (index2) {
+                    campo[index2]=$(this).text();
+                    //$(this).css("background-color", "#ECF8E0");
+                })
+                tabla[index]=campo;
+            })
+            campo1=JSON.stringify(tabla);
+            //alert (campo1);
+            window.open("<?php echo URL?>empleados/print_pdf/?campo1="+campo1);
         });
 
     });
