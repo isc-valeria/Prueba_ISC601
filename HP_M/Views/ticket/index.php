@@ -164,7 +164,7 @@
 
                                 <div class="row">
                                     <div>
-                                        <a href="#modal_clasikilo_agregar" class="btn green white-text modal-trigger right" id="add_clasikilo">
+                                        <a href="#modal_clasikilo_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_clasikilo">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </div>
@@ -223,7 +223,7 @@
 
                             <div class="row">
                                 <div>
-                                    <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
+                                    <a href="#modal_clasipieza_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_clasipieza">
                                         <i class="material-icons">add</i>
                                     </a>
                                 </div>
@@ -284,13 +284,13 @@
 
                     <div class="row">
                         <div>
-                            <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
+                            <a href="#modal_servicios_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_servicios">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s10 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar" placeholder="Buscar" type="text">
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="buscar" placeholder="Buscar" type="text">
                         </div>
 
                         <table  class="responsive-table" id="tabla_servicios">
@@ -311,7 +311,7 @@
                             </tbody>
 
                         </table>
-                        
+
 
 
                         <div id="container"></div>
@@ -344,7 +344,7 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
 
-                            <a href="#!" id="save_servicioslav_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_servicioslav_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_servicioslav_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -378,18 +378,18 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_observaciones_agregar" class="btn green white-text modal-trigger right" id="add_observaciones">
+                            <a href="#modal_observaciones_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_observaciones">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s10 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar1" placeholder="Buscar" type="text">
-                    </div>
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="buscar1" placeholder="Buscar" type="text">
+                        </div>
 
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
@@ -440,7 +440,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_observacion_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_observacion_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_observacion_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -515,7 +515,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clasikilo_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_clasikilo_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_clasikilo_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -596,7 +596,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clasipieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_clasipieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_clasipieza_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -616,7 +616,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_pieza_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves  -effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 <!-- //////////////////VENTA POR PIEZA////////////////////////////// -->
@@ -631,24 +631,24 @@
             <div id="test-swipe-1" class="col s5 white">
                 <div class="card-panel">
 
-                   
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_venpieza_agregar" class="btn green white-text modal-trigger right" id="add_ventapieza">
+                            <a href="#modal_venpieza_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_ventapieza">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
-                           <div class="input-field col s5 offset-s0">
-                                <i class="mdi-action-verified-user prefix icon-search"></i>
-                                <input id="search" placeholder="Buscar" type="text">
-                            </div>
+                        <div class="input-field col s5 offset-s0">
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="search" placeholder="Buscar" type="text">
+                        </div>
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Numero de habitación</th>
-                                <th>Nombre del servicio</th>
+                                <th>Número de servicio</th>
                                 <th>Subtotal</th>
                                 <th>Total</th>
                                 <th>Eliminar</th>
@@ -688,9 +688,10 @@
                         <select id="num_habitacion" type="text" name="num_habitacion">
                             <option disabled selected>Numero de habitacion</option>
                             <?php
-                            $dato=$datos["habitacion"];
-                            while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[1]} </option>";
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Habitaciones");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
                             $dato->data_seek(0);
                             ?>
                         </select>
@@ -698,24 +699,40 @@
                     </div>
                     <div class="divider"></div>
                     <div class="input-field col s5">
-                        <select id="canti" type="text" name="cantidad">
-                            <option disabled selected>Selecciona el servicio </option>
+                        <select id="cantidad" type="text" name="cantidad">
+                            <option disabled selected>selecciona la cantidad </option>
                             <?php
-                            $dato=$datos["clasi_pieza"];
-                            while($row=mysqli_fetch_array($dato))
-                                echo "<option value='{$row[0]}'> {$row[0]} </option>";
-                            $dato->data_seek(0);
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from clasificacion_pieza");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
                             ?>
                         </select>
-                        <label for="num_hab">Numero de servicio</label>
+                        <label for="num_habitacion">Cantidad de piezas</label>
                     </div>
 
 
-                    
+                    <div class="divider"></div>
+                    <div class="input-field col s5">
+                        <select id="total" type="text" name="total">
+                            <option disabled selected>Total</option>
+                            <?php
+                            $link = mysqli_connect("localhost", "root", "", "hotel");
+                            $result3=mysqli_query($link,"select * from Ticket");
+                            while ($row=mysqli_fetch_array($result5))
+                                echo "<option value='{$row[0]}'>{$row[1]}</option>";
+                            ?>
+                        </select>
+                        <label for="total">Total</label>
+                    </div>
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" class="validate" name="subtotal">
+                        <label for="subtotal"  data-error="Incorrecto" data-success="Correcto" >Subtotal</label>
+                    </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_venpieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -741,20 +758,20 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
+                            <a href="#modal_venkilo_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_ventakilo">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s5 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="search" placeholder="Buscar" type="text">
+                        </div>
 
-                        <table   class="responsive-table" id="buscar4" >
+                        <table   class="responsive-table"  >
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -830,11 +847,19 @@
                     <div class="divider"></div>
 
 
-                  
+                    <div class="input-field input-field col s5 center">
+                        <input id="subtotal" type="text" disabled="disabled"  name="subtotal">
+                        <label for="subtotal"   >Subtotal</label>
+                    </div>
+
+                    <div class="input-field col s5">
+                        <input id="total" type="text" disabled="disabled" name="total">
+                        <label for="total"  >Total</label>
+                    </div>
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_venpieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -1309,12 +1334,6 @@
         });
         $("#buscar3").keyup(function() {
             $.uiTableFilter($("#tabla_clasipieza"), this.value);
-        });
-        $("#buscar4").keyup(function() {
-            $.uiTableFilter($("#tabla_ventakilo"), this.value);
-        });
-        $("#buscar5").keyup(function() {
-            $.uiTableFilter($("#tabla_ventapieza"), this.value);
         });
     });
 </script>
