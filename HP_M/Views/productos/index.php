@@ -29,7 +29,7 @@
                             <label for="id_categoriapro" >Categoria producto</label>
                         </div>
                         <div class="input-field">
-                            <a class="btn-floating  orange waves-effect waves-light modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            <a class="btn-floating  orange waves-effect waves-light modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus orange"></i></a>
                         </div>
                     </div>
 
@@ -165,9 +165,6 @@
                     </span></h4>
                 <div class="divider"></div>
 
-
-
-
                 <div class="row">
                     <div class="input-field col s4 offset-s8">
                         <i class="mdi-action-verified-user prefix icon-search"></i>
@@ -196,12 +193,7 @@
                     ?>
                     </tbody>
 
-
-
                 </table>
-
-
-
 
         </div>
 
@@ -212,14 +204,14 @@
 
 <div id="modal_categoria_producto" class="modal">
     <div class="modal-content">
-        <div class="card-panel teal #00b8d4"><h4 align="center">Categoria del Producto</h4></div>
+        <div class="panel"><h4 align="center">Categoría del Producto</h4></div>
         <div class="row">
             <form action="" id="save_categoria" class="col s12 ">
                 <div class="row">
                     <div class="input-field col s9">
-                        <i class="mdi-action-verified-user prefix icon-pencil"></i>
+                        
                         <input id="descripcion_cat" type="text" name="descripcion_cat">
-                        <label for="descripcion_cat" >Descripcion de Categoria</label>
+                        <label for="descripcion_cat" >Descripción de Categoría</label>
                     </div>
                 </div>
 
@@ -244,7 +236,7 @@
 
     <div id="modal_registro_entrada" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Entrada</h4></div>
+            <div class="panel"><h4 align="center">Registro Entrada</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -290,7 +282,7 @@
 
     <div id="modal_registro_salida" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Salida</h4></div>
+            <div class="panel"><h4 align="center">Registro Salida</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
