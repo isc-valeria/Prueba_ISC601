@@ -244,7 +244,7 @@
 
     <div id="modal_registro_entrada" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Entrada</h4></div>
+            <div class="panel"><h4 align="center">Registro Entrada</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -290,7 +290,7 @@
 
     <div id="modal_registro_salida" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Salida</h4></div>
+            <div class="panel"><h4 align="center">Registro Salida</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
