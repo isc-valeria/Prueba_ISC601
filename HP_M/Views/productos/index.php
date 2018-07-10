@@ -106,7 +106,7 @@
 
             <div class="card-panel">
                 <h4 align="center">Registro de Productos <span class="right"><a href="#modal_registro" class="btn orange white-text modal-trigger" id="add_producto">
-                <i class="material-icons">add</i>
+                <i class="material-icons " color="orange">add</i>
             </a></span></h4>
                 <div class="divider"></div>
 
@@ -291,7 +291,7 @@
 
     <div id="modal_registro_salida" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal "><h4 align="center">Registro Salida</h4></div>
+            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Salida</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
