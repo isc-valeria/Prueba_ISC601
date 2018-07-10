@@ -14,7 +14,7 @@
                         </div>
                         <div class="input-field col s5">
                             <input id="nombre_pro" type="text"  name="nombre_pro">
-                            <label for="nombre_pro"  >Nombre</label>
+                            <label for="nombre_pro" >Nombre</label>
                         </div>
 
                         <div class="input-field col s5">
@@ -29,7 +29,7 @@
                             <label for="id_categoriapro" >Categoria producto</label>
                         </div>
                         <div class="input-field">
-                            <a class="btn-floating  orage waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            <a class="btn-floating  orange waves-effect waves-light modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
                     </div>
 
@@ -96,8 +96,8 @@
 
     <div class="card-tabs">
         <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a href="#add_producto">Productos</a></li>
-            <li class="tab"><a href="#add_entradas">Entradas Y Salidas</a></li>
+            <li class="tab orange-text"><a href="#add_producto">Productos</a></li>
+            <li class="tab orange-text"><a href="#add_entradas">Entradas Y Salidas</a></li>
 
         </ul>
     </div>
@@ -152,7 +152,6 @@
             </div>
 
         </div>
-
 
 
         <div id="add_entradas">
