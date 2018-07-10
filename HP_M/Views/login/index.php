@@ -11,12 +11,12 @@
                 <div class='col s12'>
                 </div>
             </div>
-            <h5 class="black-text ">Por favor, inicia sesión en tu cuenta</h5><br>
+            <h5 class="black-text "><font color="#432523"><b>Por favor, inicia sesión en tu cuenta</b></font></h5><br>
             <div class='row'>
                 <div class='input-field col s12'>
                     <i class="icon-user-solid-circle prefix  indigo-text"></i>
                     <input class='validate' type='email' name='email' id='email' />
-                    <label for='email'>  Ingresa tu email</label>
+                    <label for='email' style="color: #d46a1e">  Ingresa tu email</label>
                 </div>
             </div>
 
@@ -24,14 +24,14 @@
                 <div class='input-field col s12'>
                     <i class="icon-lock-closed prefix #3f51b5 indigo-text"></i>
                     <input class='validate' type='password' name='password' id='password' />
-                    <label for='password'>  Ingresa tu contraseña</label>
+                    <label for='password' style="color: #d46a1e">  Ingresa tu contraseña</label>
                 </div>
             </div>
 
             <br />
             <center>
                 <div class='row'>
-                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Entrar</button>
+                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect orange accent-3'><font color="#f6f2cc"><b>Entrar</b></font></button>
                 </div>
 
             </center>

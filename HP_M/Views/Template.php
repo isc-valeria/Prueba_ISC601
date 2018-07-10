@@ -69,7 +69,7 @@ class Template
             <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo" style="height: 60px;"><img src="Public/imagenes/logo.png" width="150px" height="60px"/></a>
                 <?php if(!isset($_SESSION["username"]))
                 {?>
-                <div id="barra_arriba" class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.png" width="150px" height="60px"/></a>
+                <div id="barra_arriba" class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.png" width="160px" height="65px"/></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="<?php echo URL?>inicio" class="black-text"><font color="#ffffff"><b>Inicio</b></font></a></li>
                         <li><a href="<?php echo URL?>ReservacionesCliente" class="black-text"><font color="#ffffff"><b>Reservaciones</b></font></a></li>
@@ -194,23 +194,23 @@ class Template
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="black-text">Ubicación</h5>
-                        <p class="grey-text black-text">Carretera Federal Valle de Bravo Km 30,
+                        <h5 class="black-text"><font color="#ffffff"><b></b>Ubicación</font></h5>
+                        <p class="grey-text white-text">Carretera Federal Valle de Bravo Km 30,
                             Ejido San Antonio Laguna, 51200 Valle de Bravo, Méx.</p>
 
                     </div>
-                    <div class="col l3 s12 cyan lighten-4">
-                        <h5 class="black-text ">Redes Sociales</h5>
-                        <ul><i class="small material-icons"><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a></i>
-                            <i class="small material-icons"><a href="https://web.whatsapp.com/"><span class="icon-whatsapp "></span></a></i>
-                            <i class="small material-icons"><a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a></i>
-                            <i class="small material-icons"><a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a></i>
+                    <div class="col l3 s12 amber lighten-5">
+                        <h5 class="orange-text center-align">Redes Sociales</h5>
+                        <ul><i class="small material-icons center-align"><a href="https://www.facebook.com/AdmonISC601/"><span class="icon-facebook" ></span></a></i>
+                            <i class="small material-icons center-align"><a href="https://web.whatsapp.com/"><span class="icon-whatsapp "></span></a></i>
+                            <i class="small material-icons center-align"><a href="https://www.instagram.com/hotelcasablanca_wh601/?hl=es-la"><span class="icon-instagram"></span></a></i>
+                            <i class="small material-icons center-align"><a href="https://plus.google.com/u/1/114372695279038049440?pageId=none"><span class="icon-gmail"></span></a></i>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container black-text">
+                <div class="container white-text">
                     2018
                 </div>
             </div>
