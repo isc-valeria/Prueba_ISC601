@@ -89,4 +89,17 @@ class productosController
 
     }
 
+    public function crearcategoria(){
+        if($_POST)
+        {
+            $this->categorias_productos->set('descripcion_cat',$_POST["descripcion_cat"]);
+
+
+            $this->categorias_productos->add();
+            $datos=$this->categorias_productos->getAll();
+            return $datos;
+        }
+
+    }
+
 }

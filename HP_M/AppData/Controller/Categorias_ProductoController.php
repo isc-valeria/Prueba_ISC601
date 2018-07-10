@@ -59,9 +59,11 @@ class categorias_ProductoController
             return $datos;
         }
     }
+
     public function print_pdf()
     {
         $datos=$this->categorias->getAll();
         return $datos;
     }
+
 }
