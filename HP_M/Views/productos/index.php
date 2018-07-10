@@ -29,7 +29,7 @@
                             <label for="id_categoriapro" >Categoria producto</label>
                         </div>
                         <div class="input-field">
-                            <a class="btn-floating  waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
+                            <a class="btn-floating  orage waves-effect waves-light btn modal-trigger" href="#modal_categoria_producto" ><i class="icon-plus #00838f cyan darken-3"></i></a>
                         </div>
                     </div>
 
@@ -76,14 +76,14 @@
 
                         <div class="input-field col s12 ">
 
-                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                            <a href="#!" id="save_productos_ok" class="btn orange">Registrar</a>
+                            <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
 
 
                         </div>
 
                         <div class="input-field col s12">
-                            <a href="#!" id="update_productos_ok" class="btn modal-close " data-id="">Actualizar</a>
+                            <a href="#!" id="update_productos_ok" class="btn modal-close orange" data-id="">Actualizar</a>
                         </div>
 
                     </div>
@@ -105,7 +105,7 @@
         <div id="add_producto">
 
             <div class="card-panel">
-                <h4 align="center">Registro de Productos <span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_producto">
+                <h4 align="center">Registro de Productos <span class="right"><a href="#modal_registro" class="btn orange white-text modal-trigger" id="add_producto">
                 <i class="material-icons">add</i>
             </a></span></h4>
                 <div class="divider"></div>
@@ -146,7 +146,7 @@
 
                 </table>
                 <div class="center">
-                    <a href="<?php echo URL?>productos/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+                    <a href="<?php echo URL?>productos/print_pdf" target="_blank" id="imprimir_pdf" class="btn orange accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
 
                 </div>
             </div>
@@ -157,10 +157,10 @@
 
         <div id="add_entradas">
             <div class="card-panel">
-                <h4 align="center">Registro de Entradas y Salidas <span class="right"><a href="#modal_registro_entrada" class="btn green white-text modal-trigger" id="add_entradas">Entradas
+                <h4 align="center">Registro de Entradas y Salidas <span class="right"><a href="#modal_registro_entrada" class="btn orange white-text modal-trigger" id="add_entradas">Entradas
                 <i class="material-icons">add</i>
             </a>
-                        <a href="#modal_registro_salida" class="btn green white-text modal-trigger" id="add_salidas">Salidas
+                        <a href="#modal_registro_salida" class="btn orange white-text modal-trigger" id="add_salidas">Salidas
                 <i class="material-icons">add</i>
             </a>
                     </span></h4>
@@ -228,8 +228,8 @@
 
                     <div class="input-field col s12 ">
 
-                        <a href="#!" id="save_categoria_ok" class="btn ">Registrar</a>
-                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                        <a href="#!" id="save_categoria_ok" class="btn orange ">Registrar</a>
+                        <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                     </div>
 
@@ -276,8 +276,8 @@
 
                         <div class="input-field col s12 ">
 
-                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                            <a href="#!" id="save_productos_ok" class="btn orange ">Registrar</a>
+                            <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                         </div>
 
@@ -291,7 +291,7 @@
 
     <div id="modal_registro_salida" class="modal">
         <div class="modal-content">
-            <div class="card-panel teal #00b8d4"><h4 align="center">Registro Salida</h4></div>
+            <div class="card-panel teal "><h4 align="center">Registro Salida</h4></div>
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -322,8 +322,8 @@
 
                         <div class="input-field col s12 ">
 
-                            <a href="#!" id="save_productos_ok" class="btn ">Registrar</a>
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                            <a href="#!" id="save_productos_ok" class="btn orange ">Registrar</a>
+                            <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                         </div>
 
@@ -351,8 +351,8 @@
         <hr />
     </div>
     <div class="modal-footer">
-        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="eliminar_ok" class="modal-close orange white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 
