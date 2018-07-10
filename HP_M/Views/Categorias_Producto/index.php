@@ -15,11 +15,11 @@
 
                 <div class="modal-fixed-footer">
                     <div class="input-field col s12">
-                        <a href="#!" id="save_categoria_ok" class="btn ">Registrar</a>
+                        <a href="#!" id="save_categoria_ok" class="btn orange">Registrar</a>
                     </div>
                     <div class="input-field col s12">
-                        <a href="#!" id="update_categoria_ok" class="btn modal-close " data-id="">Actualizar</a>
-                        <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                        <a href="#!" id="update_categoria_ok" class="btn modal-close orange" data-id="">Actualizar</a>
+                        <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
 
                     </div>
                 </div>
@@ -30,7 +30,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Categorías producto<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_categoria"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Categorías producto<span class="right"><a href="#modal_registro" class="btn orange white-text modal-trigger" id="add_categoria"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -54,7 +54,7 @@
         </tbody>
     </table>
     <div class="center">
-        <a href="<?php echo URL?>Categorias_Producto/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="<?php echo URL?>Categorias_Producto/print_pdf" target="_blank" id="imprimir_pdf" class="btn orange accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
     </div>
 </div>
 <div id="modal_eliminar" class="modal">
@@ -63,7 +63,7 @@
         <hr />
     </div>
     <div class="modal-footer">
-        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" id="eliminar_ok" class="modal-close orange white-text waves-effect waves-green btn-flat">Aceptar</a>
         <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>

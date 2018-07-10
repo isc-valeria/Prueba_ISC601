@@ -25,7 +25,7 @@ class Asigna_servicios
     }
 	function add()
 	{
-        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_ser}',80, sysdate())";
+        $sql="insert into {$this->tabla} values('0','{$this->num_habitacion}','{$this->descripcion_ser}',80, '{$this->fecha_reg}')";
         $this->conexion->QuerySimple($sql);
 	}
 	function getAll()
@@ -58,7 +58,8 @@ class Asigna_servicios
         $sql="UPDATE {$this->tabla} SET 
         id_habitacion='{$this->num_habitacion}', 
         id_servicio='{$this->descripcion_ser}',
-        id_estados='{$this->descripcion_est}'
+        id_estados='{$this->descripcion_est}',
+        fecha_reg='{$this->fecha_reg}'
         WHERE id_asignaser={$this->id_asignaser}";
         $this->conexion->QuerySimple($sql);
 	}

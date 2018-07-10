@@ -72,4 +72,6 @@ class Productos
         $dato = $this->conexion->QueryResultado($sql);
         return $dato;
     }
+
+
 }

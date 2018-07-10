@@ -3,7 +3,7 @@
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_servicios" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Servicios</h4>
+                <h4 align="center" style="color: darkred">Servicios</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"></code>
                 <div class="row">
@@ -21,12 +21,12 @@
 
                         </div>
                         <div class="input-field col s5">
-                            <label for="hora_inicio"><i class="icon-clock"></i>Hora Inicio</label>
+                            <label for="hora_inicio"><i class="icon-clock" style="background: darkred"></i>Hora Inicio</label>
                             <input id="hora_inicio" type="text" class="timepicker" name="hora_inicio">
                         </div>
                         <div class="input-field col s1"></div>
                         <div class="input-field col s5">
-                            <label for="hora_fin"><i class="icon-clock"></i>Hora de Fin</label>
+                            <label for="hora_fin"><i class="icon-clock" style="color: darkred"></i>Hora de Fin</label>
                             <input id="hora_fin" type="text" class="timepicker" name="hora_fin">
                         </div>
                     </div>
@@ -47,7 +47,7 @@
 <div class="card-panel">
     <h4 align="center">Servicios que se Ofrecen
         <span class="right">
-            <a href="#modal_servicio" class="btn green white-text modal-trigger" id="add_servicios">
+            <a href="#modal_servicio" class="btn orange accent-3 white-text modal-trigger" id="add_servicios">
                 <i class="material-icons">add</i>
             </a>
         </span>
@@ -56,7 +56,7 @@
 
     <div class="row">
         <div class="input-field col s4 offset-s8">
-            <i class="mdi-action-verified-user prefix icon-search"></i>
+            <i class="mdi-action-verified-user prefix icon-searc "></i>
             <input id="buscar" type="text" placeholder="Buscar">
         </div>
     </div>
@@ -78,7 +78,7 @@
         <div class="divider"></div>
     </table>
     <div class="center">
-        <a href="<?php echo URL ?> servicios/print_pdf" target="_blank" id="imprime_pdf" class="btn #00838f accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+        <a href="<?php echo URL ?> servicios/print_pdf" target="_blank" id="imprime_pdf" class="btn orange accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
     </div>
 </div>
 

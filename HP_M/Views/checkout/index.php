@@ -83,9 +83,9 @@
     <table class="responsive-table">
         <thead>
         <tr>
-            <td>Numero de Habitacion</td>
-            <td>Descripcion</td>
-            <td>Tipo Habitacion</td>
+            <td>Número de Habitación</td>
+            <td>Descripción</td>
+            <td>Tipo Habitación</td>
             <td>Folio del Cliente</td>
             <td>Fecha de Salida</td>
         </tr>

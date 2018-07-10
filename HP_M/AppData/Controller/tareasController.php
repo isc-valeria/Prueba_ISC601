@@ -104,8 +104,7 @@ class tareasController
     }
     public function print_pdf()
     {
-        $datos=$this->Tareas->getAll();
-        return $datos;
+
     }
 
     public function graficar()

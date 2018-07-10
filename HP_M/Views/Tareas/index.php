@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <select id="habitacion" type="text"  name="habitacion">
-                                <option value="" disabled selected>Selecciona la Habitacion</option>
+                                <option value="" disabled selected>Habitacion</option>
                                 <?php
                                 $result3=$datos[3];
                                 while ($row=mysqli_fetch_array($result3))
@@ -46,6 +46,7 @@
                             </select>
                             <label for="habitacion"  >No. Habitación</label>
                         </div>
+
 
                         <div class="input-field col l3">
                             <label>Fecha de Inicio</label>
@@ -72,9 +73,11 @@
                         <div class="input-field col s12">
                             <a href="#!" id="save_tarea_ok" class="btn ">Registrar</a>
                         </div>
+
                         <div class="input-field col s12">
                             <a href="#!" id="update_tarea_ok" class="btn modal-close " data-id="">Actualizar</a>
                         </div>
+
                     </div>
                 </div>
             </form>
@@ -83,7 +86,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Control Tareas<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tarea"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Control Tareas<span class="right"><a href="#modal_registro" class="btn cyan lighten-2 black-text modal-trigger" id="add_tarea"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -110,11 +113,14 @@
         ?>
         </tbody>
     </table>
-    <div class="center">
-        <a href="<?php echo URL?>Tareas/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_tareas" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+    <div class ="center">
+        <a href="#!" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped " data-position="bottom" data-delay="50" data-tooltip="Imprimir">
+            <i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!"  id="graficar_tareas" class="btn cyan lighten-2 accent-3 black-text tooltipped " data-position="bottom" data-delay="50" data-tooltip="Graficar">
+            <i class="material-icons">equalizer     </i></a>
     </div>
 </div>
+
 <div id="modal_eliminar" class="modal">
     <div class="modal-content">
         <h5>¿Desea Eliminar el Registro?</h5>
@@ -141,15 +147,19 @@
 
     $(document).ready(function(){
 
-
-
-
         $('select').material_select();
         $(".modal").modal();
         $("#add_tarea").click(function(){
             $("#update_tarea_ok").hide();
             $("#save_tarea_ok").show();
+            $("#habitacion_nueva").hide();
+
+            $("#habitacion").click(function(){
+                //$("#hbitacion_nueva").hide();
+                $("#habitacion_nueva").hide();
+            });
         });
+
         $("#save_tarea_ok").click(function() {
             $("#save_tarea").submit();
         });
@@ -257,8 +267,6 @@
                 })
             }
         });
-
-
         $('select').material_select();
         $('.datepicker').pickadate();
 
@@ -272,32 +280,19 @@
             });
         });
         $("#imprimir_pdf").click(function(){
-            $("#body_table tr").each(function (index) {
-                var campo1, campo2, campo3;
-                var campo=[];
-
+            var campo1;//, campo2, campo3;
+            var campo=[];
+            var tabla=[];
+            $("#body_table tr:visible").each(function (index) {
                 $(this).children("td").each(function (index2) {
-                    for (var i=0;i<2;i++)
-                    {
-                        campo[index2]=$(this).text();
-                    }
-
-                    /*switch (index2) {
-                        case 0:
-                            campo1 = $(this).text();
-                            break;
-                        case 1:
-                            campo2 = $(this).text();
-                            break;
-                        case 2:
-                            campo3 = $(this).text();
-                            break;
-                    }*/
+                    campo[index2]=$(this).text();
                     //$(this).css("background-color", "#ECF8E0");
                 })
-                alert(campo);
-
-            });
+                tabla[index]=campo;
+            })
+            campo1=JSON.stringify(tabla);
+            //alert (campo1);
+            window.open("<?php echo URL?>tareas/print_pdf/?campo1="+campo1);
         });
     });
 

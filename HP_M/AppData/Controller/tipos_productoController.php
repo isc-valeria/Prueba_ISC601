@@ -8,7 +8,6 @@
 
 namespace AppData\Controller;
 
-
 class tipos_productoController
 {
     private $descripcion_pro;
@@ -65,6 +64,12 @@ class tipos_productoController
             return $datos;
 
         }
+    }
+
+    public function print_pdf()
+    {
+        $datos=$this->descripcion_pro->getAll();
+        return $datos;
     }
 
 }

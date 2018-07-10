@@ -1,15 +1,10 @@
 <?php
-
-
 $pdf = new \AppData\Config\libs\fpdf\fpdf("L","mm","Legal");
 $pdf->AddPage();
-
-
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(2);
 $pdf->Image('AppData\Config\libs\fpdf\head_logo.gif','290','3','50','20','GIF','http://localhost/Prueba_ISC601/HP_M/');
 $pdf->Ln();
-
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(340,10,'Lista de tareas realizadas.',0,0,'C');
 $pdf->ln();
@@ -28,17 +23,21 @@ $pdf->SetFillColor(255,255, 255);
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Arial','',10);
 
-while($row=mysqli_fetch_row($datos))
+$valor=json_decode($_GET["campo1"]);
+//$pdf->Cell(340,10,$valor[0],0,0,'C');
+//print_r($valor[0][0]);
+//print_r(count($valor));
+for($i=0;$i<count($valor);$i++)
 {
+
     $pdf->ln();
     $pdf->SetX(10);
-    $pdf->Cell(45,8,utf8_decode($row[1]),1,0,'C',true);
-    $pdf->Cell(50,8,utf8_decode($row[2] ." ".$row[3]." ".$row[4]),1,0,'C',true);
-    $pdf->Cell(25,8,utf8_decode($row[5]),1,0,'C',true);
-    $pdf->Cell(40,8,utf8_decode($row[6]),1,0,'C',true);
-    $pdf->Cell(40,8,utf8_decode($row[7]),1,0,'C',true);
-    $pdf->Cell(130,8,utf8_decode($row[8]),1,0,'C',true);
-
+    $pdf->Cell(45,8,utf8_decode($valor[$i][0]),1,0,'C',true);
+    $pdf->Cell(50,8,utf8_decode($valor[$i][1]),1,0,'C',true);
+    $pdf->Cell(25,8,utf8_decode($valor[$i][2]),1,0,'C',true);
+    $pdf->Cell(40,8,utf8_decode($valor[$i][3]),1,0,'C',true);
+    $pdf->Cell(40,8,utf8_decode($valor[$i][4]),1,0,'C',true);
+    $pdf->Cell(130,8,utf8_decode($valor[$i][5]),1,0,'C',true);
 }
 
 

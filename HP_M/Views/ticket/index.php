@@ -1,3 +1,4 @@
+<?php header("Content-Type: text/html;charset=utf-8");?>
 <div>
     <div class="row" align="center"></div>
     <div class="col s12"><div class="row"></div></div>
@@ -90,7 +91,7 @@
                     <ul class="left hide-on-med-and-down">
                         <li><a href="#modal_servicios" class="white-text modal-trigger" id="add_servicios">Servicios</a></li>
                         <li><a href="#modal_observaciones" class="white-text modal-trigger" id="add_observaciones">Observaciones</a></li>
-                        <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Clasificacion</a></li>
+                        <li><a href="#modal_clasificaciones" class="white-text modal-trigger" id="add_venkilo">Registros</a></li>
                         <li><a href="#modal_venpieza" class="white-text modal-trigger" id="add_ventapieza">Ventas por pieza</a></li>
                         <li><a href="#modal_venkilo" class="white-text modal-trigger" id="add_ventakilo">Ventas por kilo</a></li>
 
@@ -141,7 +142,7 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3 disabled"><a>Clasificaciones</a></li>
+                    <li class="tab col s3 disabled"><a>Registros</a></li>
                     <li class="tab col s3"><a class="active" href="#test1">Kilo</a></li>
                     <li class="tab col s3"><a href="#test2">Pieza</a></li>
                 </ul>
@@ -163,7 +164,7 @@
 
                                 <div class="row">
                                     <div>
-                                        <a href="#modal_clasikilo_agregar" class="btn green white-text modal-trigger right" id="add_clasikilo">
+                                        <a href="#modal_clasikilo_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_clasikilo">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </div>
@@ -222,7 +223,7 @@
 
                             <div class="row">
                                 <div>
-                                    <a href="#modal_clasipieza_agregar" class="btn green white-text modal-trigger right" id="add_clasipieza">
+                                    <a href="#modal_clasipieza_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_clasipieza">
                                         <i class="material-icons">add</i>
                                     </a>
                                 </div>
@@ -283,13 +284,13 @@
 
                     <div class="row">
                         <div>
-                            <a href="#modal_servicios_agregar" class="btn green white-text modal-trigger right" id="add_servicios">
+                            <a href="#modal_servicios_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_servicios">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s10 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar" placeholder="Buscar" type="text">
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="buscar" placeholder="Buscar" type="text">
                         </div>
 
                         <table  class="responsive-table" id="tabla_servicios">
@@ -310,7 +311,7 @@
                             </tbody>
 
                         </table>
-                        
+
 
 
                         <div id="container"></div>
@@ -343,7 +344,7 @@
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
 
-                            <a href="#!" id="save_servicioslav_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_servicioslav_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_servicioslav_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -377,18 +378,18 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_observaciones_agregar" class="btn green white-text modal-trigger right" id="add_observaciones">
+                            <a href="#modal_observaciones_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_observaciones">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s10 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="buscar1" placeholder="Buscar" type="text">
-                    </div>
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="buscar1" placeholder="Buscar" type="text">
+                        </div>
 
                         <table   class="responsive-table" id="tabla_observacion" >
                             <thead>
@@ -439,7 +440,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_observacion_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_observacion_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_observacion_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -514,7 +515,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clasikilo_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_clasikilo_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_clasikilo_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -595,7 +596,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clasipieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_clasipieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_clasipieza_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -615,7 +616,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_pieza_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="cancelar_pieza" class="modal-close red white-text waves  -effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 <!-- //////////////////VENTA POR PIEZA////////////////////////////// -->
@@ -630,18 +631,18 @@
             <div id="test-swipe-1" class="col s5 white">
                 <div class="card-panel">
 
-                   
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_venpieza_agregar" class="btn green white-text modal-trigger right" id="add_ventapieza">
+                            <a href="#modal_venpieza_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_ventapieza">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
-                           <div class="input-field col s5 offset-s0">
-                                <i class="mdi-action-verified-user prefix icon-search"></i>
-                                <input id="search" placeholder="Buscar" type="text">
-                            </div>
+                        <div class="input-field col s5 offset-s0">
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="search" placeholder="Buscar" type="text">
+                        </div>
                         <table   class="responsive-table" id="buscar3" >
                             <thead>
                             <tr>
@@ -731,7 +732,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_venpieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_venpieza_ok" class="btn modal-close" data-id="">Actualizar </a>
@@ -757,18 +758,18 @@
             <div id="test-swipe-1" class="col s12 white">
                 <div class="card-panel">
 
-                    
+
 
                     <div class="row">
                         <div>
-                            <a href="#modal_venkilo_agregar" class="btn green white-text modal-trigger right" id="add_ventakilo">
+                            <a href="#modal_venkilo_agregar" class="btn cyan lighten-2 white-text modal-trigger right" id="add_ventakilo">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>
                         <div class="input-field col s5 offset-s0">
-                        <i class="mdi-action-verified-user prefix icon-search"></i>
-                        <input id="search" placeholder="Buscar" type="text">
-                    </div>
+                            <i class="mdi-action-verified-user prefix icon-search"></i>
+                            <input id="search" placeholder="Buscar" type="text">
+                        </div>
 
                         <table   class="responsive-table"  >
                             <thead>
@@ -858,7 +859,7 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_venpieza_ok" class="btn green white-text btn center"">
+                            <a href="#!" id="save_venpieza_ok" class="btn cyan lighten-2 white-text btn center"">
                             Registrar
                             </a>
                             <a href="#!" id="update_venkilo_ok" class="btn modal-close" data-id="">Actualizar </a>
