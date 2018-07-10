@@ -51,10 +51,10 @@
                     </div>
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_clientes_ok" class="btn cyan lighten-2 black-text">Registrar</a>
+                            <a href="#!" id="save_clientes_ok" class="btn orange accent-3" font color="#f6f2cc" ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_clientes_ok" class="btn modal-close cyan lighten-2 black-text" data-id="">Actualizar</a>
+                            <a href="#!" id="update_clientes_ok" class="btn modal-close orange accent-3" font color="#f6f2cc" data-id="">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
 
 
 <div class="card-panel">
-    <h4 align="center">Clientes Registrados <span class="right"><a href="#modal_registro" class="btn cyan lighten-2 black-text modal-trigger" id="add_cliente">
+    <h4 align="center">Clientes Registrados <span class="right"><a href="#modal_registro" class="btn orange accent-3 modal-trigger" font color="#f6f2cc" id="add_cliente">
                 <i class="material-icons">add</i>
             </a></span></h4>
     <div class="divider"></div>
@@ -98,8 +98,8 @@
         </tbody>
     </table>
     <div class="center">
-        <a href="<?php echo URL ?>clientes/print_pdf" target="_blank" id="imprime_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
-        <a href="#!"  id="graficar_habitaciones" class="btn cyan lighten-2 accent-3 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
+        <a href="<?php echo URL ?>clientes/print_pdf" target="_blank" id="imprime_pdf" class="btn orange accent-3 accent-3 tooltipped" font color="#f6f2cc" data-position="bottom" data-delay="50" data-tooltip="Imprimir" ><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!"  id="graficar_habitaciones" class="btn orange accent-3 accent-3 tooltipped" font color="#f6f2cc" data-position="bottom" data-delay="50" data-tooltip="Graficar"><i class="material-icons">equalizer</i></a>
     </div>
 </div>
 <div id="modal_grafica" class="modal">

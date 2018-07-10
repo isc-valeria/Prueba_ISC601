@@ -66,7 +66,7 @@ class Template
 
         <nav id="menusito">
 
-            <div class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo" style="height: 60px;"><img src="Public/imagenes/logo.png" width="150px" height="60px"/></a>
+            <div id="barra_arriba" class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>empleado_bienvenido" class="brand-logo" style="height: 60px;"><img src="Public/imagenes/logo.png" width="150px" height="60px"/></a>
                 <?php if(!isset($_SESSION["username"]))
                 {?>
                 <div id="barra_arriba" class="nav-wrapper cyan lighten-2"><a href="<?php echo URL?>inicio" class="brand-logo"><img src="Public/imagenes/logo.png" width="160px" height="65px"/></a>
@@ -91,7 +91,7 @@ class Template
         <ul id="slide-out" class="side-nav collapsible" data-collapsible="accordion" style="overflow-y: auto;">
             <li><div class="user-view">
                     <div class="background">
-                        <img src="<?php echo URL?>Public/imagenes/fondo.jpg">
+                        <img src="<?php echo URL?>Public/imagenes/fondo1.jpg">
                     </div>
 
                     <div class="row">
@@ -105,7 +105,7 @@ class Template
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">airline_seat_individual_suite</i>Reservaciones</div>
-                <div class="collapsible-body cyan lighten-3">
+                <div class="collapsible-body orange accent-3">
                     <ul>
                         <li><a href="<?php echo URL?>clientes" class=" black-text"><i class="material-icons">chevron_right</i>Clientes</a></li>
                         </li>
@@ -119,7 +119,7 @@ class Template
 
             <li>
                 <div class="collapsible-header"><i class="material-icons">business_center</i>Servicios</div>
-                    <div class="collapsible-body cyan lighten-3">
+                    <div class="collapsible-body orange accent-3">
                         <ul>
                             <li><a href="<?php echo URL?>servicios" class="black-text"><i class="material-icons">chevron_right</i>Servicios</a></li>
                             <li><a href="<?php echo URL?>asigna_servicios" class="black-text"><i class="material-icons">chevron_right</i>Asignar Servicios</a></li>
@@ -131,7 +131,7 @@ class Template
             <li>
                 <div class="collapsible-header"><i class="material-icons">dns</i>Almacen</div>
 
-                    <div class="collapsible-body cyan lighten-3">
+                    <div class="collapsible-body orange accent-3">
                         <ul>
                             <li><a href="<?php echo URL?>productos" class="black-text"><i class="material-icons">chevron_right</i>Admin Almacen</a></li>
                             <li><a href="<?php echo URL?>Tipos_producto" class="black-text"><i class="material-icons">chevron_right</i>Tipos productos</a></li>
@@ -142,7 +142,7 @@ class Template
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">directions_run</i>Empleados</div>
-                    <div class="collapsible-body cyan lighten-3">
+                    <div class="collapsible-body orange accent-3">
                             <ul>
 
                                 <li><a href="<?php echo URL?>empleados" class=" black-text"><i class="material-icons">chevron_right</i>Registro</a></li>
@@ -153,7 +153,7 @@ class Template
             <li>
                 <div class="collapsible-header"><i class="material-icons">local_convenience_store</i>Mantenimiento</div>
 
-                    <div class="collapsible-body cyan lighten-3">
+                    <div class="collapsible-body orange accent-3">
                         <ul>
                             <li><a href="<?php echo URL?>tareas" class="black-text"><i class="material-icons">chevron_right</i>Control Tarea</a></li>
                             <li><a href="<?php echo URL?>Equipo_seguridad" class="black-text"><i class="material-icons">chevron_right</i>Equipo de Seguridad</a></li>
@@ -168,14 +168,14 @@ class Template
 
             <li>
                 <div class="collapsible-header">Cerrar sesión</div>
-                    <div class="collapsible-body cyan lighten-3">
+                    <div class="collapsible-body orange accent-3">
                             <ul>
                                 <li><a href="<?php echo URL?>login/logout" class="black-text"">Salir</a></li>
                             </ul>
                     </div>
             </li>
         </ul>
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons orange-text">menu</i></a>
 
         <!--Import jQuery before materialize.js-->
 
