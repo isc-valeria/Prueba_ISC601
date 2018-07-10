@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="card-panel">
             <form action="" id="save_factura" enctype="multipart/form-data" autocomplete="off">
-                <h4 align="center">Facturacion</h4>
+                <h4 align="center">Facturación</h4>
                 <div class="divider"></div>
                 <code class=" language-markup"><!--********************************--></code>
                 <div class="row">
@@ -16,7 +16,7 @@
                         <div class="input-field col s5">
                             <!--<input id="id_asignares" type="text" name="id_asignares">-->
                             <select name="id_asignares" id="id_asignares">
-                                <option diseable selected>Selecciona Habitacion</option>
+                                <option diseable selected>Selecciona Habitación</option>
                                 <?php
                                 $dato=$datos[2] ;
                                 while ($row=mysqli_fetch_assoc($dato))
@@ -68,7 +68,7 @@
         <thead>
         <tr>
             <th>id_factura</th>
-            <th>id_asignares</th>
+            <th>Numero de asignación de reservación</th>
             <th>Total</th>
 
         </tr>

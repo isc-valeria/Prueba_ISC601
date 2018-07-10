@@ -27,7 +27,7 @@ $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','B',18);
 $pdf->SetX(3);
 $pdf->Cell(7.31,1.5,utf8_decode('Clave de reserva'),1,0,'C',true);
-$pdf->Cell(7.31,1.5,utf8_decode('Nú mero de Habitación '),1,0,'C',true);
+$pdf->Cell(7.31,1.5,utf8_decode('Número de Habitación '),1,0,'C',true);
 $pdf->Cell(7.31,1.5,utf8_decode('Total'),1,0,'C',true);
 $pdf->SetFillColor(255,255, 255);
 $pdf->SetTextColor(0,0,0);
