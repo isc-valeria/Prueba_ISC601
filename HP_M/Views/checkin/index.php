@@ -188,15 +188,16 @@
                             <label for="estado_ha">Estado Habitación</label>
                         </div>
                         <div class="input-field col s3 offset-s2">
-                            <select name="estador" id="estador">
-                                <option disabled selected>Estado de la reservación</option>
+                            <select name="tipo_ha" id="tipo_ha" class="select">
+                                <option disabled selected>Tipo de Habitacion</option>
                                 <?php
-//                                print_r($datos);
-//                                while ($row=mysqli_fetch_array($datos[3]))
-//                                echo "<option value='{$row['id_estador']}'>{$row['estador']}</option>";
+                                print_r($datos);
+                                //  $datos=$datos[1];
+                                while ($row=mysqli_fetch_array($datos[3]))
+                                    echo "<option value='{$row['id_estador']}'>{$row['estador']}</option>";
                                 ?>
                             </select>
-                            <label for="estador">Estado de la Reservación</label>
+                            <label for="tipo_ha">Tipo de Habitación</label>
                         </div>
                         <div class="input-field col s3 offset-s2">
                             <input type="text" class="datepicker" id="fecha_checkin" name="fecha_checkin">
