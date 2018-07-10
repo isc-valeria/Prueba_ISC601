@@ -195,7 +195,7 @@ class Template
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="black-text"><font color="#ffffff"><b></b>Ubicación</font></h5>
-                        <p class="grey-text white-text">Carretera Federal Valle de Bravo Km 30,
+                        <p class="grey-text white-text center-align">Carretera Federal Valle de Bravo Km 30,
                             Ejido San Antonio Laguna, 51200 Valle de Bravo, Méx.</p>
 
                     </div>
@@ -209,9 +209,9 @@ class Template
                     </div>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <div class="container white-text">
-                    2018
+            <div class="footer-copyright" id="foot_copy">
+                <div class="container white-text right-align">
+                    ® 2018
                 </div>
             </div>
         </footer>
