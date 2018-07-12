@@ -39,8 +39,15 @@ while($row=mysqli_fetch_row($datos))
     $pdf->Cell(30,8,utf8_decode($row[3]),1,0,'C',true);
     $pdf->Cell(30,8,utf8_decode($row[5]),1,0,'C',true);
     $pdf->Cell(30,8,utf8_decode($row[6]),1,0,'C',true);
-
-
-
 }
+
+$pdf->SetY(-47);
+$pdf->SetFont('Arial','I',8);
+$pdf->Cell(0,2,'Carretera Federal Valle de Bravo Km 30, Ejido San Antonio Laguna,',0,0,'C');
+$pdf->SetY(-42);
+$pdf->SetFont('Arial','I',8);
+$pdf->Cell(0,2,'51200 Valle de Bravo, Méx. Page. '.$pdf->PageNo(),0,0,'C');
+
 $pdf->Output();
+
+?>
