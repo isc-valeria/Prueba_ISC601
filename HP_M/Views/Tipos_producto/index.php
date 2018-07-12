@@ -84,7 +84,7 @@
 
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>Tipos_producto/eliminar/'+id;
+            var url='<?php echo URL?>Tipos_Producto/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -99,25 +99,26 @@
             $("#update_tipo_ok").show();
             $("#save_tipo_ok").hide();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>Tipos_producto/modificar/"+id,function(res){
+            $.get("<?php echo URL?>Tipos_Producto/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_tipo_ok").data("id",datos["id_tipopro"]);
-                $("#descripcion_pro").val(datos["descripcion_pro"]);
+                $("#descripcion_pro").val(datos["descripcion_cat"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
 
-        $("#update_tipo_ok").click(function(){
+     $("#update_tipo_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>Tipos_producto/actualizar/"+id,$("#save_tipopro").serialize(),function(res){
+            $.post("<?php echo URL?>Tipos_Producto/actualizar/"+id,$("#save_tipopro").serialize(),function(res){
                 $('#save_tipopro').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
                 Materialize.toast('Se ha modificado correctamente', 2500);
             })
         });
+
 
 
         //VALIDACIONES
@@ -129,17 +130,18 @@
                     maxlength: 20,
                     minlength: 5,
                     lettersonly:true,
-                },
+                }
+                  
             },
-            messages:{
 
-                 descripcion_pro:{
-                    maxlength:"Maximo 20 caracteres",
-                    minlength:"Minimo 5 caracteres",
-                    required: "Solo letras",
-                    required:"Campo Obligatorio",
+            messages:{
+                descripcion_pro:{
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 5 caracteres"
                 },
-            },
+             },
+
 
             errorPlacement: function(error, element) {
                 $(element)
@@ -148,7 +150,7 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                $.post("<?php echo URL?>Tipos_producto/crear",$("#save_tipopro").serialize(),function(res){
+                $.post("<?php echo URL?>Tipos_Producto/crear",$("#save_tipopro").serialize(),function(res){
 
                     $("#body_table").empty().append(res);
                     $('#save_tipopro').find('input, select, textarea').val('');
@@ -167,5 +169,9 @@
 
     });
 </script>
+
+
+
+
 
 

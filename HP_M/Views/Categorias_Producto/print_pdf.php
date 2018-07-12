@@ -23,7 +23,7 @@ $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Arial','',10);
 $n=1;
 while($row=mysqli_fetch_row($datos))
-
+	
 {
     $pdf->ln();
     $pdf->SetX(50);
@@ -31,7 +31,6 @@ while($row=mysqli_fetch_row($datos))
     $pdf->Cell(60,8,utf8_decode($row[1]),1,0,'C',true);
     $n++;
 }
-
 
 $pdf->SetY(-47);
 $pdf->SetFont('Arial','I',8);

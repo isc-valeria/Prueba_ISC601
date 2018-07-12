@@ -8,7 +8,6 @@ $pdf->Cell(2);
 $pdf->Image('AppData\Config\libs\fpdf\logo.png','150','3','30','20','PNG','http://localhost/Prueba_ISC601/HP_M/');
 $pdf->Ln();
 
-
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(190,10,'Tipos producto',0,0,'C');
 $pdf->ln();
