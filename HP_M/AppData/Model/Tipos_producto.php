@@ -1,9 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: adriana gonzalez
  * Date: 09/05/2018
- * Time: 09:52 PM
+ * Time: 10:17 PM
  */
 
 namespace AppData\Model;
@@ -12,19 +11,17 @@ namespace AppData\Model;
 class Tipos_producto
 {
     private $tabla="Tipos_producto";
-    private $id_tipopro,$descripcion_pro;
-
-    private $conexion;
+    private $id_tipopro,$descripcion_cat;
 
     function __construct()
     {
         $this->conexion=new conexion();
     }
-    public function get($atributo,$valor)
+    public function set($atributo,$valor)
     {
         $this->$atributo=$valor;
     }
-    public function set($atributo)
+    public function get($atributo)
     {
         return $this->$atributo;
     }
@@ -33,14 +30,13 @@ class Tipos_producto
         $sql="insert into {$this->tabla} values('0','{$this->descripcion_pro}')";
         $this->conexion->QuerySimple($sql);
     }
-
     function getAll(){
         $sql="select * from tipos_producto";
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
     function update(){
-        $sql="update tipos_producto set descripcion_pro='{$this->descripcion_pro}')";
+        $sql="update {$this->tabla} set descripcion_pro='{$this->descripcion_pro}'where id_tipopro='{$this->id_tipopro}'";
         $this->conexion->QuerySimple($sql);
     }
     function delete($id)
@@ -54,5 +50,5 @@ class Tipos_producto
         $datos=$this->conexion->QueryResultado($sql);
         return $datos;
     }
-
 }
+

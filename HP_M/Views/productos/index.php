@@ -424,7 +424,7 @@
                 },
                 id_categoriapro:{
                     required:true,
-                    lettersonly:true,
+                    
                 },
                 id_tipopro:{
                     required:true,

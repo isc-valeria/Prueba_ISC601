@@ -64,7 +64,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" id="eliminar_ok" class="modal-close orange white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
     </div>
 </div>
 

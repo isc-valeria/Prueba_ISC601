@@ -122,12 +122,15 @@
             rules:{
                 descripcion_tarea:{
                     required:true,
+                    lettersonly:true,
+                    maxlength: 30,
                 },
             },
             messages:{
                 descripcion_tarea:{
                     required:"Campo obligatorio",
-
+                    lettersonly:"Solo letras",
+                    maxlength: "No mas de 30 caracteres",
                 },
             },
             errorPlacement: function(error, element) {

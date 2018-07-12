@@ -99,7 +99,8 @@
     </table>
 
     <div class="center">
-        <a href="<?php echo URL?>Equipo_seguridad/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped " data-position="bottom" data-delay="50" data-tooltip="Imprimir">
+            <i class="material-icons">picture_as_pdf</i></a>
     </div>
 </div>
 
@@ -238,6 +239,23 @@
 
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_equipo"), this.value);
+        });
+        $("#imprimir_pdf").click(function(){
+            var campo1;//, campo2, campo3;
+            var campo=[];
+            var tabla=[];
+
+            $("#body_table tr:visible").each(function (index) {
+                $(this).children("td").each(function (index2) {
+                    campo[index2]=$(this).text();
+                })
+                tabla[index]=campo;
+                campo=[];
+            })
+            console.log(tabla);
+            campo1=JSON.stringify(tabla);
+            //alert (campo1);
+            window.open("<?php echo URL?>Equipo_seguridad/print_pdf/?campo1="+campo1);
         });
 
     });
