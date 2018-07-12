@@ -6,6 +6,6 @@
  * Time: 01:32 PM
  */
 
-while ($row=mysqli_fetch_array($datos)){
-
+while ($row=mysqli_fetch_row($datos)){
+echo "<tr>";
 }
