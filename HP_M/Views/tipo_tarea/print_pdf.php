@@ -3,7 +3,7 @@ $pdf = new \AppData\Config\libs\fpdf\fpdf();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(2);
-$pdf->Image('AppData\Config\libs\fpdf\head_logo.gif','150','3','50','20','GIF','http://localhost/Prueba_ISC601/HP_M/');
+$pdf->Image('AppData\Config\libs\fpdf\logo.png','150','3','50','20','PNG','http://localhost/Prueba_ISC601/HP_M/');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(180,10,'Lista de tareas.',0,0,'C');
