@@ -30,7 +30,6 @@ class Tipos_producto
         $sql="insert into {$this->tabla} values('0','{$this->descripcion_pro}')";
         $this->conexion->QuerySimple($sql);
     }
-
     function getAll(){
         $sql="select * from tipos_producto";
         $datos=$this->conexion->QueryResultado($sql);
