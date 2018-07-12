@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: brian
- * Date: 20/06/2018
- * Time: 03:57 PM
- */
+
 
 namespace AppData\Controller;
 
@@ -16,7 +11,7 @@ class entradasproductoController
     public function __construct()
     {
 
-        $this->Entrada=new \AppData\Model\Entradas();
+        $this->Entrada=new \AppData\Model\Entradas_Producto();
 
        // $this->Salida=new \AppData\Model\Salida();
     }
@@ -27,10 +22,6 @@ class entradasproductoController
         $datos1=$this->Entrada->getAll();
         $datos[0]=$datos1;
 
-
-        $datos2=$this->Salida->getAll();
-        $datos[1]=$datos2;
-        return $datos;
     }
 
     public function crear()
