@@ -15,11 +15,11 @@
 
                     <div class="modal-fixed-footer">
                         <div class="input-field col s12">
-                            <a href="#!" id="save_tipo_ok" class="btn ">Registrar</a>
+                            <a href="#!" id="save_tipo_ok" class="btn orange ">Registrar</a>
                         </div>
                         <div class="input-field col s12">
-                            <a href="#!" id="update_tipo_ok" class="btn modal-close " data-id="">Actualizar</a>
-                            <a href="#!" id="cancelar" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+                            <a href="#!" id="update_tipo_ok" class="btn modal-close orange" data-id="">Actualizar</a>
+                            <a href="#!" id="cancelar" class="modal-close orange white-text waves-effect waves-green btn-flat">Cancelar</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="card-panel">
-    <h4 align="center">Tipos producto<span class="right"><a href="#modal_registro" class="btn green white-text modal-trigger" id="add_tipo"><i class="material-icons">add</i></a></span></h4>
+    <h4 align="center">Tipos producto<span class="right"><a href="#modal_registro" class="btn orange white-text modal-trigger" id="add_tipo"><i class="material-icons">add</i></a></span></h4>
     <div class="divider"></div>
     <div class="row">
         <div class="input-field col s4 offset-s8">
@@ -53,7 +53,7 @@
         </tbody>
     </table>
     <div class="center">
-        <a href="<?php echo URL?>Tipos_producto/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="<?php echo URL?>Tipos_producto/print_pdf" target="_blank" id="imprimir_pdf" class="btn orange accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
     </div>
 </div>
 <div id="modal_eliminar" class="modal">
@@ -62,8 +62,8 @@
         <hr />
     </div>
     <div class="modal-footer">
-        <a href="#!" id="eliminar_ok" class="modal-close green white-text waves-effect waves-green btn-flat">Aceptar</a>
-        <a href="#!" class="modal-close red white-text waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" id="eliminar_ok" class="modal-close orange white-text waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-close orange white-text waves-effect btn-flat">Cancelar</a>
     </div>
 </div>
 
@@ -84,7 +84,7 @@
 
         $("#body_table").on("click","a.btn_eliminar",function(){
             var id=$(this).data("id");
-            var url='<?php echo URL?>Tipos_producto/eliminar/'+id;
+            var url='<?php echo URL?>Tipos_Producto/eliminar/'+id;
             $("#eliminar_ok").attr("url",url);
             $("#modal_eliminar").modal("open");
         });
@@ -99,19 +99,19 @@
             $("#update_tipo_ok").show();
             $("#save_tipo_ok").hide();
             var id=$(this).data("id");
-            $.get("<?php echo URL?>Tipos_producto/modificar/"+id,function(res){
+            $.get("<?php echo URL?>Tipos_Producto/modificar/"+id,function(res){
                 var datos=JSON.parse(res);
                 $("#update_tipo_ok").data("id",datos["id_tipopro"]);
-                $("#descripcion_pro").val(datos["descripcion_pro"]);
+                $("#descripcion_pro").val(datos["descripcion_cat"]);
                 Materialize.updateTextFields();
                 $('select').material_select();
                 $("#modal_registro").modal("open");
             });
         });
 
-        $("#update_tipo_ok").click(function(){
+     $("#update_tipo_ok").click(function(){
             var id=$(this).data("id");
-            $.post("<?php echo URL?>Tipos_producto/actualizar/"+id,$("#save_tipopro").serialize(),function(res){
+            $.post("<?php echo URL?>Tipos_Producto/actualizar/"+id,$("#save_tipopro").serialize(),function(res){
                 $('#save_tipopro').find('input, select, textarea').val('');
                 $("#body_table").empty().append(res);
                 Materialize.updateTextFields();
@@ -129,17 +129,18 @@
                     maxlength: 20,
                     minlength: 5,
                     lettersonly:true,
-                },
+                }
+                  
             },
-            messages:{
 
-                 descripcion_pro:{
-                    maxlength:"Maximo 20 caracteres",
-                    minlength:"Minimo 5 caracteres",
-                    required: "Solo letras",
-                    required:"Campo Obligatorio",
+            messages:{
+                descripcion_pro:{
+                required:"Campo Obligatorio",
+                maxlength:"Maximo 20 caracteres",
+                minlength:"Minimo 5 caracteres"
                 },
-            },
+             },
+
 
             errorPlacement: function(error, element) {
                 $(element)
@@ -148,7 +149,7 @@
                     .attr('data-error', error.text());
             },
             submitHandler:function(form){
-                $.post("<?php echo URL?>Tipos_producto/crear",$("#save_tipopro").serialize(),function(res){
+                $.post("<?php echo URL?>Tipos_Producto/crear",$("#save_tipopro").serialize(),function(res){
 
                     $("#body_table").empty().append(res);
                     $('#save_tipopro').find('input, select, textarea').val('');
@@ -167,5 +168,9 @@
 
     });
 </script>
+
+
+
+
 
 

@@ -60,8 +60,7 @@ class tipo_equiposeguController
     }
     public function print_pdf()
     {
-        $datos=$this->tipo_equiposegu->getAll();
-        return $datos;
+
     }
 
 

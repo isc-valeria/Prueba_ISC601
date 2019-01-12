@@ -283,13 +283,15 @@
             var campo1;//, campo2, campo3;
             var campo=[];
             var tabla=[];
+
             $("#body_table tr:visible").each(function (index) {
                 $(this).children("td").each(function (index2) {
                     campo[index2]=$(this).text();
-                    //$(this).css("background-color", "#ECF8E0");
                 })
                 tabla[index]=campo;
+                campo=[];
             })
+            console.log(tabla);
             campo1=JSON.stringify(tabla);
             //alert (campo1);
             window.open("<?php echo URL?>tareas/print_pdf/?campo1="+campo1);

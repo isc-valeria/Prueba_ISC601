@@ -1,7 +1,6 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: JAZMIN
  * Date: 10/05/2018
  * Time: 01:12 PM
  */
@@ -27,6 +26,7 @@ class categorias_ProductoController
         print_r($_POST);
         if($_POST)
         {
+
 
             $this->categorias->set("descripcion_cat",$_POST['descripcion_cat']);
             $this->categorias->add();

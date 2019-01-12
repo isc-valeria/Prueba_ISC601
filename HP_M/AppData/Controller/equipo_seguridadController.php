@@ -70,8 +70,7 @@ class equipo_seguridadController
     }
     public function print_pdf()
     {
-        $datos=$this->equipo_seguridad->getAll();
-        return $datos;
+
     }
 
 

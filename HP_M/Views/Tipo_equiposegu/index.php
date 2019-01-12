@@ -80,7 +80,8 @@
         </tbody>
     </table>
     <div class="center">
-        <a href="<?php echo URL?>Tipo_equiposegu/print_pdf" target="_blank" id="imprimir_pdf" class="btn blue accent-3 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imprimir"><i class="material-icons">picture_as_pdf</i></a>
+        <a href="#!" id="imprimir_pdf" class="btn cyan lighten-2 accent-3 black-text tooltipped " data-position="bottom" data-delay="50" data-tooltip="Imprimir">
+            <i class="material-icons">picture_as_pdf</i></a>
     </div>
 </div>
 
@@ -185,6 +186,17 @@
 
         $("#buscar").keyup(function() {
             $.uiTableFilter($("#tabla_tipo"), this.value);
+        });
+        $("#imprimir_pdf").click(function(){
+            var campo1;//, campo2, campo3;
+            var campo=[];
+            var tabla=[];
+            $("#body_table tr:visible").each(function (index) {
+                campo[index]=$(this).text();
+            })
+            campo1=JSON.stringify(campo);
+            //alert (campo1);
+            window.open("<?php echo URL?>tipo_tarea/print_pdf/?campo1="+campo1);
         });
 
     });
