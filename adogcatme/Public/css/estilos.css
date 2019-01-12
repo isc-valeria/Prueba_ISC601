@@ -1,0 +1,55 @@
+estilos.css
+html,body{
+	height: 100%;
+}
+
+img{
+	max-width: 100%;
+}
+#cover
+{
+	background: #2c2c2c url('../../Public/imagenes/fondo1.jpg')center center no-repeat;
+	background-size:cover;
+	color: white;
+	height: 100%;
+	text-aling: center;
+	display: flex;
+	align-items:center;
+
+}
+.cover-texto
+{
+	
+
+	width: 100%;
+}
+
+.cover-texto .form-inline{
+	padding: 5rem 0;
+}
+.contenido-seccion{
+	background: url('../../Public/imagenes/tigre.jpg')center center no-repeat;
+	background-size: cover;
+}
+.lead{
+	color: white;
+}
+
+
+#contenido-nota{
+	background: url('../../Public/imagenes/cat.jpg')center center no-repeat;
+	background-size: cover;
+    display: flex;
+}
+
+.texto-acerca{
+background: rgba(0,0,0,0.8);
+	color: #ffffff;
+	padding: 1.875rem;
+}
+#footer{
+	background: #121212;
+	color: white;
+	font-size: 0.8rem;
+	padding: 2.5rem 0;
+}

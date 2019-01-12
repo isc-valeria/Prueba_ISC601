@@ -1,0 +1,36 @@
+create table Sexos (id_sexo int primary key, sexo_des varchar(10));
+create table Animales (id_animal int primary key, nombre varchar(50), edad int, color varchar(20), 
+id_raza int, id_sexo int, id_tipo int, id_especie int);
+create table Razas (id_raza int PRIMARY KEY, raza_des varchar(50));
+CREATE TABLE Especies (id_especie int PRIMARY KEY, especies_des varchar(50));
+CREATE TABLE Tipos (id_tipo int PRIMARY KEY, tipo_des varchar(30));
+create TABLE Adopciones(id_adocion int PRIMARY KEY, id_animal int, id_persona int, fecha_adopta timestamp);
+create table usuario ( id int primary key auto_increment , nombre varchar(40), pass varchar(20), user varchar(20), telefono varchar(14));
+CREATE TABLE Personas (id_persona int PRIMARY KEY, nombre_p varchar(50), ap_p varchar(50), am_p varchar(50), edad int, direccion varchar(30), curp varchar(10));
+
+--------------------------Corrida de escritorio-------------------------------------------
+
+Insert into usuario values(1,'jazi9610@hotmail.com','123456','Jazmin', '7227900465');
+
+Insert into Animales values (1, 'Gato', '3', 'B&W', 10, 20, 30, 40);
+Insert into Animales values (2, 'Perro', '10', 'Blanco', 14, 21, 30, 41);
+Insert into Animales values (3, 'Perro', '1', 'Marron', 13, 20, 31, 41);
+Insert into Animales values (4, 'Gato', '2', 'Tricolor', 11, 21, 31, 40);
+Insert into Animales values (5, 'Perro', '8', 'Negro', 12, 20, 30, 41);
+
+Insert into Razas values (10, 'Siames');
+Insert into Razas values (11, 'Ragdoll');
+Insert into Razas values (12, 'Pug');
+Insert into Razas values (13, 'Beagle');
+Insert into Razas values (14, 'Caniche');
+
+Insert into Sexos values (20, 'Macho');
+Insert into Sexos values (21, 'Hembra');
+
+Insert into Tipos values (30, 'Callejero');
+Insert into Tipos values (31, 'Casa');
+Insert into Tipos values (32, 'Veterinaria');
+
+Insert into Especie values (40, 'Felino');
+Insert into Especie values (41, 'Canino');
+Insert into Especie values (42, 'Otra');

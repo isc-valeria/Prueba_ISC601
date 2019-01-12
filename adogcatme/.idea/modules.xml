@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../Aplicaciones-web/.idea/Aplicaciones-web.iml" filepath="$PROJECT_DIR$/../../Aplicaciones-web/.idea/Aplicaciones-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Gestion_proyectos/.idea/Gestion_proyectos.iml" filepath="$PROJECT_DIR$/../../Gestion_proyectos/.idea/Gestion_proyectos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HP_M/.idea/HP_M.iml" filepath="$PROJECT_DIR$/../../HP_M/.idea/HP_M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/adogcatme.iml" filepath="$PROJECT_DIR$/.idea/adogcatme.iml" />
+    </modules>
+  </component>
+</project>
